@@ -1,5 +1,18 @@
 #include "P/Polynomial.hpp"
 
+#include "Z/LongInteger.hpp"
+
+Polynomial::Polynomial(std::initializer_list<LongInteger> list) {
+    coefficients = list;
+}
+
+Polynomial::Polynomial(size_t n, LongInteger* arr) {
+    coefficients.reserve(n);
+    for (size_t i = 0; i < n; i++) {
+        coefficients.push_back(arr[i]);
+    }
+}
+
 Polynomial::Polynomial(const std::vector<LongInteger>& vec) {
     coefficients = vec;
 }

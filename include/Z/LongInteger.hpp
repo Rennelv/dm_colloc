@@ -1,6 +1,7 @@
 #ifndef LONGINTEGER_HPP
 #define LONGINTEGER_HPP
 
+#include <cstddef>
 #include <cstdint>
 #include <string>
 #include <vector>
@@ -17,7 +18,9 @@ class LongInteger {
     std::vector<uint8_t> arr;
 
    public:
-    LongInteger(bool isNegative, const std::vector<uint8_t>& vec);  // создает число из вектора
+    LongInteger(bool isNegative, std::initializer_list<uint8_t> list);  // создает число из списка инциализации
+    LongInteger(bool isNegative, size_t n, int* arr);                   // создает число из массива
+    LongInteger(bool isNegative, const std::vector<uint8_t>& vec);      // создает число из вектора
     LongInteger(bool isNegative, const std::string& string);  // создает число из строки, принимает знак и строку натурального числа
     LongInteger(const std::string& string);  // создает число из строки, принимает строку целого числа(знак и натуральное число)
 
@@ -27,6 +30,9 @@ class LongInteger {
     std::vector<uint8_t> getArr() const;  // возвращает вектор числа
     std::string toString() const;         // возвращает строку числа
     size_t getLength() const;             // возвращает количество цифр числа
+
+    bool operator==(const LongInteger& other) const;  // оператор сравнения
+    bool operator!=(const LongInteger& other) const;  // оператор сравнения
 };
 
 #endif  // LONGINTEGER_HPP

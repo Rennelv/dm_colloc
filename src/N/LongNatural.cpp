@@ -1,6 +1,27 @@
 #include "N/LongNatural.hpp"
 
+#include <cstddef>
 #include <stdexcept>
+
+LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
+    for (size_t i = 0; i < arr.size(); i++) {
+        if (arr[i] > 9) {
+            throw std::invalid_argument("LongNatural::LongNatural: passed initializer_list element is invalid");
+        }
+    }
+}
+
+LongNatural::LongNatural(size_t n, int* arr) {
+    for (size_t i = 0; i < n; i++) {
+        if (arr[i] > 9 || arr[i] < 0) {
+            throw std::invalid_argument("LongNatural::LongNatural: passed array element is invalid");
+        }
+    }
+    this->arr.reserve(n);
+    for (size_t i = 0; i < n; i++) {
+        this->arr.push_back(static_cast<uint8_t>(arr[i]));
+    }
+}
 
 LongNatural::LongNatural(const std::vector<uint8_t>& vec) {
     for (size_t i = 0; i < vec.size(); i++) {
@@ -49,4 +70,12 @@ uint8_t LongNatural::radix(size_t i) const {
         return 0;
     }
     return arr[arr.size() - i - 1];
+}
+
+bool LongNatural::operator==(const LongNatural& other) const {
+    return arr == other.arr;  // Если массивы равны, то числа равны
+}
+
+bool LongNatural::operator!=(const LongNatural& other) const {
+    return !(*this == other);  // Если числа не равны, то они не равны
 }

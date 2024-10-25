@@ -4,7 +4,7 @@ project(dm_math LANGUAGES CXX)
 # Set the output directory for the compiled binaries
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# export compile_commands.json
+# Export compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Set the default build type to Debug if not specified
@@ -28,4 +28,3 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -pedantic")
 
 # Optionally, you can add more configurations, such as release flags
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
-

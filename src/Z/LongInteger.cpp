@@ -3,6 +3,26 @@
 #include <cstdint>
 #include <stdexcept>
 
+LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : negative(negative), arr(list) {
+    for (size_t i = 0; i < arr.size(); i++) {
+        if (arr[i] > 9) {
+            throw std::invalid_argument("LongInteger::LongInteger: passed initializer_list element is invalid");
+        }
+    }
+}
+
+LongInteger::LongInteger(bool negative, size_t n, int* arr) : negative(negative) {
+    for (size_t i = 0; i < n; i++) {
+        if (arr[i] > 9 || arr[i] < 0) {
+            throw std::invalid_argument("LongInteger::LongInteger: passed array element is invalid");
+        }
+    }
+    this->arr.reserve(n);
+    for (size_t i = 0; i < n; i++) {
+        this->arr.push_back(static_cast<uint8_t>(arr[i]));
+    }
+}
+
 LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negative(negative) {
     for (size_t i = 0; i < vec.size(); i++) {
         if (vec[i] > 9) {
@@ -75,4 +95,12 @@ uint8_t LongInteger::radix(size_t i) const {
         return 0;
     }
     return arr[arr.size() - i - 1];
+}
+
+bool LongInteger::operator==(const LongInteger& other) const {
+    return negative == other.negative && arr == other.arr;  // Если знаки и массивы равны, то числа равны
+}
+
+bool LongInteger::operator!=(const LongInteger& other) const {
+    return !(*this == other);  // Если числа не равны, то они не равны
 }
