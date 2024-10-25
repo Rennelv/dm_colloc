@@ -48,9 +48,9 @@
 2. Установить cmake(sudo apt install cmake)
 3. Запустить /scripts/build sh(в терминале пропишите команду sh scripts/build.sh). После этого код скомпилируется
 4. Для создания пулл-реквеста выполните следующие команды
-+ git checkout main
-+ git pull
-+ git checkout -b <название_ветки_из_таблицы> // название функции
++ git checkout main && git pull origin main
++ git add <имя_файла>
++ git checkout -b function/<название_ветки_из_таблицы> // пример function/ADD_NN_N
 + git commit -m "название_коммита"
 + git push
 5. Не забыть на гитхабе открыть пулл-реквест
