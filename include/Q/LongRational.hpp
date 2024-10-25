@@ -1,0 +1,26 @@
+#ifndef LONGRATIONAL_HPP
+#define LONGRATIONAL_HPP
+
+#include "N/LongNatural.hpp"
+#include "Z/LongInteger.hpp"
+
+/*
+    Выполнил Журавлев Дмитрий 3381
+
+    Класс для работы с рациональными числами (дробями).
+
+*/
+
+class LongRational {
+    LongInteger numerator;    // числитель
+    LongNatural denominator;  // знаменатель
+
+   public:
+    LongRational(const LongInteger& numerator, const LongNatural& denominator);
+
+    LongInteger getNumerator() const;    // возвращает числитель
+    LongNatural getDenominator() const;  // возвращает знаменатель
+    std::string toString() const;        // возвращает число в виде строки (числитель / знаменатель)
+};
+
+#endif  // LONGRATIONAL_HPP
