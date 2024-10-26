@@ -16,21 +16,35 @@ LongNatural SUB_NN_N(const LongNatural& a, const LongNatural& b) {
         b_arr = a.getArr();
     }
 
-    std::vector<uint8_t> result_arr;       // массив для результата
-    result_arr.reserve(a_arr.size() + 1);  // резервируем место для результата
+    std::vector<uint8_t> result_arr;   // массив для результата
+    result_arr.reserve(a_arr.size());  // резервируем место для результата
 
-    uint8_t carry = 0;  // перенос
-    size_t a_len = a_arr.size();
-    size_t b_len = b_arr.size();
+    uint8_t carry = 0;         // перенос
+    int a_len = a_arr.size();  // длина числа a
+    int b_len = b_arr.size();  // длина числа b
 
-    for (size_t i = a_len; i > 0; i--) {
+    for (int i = b_len - 1; i >= 0; i--) {
         if (a_arr[i] - carry >= b_arr[i]) {
-            result_arr.push_back(a_arr[i] - carry - b_arr[i]);
-            carry = 0;
+            result_arr.push_back(a_arr[i] - carry - b_arr[i]);  // из выбранной цифры вычитаем цифру второго числа и перенс
+            carry = 0;                                          // не занимаем из следующей цифры
         } else {
-            result_arr.push_back(a_arr[i] + 10 - carry - b_arr[i]);
+            result_arr.push_back(a_arr[i] + 10 - carry - b_arr[i]);  // занимаем у следующей цифры и вычитаем из выбранной цифру второго числа
             carry = 1;
         }
+    }
+
+    for (int i = a_len - 1; i >= b_len; i--) {  // добавляем оставшиеся цифры чила a и продолжаем занимать, пока число не будет больше 0
+        if (a_arr[i] >= carry) {
+            result_arr.push_back(a_arr[i] - carry);
+            carry = 0;
+        } else {
+            result_arr.push_back(a_arr[i] + 10 - carry);
+            carry = 1;
+        }
+    }
+
+    while (result_arr.size() > 1 && result_arr.back() == 0) {  // убираем незначащие нули
+        result_arr.pop_back();
     }
 
     std::reverse(result_arr.begin(), result_arr.end());  // переворачиваем массив

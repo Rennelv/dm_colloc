@@ -1,7 +1,7 @@
 #ifndef SUB_NN_N_HPP
 #define SUB_NN_N_HPP
 
-#include "N/LongNatural.hpp"
+#include "LongNatural.hpp"
 
 /*
     Выполнил Гладилин Евгений 3381
