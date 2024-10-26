@@ -17,12 +17,9 @@ if [ ! -d "$BUILD_DIR" ]; then
     mkdir "$BUILD_DIR"
 fi
 
-# Navigate to the build directory
-cd "$BUILD_DIR"
-
 # Run cmake to configure the project
-cmake ..
+cmake -DCMAKE_BUILD_TYPE=Debug -B "$BUILD_DIR"
 
 # Build the project
-cmake --build .
+cmake --build "$BUILD_DIR"
 
