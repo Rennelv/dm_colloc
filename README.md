@@ -47,7 +47,7 @@
 1. Склонировать репозиторий
 2. Установить cmake(sudo apt install cmake)
 3. Установить gtest(sudo apt-get install libgtest-dev)
-4. Запустить /scripts/build sh(в терминале пропишите команду sh scripts/run.sh). После этого код скомпилируется
+4. Запустить /scripts/build sh(в терминале пропишите команду sh scripts/run.sh или bash scripts/run.sh). После этого код скомпилируется
 5. Для создания пулл-реквеста выполните следующие команды
 + git checkout main && git pull origin main
 + git checkout -b function/<название_ветки_из_таблицы> // пример function/ADD_NN_N
