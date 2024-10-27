@@ -44,6 +44,14 @@ jobs:
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++ cmake libgtest-dev
+
+        # Google Test не содержит собранных библиотек, поэтому нужно собрать их
+        cd /usr/src/gtest && sudo cmake . && sudo make && sudo cp *.a /usr/lib
+
     - name: Configure CMake
       run: >
         cmake -B ${{ steps.strings.outputs.build-output-dir }}
