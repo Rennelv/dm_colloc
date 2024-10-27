@@ -5,16 +5,16 @@
 // Тест добавления единицы к числу без переноса
 // Число 123 -> результат 124
 TEST(ADD_1N_N, AddOneWithoutCarry) {
-    LongNatural a({3, 2, 1});
-    LongNatural expected({4, 2, 1});
+    LongNatural a({1, 2, 3});
+    LongNatural expected({1, 2, 4});
     EXPECT_EQ(ADD_1N_N(a).getArr(), expected.getArr());
 }
 
 // Тест добавления единицы с переносом внутри числа
 // Число 199 -> результат 200
 TEST(ADD_1N_N, AddOneWithCarryInternal) {
-    LongNatural a({9, 9, 1});
-    LongNatural expected({0, 0, 2});
+    LongNatural a({1, 9, 9});
+    LongNatural expected({2, 0, 0});
     EXPECT_EQ(ADD_1N_N(a).getArr(), expected.getArr());
 }
 
@@ -22,7 +22,7 @@ TEST(ADD_1N_N, AddOneWithCarryInternal) {
 // Число 999 -> результат 1000
 TEST(ADD_1N_N, AddOneWithCarryNewDigit) {
     LongNatural a({9, 9, 9});
-    LongNatural expected({0, 0, 0, 1});
+    LongNatural expected({1, 0, 0, 0});
     EXPECT_EQ(ADD_1N_N(a).getArr(), expected.getArr());
 }
 
