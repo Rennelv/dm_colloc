@@ -1,6 +1,5 @@
 #include "N/SUB_NDN_N.hpp"
 
-#include <algorithm>  // для std::reverse
 #include <cstddef>
 #include <stdexcept>
 
