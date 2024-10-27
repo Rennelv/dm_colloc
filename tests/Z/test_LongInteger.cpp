@@ -86,3 +86,21 @@ TEST(LongIntegerTest, EqualityOperator) {
     EXPECT_FALSE(li1 == li3);
     EXPECT_FALSE(li1 == li4);
 }
+
+TEST(LongIntegerTest, LeadingZeroes) {
+    LongInteger li1(false, {0, 0, 1, 2, 3, 4});
+    EXPECT_EQ(li1.toString(), "1234");
+    EXPECT_FALSE(li1.isNegative());
+
+    LongInteger li2(false, {0, 0, 0});
+    EXPECT_EQ(li2.toString(), "0");
+    EXPECT_FALSE(li2.isNegative());
+
+    LongInteger li3(true, {0, 0, 1, 2, 3, 4});
+    EXPECT_EQ(li3.toString(), "-1234");
+    EXPECT_TRUE(li3.isNegative());
+
+    LongInteger li4(true, {0, 0, 0});
+    EXPECT_EQ(li4.toString(), "0");  // Leading zeroes should be trimmed, and negative zero should be treated as zero
+    EXPECT_FALSE(li4.isNegative());
+}

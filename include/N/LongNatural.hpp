@@ -1,6 +1,5 @@
 #ifndef LONGNATURAL_HPP
 #define LONGNATURAL_HPP
-#include <sys/types.h>
 
 #include <cstdint>
 #include <initializer_list>
@@ -16,6 +15,7 @@
 
 class LongNatural {
     std::vector<uint8_t> arr;
+    void trimLeadingZeroes();
 
    public:
     LongNatural(std::initializer_list<uint8_t> list);  // создает число из списка инциализации

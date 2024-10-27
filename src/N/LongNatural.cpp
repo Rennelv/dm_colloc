@@ -9,6 +9,7 @@ LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
             throw std::invalid_argument("LongNatural::LongNatural: passed initializer_list element is invalid");
         }
     }
+    trimLeadingZeroes();
 }
 
 LongNatural::LongNatural(size_t n, int* arr) {
@@ -21,6 +22,7 @@ LongNatural::LongNatural(size_t n, int* arr) {
     for (size_t i = 0; i < n; i++) {
         this->arr.push_back(static_cast<uint8_t>(arr[i]));
     }
+    trimLeadingZeroes();
 }
 
 LongNatural::LongNatural(const std::vector<uint8_t>& vec) {
@@ -30,6 +32,7 @@ LongNatural::LongNatural(const std::vector<uint8_t>& vec) {
         }
     }
     arr = vec;
+    trimLeadingZeroes();
 }
 
 LongNatural::LongNatural(const std::string& string) {
@@ -39,6 +42,13 @@ LongNatural::LongNatural(const std::string& string) {
             throw std::invalid_argument("LongNatural::LongNatural: passed string element is invalid");
         }
         arr.push_back(static_cast<uint8_t>(string[i] - '0'));
+    }
+    trimLeadingZeroes();
+}
+
+void LongNatural::trimLeadingZeroes() {
+    while (arr.size() > 1 && arr.front() == 0) {
+        arr.erase(arr.begin());
     }
 }
 

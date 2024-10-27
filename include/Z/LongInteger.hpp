@@ -16,6 +16,7 @@
 class LongInteger {
     bool negative;
     std::vector<uint8_t> arr;
+    void trimLeadingZeroes();
 
    public:
     LongInteger(bool isNegative, std::initializer_list<uint8_t> list);  // создает число из списка инциализации
