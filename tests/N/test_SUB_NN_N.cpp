@@ -37,7 +37,7 @@ TEST(SUB_NN_N, SubtractWithLeadingZeros) {
 
 TEST(SUB_NN_N, SubtractLargerFromSmallerThrows) {
     LongNatural a({1, 2, 3});
-    LongNatural b({4, 5, 6});
+    LongNatural b({4, 5, 5});
     EXPECT_THROW(SUB_NN_N(a, b), std::logic_error);
 }
 
