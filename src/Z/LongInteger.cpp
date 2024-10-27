@@ -9,6 +9,7 @@ LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : n
             throw std::invalid_argument("LongInteger::LongInteger: passed initializer_list element is invalid");
         }
     }
+    trimLeadingZeroes();
 }
 
 LongInteger::LongInteger(bool negative, size_t n, int* arr) : negative(negative) {
@@ -21,6 +22,7 @@ LongInteger::LongInteger(bool negative, size_t n, int* arr) : negative(negative)
     for (size_t i = 0; i < n; i++) {
         this->arr.push_back(static_cast<uint8_t>(arr[i]));
     }
+    trimLeadingZeroes();
 }
 
 LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negative(negative) {
@@ -30,6 +32,7 @@ LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negat
         }
     }
     arr = vec;
+    trimLeadingZeroes();
 }
 
 LongInteger::LongInteger(bool negative, const std::string& string) : negative(negative) {
@@ -40,6 +43,7 @@ LongInteger::LongInteger(bool negative, const std::string& string) : negative(ne
         }
         arr.push_back(static_cast<uint8_t>(string[i] - '0'));
     }
+    trimLeadingZeroes();
 }
 
 LongInteger::LongInteger(const std::string& string) {
@@ -54,6 +58,16 @@ LongInteger::LongInteger(const std::string& string) {
             throw std::invalid_argument("LongNatural constructor error: passed string element is invalid");
         }
         arr.push_back(static_cast<uint8_t>(string[i] - '0'));
+    }
+    trimLeadingZeroes();
+}
+
+void LongInteger::trimLeadingZeroes() {
+    while (arr.size() > 1 && arr.front() == 0) {
+        arr.erase(arr.begin());
+    }
+    if (arr.size() == 1 && arr[0] == 0) {
+        negative = false;
     }
 }
 

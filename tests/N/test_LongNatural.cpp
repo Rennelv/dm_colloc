@@ -81,3 +81,11 @@ TEST(LongNaturalTest, Equality) {
     EXPECT_EQ(a, b);
     EXPECT_NE(a, c);
 }
+
+TEST(LongNaturalTest, LeadingZeroes) {
+    LongNatural ln = {0, 0, 1, 2, 3, 4, 5};
+    EXPECT_EQ(ln.radix(0), 5);
+    EXPECT_EQ(ln.radix(1), 4);
+    EXPECT_EQ(ln.radix(4), 1);
+    EXPECT_EQ(ln.radix(5), 0);  // Out of range after leading zeroes are removed
+}
