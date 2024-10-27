@@ -24,8 +24,8 @@ LongNatural SUB_NN_N(const LongNatural& a, const LongNatural& b) {
     size_t b_len = b_arr.size();  // длина числа b
 
     for (size_t i = 0; i < b_len; i++) {
-        size_t a_idx = a_len - 1 - i;
-        size_t b_idx = b_len - 1 - i;
+        size_t a_idx = a_len - 1 - i;   // индес числа a
+        size_t b_idx = b_len - 1 - i;   // индекс числа b
         if (a_arr[a_idx]>= b_arr[b_idx] + carry) {
             result_arr.push_back(a_arr[a_idx] - carry - b_arr[b_idx]);  // из выбранной цифры вычитаем цифру второго числа и перенс
             carry = 0;                                          // не занимаем из следующей цифры
@@ -36,7 +36,7 @@ LongNatural SUB_NN_N(const LongNatural& a, const LongNatural& b) {
     }
 
     for (size_t i = b_len; i < a_len; i++) {  // добавляем оставшиеся цифры чила a и продолжаем занимать, пока число не будет больше 0
-        size_t a_idx = a_len - 1 - i;
+        size_t a_idx = a_len - 1 - i;   // индекс числа a
         if (a_arr[a_idx] >= carry) {
             result_arr.push_back(a_arr[a_idx] - carry);
             carry = 0;
