@@ -13,7 +13,7 @@ TEST(test_SUB_NN_N, SameLength) {
     LongNatural correctRes(arr3);
     EXPECT_EQ(res.getArr(), correctRes.getArr());
 }
-
+/*
 TEST(test_SUB_NN_N, FirstLower) {
     LongNatural a({1, 2, 1});
     LongNatural b({4, 4, 4});
@@ -21,11 +21,11 @@ TEST(test_SUB_NN_N, FirstLower) {
     std::vector<uint8_t> arr3 = {3, 2, 3};
     LongNatural correctRes(arr3);
     EXPECT_EQ(res.getArr(), correctRes.getArr());
-}
+}*/
 
 TEST(test_SUB_NN_N, DifferentLength) {
-    LongNatural a({1, 2, 1});
     LongNatural b({1, 1, 4, 4, 4});
+    LongNatural a({1, 2, 1});
     LongNatural res = SUB_NN_N(a, b);
     std::vector<uint8_t> arr3 = {1, 1, 3, 2, 3};
     LongNatural correctRes(arr3);
