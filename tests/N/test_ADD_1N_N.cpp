@@ -1,8 +1,6 @@
-#ifndef TEST_ADD_1N_N_HPP
-#define TEST_ADD_1N_N_HPP
+#include <gtest/gtest.h>
 
 #include "N/ADD_1N_N.hpp"
-#include <gtest/gtest.h>
 
 // Тест добавления единицы к числу без переноса
 // Число 123 -> результат 124
@@ -35,5 +33,3 @@ TEST(ADD_1N_N, AddOneToZero) {
     LongNatural expected({1});
     EXPECT_EQ(ADD_1N_N(a).getArr(), expected.getArr());
 }
-
-#endif

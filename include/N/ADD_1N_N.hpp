@@ -16,4 +16,3 @@
 LongNatural ADD_1N_N(const LongNatural& a);
 
 #endif
-
