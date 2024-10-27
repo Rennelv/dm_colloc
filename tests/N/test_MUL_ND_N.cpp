@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "N/MUL_ND_N.hpp"
 #include "N/LongNatural.hpp"
+#include "N/MUL_ND_N.hpp"
 
 TEST(test_MUL_ND_N, EasyMul) {
     LongNatural a({1, 1, 1});
