@@ -25,6 +25,10 @@ jobs:
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
+            build_type: Release
+          - os: ubuntu-latest
+            c_compiler: gcc
+            cpp_compiler: g++
             build_type: Debug
         exclude:
           - os: windows-latest
@@ -58,8 +62,8 @@ jobs:
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
     - name: Test
-      working-directory: ${{ steps.strings.outputs.build-output-dir }}
       if: matrix.build_type == 'Debug'  # Запускаем тесты только для Debug
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: ctest --build-config ${{ matrix.build_type }}
 
     - name: Check code formatting      
