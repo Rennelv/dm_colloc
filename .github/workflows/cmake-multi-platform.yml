@@ -15,23 +15,20 @@ jobs:
 
       matrix:
         os: [ubuntu-latest, windows-latest]
-        build_type: [Debug]
-        c_compiler: [gcc, clang, cl]
+        build_type: [Debug, Release]
+        c_compiler: [gcc, cl]
         include:
           - os: windows-latest
             c_compiler: cl
             cpp_compiler: cl
+            build_type: Release
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
-          - os: ubuntu-latest
-            c_compiler: clang
-            cpp_compiler: clang++
+            build_type: Debug
         exclude:
           - os: windows-latest
             c_compiler: gcc
-          - os: windows-latest
-            c_compiler: clang
           - os: ubuntu-latest
             c_compiler: cl
             
@@ -48,9 +45,6 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y g++ cmake libgtest-dev
-
-        # Google Test не содержит собранных библиотек, поэтому нужно собрать их
-        cd /usr/src/gtest && sudo cmake . && sudo make && sudo cp *.a /usr/lib
 
     - name: Configure CMake
       run: >
