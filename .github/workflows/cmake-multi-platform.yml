@@ -15,7 +15,7 @@ jobs:
 
       matrix:
         os: [ubuntu-latest, windows-latest]
-        build_type: [Release]
+        build_type: [Release, Debug]  # Обе конфигурации
         c_compiler: [gcc, clang, cl]
         include:
           - os: windows-latest
@@ -57,10 +57,10 @@ jobs:
 
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      if: matrix.build_type == 'Debug'  # Запускаем тесты только для Debug
       run: ctest --build-config ${{ matrix.build_type }}
 
     - name: Check code formatting
-      # Ensure clang-format is installed on the runner
       run: |
         if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
           sudo apt-get install -y clang-format;
@@ -71,15 +71,14 @@ jobs:
 
     - name: Run clang-format
       run: |
-        find ${{ github.workspace }}/project/src -name "*.cpp" -o -name "*.hpp" | xargs clang-format -i
-    
+        find ${{ github.workspace }}/src ${{ github.workspace }}/include ${{ github.workspace }}/tests -name "*.cpp" -o -name "*.hpp" | xargs clang-format -i
+
     - name: Verify clang-format
       run: |
-        find ${{ github.workspace }}/project/src -name "*.cpp" -o -name "*.hpp" | xargs clang-format -output-replacements-xml | grep "<replacement " > format.patch
+        find ${{ github.workspace }}/src ${{ github.workspace }}/include ${{ github.workspace }}/tests -name "*.cpp" -o -name "*.hpp" | xargs clang-format -output-replacements-xml | grep "<replacement " > format.patch
         if [ -s format.patch ]; then
           echo "Code is not properly formatted. Please run clang-format."
           exit 1
         else
           echo "Code is properly formatted."
         fi
-
