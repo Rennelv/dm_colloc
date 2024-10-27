@@ -2,6 +2,8 @@
 #define CLI_HPP
 
 #include <cstddef>
+#include <initializer_list>
+#include <string>
 #include <utility>
 
 #include "N/LongNatural.hpp"
@@ -68,9 +70,55 @@ enum class PolynomialFunctions {
     NMR_P_P,    // Преобразование многочлена — кратные корни в простые
 };
 
+struct Color {
+    std::string reset = "\033[0m";
+    std::string black = "\033[30m";
+    std::string red = "\033[31m";
+    std::string green = "\033[32m";
+    std::string yellow = "\033[33m";
+    std::string blue = "\033[34m";
+    std::string magenta = "\033[35m";
+    std::string cyan = "\033[36m";
+    std::string white = "\033[37m";
+
+    std::string highlighted = "\033[1;5;36m";
+
+    std::string black_bold = "\033[1;30m";
+    std::string red_bold = "\033[1;31m";
+    std::string green_bold = "\033[1;32m";
+    std::string yellow_bold = "\033[1;33m";
+    std::string blue_bold = "\033[1;34m";
+    std::string magenta_bold = "\033[1;35m";
+    std::string cyan_bold = "\033[1;36m";
+    std::string white_bold = "\033[1;37m";
+
+    std::string background_black = "\033[40m";
+    std::string background_red = "\033[41m";
+    std::string background_green = "\033[42m";
+    std::string background_yellow = "\033[43m";
+    std::string background_blue = "\033[44m";
+    std::string background_magenta = "\033[45m";
+    std::string background_cyan = "\033[46m";
+    std::string background_white = "\033[47m";
+
+    std::string bold = "\033[1m";
+    std::string underline = "\033[4m";
+    std::string blink = "\033[5m";
+    std::string reverse = "\033[7m";
+    std::string invisible = "\033[8m";
+};
+
+struct HistoryElement {
+    std::string command;
+    std::string args[10];
+    std::string result;
+};
+
 class Cli {
     InputHandler inputHandler;
     std::pair<int, int> cursorPos = {1, 1};
+    HistoryElement history[5];
+    Color color;
 
    public:
     Cli() = default;
@@ -79,6 +127,11 @@ class Cli {
 
     void clearScreen();
     void moveCursor(int row, int col);
+
+    void printHistory();
+    void updateHistory(const std::string& command, std::initializer_list<std::string> args, const std::string& result);
+
+    void printError(const std::string& message);
 
     void printMenu(size_t highlighted = 0);
     void printNaturalFuncMenu(size_t highlighted = 0);

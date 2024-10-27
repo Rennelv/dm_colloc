@@ -1,10 +1,15 @@
 #include "cli/Cli.hpp"
 
+#include <initializer_list>
 #include <iostream>
 #include <limits>
+#include <string>
+#include <utility>
 
 #include "N/ADD_NN_N.hpp"
 #include "N/COM_NN_D.hpp"
+#include "N/MUL_ND_N.hpp"
+#include "N/SUB_NN_N.hpp"
 
 void Cli::clearScreen() {
     std::cout << "\033[2J\033[1;1H";
@@ -40,7 +45,7 @@ void Cli::run() {
                 return;
             default:
                 clearScreen();
-                std::cout << "Неверный ввод" << '\n';
+                printError("Неверный ввод");
                 moveCursor(3, 1);
 
                 std::cin.clear();
@@ -48,54 +53,114 @@ void Cli::run() {
         }
     }
 }
-void Cli::printMenu(size_t highlighted) {
-    std::string highlightedColor = "\033[1;43m";  // Yellow background
-    std::string defaultColor = "\033[1;37m";      // White text
-    std::string resetColor = "\033[0m";           // Reset to default
 
-    std::cout << (highlighted == 1 ? highlightedColor : defaultColor) << "1. Натуральные числа (N)" << resetColor << '\n';
-    std::cout << (highlighted == 2 ? highlightedColor : defaultColor) << "2. Целые числа (Z)" << resetColor << '\n';
-    std::cout << (highlighted == 3 ? highlightedColor : defaultColor) << "3. Рациональные числа (R)" << resetColor << '\n';
-    std::cout << (highlighted == 4 ? highlightedColor : defaultColor) << "4. Многочлены (P)" << resetColor << '\n';
-    std::cout << (highlighted == 5 ? highlightedColor : "\033[1;31m") << "5. Выход" << resetColor << '\n';  // Red for "Выход"
+void Cli::printHistory() {
+    std::pair<int, int> lastPos = cursorPos;
+    size_t row = 1;
+    moveCursor(row, 150);
+    std::cout << color.white_bold << "История:" << color.reset;
+    row += 2;
+    moveCursor(row, 150);
+    for (const auto& element : history) {
+        if (element.command.empty()) {
+            break;
+        }
+        std::cout << color.white << element.command << color.reset;
+        row++;
+        moveCursor(row, 150);
+        for (const auto& arg : element.args) {
+            if (arg.empty()) {
+                break;
+            }
+            std::cout << arg << ' ';
+        }
+        row++;
+        moveCursor(row, 150);
+        std::cout << color.underline << "-> " << element.result << color.reset;
+        row += 2;
+        moveCursor(row, 150);
+    }
+    moveCursor(lastPos.first, lastPos.second);
+}
+
+void Cli::updateHistory(const std::string& command, std::initializer_list<std::string> args, const std::string& result) {
+    // Shift history entries
+    for (size_t i = 4; i > 0; i--) {
+        history[i] = history[i - 1];
+    }
+
+    // Add the new entry at the beginning
+    history[0].command = command;
+    history[0].result = result;
+
+    // Copy args to the fixed-size array
+    size_t index = 0;
+    for (const auto& arg : args) {
+        if (index >= 10) {
+            throw std::out_of_range("Too many arguments provided");
+        }
+        history[0].args[index++] = arg;
+    }
+
+    // Clear remaining elements in the args array
+    for (; index < 10; ++index) {
+        history[0].args[index].clear();
+    }
+}
+
+void Cli::printError(const std::string& message) {
+    std::pair<int, int> lastPos = cursorPos;
+    moveCursor(20, 1);
+    std::cout << color.red << message << color.reset << '\n';
+    moveCursor(lastPos.first, lastPos.second);
+}
+
+void Cli::printMenu(size_t highlighted) {
+    moveCursor(1, 1);
+    std::cout << color.yellow << "Калькулятор блин:" << color.reset << '\n';
+    std::cout << '\n';
+    std::cout << (highlighted == 1 ? color.highlighted : color.yellow) << "1. Натуральные числа (N)" << color.reset << '\n';
+    std::cout << (highlighted == 2 ? color.highlighted : color.yellow) << "2. Целые числа (Z)" << color.reset << '\n';
+    std::cout << (highlighted == 3 ? color.highlighted : color.yellow) << "3. Рациональные числа (R)" << color.reset << '\n';
+    std::cout << (highlighted == 4 ? color.highlighted : color.yellow) << "4. Многочлены (P)" << color.reset << '\n';
+    std::cout << (highlighted == 5 ? color.highlighted : color.red_bold) << "5. Выход" << color.reset << '\n';  // Red for "Выход"
 }
 
 void Cli::printNaturalFuncMenu(size_t highlighted) {
-    std::string highlightedColor = "\033[1;43m";
-    std::string defaultColor = "\033[1;37m";
-    std::string resetColor = "\033[0m";
-
-    std::cout << (highlighted == 1 ? highlightedColor : defaultColor) << "1. Сравнение натуральных чисел" << resetColor << '\n';        // White or Yellow
-    std::cout << (highlighted == 2 ? highlightedColor : defaultColor) << "2. Проверка на ноль" << resetColor << '\n';                   // White or Yellow
-    std::cout << (highlighted == 3 ? highlightedColor : defaultColor) << "3. Добавление 1 к натуральному числу" << resetColor << '\n';  // White or Yellow
-    std::cout << (highlighted == 4 ? highlightedColor : defaultColor) << "4. Сложение натуральных чисел" << resetColor << '\n';         // White or Yellow
-    std::cout << (highlighted == 5 ? highlightedColor : defaultColor) << "5. Вычитание из первого большего натурального числа второго меньшего или равного"
-              << resetColor << '\n';                                                                                                        // White or Yellow
-    std::cout << (highlighted == 6 ? highlightedColor : defaultColor) << "6. Умножение натурального числа на цифру" << resetColor << '\n';  // White or Yellow
-    std::cout << (highlighted == 7 ? highlightedColor : defaultColor) << "7. Умножение натурального числа на 10^k" << resetColor << '\n';   // White or Yellow
-    std::cout << (highlighted == 8 ? highlightedColor : defaultColor) << "8. Умножение натуральных чисел" << resetColor << '\n';            // White or Yellow
-    std::cout << (highlighted == 9 ? highlightedColor : defaultColor)
-              << "9. Вычитание из натурального другого натурального, умноженного на цифру для случая с неотрицательным результатом" << resetColor
+    moveCursor(1, 1);
+    std::cout << (highlighted == 1 ? color.highlighted : color.yellow) << "1. Сравнение натуральных чисел" << color.reset << '\n';        // White or Yellow
+    std::cout << (highlighted == 2 ? color.highlighted : color.yellow) << "2. Проверка на ноль" << color.reset << '\n';                   // White or Yellow
+    std::cout << (highlighted == 3 ? color.highlighted : color.yellow) << "3. Добавление 1 к натуральному числу" << color.reset << '\n';  // White or Yellow
+    std::cout << (highlighted == 4 ? color.highlighted : color.yellow) << "4. Сложение натуральных чисел" << color.reset << '\n';         // White or Yellow
+    std::cout << (highlighted == 5 ? color.highlighted : color.yellow) << "5. Вычитание из первого большего натурального числа второго меньшего или равного"
+              << color.reset << '\n';                                                                                                         // White or Yellow
+    std::cout << (highlighted == 6 ? color.highlighted : color.yellow) << "6. Умножение натурального числа на цифру" << color.reset << '\n';  // White or Yellow
+    std::cout << (highlighted == 7 ? color.highlighted : color.yellow) << "7. Умножение натурального числа на 10^k" << color.reset << '\n';   // White or Yellow
+    std::cout << (highlighted == 8 ? color.highlighted : color.yellow) << "8. Умножение натуральных чисел" << color.reset << '\n';            // White or Yellow
+    std::cout << (highlighted == 9 ? color.highlighted : color.yellow)
+              << "9. Вычитание из натурального другого натурального, умноженного на цифру для случая с неотрицательным результатом" << color.reset
               << '\n';  // White or Yellow
-    std::cout << (highlighted == 10 ? highlightedColor : defaultColor)
-              << "10. Вычисление первой цифры деления большего натурального на меньшее, домноженное на 10^k" << resetColor << '\n';  // White or Yellow
-    std::cout << (highlighted == 11 ? highlightedColor : defaultColor) << "11. Неполное частное от деления первого натурального числа на второе с остатком"
-              << resetColor << '\n';  // White or Yellow
-    std::cout << (highlighted == 12 ? highlightedColor : defaultColor) << "12. Остаток от деления первого натурального числа на второе натуральное"
-              << resetColor << '\n';                                                                                          // White or Yellow
-    std::cout << (highlighted == 13 ? highlightedColor : defaultColor) << "13. НОД натуральных чисел" << resetColor << '\n';  // White or Yellow
-    std::cout << (highlighted == 14 ? highlightedColor : defaultColor) << "14. НОК натуральных чисел" << resetColor << '\n';  // White or Yellow
-    std::cout << (highlighted == 15 ? highlightedColor : "\033[1;35m") << "15. Назад" << resetColor << '\n';                  // Magenta or Yellow
+    std::cout << (highlighted == 10 ? color.highlighted : color.yellow)
+              << "10. Вычисление первой цифры деления большего натурального на меньшее, домноженное на 10^k" << color.reset << '\n';  // White or Yellow
+    std::cout << (highlighted == 11 ? color.highlighted : color.yellow) << "11. Неполное частное от деления первого натурального числа на второе с остатком"
+              << color.reset << '\n';  // White or Yellow
+    std::cout << (highlighted == 12 ? color.highlighted : color.yellow) << "12. Остаток от деления первого натурального числа на второе натуральное"
+              << color.reset << '\n';                                                                                           // White or Yellow
+    std::cout << (highlighted == 13 ? color.highlighted : color.yellow) << "13. НОД натуральных чисел" << color.reset << '\n';  // White or Yellow
+    std::cout << (highlighted == 14 ? color.highlighted : color.yellow) << "14. НОК натуральных чисел" << color.reset << '\n';  // White or Yellow
+    std::cout << (highlighted == 15 ? color.highlighted : color.magenta_bold) << "15. Назад" << color.reset << '\n';            // Magenta or Yellow
 }
 
 void Cli::naturalFuncMenu() {
     int choice;
     clearScreen();
     while (true) {
+        printHistory();
         printNaturalFuncMenu();
         std::cin >> choice;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         clearScreen();
+        printHistory();
         if (choice < 15 && choice > 0) {
             printNaturalFuncMenu(choice);
             moveCursor(30, 1);
@@ -104,8 +169,7 @@ void Cli::naturalFuncMenu() {
         } else if (choice == 15) {
             return;
         } else {
-            std::cout << "Неверный ввод" << '\n';
-            moveCursor(3, 1);
+            printError("Неверный ввод");
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
@@ -113,31 +177,30 @@ void Cli::naturalFuncMenu() {
 }
 
 void Cli::printIntegerFuncMenu(size_t highlighted) {
-    std::string highlightedColor = "\033[1;43m";  // Yellow background
-    std::string defaultColor = "\033[1;37m";      // White text
-    std::string resetColor = "\033[0m";           // Reset to default
-
-    std::cout << (highlighted == 1 ? highlightedColor : defaultColor) << "1. Абсолютная величина числа" << resetColor << '\n';
-    std::cout << (highlighted == 2 ? highlightedColor : defaultColor) << "2. Определение положительности числа" << resetColor << '\n';
-    std::cout << (highlighted == 3 ? highlightedColor : defaultColor) << "3. Умножение целого на (-1)" << resetColor << '\n';
-    std::cout << (highlighted == 4 ? highlightedColor : defaultColor) << "4. Преобразование натурального в целое" << resetColor << '\n';
-    std::cout << (highlighted == 5 ? highlightedColor : defaultColor) << "5. Преобразование целого неотрицательного в натуральное" << resetColor << '\n';
-    std::cout << (highlighted == 6 ? highlightedColor : defaultColor) << "6. Сложение целых чисел" << resetColor << '\n';
-    std::cout << (highlighted == 7 ? highlightedColor : defaultColor) << "7. Вычитание целых чисел" << resetColor << '\n';
-    std::cout << (highlighted == 8 ? highlightedColor : defaultColor) << "8. Умножение целых чисел" << resetColor << '\n';
-    std::cout << (highlighted == 9 ? highlightedColor : defaultColor) << "9. Деление целого на целое" << resetColor << '\n';
-    std::cout << (highlighted == 10 ? highlightedColor : defaultColor) << "10. Остаток от деления целого на целое" << resetColor << '\n';
-    std::cout << (highlighted == 11 ? highlightedColor : "\033[1;35m") << "11. Назад" << resetColor << '\n';
+    moveCursor(1, 1);
+    std::cout << (highlighted == 1 ? color.highlighted : color.yellow) << "1. Абсолютная величина числа" << color.reset << '\n';
+    std::cout << (highlighted == 2 ? color.highlighted : color.yellow) << "2. Определение положительности числа" << color.reset << '\n';
+    std::cout << (highlighted == 3 ? color.highlighted : color.yellow) << "3. Умножение целого на (-1)" << color.reset << '\n';
+    std::cout << (highlighted == 4 ? color.highlighted : color.yellow) << "4. Преобразование натурального в целое" << color.reset << '\n';
+    std::cout << (highlighted == 5 ? color.highlighted : color.yellow) << "5. Преобразование целого неотрицательного в натуральное" << color.reset << '\n';
+    std::cout << (highlighted == 6 ? color.highlighted : color.yellow) << "6. Сложение целых чисел" << color.reset << '\n';
+    std::cout << (highlighted == 7 ? color.highlighted : color.yellow) << "7. Вычитание целых чисел" << color.reset << '\n';
+    std::cout << (highlighted == 8 ? color.highlighted : color.yellow) << "8. Умножение целых чисел" << color.reset << '\n';
+    std::cout << (highlighted == 9 ? color.highlighted : color.yellow) << "9. Деление целого на целое" << color.reset << '\n';
+    std::cout << (highlighted == 10 ? color.highlighted : color.yellow) << "10. Остаток от деления целого на целое" << color.reset << '\n';
+    std::cout << (highlighted == 11 ? color.highlighted : color.magenta_bold) << "11. Назад" << color.reset << '\n';
 }
 
 void Cli::integerFuncMenu() {
     int choice;
     clearScreen();
     while (true) {
+        printHistory();
         printIntegerFuncMenu();
         std::cin >> choice;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         clearScreen();
+        printHistory();
         if (choice < 11 && choice > 0) {
             printIntegerFuncMenu(choice);
             moveCursor(30, 1);
@@ -146,37 +209,35 @@ void Cli::integerFuncMenu() {
         } else if (choice == 11) {
             return;
         } else {
-            std::cout << "Неверный ввод" << '\n';
-            moveCursor(3, 1);
+            printError("Неверный ввод");
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
 }
 void Cli::printRationalFuncMenu(size_t highlighted) {
-    std::string highlightedColor = "\033[1;43m";  // Yellow background
-    std::string defaultColor = "\033[1;37m";      // White text
-    std::string resetColor = "\033[0m";           // Reset to default
-
-    std::cout << (highlighted == 1 ? highlightedColor : defaultColor) << "1. Сокращение дроби" << resetColor << '\n';
-    std::cout << (highlighted == 2 ? highlightedColor : defaultColor) << "2. Проверка сокращенного дробного на целое" << resetColor << '\n';
-    std::cout << (highlighted == 3 ? highlightedColor : defaultColor) << "3. Преобразование целого в дробное" << resetColor << '\n';
-    std::cout << (highlighted == 4 ? highlightedColor : defaultColor) << "4. Преобразование сокращенного дробного в целое" << resetColor << '\n';
-    std::cout << (highlighted == 5 ? highlightedColor : defaultColor) << "5. Сложение дробей" << resetColor << '\n';
-    std::cout << (highlighted == 6 ? highlightedColor : defaultColor) << "6. Вычитание дробей" << resetColor << '\n';
-    std::cout << (highlighted == 7 ? highlightedColor : defaultColor) << "7. Умножение дробей" << resetColor << '\n';
-    std::cout << (highlighted == 8 ? highlightedColor : defaultColor) << "8. Деление дробей" << resetColor << '\n';
-    std::cout << (highlighted == 9 ? highlightedColor : "\033[1;35m") << "9. Назад" << resetColor << '\n';  // Magenta for "Назад"
+    moveCursor(1, 1);
+    std::cout << (highlighted == 1 ? color.highlighted : color.yellow) << "1. Сокращение дроби" << color.reset << '\n';
+    std::cout << (highlighted == 2 ? color.highlighted : color.yellow) << "2. Проверка сокращенного дробного на целое" << color.reset << '\n';
+    std::cout << (highlighted == 3 ? color.highlighted : color.yellow) << "3. Преобразование целого в дробное" << color.reset << '\n';
+    std::cout << (highlighted == 4 ? color.highlighted : color.yellow) << "4. Преобразование сокращенного дробного в целое" << color.reset << '\n';
+    std::cout << (highlighted == 5 ? color.highlighted : color.yellow) << "5. Сложение дробей" << color.reset << '\n';
+    std::cout << (highlighted == 6 ? color.highlighted : color.yellow) << "6. Вычитание дробей" << color.reset << '\n';
+    std::cout << (highlighted == 7 ? color.highlighted : color.yellow) << "7. Умножение дробей" << color.reset << '\n';
+    std::cout << (highlighted == 8 ? color.highlighted : color.yellow) << "8. Деление дробей" << color.reset << '\n';
+    std::cout << (highlighted == 9 ? color.highlighted : color.magenta_bold) << "9. Назад" << color.reset << '\n';  // Magenta for "Назад"
 }
 
 void Cli::rationalFuncMenu() {
     int choice;
     clearScreen();
     while (true) {
+        printHistory();
         printRationalFuncMenu();
         std::cin >> choice;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         clearScreen();
+        printHistory();
         if (choice < 9 && choice > 0) {
             printRationalFuncMenu(choice);
             moveCursor(30, 1);
@@ -185,8 +246,7 @@ void Cli::rationalFuncMenu() {
         } else if (choice == 9) {
             return;
         } else {
-            std::cout << "Неверный ввод" << '\n';
-            moveCursor(3, 1);
+            printError("Неверный ввод");
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
@@ -194,37 +254,36 @@ void Cli::rationalFuncMenu() {
 }
 
 void Cli::printPolynomialFuncMenu(size_t highlighted) {
-    std::string highlightedColor = "\033[1;43m";  // Yellow background
-    std::string defaultColor = "\033[1;37m";      // White text
-    std::string resetColor = "\033[0m";           // Reset to default
-
-    std::cout << (highlighted == 1 ? highlightedColor : defaultColor) << "1. Сложение многочленов" << resetColor << '\n';
-    std::cout << (highlighted == 2 ? highlightedColor : defaultColor) << "2. Вычитание многочленов" << resetColor << '\n';
-    std::cout << (highlighted == 3 ? highlightedColor : defaultColor) << "3. Умножение многочлена на рациональное число" << resetColor << '\n';
-    std::cout << (highlighted == 4 ? highlightedColor : defaultColor) << "4. Умножение многочлена на x^k" << resetColor << '\n';
-    std::cout << (highlighted == 5 ? highlightedColor : defaultColor) << "5. Старший коэффициент многочлена" << resetColor << '\n';
-    std::cout << (highlighted == 6 ? highlightedColor : defaultColor) << "6. Степень многочлена" << resetColor << '\n';
-    std::cout << (highlighted == 7 ? highlightedColor : defaultColor) << "7. Вынесение из многочлена НОК знаменателей коэффициентов и НОД числителей"
-              << resetColor << '\n';
-    std::cout << (highlighted == 8 ? highlightedColor : defaultColor) << "8. Умножение многочленов" << resetColor << '\n';
-    std::cout << (highlighted == 9 ? highlightedColor : defaultColor) << "9. Частное от деления многочлена на многочлен при делении с остатком" << resetColor
+    moveCursor(1, 1);
+    std::cout << (highlighted == 1 ? color.highlighted : color.yellow) << "1. Сложение многочленов" << color.reset << '\n';
+    std::cout << (highlighted == 2 ? color.highlighted : color.yellow) << "2. Вычитание многочленов" << color.reset << '\n';
+    std::cout << (highlighted == 3 ? color.highlighted : color.yellow) << "3. Умножение многочлена на рациональное число" << color.reset << '\n';
+    std::cout << (highlighted == 4 ? color.highlighted : color.yellow) << "4. Умножение многочлена на x^k" << color.reset << '\n';
+    std::cout << (highlighted == 5 ? color.highlighted : color.yellow) << "5. Старший коэффициент многочлена" << color.reset << '\n';
+    std::cout << (highlighted == 6 ? color.highlighted : color.yellow) << "6. Степень многочлена" << color.reset << '\n';
+    std::cout << (highlighted == 7 ? color.highlighted : color.yellow) << "7. Вынесение из многочлена НОК знаменателей коэффициентов и НОД числителей"
+              << color.reset << '\n';
+    std::cout << (highlighted == 8 ? color.highlighted : color.yellow) << "8. Умножение многочленов" << color.reset << '\n';
+    std::cout << (highlighted == 9 ? color.highlighted : color.yellow) << "9. Частное от деления многочлена на многочлен при делении с остатком" << color.reset
               << '\n';
-    std::cout << (highlighted == 10 ? highlightedColor : defaultColor) << "10. Остаток от деления многочлена на многочлен при делении с остатком" << resetColor
-              << '\n';
-    std::cout << (highlighted == 11 ? highlightedColor : defaultColor) << "11. НОД многочленов" << resetColor << '\n';
-    std::cout << (highlighted == 12 ? highlightedColor : defaultColor) << "12. Производная многочлена" << resetColor << '\n';
-    std::cout << (highlighted == 13 ? highlightedColor : defaultColor) << "13. Преобразование многочлена — кратные корни в простые" << resetColor << '\n';
-    std::cout << (highlighted == 14 ? highlightedColor : "\033[1;35m") << "14. Назад" << resetColor << '\n';  // Magenta for "Назад"
+    std::cout << (highlighted == 10 ? color.highlighted : color.yellow) << "10. Остаток от деления многочлена на многочлен при делении с остатком"
+              << color.reset << '\n';
+    std::cout << (highlighted == 11 ? color.highlighted : color.yellow) << "11. НОД многочленов" << color.reset << '\n';
+    std::cout << (highlighted == 12 ? color.highlighted : color.yellow) << "12. Производная многочлена" << color.reset << '\n';
+    std::cout << (highlighted == 13 ? color.highlighted : color.yellow) << "13. Преобразование многочлена — кратные корни в простые" << color.reset << '\n';
+    std::cout << (highlighted == 14 ? color.highlighted : color.magenta_bold) << "14. Назад" << color.reset << '\n';  // Magenta for "Назад"
 }
 
 void Cli::polynomialFuncMenu() {
     int choice;
     clearScreen();
     while (true) {
+        printHistory();
         printPolynomialFuncMenu();
         std::cin >> choice;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         clearScreen();
+        printHistory();
         if (choice < 14 && choice > 0) {
             printPolynomialFuncMenu(choice);
             moveCursor(30, 1);
@@ -233,8 +292,7 @@ void Cli::polynomialFuncMenu() {
         } else if (choice == 14) {
             return;
         } else {
-            std::cout << "Неверный ввод" << '\n';
-            moveCursor(3, 1);
+            printError("Неверный ввод");
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
@@ -247,7 +305,9 @@ void Cli::naturalFunc(NaturalFunctions func) {
             case NaturalFunctions::COM_NN_D: {
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                std::cout << COM_NN_D(a, b) << std::endl;
+                auto result = COM_NN_D(a, b);
+                std::cout << result << std::endl;
+                updateHistory("COM_NN_D", {a.toString(), b.toString()}, std::to_string(result));
                 break;
             }
             case NaturalFunctions::NZER_N_B: {
@@ -269,20 +329,25 @@ void Cli::naturalFunc(NaturalFunctions func) {
             case NaturalFunctions::SUB_NN_N: {
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                // std::cout << SUB_NN_N(a, b).toString() << std::endl;
+                auto result = SUB_NN_N(a, b);
+                std::cout << result.toString() << std::endl;
+                updateHistory("SUB_NN_N", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case NaturalFunctions::MUL_ND_N: {
                 LongNatural a = inputHandler.scanLongNatural();
-                uint8_t d;
+                std::cout << "Введите цифру d: ";
+                int d;
                 std::cin >> d;
                 if (std::cin.fail() || d > 9) {
-                    std::cout << "Неверный ввод" << '\n';
+                    printError("Неверный ввод");
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     break;
                 }
-                // std::cout << MUL_ND_N(a, d).toString() << std::endl;
+                auto result = MUL_ND_N(a, d);
+                std::cout << result.toString() << std::endl;
+                updateHistory("MUL_ND_N", {a.toString(), std::to_string(d)}, result.toString());
                 break;
             }
             case NaturalFunctions::MUL_Nk_N: {
@@ -290,7 +355,7 @@ void Cli::naturalFunc(NaturalFunctions func) {
                 size_t k;
                 std::cin >> k;
                 if (std::cin.fail()) {
-                    std::cout << "Неверный ввод" << '\n';
+                    printError("Неверный ввод");
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     break;
@@ -307,10 +372,10 @@ void Cli::naturalFunc(NaturalFunctions func) {
             case NaturalFunctions::SUB_NDN_N: {
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                uint8_t d;
+                int d;
                 std::cin >> d;
                 if (std::cin.fail() || d > 9) {
-                    std::cout << "Неверный ввод" << '\n';
+                    printError("Неверный ввод");
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     break;
@@ -324,7 +389,7 @@ void Cli::naturalFunc(NaturalFunctions func) {
                 size_t k;
                 std::cin >> k;
                 if (std::cin.fail()) {
-                    std::cout << "Неверный ввод" << '\n';
+                    printError("Неверный ввод");
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     break;
@@ -357,11 +422,11 @@ void Cli::naturalFunc(NaturalFunctions func) {
                 break;
             }
             default:
-                std::cout << "Неверный ввод" << '\n';
+                printError("Неверный ввод");
                 break;
         }
     } catch (std::invalid_argument& e) {
-        std::cout << "Неверный ввод" << '\n';
+        printError("Неверный ввод");
     }
 }
 
@@ -424,11 +489,11 @@ void Cli::integerFunc(IntegerFunctions func) {
                 break;
             }
             default:
-                std::cout << "Неверный ввод" << '\n';
+                printError("Неверный ввод");
                 break;
         }
     } catch (std::invalid_argument& e) {
-        std::cout << "Неверный ввод" << '\n';
+        printError("Неверный ввод");
     }
 }
 
@@ -480,11 +545,11 @@ void Cli::rationalFunc(RationalFunctions func) {
                 break;
             }
             default:
-                std::cout << "Неверный ввод" << '\n';
+                printError("Неверный ввод");
                 break;
         }
     } catch (std::invalid_argument& e) {
-        std::cout << "Неверный ввод" << '\n';
+        printError("Неверный ввод");
     }
 }
 
@@ -514,7 +579,7 @@ void Cli::polynomialFunc(PolynomialFunctions func) {
                 size_t k;
                 std::cin >> k;
                 if (std::cin.fail()) {
-                    std::cout << "Неверный ввод" << '\n';
+                    printError("Неверный ввод");
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     break;
@@ -572,10 +637,10 @@ void Cli::polynomialFunc(PolynomialFunctions func) {
                 break;
             }
             default:
-                std::cout << "Неверный ввод" << '\n';
+                printError("Неверный ввод");
                 break;
         }
     } catch (std::invalid_argument& e) {
-        std::cout << "Неверный ввод" << '\n';
+        printError("Неверный ввод");
     }
 }
