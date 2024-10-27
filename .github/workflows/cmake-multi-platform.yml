@@ -15,26 +15,23 @@ jobs:
 
       matrix:
         os: [ubuntu-latest, windows-latest]
-        build_type: [Release, Debug]  # Обе конфигурации
         c_compiler: [gcc, clang, cl]
+        build_type: [Debug]
         include:
-          - os: windows-latest
-            c_compiler: cl
-            cpp_compiler: cl
           - os: ubuntu-latest
             c_compiler: gcc
-            cpp_compiler: g++
           - os: ubuntu-latest
             c_compiler: clang
-            cpp_compiler: clang++
+          - os: windows-latest
+            c_compiler: cl
         exclude:
           - os: windows-latest
             c_compiler: gcc
-          - os: windows-latest
-            c_compiler: clang
           - os: ubuntu-latest
             c_compiler: cl
-
+          - os: ubuntu-latest
+            c_compiler: clang
+            
     steps:
     - uses: actions/checkout@v4
 
@@ -60,7 +57,8 @@ jobs:
       if: matrix.build_type == 'Debug'  # Запускаем тесты только для Debug
       run: ctest --build-config ${{ matrix.build_type }}
 
-    - name: Check code formatting
+    - name: Check code formatting      
+      if: matrix.os == 'ubuntu-latest' && matrix.build_type == 'Debug'
       run: |
         if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
           sudo apt-get install -y clang-format;
@@ -69,16 +67,18 @@ jobs:
           choco install llvm --version=14.0.0; # Adjust version as needed
         fi
 
-    - name: Run clang-format
+    - name: Run check code formatting
+      if: matrix.os == 'ubuntu-latest' && matrix.build_type == 'Debug'
       run: |
-        find ${{ github.workspace }}/src ${{ github.workspace }}/include ${{ github.workspace }}/tests -name "*.cpp" -o -name "*.hpp" | xargs clang-format -i
-
-    - name: Verify clang-format
-      run: |
-        find ${{ github.workspace }}/src ${{ github.workspace }}/include ${{ github.workspace }}/tests -name "*.cpp" -o -name "*.hpp" | xargs clang-format -output-replacements-xml | grep "<replacement " > format.patch
-        if [ -s format.patch ]; then
-          echo "Code is not properly formatted. Please run clang-format."
-          exit 1
+        # Находим все файлы .cpp и .hpp и проверяем их форматирование
+        unformatted_files=$(find ${{ github.workspace }}/src ${{ github.workspace }}/include ${{ github.workspace }}/tests -name "*.cpp" -o -name "*.hpp" | xargs clang-format --dry-run --Werror)
+    
+        # Проверяем, есть ли неотформатированные файлы
+        if [ -z "$unformatted_files" ]; then
+          echo "All files are properly formatted."
         else
-          echo "Code is properly formatted."
+          echo "The following files need formatting:"
+          echo "$unformatted_files"
+          exit 1  # Завершаем с ошибкой, если есть неотформатированные файлы
         fi
+
