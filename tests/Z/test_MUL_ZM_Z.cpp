@@ -10,13 +10,13 @@ TEST(test_MUL_ZM_Z, PositiveNumber) {
 }
 
 TEST(test_MUL_ZM_Z, NegativeNumber) {
-    LongInteger a(true, {4, 5, 6});  // -456
+    LongInteger a(true, {4, 5, 6});   // -456
     LongInteger b(false, {4, 5, 6});  // 456
     EXPECT_EQ(MUL_ZM_Z(a), b);
 }
 
 TEST(test_MUL_ZM_Z, Zero) {
     LongInteger a(false, {0});  // 0
-    LongInteger b(true, {0}); // 0
+    LongInteger b(true, {0});   // 0
     EXPECT_EQ(MUL_ZM_Z(a), b);
 }
