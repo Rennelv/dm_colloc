@@ -1,8 +1,6 @@
 #ifndef NZER_N_B_HPP
 #define NZER_N_B_HPP
 
-#include "../include/N/LongNatural.hpp"
-
 /*
     Выполинала Уфимцева Алиса 3381
 
