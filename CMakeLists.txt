@@ -8,11 +8,13 @@ project(dm_math LANGUAGES CXX)
 #     message(STATUS "Ninja build system found. Using Ninja as the default generator")
 # endif()
 
+message(STATUS "CMake Generator: ${CMAKE_GENERATOR}")
+
+# Export compile_commands.json
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     message(STATUS "Building in Debug mode")
-    # Export compile_commands.json
-    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 else()
     message(STATUS "Building in Release mode")
 endif()
@@ -37,6 +39,9 @@ file(GLOB_RECURSE SOURCES
     "${PROJECT_SOURCE_DIR}/src/*.cpp"
 )
 
+# Define a custom option to generate tests
+option(GENERATE_TESTS "Generate tests" OFF)
+
 # Add the executable target
 add_executable(dm_math ${SOURCES})
 
@@ -47,7 +52,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -pedantic")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
 # Создаем тесты только в режиме отладки 
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+if (GENERATE_TESTS)
     # Recursively find all source files in the src directory
     file(GLOB_RECURSE SOURCES_FOR_TESTS
         "${PROJECT_SOURCE_DIR}/src/N/*.cpp"

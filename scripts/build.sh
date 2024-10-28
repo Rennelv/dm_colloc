@@ -18,7 +18,7 @@ if [ ! -d "$BUILD_DIR" ]; then
 fi
 
 # Run cmake to configure the project
-cmake -DCMAKE_BUILD_TYPE=Debug -B "$BUILD_DIR"
+cmake -DGENERATE_TESTS=ON -DCMAKE_BUILD_TYPE=Debug -B "$BUILD_DIR"
 
 # Build the project
 cmake --build "$BUILD_DIR"
