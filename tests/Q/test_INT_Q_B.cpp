@@ -13,10 +13,10 @@ TEST(test_INT_Q_B, DenominatorOne) {
 }
 
 TEST(test_INT_Q_B, DenominatorZero) {
-    LongInteger numerator(false, {1, 2, 3});          // 123
-    LongNatural denominator({0});                     // 0
-    LongRational a(numerator, denominator);           // 123 / 0
-    EXPECT_THROW({ INT_Q_B(a); }, std::logic_error);  // проверка на выброс ошибки
+    LongInteger numerator(false, {1, 2, 3});               // 123
+    LongNatural denominator({0});                          // 0
+    LongRational a(numerator, denominator);                // 123 / 0
+    EXPECT_THROW({ INT_Q_B(a); }, std::invalid_argument);  // проверка на выброс ошибки
 }
 
 TEST(test_INT_Q_B, DenominatorNotOne) {
