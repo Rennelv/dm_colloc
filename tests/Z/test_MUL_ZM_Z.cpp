@@ -5,15 +5,18 @@
 
 TEST(test_MUL_ZM_Z, PositiveNumber) {
     LongInteger a(false, {1, 2, 3});  // 123
-    EXPECT_EQ(MUL_ZM_Z(a), -123);     // положительное
+    LongInteger b(true, {1, 2, 3});   // -123
+    EXPECT_EQ(MUL_ZM_Z(a), b);
 }
 
 TEST(test_MUL_ZM_Z, NegativeNumber) {
     LongInteger a(true, {4, 5, 6});  // -456
-    EXPECT_EQ(MUL_ZM_Z(a), 456);     // отрицательное
+    LongInteger b(false, {4, 5, 6});  // 456
+    EXPECT_EQ(MUL_ZM_Z(a), b);
 }
 
 TEST(test_MUL_ZM_Z, Zero) {
     LongInteger a(false, {0});  // 0
-    EXPECT_EQ(MUL_ZM_Z(a), 0);  // нуль
+    LongInteger b(true, {0}); // 0
+    EXPECT_EQ(MUL_ZM_Z(a), b);
 }

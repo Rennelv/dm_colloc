@@ -12,6 +12,6 @@
         LongInteger - результат умножения целого числа а на (-1).
 */
 
-LongInteger MUL_ZM_Z(const LongInteger& a)
+LongInteger MUL_ZM_Z(const LongInteger& a);
 
 #endif
