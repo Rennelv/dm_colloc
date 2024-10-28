@@ -1,5 +1,7 @@
 #include "../include/N/NZER_N_B.hpp"
 
+#include "../include/N/LongNatural.hpp"
+
 #include <iostream>
 #include <vector>
 
