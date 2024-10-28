@@ -1,9 +1,9 @@
-#include "../include/N/NZER_N_B.hpp"
+#include "N/NZER_N_B.hpp"
 
 #include <iostream>
 #include <vector>
 
-#include "../include/N/LongNatural.hpp"
+#include "N/LongNatural.hpp"
 
 using namespace std;
 

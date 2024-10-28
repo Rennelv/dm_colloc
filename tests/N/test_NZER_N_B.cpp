@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "../include/N/LongNatural.hpp"
-#include "../include/N/NZER_N_B.hpp"
+#include "N/LongNatural.hpp"
+#include "N/NZER_N_B.hpp"
 
 using namespace std;
 
