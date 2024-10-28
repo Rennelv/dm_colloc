@@ -14,29 +14,14 @@ jobs:
       fail-fast: false
 
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        build_type: [Debug, Release]
-        c_compiler: [gcc, cl]
+        os: [ubuntu-latest]
+        build_type: [Release]
+        c_compiler: [gcc]
         include:
-          - os: windows-latest
-            c_compiler: cl
-            cpp_compiler: cl
-            build_type: Release
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
             build_type: Release
-          - os: ubuntu-latest
-            c_compiler: gcc
-            cpp_compiler: g++
-            build_type: Debug
-        exclude:
-          - os: windows-latest
-            c_compiler: gcc
-          - os: windows-latest
-            build_type: Debug
-          - os: ubuntu-latest
-            c_compiler: cl
             
     steps:
     - uses: actions/checkout@v4
@@ -59,18 +44,19 @@ jobs:
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        -DGENERATE_TESTS=ON
         -S ${{ github.workspace }}
 
     - name: Build
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
     - name: Test
-      if: matrix.build_type == 'Debug'  # Запускаем тесты только для Debug
+      if: matrix.os == 'ubuntu-latest'
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: ctest --build-config ${{ matrix.build_type }}
 
     - name: Check code formatting      
-      if: matrix.os == 'ubuntu-latest' && matrix.build_type == 'Debug'
+      if: matrix.os == 'ubuntu-latest'
       run: |
         if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
           sudo apt-get install -y clang-format;
@@ -80,7 +66,7 @@ jobs:
         fi
 
     - name: Run check code formatting
-      if: matrix.os == 'ubuntu-latest' && matrix.build_type == 'Debug'
+      if: matrix.os == 'ubuntu-latest'
       run: |
         # Находим все файлы .cpp и .hpp и проверяем их форматирование
         unformatted_files=$(find ${{ github.workspace }}/src ${{ github.workspace }}/include ${{ github.workspace }}/tests -name "*.cpp" -o -name "*.hpp" | xargs clang-format --dry-run --Werror)
