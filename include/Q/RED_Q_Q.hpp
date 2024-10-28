@@ -10,7 +10,7 @@
     Принимает:
         a - дробь
     Возвращает:
-        b - сокращенная дробь
+        LongRational(p, q) - сокращенная дробь с числителем p, знаменателем q
 */
 
 LongRational RED_Q_Q(const LongRational &a);

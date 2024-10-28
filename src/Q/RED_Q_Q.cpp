@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "../include/N/LongNatural.hpp"
-#include "../include/N/LongInteger.hpp"
+#include "../include/Z/LongInteger.hpp"
 #include "../include/Q/LongRational.hpp"
 #include "../include/Q/ABS_Z_N.hpp"
 #include "../include/Q/GCF_NN_N.hpp"
