@@ -1,8 +1,8 @@
 #ifndef TRANS_N_Z_HPP
 #define TRANS_N_Z_HPP
 
-#include <N/LongNatural.hpp>
-#include <Z/LongInteger.hpp>
+#include "N/LongNatural.hpp"
+#include "Z/LongInteger.hpp"
 
 /*
     Выполнила Киреева Асия 3381
