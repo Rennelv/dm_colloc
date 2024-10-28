@@ -13,7 +13,6 @@
         true/false - равно/не равно нулю
 */
 
-
 bool NZER_N_B(const LongNatural &a);
 
-#endif // NZER_N_B_HPP
+#endif  // NZER_N_B_HPP
