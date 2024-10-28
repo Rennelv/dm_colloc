@@ -6,9 +6,9 @@
 #include "../include/N/LongNatural.hpp"
 #include "../include/Z/LongInteger.hpp"
 #include "../include/Q/LongRational.hpp"
-#include "../include/Q/ABS_Z_N.hpp"
-#include "../include/Q/GCF_NN_N.hpp"
-#include "../include/Q/ABS_Z_N.hpp"
+#include "../include/Z/ABS_Z_N.hpp"
+#include "../include/N/GCF_NN_N.hpp"
+#include "../include/Z/ABS_Z_N.hpp"
 
 using namespace std;
 
