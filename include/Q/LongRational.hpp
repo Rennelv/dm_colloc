@@ -21,6 +21,9 @@ class LongRational {
     LongInteger getNumerator() const;    // возвращает числитель
     LongNatural getDenominator() const;  // возвращает знаменатель
     std::string toString() const;        // возвращает число в виде строки (числитель / знаменатель)
+
+    bool operator==(const LongRational& other) const;  // оператор сравнения (проверяет равенство числителей и знаменателей)
+    bool operator!=(const LongRational& other) const;  // оператор сравнения (проверяет равенство числителей и знаменателей)
 };
 
 #endif  // LONGRATIONAL_HPP

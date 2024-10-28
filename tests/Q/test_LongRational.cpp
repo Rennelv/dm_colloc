@@ -25,7 +25,7 @@ TEST(LongRationalTest, ToString) {
     LongNatural denominator("456");
     LongRational rational(numerator, denominator);
 
-    EXPECT_EQ(rational.toString(), "123 / 456");
+    EXPECT_EQ(rational.toString(), "123/456");
 }
 
 TEST(LongRationalTest, GetNumerator) {
