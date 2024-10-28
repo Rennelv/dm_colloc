@@ -24,7 +24,7 @@ std::vector<LongRational> Polynomial::getArr() const {
 std::string Polynomial::toString() const {
     std::string result;
     for (size_t i = 0; i < coefficients.size(); i++) {
-        if (coefficients[i].toString() == "0") {  // ЪЪЪ *заменить на NZER_N_B*
+        if (coefficients[i].getNumerator().toString() == "0") {  // ЪЪЪ *заменить на NZER_N_B*
             continue;
         }
         result += "(" + coefficients[i].toString() + ")";  // ЪЪЪ

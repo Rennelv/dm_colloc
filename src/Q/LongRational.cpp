@@ -17,5 +17,13 @@ LongNatural LongRational::getDenominator() const {
 }
 
 std::string LongRational::toString() const {
-    return numerator.toString() + " / " + denominator.toString();
+    return numerator.toString() + "/" + denominator.toString();
+}
+
+bool LongRational::operator==(const LongRational& other) const {
+    return this->denominator == other.denominator && this->numerator == other.numerator;  // если числители равны и знаменатели равны -> true, иначе false
+}
+
+bool LongRational::operator!=(const LongRational& other) const {
+    return !(*this == other);  // Если числа не равны, то они не равны
 }
