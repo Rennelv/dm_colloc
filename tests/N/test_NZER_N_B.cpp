@@ -7,8 +7,7 @@
 
 using namespace std;
 
-TEST(Test_NZER_N_B, N2)
-{
+TEST(Test_NZER_N_B, N2) {
     LongNatural a({0});
     LongNatural b({2, 0, 3});
     LongNatural c({1, 0});
