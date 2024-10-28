@@ -14,9 +14,9 @@
 */
 
 class LongInteger {
-    bool negative;
-    std::vector<uint8_t> arr;
-    void trimLeadingZeroes();
+    bool negative;             // флаг знака числа
+    std::vector<uint8_t> arr;  // вектор цифр числа (0 - старший разряд)
+    void trimLeadingZeroes();  // вспомогательный метод для удаления ведущих нулей
 
    public:
     LongInteger(bool isNegative, std::initializer_list<uint8_t> list);  // создает число из списка инциализации
@@ -25,15 +25,15 @@ class LongInteger {
     LongInteger(bool isNegative, const std::string& string);  // создает число из строки, принимает знак и строку натурального числа
     LongInteger(const std::string& string);  // создает число из строки, принимает строку целого числа(знак и натуральное число)
 
-    bool isNegative() const;              // возвращает знак числа
-    uint8_t at(size_t i) const;           // возвращает i-ый элемент массива числа (0 - старший разряд)
-    uint8_t radix(size_t i) const;        // возвращает i-ый разряд числа (0 - младший разряд)
-    std::vector<uint8_t> getArr() const;  // возвращает вектор числа
-    std::string toString() const;         // возвращает строку числа
-    size_t getLength() const;             // возвращает количество цифр числа
+    bool isNegative() const;                     // возвращает знак числа
+    uint8_t at(size_t i) const;                  // возвращает i-ый элемент массива числа (0 - старший разряд)
+    uint8_t radix(size_t i) const;               // возвращает i-ый разряд числа (0 - младший разряд)
+    const std::vector<uint8_t>& getArr() const;  // возвращает вектор числа
+    std::string toString() const;                // возвращает строку числа
+    size_t getLength() const;                    // возвращает количество цифр числа
 
-    bool operator==(const LongInteger& other) const;  // оператор сравнения
-    bool operator!=(const LongInteger& other) const;  // оператор сравнения
+    bool operator==(const LongInteger& other) const;  // оператор сравнения (проверяет равенство знаков и массивов цифр)
+    bool operator!=(const LongInteger& other) const;  // оператор сравнения (проверяет равенство знаков и массивов цифр)
 };
 
 #endif  // LONGINTEGER_HPP

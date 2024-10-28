@@ -4,26 +4,33 @@
 #include <initializer_list>
 #include <vector>
 
-#include "Z/LongInteger.hpp"
-
+#include "Q/LongRational.hpp"
 /*
     Выполнил Журавлев Дмитрий 3381
 
-    Класс для работы с многочленами с коэффицентами из днинных целых чисел.
+    Класс для работы с многочленами с коэффицентами из длинных рациональных чисел.
 
 */
 
 class Polynomial {
-    std::vector<LongInteger> coefficients;  // массив коэффициентов
+    std::vector<LongRational> coefficients;  // массив коэффициентов
    public:
-    Polynomial(std::initializer_list<LongInteger> list);  // создает полином из списка коэффициентов
-    Polynomial(size_t n, LongInteger* arr);               // создает полином из массива коэффициентов
-    Polynomial(const std::vector<LongInteger>& vec);      // создает полином из вектора коэффициентов
+    Polynomial(std::initializer_list<LongRational> list);  // создает полином из списка коэффициентов
+    Polynomial(size_t n, LongRational* arr);               // создает полином из массива коэффициентов
+    Polynomial(const std::vector<LongRational>& vec);      // создает полином из вектора коэффициентов
 
-    std::vector<LongInteger> getArr() const;  // возвращает вектор коэффициентов
-    size_t getLength() const;                 // возвращает количество коэффициентов
-    size_t degree() const;                    // возвращает степень полинома
-    std::string toString() const;             // возвращает строку полинома
+    const std::vector<LongRational>& getArr() const;  // возвращает вектор коэффициентов (для работы лучше использовать методы at и getCoef)
+
+    // возвращает i-ый коэффициент из массива коэффициентов (0 - старший коэффициент)
+    LongRational at(size_t i) const;
+    // возвращает i-ый коэффициент при степени deg (0 - свободный член; если deg больше степени полинома или при степени deg коэффициента нет, возвращает 0/1)
+    LongRational getCoef(size_t deg) const;
+
+    size_t getDegree() const;      // возвращает степень полинома
+    std::string toString() const;  // возвращает строку полинома
+
+    bool operator==(const Polynomial& other) const;  // оператор сравнения (проверяет равенство коэффициентов)
+    bool operator!=(const Polynomial& other) const;  // оператор сравнения (проверяет равенство коэффициентов)
 };
 
 #endif
