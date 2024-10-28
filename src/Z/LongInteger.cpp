@@ -71,7 +71,7 @@ void LongInteger::trimLeadingZeroes() {
     }
 }
 
-std::vector<uint8_t> LongInteger::getArr() const {
+const std::vector<uint8_t>& LongInteger::getArr() const {
     return arr;
 }
 
@@ -103,7 +103,7 @@ uint8_t LongInteger::at(size_t i) const {
     }
     return arr[i];
 }
-
+// возвращает i-ый разряд числа (0 - младший разряд)
 uint8_t LongInteger::radix(size_t i) const {
     if (i >= arr.size()) {
         return 0;

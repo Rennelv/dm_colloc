@@ -42,3 +42,11 @@ size_t Polynomial::getLength() const {
 size_t Polynomial::degree() const {
     return coefficients.size() - 1;
 }
+
+bool Polynomial::operator==(const Polynomial& other) const {
+    return this->coefficients == other.coefficients;
+}
+
+bool Polynomial::operator!=(const Polynomial& other) const {
+    return !(*this == other);
+}
