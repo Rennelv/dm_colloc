@@ -1,23 +1,23 @@
 #include "P/Polynomial.hpp"
 
-#include "Z/LongInteger.hpp"
+#include "Q/LongRational.hpp"
 
-Polynomial::Polynomial(std::initializer_list<LongInteger> list) {
+Polynomial::Polynomial(std::initializer_list<LongRational> list) {
     coefficients = list;
 }
 
-Polynomial::Polynomial(size_t n, LongInteger* arr) {
+Polynomial::Polynomial(size_t n, LongRational* arr) {
     coefficients.reserve(n);
     for (size_t i = 0; i < n; i++) {
         coefficients.push_back(arr[i]);
     }
 }
 
-Polynomial::Polynomial(const std::vector<LongInteger>& vec) {
+Polynomial::Polynomial(const std::vector<LongRational>& vec) {
     coefficients = vec;
 }
 
-std::vector<LongInteger> Polynomial::getArr() const {
+std::vector<LongRational> Polynomial::getArr() const {
     return coefficients;
 }
 
@@ -27,7 +27,7 @@ std::string Polynomial::toString() const {
         if (coefficients[i].toString() == "0") {  // ЪЪЪ *заменить на NZER_N_B*
             continue;
         }
-        result += coefficients[i].toString();  // ЪЪЪ
+        result += "(" + coefficients[i].toString() + ")";  // ЪЪЪ
         if (i != this->degree()) {
             result += "x^" + std::to_string(this->degree() - i) + " + ";
         }
