@@ -17,7 +17,7 @@ Polynomial::Polynomial(const std::vector<LongRational>& vec) {
     coefficients = vec;
 }
 
-std::vector<LongRational> Polynomial::getArr() const {
+const std::vector<LongRational>& Polynomial::getArr() const {
     return coefficients;
 }
 
@@ -28,18 +28,14 @@ std::string Polynomial::toString() const {
             continue;
         }
         result += "(" + coefficients[i].toString() + ")";  // ЪЪЪ
-        if (i != this->degree()) {
-            result += "x^" + std::to_string(this->degree() - i) + " + ";
+        if (i != this->getDegree()) {
+            result += "x^" + std::to_string(this->getDegree() - i) + " + ";
         }
     }
     return result;
 }
 
-size_t Polynomial::getLength() const {
-    return coefficients.size();
-}
-
-size_t Polynomial::degree() const {
+size_t Polynomial::getDegree() const {
     return coefficients.size() - 1;
 }
 
@@ -49,4 +45,15 @@ bool Polynomial::operator==(const Polynomial& other) const {
 
 bool Polynomial::operator!=(const Polynomial& other) const {
     return !(*this == other);
+}
+
+LongRational Polynomial::at(size_t i) const {
+    return coefficients[i];
+}
+
+LongRational Polynomial::getCoef(size_t deg) const {
+    if (deg >= coefficients.size()) {
+        return LongRational(LongInteger{"0"}, LongNatural{"1"});
+    }
+    return coefficients[coefficients.size() - deg - 1];
 }

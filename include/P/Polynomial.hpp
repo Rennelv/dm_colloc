@@ -19,10 +19,11 @@ class Polynomial {
     Polynomial(size_t n, LongRational* arr);               // создает полином из массива коэффициентов
     Polynomial(const std::vector<LongRational>& vec);      // создает полином из вектора коэффициентов
 
-    std::vector<LongRational> getArr() const;  // возвращает вектор коэффициентов
-    size_t getLength() const;                  // возвращает количество коэффициентов
-    size_t degree() const;                     // возвращает степень полинома
-    std::string toString() const;              // возвращает строку полинома
+    const std::vector<LongRational>& getArr() const;  // возвращает вектор коэффициентов
+    LongRational at(size_t i) const;  // возвращает i-ый коэффициент из массива коэффициентов (0 - старший коэффициент)
+    LongRational getCoef(size_t deg) const;  // возвращает i-ый коэффициент при степени deg (0 - свободный член)
+    size_t getDegree() const;                // возвращает степень полинома
+    std::string toString() const;            // возвращает строку полинома
 
     bool operator==(const Polynomial& other) const;  // оператор сравнения (проверяет равенство коэффициентов)
     bool operator!=(const Polynomial& other) const;  // оператор сравнения (проверяет равенство коэффициентов)
