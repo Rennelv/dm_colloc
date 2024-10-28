@@ -3,7 +3,7 @@
 #include "N/LongNatural.hpp"
 #include "N/SUB_NDN_N.hpp"
 
-TEST(SUB_NDN_N, GreaеterThanProduct) {
+TEST(SUB_NDN_N, GreaterThanProduct) {
     LongNatural a({1, 0, 0, 0, 0});
     LongNatural b({1, 0, 0});
     uint8_t k(4);
