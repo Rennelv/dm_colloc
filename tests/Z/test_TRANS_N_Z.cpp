@@ -6,6 +6,6 @@
 
 TEST(test_TRANS_N_Z, PositiveNumber)
 {
-    LongNatural a(false, {1, 2, 3});           // 123
+    LongNatural a({1, 2, 3});           // 123
     EXPECT_EQ(TRANS_N_Z(a).toString(), "123"); // 123
 }
