@@ -1,5 +1,6 @@
+#include <gtest/gtest.h>
+
 #include "N/LongNatural.hpp"
-#include "gtest/gtest.h"
 
 TEST(LongNaturalTest, InitializerListConstructor) {
     LongNatural ln = {1, 2, 3, 4, 5};

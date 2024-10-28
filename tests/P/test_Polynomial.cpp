@@ -1,8 +1,9 @@
+#include <gtest/gtest.h>
+
 #include "N/LongNatural.hpp"
 #include "P/Polynomial.hpp"
 #include "Q/LongRational.hpp"
 #include "Z/LongInteger.hpp"
-#include "gtest/gtest.h"
 
 TEST(PolynomialTest, ConstructorFromInitializerList) {
     Polynomial p = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
@@ -45,4 +46,26 @@ TEST(PolynomialTest, Degree) {
     Polynomial p = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
                     LongRational(LongInteger{"3"}, LongNatural{"1"})};
     EXPECT_EQ(p.degree(), 2);
+}
+
+TEST(PolynomialTest, EqualityOperator) {
+    Polynomial p1 = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                     LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    Polynomial p2 = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                     LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    Polynomial p3 = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"})};
+
+    EXPECT_TRUE(p1 == p2);
+    EXPECT_FALSE(p1 == p3);
+}
+
+TEST(PolynomialTest, InequalityOperator) {
+    Polynomial p1 = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                     LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    Polynomial p2 = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                     LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    Polynomial p3 = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"})};
+
+    EXPECT_FALSE(p1 != p2);
+    EXPECT_TRUE(p1 != p3);
 }
