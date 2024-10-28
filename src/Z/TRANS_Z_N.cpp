@@ -1,5 +1,7 @@
 #include "Z/TRANS_Z_N.hpp"
 
+#include <stdexcept>
+
 LongNatural TRANS_Z_N(const LongInteger &n) {
     std::vector<uint8_t> newArr = n.getArr();  // получаем массив цифр целого числа n
     if (newArr[0] == 0) {
