@@ -11,14 +11,15 @@ LongNatural DIV_NN_N(LongNatural& a, LongNatural& b) {
         throw std::logic_error("Divider is zero");
     }
 
+    LongNatural a_copy = a;    // сохоаняем изначальное число
     LongNatural result = {0};  // число для результатом
     LongNatural tmp = {1};     // ЪЪЪ
 
     while (NZER_N_B(tmp)) {  // цикл представляет собой деление в столбик без остатка
-        tmp = DIV_NN_Dk(a, b);  // сохраняем полученную при делении первую цифру умноженную на 10^k, где k - разряд цисла
+        tmp = DIV_NN_Dk(a_copy, b);  // сохраняем полученную при делении первую цифру умноженную на 10^k, где k - разряд цисла
         result = ADD_NN_N(result, tmp);  // суммирует переменные, домноженные на 10^k
         tmp = MUL_NN_N(tmp, b);          // умножаем делитель на получившееся частное
-        a = SUB_NN_N(a, tmp);            // вычитаем это из делимого
+        a_copy = SUB_NN_N(a_copy, tmp);  // вычитаем это из делимого
     }
 
     return result;
