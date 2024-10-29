@@ -18,9 +18,9 @@ class LongRational {
    public:
     LongRational(const LongInteger& numerator, const LongNatural& denominator);
 
-    const LongInteger& getNumerator() const;    // возвращает числитель
-    const LongNatural& getDenominator() const;  // возвращает знаменатель
-    std::string toString() const;               // возвращает число в виде строки (числитель / знаменатель)
+    LongInteger getNumerator() const;    // возвращает числитель
+    LongNatural getDenominator() const;  // возвращает знаменатель
+    std::string toString() const;        // возвращает число в виде строки (числитель / знаменатель)
 
     bool operator==(const LongRational& other) const;  // оператор сравнения (проверяет равенство числителей и знаменателей)
     bool operator!=(const LongRational& other) const;  // оператор сравнения (проверяет равенство числителей и знаменателей)
