@@ -12,7 +12,7 @@
 
 using namespace std;
 
-LongRational MUL_ZZ_Z(const LongInteger &a, const LongInteger &b) {
+LongInteger MUL_ZZ_Z(const LongInteger &a, const LongInteger &b) {
     if (POZ_Z_D(a) == 0 || POZ_Z_D(b) == 0) {  // проверяем, есть ли среди чисел ноль
         LongInteger c(false, {0});  // создаем целое нулевое число, если одно из чисел ноль
         return c;  // возвращаем ноль
