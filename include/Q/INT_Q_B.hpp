@@ -17,6 +17,6 @@
         если знаменатель не равен единице, то число нецелое - 0
 */
 
-int INT_Q_B(const LongRational &n);
+bool INT_Q_B(const LongRational &n);
 
 #endif
