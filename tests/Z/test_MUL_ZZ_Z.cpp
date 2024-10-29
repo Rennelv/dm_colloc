@@ -8,7 +8,7 @@ using namespace std;
 
 TEST(Test_MUL_ZZ_Z, Z8) {
     LongInteger a(false, {1, 2, 3});
-    LongInteger b(false, {4 ,8});
+    LongInteger b(false, {4, 8});
     LongInteger c(false, {0});
     LongInteger d(true, {4, 0, 5});
     LongInteger e(true, {2, 3});
