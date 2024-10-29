@@ -41,3 +41,10 @@ TEST(test_DIV_NN_Dk, DivideByZero) {
     // деление на 0 не определено
     EXPECT_THROW(DIV_NN_Dk(a5, b5), std::logic_error);
 }
+
+TEST(test_DIV_NN_Dk, ZeroIsFirst) {
+    LongNatural a5({1, 2, 3});  // 123
+    LongNatural b5({0});        // 0
+    // деление на 0 не определено
+    EXPECT_THROW(DIV_NN_Dk(a5, b5), std::logic_error);
+}

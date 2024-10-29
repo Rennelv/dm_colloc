@@ -3,9 +3,10 @@
 #include "N/COM_NN_D.hpp"
 #include "N/MUL_ND_N.hpp"
 #include "N/MUL_Nk_N.hpp"
+#include "N/NZER_N_B.hpp"
 
 LongNatural DIV_NN_Dk(LongNatural& a, LongNatural& b) {
-    if ((b.getLength() == 1 && b.at(0) == 0) || (a.getLength() == 1 && a.at(0) == 0)) {
+    if (!NZER_N_B(b)) {
         throw std::logic_error("Division by zero is undefined.");
     }
 
