@@ -32,5 +32,4 @@ LongInteger MUL_ZZ_Z(const LongInteger &a, const LongInteger &b) {
         c = MUL_ZM_Z(c);  // умножаем произведение модулей на -1
     }
     return c;  // возвращаем произведение чисел
-    
 }
