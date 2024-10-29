@@ -19,7 +19,7 @@ LongNatural DIV_NN_N(LongNatural& a, LongNatural& b) {
         tmp = DIV_NN_Dk(a_copy, b);  // сохраняем полученную при делении первую цифру умноженную на 10^k, где k - разряд цисла
         result = ADD_NN_N(result, tmp);  // суммирует переменные, домноженные на 10^k
         tmp = MUL_NN_N(tmp, b);          // умножаем делитель на получившееся частное
-        a_copy = SUB_NN_N(a_copy, tmp);       // вычитаем это из делимого
+        a_copy = SUB_NN_N(a_copy, tmp);  // вычитаем это из делимого
     }
 
     return result;
