@@ -11,7 +11,7 @@ LongNatural DIV_NN_N(LongNatural& a, LongNatural& b) {
         throw std::logic_error("Divider is zero");
     }
 
-    LongNatural a_copy = a;    // сохоаняем изначальное число
+    LongNatural a_copy = a;    // сохраняем изначальное число
     LongNatural result = {0};  // число для результатом
     LongNatural tmp = {1};     // ЪЪЪ
 
