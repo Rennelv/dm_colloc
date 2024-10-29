@@ -18,6 +18,10 @@ Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coeffic
     }
 }
 
+const std::map<LongNatural, LongRational>& Polynomial::getMap() const {
+    return coefficients;
+}
+
 LongRational Polynomial::getCoef(const LongNatural& degree) const {
     if (coefficients.find(degree) == coefficients.end()) {
         return LongRational(LongInteger("0"), LongNatural("1"));
@@ -25,7 +29,7 @@ LongRational Polynomial::getCoef(const LongNatural& degree) const {
     return coefficients.at(degree);
 }
 
-LongNatural Polynomial::getDegree() const {
+const LongNatural& Polynomial::getDegree() const {
     return degree;
 }
 

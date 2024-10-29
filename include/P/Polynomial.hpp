@@ -18,9 +18,10 @@ class Polynomial {
    public:
     Polynomial(const std::map<LongNatural, LongRational>& map);  // создает полином из мапа коэффициентов
 
-    LongRational getCoef(const LongNatural& degree) const;  // возвращает коэффициент при степени
-    LongNatural getDegree() const;                          // возвращает степень полинома
-    std::string toString() const;                           // возвращает строку полинома
+    const std::map<LongNatural, LongRational>& getMap() const;  // возвращает мап коэффициентов
+    LongRational getCoef(const LongNatural& degree) const;      // возвращает коэффициент при степени
+    const LongNatural& getDegree() const;                       // возвращает степень полинома
+    std::string toString() const;                               // возвращает строку полинома
 
     bool operator==(const Polynomial& other) const;  // оператор сравнения (проверяет равенство коэффициентов)
     bool operator!=(const Polynomial& other) const;  // оператор сравнения (проверяет равенство коэффициентов)
