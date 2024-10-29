@@ -16,7 +16,6 @@ TEST(Test_MUL_ZZ_Z, Z8) {
     LongInteger ans1(false, {5, 9, 0, 4});
     LongInteger ans2(true, {1, 9, 4, 4, 0});
     LongInteger ans3(false, {9, 3, 1, 5});
-    
     EXPECT_EQ(MUL_ZZ_Z(a, b), ans1);
     EXPECT_EQ(MUL_ZZ_Z(b, d), ans2);
     EXPECT_EQ(MUL_ZZ_Z(d, e), ans3);
