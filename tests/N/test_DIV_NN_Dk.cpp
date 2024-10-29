@@ -15,8 +15,8 @@ TEST(test_DIV_NN_Dk, SecondDigitIsLarger) {
     LongNatural a2({9});              // 9
     LongNatural b2({1, 5, 4, 9, 8});  // 15498
     LongNatural result = DIV_NN_Dk(a2, b2);
-    // 9 и 15498 должны поменяться местами, затем также, как в 1 тесте
-    EXPECT_EQ(result.toString(), "1000");
+    // 9 / 15498 = 0
+    EXPECT_EQ(result.toString(), "0");
 }
 
 TEST(test_DIV_NN_Dk, EqualNumbers) {

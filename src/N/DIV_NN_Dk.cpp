@@ -9,8 +9,9 @@ LongNatural DIV_NN_Dk(LongNatural& a, LongNatural& b) {
         throw std::logic_error("Division by zero is undefined.");
     }
 
-    if (COM_NN_D(a, b) == 1) {  // если второе число больше первого, меняем их местами
-        std::swap(a, b);
+    if (COM_NN_D(a, b) == 1) {  // если второе число больше первого, возвращаем ноль
+        LongNatural res = {0};
+        return res;
     }
 
     LongNatural scaledB = b;
