@@ -21,7 +21,7 @@ LongInteger MUL_ZZ_Z(const LongInteger &a, const LongInteger &b) {
     if (a.isNegative()) {  // узнаем знак числа a
         flag++;  // увеличием значение flag'а если число отрицательное
     }
-    if (b.isNegative()) {  //узнаем знак числа b
+    if (b.isNegative()) {  // узнаем знак числа b
         flag++;  // увеличием значение flag'а если число отрицательное
     }
     LongNatural a1 = ABS_Z_N(a);  // находим модуль числа a
@@ -31,5 +31,5 @@ LongInteger MUL_ZZ_Z(const LongInteger &a, const LongInteger &b) {
     if (flag % 2 == 1){  // проверяем, что среди переданных в функцию чиел было одно отрицательное
         c = MUL_ZM_Z(c);  // умножаем произведение модулей на -1
     }
-    return с;  // возвращаем произведение чисел
+    return c;  // возвращаем произведение чисел
 }
