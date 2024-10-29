@@ -10,6 +10,11 @@ TEST(test_TRANS_Z_N, PositiveNumber) {
 }
 
 TEST(test_TRANS_N_Z, Zero) {
-    LongInteger a(false, {0});                                     // 0
+    LongInteger a(false, {0});                // 0
+    EXPECT_EQ(TRANS_Z_N(a).toString(), "0");  // 0
+}
+
+TEST(test_TRANS_N_Z, NegativeNumber) {
+    LongInteger a(true, {1, 2, 3});                                // -123
     EXPECT_THROW({ TRANS_Z_N(a).toString(); }, std::logic_error);  // проверка на выброс ошибки
 }
