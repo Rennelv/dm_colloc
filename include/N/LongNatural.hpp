@@ -33,4 +33,15 @@ class LongNatural {
     bool operator!=(const LongNatural& other) const;  // оператор сравнения (проверяет равенство массивов цифр)
 };
 
+int COM_NN_D(const LongNatural& lhs, const LongNatural& rhs);  // Forward declaration
+
+namespace std {
+template <>  // less specialization for LongNatural to use it as key in std::map
+struct less<LongNatural> {
+    bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
+        return COM_NN_D(lhs, rhs) == 2;
+    }
+};
+}  // namespace std
+
 #endif  // LONGNATURAL_HPP
