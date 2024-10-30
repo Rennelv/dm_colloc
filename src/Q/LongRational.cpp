@@ -8,11 +8,11 @@ LongRational::LongRational(const LongInteger& numerator, const LongNatural& deno
     }
 }
 
-const LongInteger& LongRational::getNumerator() const {
+LongInteger LongRational::getNumerator() const {
     return numerator;
 }
 
-const LongNatural& LongRational::getDenominator() const {
+LongNatural LongRational::getDenominator() const {
     return denominator;
 }
 

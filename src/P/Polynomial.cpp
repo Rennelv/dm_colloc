@@ -1,9 +1,8 @@
 #include "P/Polynomial.hpp"
 
-#include "N/COM_NN_D.hpp"
-#include "N/LongNatural.hpp"
+#include <stdexcept>
+
 #include "Q/LongRational.hpp"
-#include "Z/LongInteger.hpp"
 
 Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coefficients(map), degree(LongNatural("0")) {
     std::map<LongNatural, LongRational> temp_map = coefficients;
@@ -18,7 +17,11 @@ Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coeffic
     }
 }
 
-const std::map<LongNatural, LongRational>& Polynomial::getMap() const {
+Polynomial::Polynomial(const std::vector<LongRational>& vec) {
+    coefficients = vec;
+}
+
+const std::vector<LongRational>& Polynomial::getArr() const {
     return coefficients;
 }
 
@@ -33,11 +36,11 @@ LongRational Polynomial::getCoef(const LongNatural& degree) const {
     if (coefficients.find(degree) == coefficients.end()) {
         return LongRational(LongInteger("0"), LongNatural("1"));  // если не найден вернуть 0/1
     }
-    return coefficients.at(degree);
+    return result;
 }
 
-const LongNatural& Polynomial::getDegree() const {
-    return degree;
+size_t Polynomial::getDegree() const {
+    return coefficients.size() - 1;
 }
 
 std::string Polynomial::toString() const {
@@ -52,10 +55,14 @@ std::string Polynomial::toString() const {
         // если строка получается больше 10000 символово обрезаем строку
         if (result.size() > 10000) return result.substr(0, result.size() - 3) + "...";
     }
-    if (result.empty()) {
-        return "0";
+    return coefficients[i];
+}
+
+LongRational Polynomial::getCoef(size_t deg) const {
+    if (deg >= coefficients.size()) {
+        return LongRational(LongInteger{"0"}, LongNatural{"1"});
     }
-    return result.substr(0, result.size() - 3);
+    return coefficients[coefficients.size() - deg - 1];
 }
 
 bool Polynomial::operator==(const Polynomial& other) const {

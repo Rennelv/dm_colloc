@@ -5,82 +5,78 @@
 #include "Q/LongRational.hpp"
 #include "Z/LongInteger.hpp"
 
-// Test for Polynomial constructor and getDegree method
-TEST(PolynomialTest, ConstructorAndGetDegree) {
-    std::map<LongNatural, LongRational> coefficients = {{LongNatural("2"), LongRational(LongInteger("3"), LongNatural("1"))},
-                                                        {LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1"))}};
-    Polynomial p(coefficients);
-    EXPECT_EQ(p.getDegree(), LongNatural("2"));
+TEST(PolynomialTest, ConstructorFromInitializerList) {
+    Polynomial p = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                    LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    std::vector<LongRational> expected = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                                          LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    EXPECT_EQ(p.getArr(), expected);
 }
 
-// Test for getCoef method
-TEST(PolynomialTest, GetCoef) {
-    std::map<LongNatural, LongRational> coefficients = {{LongNatural("2"), LongRational(LongInteger("3"), LongNatural("1"))},
-                                                        {LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1"))}};
-    Polynomial p(coefficients);
-    EXPECT_EQ(p.getCoef(LongNatural("2")), LongRational(LongInteger("3"), LongNatural("1")));
-    EXPECT_EQ(p.getCoef(LongNatural("1")), LongRational(LongInteger("0"), LongNatural("1")));
+TEST(PolynomialTest, ConstructorFromArray) {
+    LongRational arr[] = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                          LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    Polynomial p(3, arr);
+    std::vector<LongRational> expected = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                                          LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    EXPECT_EQ(p.getArr(), expected);
 }
 
-// Test for toString method
+TEST(PolynomialTest, ConstructorFromVector) {
+    std::vector<LongRational> vec = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                                     LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    Polynomial p(vec);
+    EXPECT_EQ(p.getArr(), vec);
+}
+
 TEST(PolynomialTest, ToString) {
-    std::map<LongNatural, LongRational> coefficients = {{LongNatural("2"), LongRational(LongInteger("3"), LongNatural("1"))},
-                                                        {LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1"))}};
-    Polynomial p(coefficients);
-    EXPECT_EQ(p.toString(), "(3/1)x^2 + 1/1");
+    Polynomial p = {LongRational(LongInteger{"-1"}, LongNatural{"1"}), LongRational(LongInteger{"0"}, LongNatural{"1"}),
+                    LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    std::string expected = "(-1/1)x^2 + (3/1)";
+    EXPECT_EQ(p.toString(), expected);
 }
 
-// Test for empty polynomial
-TEST(PolynomialTest, EmptyPolynomial) {
-    std::map<LongNatural, LongRational> coefficients;
-    Polynomial p(coefficients);
-    EXPECT_EQ(p.getDegree(), LongNatural("0"));
-    EXPECT_EQ(p.toString(), "0");
+TEST(PolynomialTest, Degree) {
+    Polynomial p = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                    LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    EXPECT_EQ(p.getDegree(), 2);
 }
 
-// Test for polynomial with zero coefficients
-TEST(PolynomialTest, ZeroCoefficients) {
-    std::map<LongNatural, LongRational> coefficients = {{LongNatural("2"), LongRational(LongInteger("0"), LongNatural("1"))},
-                                                        {LongNatural("1"), LongRational(LongInteger("0"), LongNatural("1"))},
-                                                        {LongNatural("0"), LongRational(LongInteger("0"), LongNatural("1"))}};
-    Polynomial p(coefficients);
-    EXPECT_EQ(p.getDegree(), LongNatural("0"));
-    EXPECT_EQ(p.toString(), "0");
-}
-
-// Test for equality operator
 TEST(PolynomialTest, EqualityOperator) {
-    std::map<LongNatural, LongRational> coefficients1 = {{LongNatural("2"), LongRational(LongInteger("3"), LongNatural("1"))},
-                                                         {LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1"))}};
-    std::map<LongNatural, LongRational> coefficients2 = {{LongNatural("2"), LongRational(LongInteger("3"), LongNatural("1"))},
-                                                         {LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1"))}};
-    Polynomial p1(coefficients1);
-    Polynomial p2(coefficients2);
+    Polynomial p1 = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                     LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    Polynomial p2 = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"}),
+                     LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    Polynomial p3 = {LongRational(LongInteger{"1"}, LongNatural{"1"}), LongRational(LongInteger{"2"}, LongNatural{"1"})};
+
     EXPECT_TRUE(p1 == p2);
+    EXPECT_FALSE(p1 == p3);
 }
 
-// Test for inequality operator
-TEST(PolynomialTest, InequalityOperator) {
-    std::map<LongNatural, LongRational> coefficients1 = {{LongNatural("2"), LongRational(LongInteger("3"), LongNatural("1"))},
-                                                         {LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1"))}};
-    std::map<LongNatural, LongRational> coefficients2 = {{LongNatural("1"), LongRational(LongInteger("3"), LongNatural("1"))},
-                                                         {LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1"))}};
-    Polynomial p1(coefficients1);
-    Polynomial p2(coefficients2);
-    EXPECT_TRUE(p1 != p2);
+TEST(PolynomialTest, ZeroPolynomial) {
+    Polynomial p = {LongRational(LongInteger{"0"}, LongNatural{"1"}), LongRational(LongInteger{"0"}, LongNatural{"1"}),
+                    LongRational(LongInteger{"0"}, LongNatural{"1"})};
+    std::vector<LongRational> expected = {LongRational(LongInteger{"0"}, LongNatural{"1"}), LongRational(LongInteger{"0"}, LongNatural{"1"}),
+                                          LongRational(LongInteger{"0"}, LongNatural{"1"})};
+    EXPECT_EQ(p.getArr(), expected);
+    EXPECT_EQ(p.getDegree(), 2);
+    EXPECT_EQ(p.toString(), "");
+    EXPECT_EQ(p.at(0), LongRational(LongInteger{"0"}, LongNatural{"1"}));
+    EXPECT_EQ(p.getCoef(2), LongRational(LongInteger{"0"}, LongNatural{"1"}));
 }
 
-// Test for polynomial with leading zero coefficients
 TEST(PolynomialTest, LeadingZeroCoefficients) {
-    std::map<LongNatural, LongRational> coefficients = {{LongNatural("3"), LongRational(LongInteger("0"), LongNatural("1"))},
-                                                        {LongNatural("2"), LongRational(LongInteger("3"), LongNatural("1"))},
-                                                        {LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1"))}};
-    Polynomial p(coefficients);
-    EXPECT_EQ(p.getDegree(), LongNatural("2"));
-    EXPECT_EQ(p.toString(), "(3/1)x^2 + 1/1");
+    Polynomial p = {LongRational(LongInteger{"0"}, LongNatural{"1"}), LongRational(LongInteger{"0"}, LongNatural{"1"}),
+                    LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    std::vector<LongRational> expected = {LongRational(LongInteger{"0"}, LongNatural{"1"}), LongRational(LongInteger{"0"}, LongNatural{"1"}),
+                                          LongRational(LongInteger{"3"}, LongNatural{"1"})};
+    EXPECT_EQ(p.getArr(), expected);
+    EXPECT_EQ(p.getDegree(), 2);
+    EXPECT_EQ(p.toString(), "(3/1)");
+    EXPECT_EQ(p.at(2), LongRational(LongInteger{"3"}, LongNatural{"1"}));
+    EXPECT_EQ(p.getCoef(0), LongRational(LongInteger{"3"}, LongNatural{"1"}));
 }
 
-// Test for polynomial with negative coefficients
 TEST(PolynomialTest, NegativeCoefficients) {
     std::map<LongNatural, LongRational> coefficients = {{LongNatural("2"), LongRational(LongInteger("-3"), LongNatural("1"))},
                                                         {LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1"))}};

@@ -3,14 +3,16 @@
 #include "N/COM_NN_D.hpp"
 #include "N/MUL_ND_N.hpp"
 #include "N/MUL_Nk_N.hpp"
+#include "N/NZER_N_B.hpp"
 
-LongNatural DIV_NN_Dk(LongNatural& a, LongNatural& b) {
-    if ((b.getLength() == 1 && b.at(0) == 0) || (a.getLength() == 1 && a.at(0) == 0)) {
+LongNatural DIV_NN_Dk(const LongNatural& a, const LongNatural& b) {
+    if (!NZER_N_B(b)) {
         throw std::logic_error("Division by zero is undefined.");
     }
 
-    if (COM_NN_D(a, b) == 1) {  // если второе число больше первого, меняем их местами
-        std::swap(a, b);
+    if (COM_NN_D(a, b) == 1) {  // если второе число больше первого, возвращаем ноль
+        LongNatural res = {0};
+        return res;
     }
 
     LongNatural scaledB = b;

@@ -1,11 +1,11 @@
 #ifndef POLYNOMIAL_HPP
 #define POLYNOMIAL_HPP
 
-#include <map>
+#include <initializer_list>
+#include <vector>
 
 #include "N/COM_NN_D.hpp"
 #include "N/LongNatural.hpp"
-#include "Q/LongRational.hpp"
 
 namespace std {
 template <>  // Объявление less для создания std::map коэффицентов с ключем LongNatural. map требует возможность сравнения ключей
