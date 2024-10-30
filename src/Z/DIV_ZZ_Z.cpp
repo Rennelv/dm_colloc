@@ -18,13 +18,8 @@ LongInteger DIV_ZZ_Z(const LongInteger& dividend, const LongInteger& divisor) {
     // Выполнение деления натуральных чисел
     LongNatural quotient = DIV_NN_N(abs_dividend, abs_divisor);
 
-    // Преобразование результата в целое число
-    LongInteger result = TRANS_N_Z(quotient);
-
-    // Если знаки разные, делаем результат отрицательным
-    if (sign_dividend != sign_divisor) {
-        result = MUL_ZM_Z(result);
-    }
+    // Создаю целое число из знака и натурального (натуральное заранее преобразую в целое)
+    LongInteger result(sign_dividend != sign_divisor, TRANS_N_Z(quotient).getArr());
 
     return result;
 }
