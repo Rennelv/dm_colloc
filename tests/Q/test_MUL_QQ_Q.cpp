@@ -55,7 +55,7 @@ TEST(Test_MUL_QQ_Q, Q7_4) {
     LongInteger p2(true, {1, 4});
     LongNatural q2({1, 5});
     LongRational b4(p2, q2);
-    LongInteger p3(false, {0});
+    LongInteger p3(true, {0});
     LongNatural q3({1});
     LongRational ans4(p2, q3);
 
