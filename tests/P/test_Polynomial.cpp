@@ -98,7 +98,7 @@ TEST(PolynomialTest, LargeCoefficients) {
     EXPECT_EQ(p.toString(), "(12345678901234567890/1)x^2 + 98765432109876543210/1");
 }
 
-// Test for polynomial with large coefficients
+// Test isCoefZero for polynomial with large coefficients
 TEST(PolynomialTest, IsZero) {
     std::map<LongNatural, LongRational> coefficients = {{LongNatural("2"), LongRational(LongInteger("0"), LongNatural("1"))},
                                                         {LongNatural("0"), LongRational(LongInteger("98765432109876543210"), LongNatural("1"))}};

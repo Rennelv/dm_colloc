@@ -21,8 +21,6 @@ class LongInteger {
    public:
     // Создает число из списка инциализации
     LongInteger(bool isNegative, std::initializer_list<uint8_t> list);
-    // Создает число из массива
-    LongInteger(bool isNegative, size_t n, int* arr);
     // Создает число из вектора
     LongInteger(bool isNegative, const std::vector<uint8_t>& vec);
     // Создает число из строки, принимает знак и строку натурального числа

@@ -11,17 +11,6 @@ TEST(LongNaturalTest, InitializerListConstructorInvalid) {
     EXPECT_THROW(LongNatural ln({1, 2, 10}), std::invalid_argument);
 }
 
-TEST(LongNaturalTest, ArrayConstructor) {
-    int arr[] = {1, 2, 3, 4, 5};
-    LongNatural ln(5, arr);
-    EXPECT_EQ(ln.toString(), "12345");
-}
-
-TEST(LongNaturalTest, ArrayConstructorInvalid) {
-    int arr[] = {1, 2, -1};
-    EXPECT_THROW(LongNatural ln(3, arr), std::invalid_argument);
-}
-
 TEST(LongNaturalTest, VectorConstructor) {
     std::vector<uint8_t> vec = {1, 2, 3, 4, 5};
     LongNatural ln(vec);

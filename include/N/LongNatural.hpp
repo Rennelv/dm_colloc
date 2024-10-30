@@ -20,8 +20,6 @@ class LongNatural {
    public:
     // Создает число из списка инциализации
     LongNatural(std::initializer_list<uint8_t> list);
-    // Создает число из массива
-    LongNatural(size_t n, int* arr);
     // Создает число из вектора
     LongNatural(const std::vector<uint8_t>& vec);
     // Создает число из строки

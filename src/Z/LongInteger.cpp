@@ -12,26 +12,12 @@ LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : n
     trimLeadingZeroes();
 }
 
-LongInteger::LongInteger(bool negative, size_t n, int* arr) : negative(negative) {
-    for (size_t i = 0; i < n; i++) {
-        if (arr[i] > 9 || arr[i] < 0) {
-            throw std::invalid_argument("LongInteger::LongInteger: passed array element is invalid");
-        }
-    }
-    this->arr.reserve(n);
-    for (size_t i = 0; i < n; i++) {
-        this->arr.push_back(static_cast<uint8_t>(arr[i]));
-    }
-    trimLeadingZeroes();
-}
-
-LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negative(negative) {
+LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negative(negative), arr(vec) {
     for (size_t i = 0; i < vec.size(); i++) {
         if (vec[i] > 9) {
             throw std::invalid_argument("LongInteger::LongInteger: passed vector element is invalid");
         }
     }
-    arr = vec;
     trimLeadingZeroes();
 }
 
@@ -46,20 +32,7 @@ LongInteger::LongInteger(bool negative, const std::string& string) : negative(ne
     trimLeadingZeroes();
 }
 
-LongInteger::LongInteger(const std::string& string) {
-    negative = false;
-    if (string[0] == '-') {
-        negative = true;
-    }
-
-    arr.reserve(string.size() - negative);
-    for (size_t i = negative; i < string.size(); i++) {
-        if (string[i] < '0' || string[i] > '9') {
-            throw std::invalid_argument("LongNatural constructor error: passed string element is invalid");
-        }
-        arr.push_back(static_cast<uint8_t>(string[i] - '0'));
-    }
-    trimLeadingZeroes();
+LongInteger::LongInteger(const std::string& string) : LongInteger(string[0] == '-', string[0] == '-' ? string.substr(1) : string) {
 }
 
 void LongInteger::trimLeadingZeroes() {

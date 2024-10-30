@@ -5,7 +5,7 @@
 #include "Q/LongRational.hpp"
 #include "Z/LongInteger.hpp"
 
-Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coefficients(map), degree(LongNatural("0")) {
+Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coefficients(map), degree({0}), zero(LongInteger(false, {0}), LongNatural({1})) {
     std::map<LongNatural, LongRational> temp_map = coefficients;
     for (const auto& [deg, coef] : temp_map) {
         if (coef.getNumerator() == LongInteger("0")) {
@@ -29,9 +29,9 @@ bool Polynomial::isCoefZero(const LongNatural& degree) const {
     return false;
 }
 
-LongRational Polynomial::getCoef(const LongNatural& degree) const {
+const LongRational& Polynomial::getCoef(const LongNatural& degree) const {
     if (coefficients.find(degree) == coefficients.end()) {
-        return LongRational(LongInteger("0"), LongNatural("1"));  // если не найден вернуть 0/1
+        return zero;  // если не найден вернуть 0/1
     }
     return coefficients.at(degree);
 }

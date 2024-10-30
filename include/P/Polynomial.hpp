@@ -28,19 +28,21 @@ class Polynomial {
     std::map<LongNatural, LongRational> coefficients;
     // Степень полинома
     LongNatural degree;
+    // Нулевое рациональное число для возврата const& при получении коэффицента
+    LongRational zero;
 
    public:
     // Создает полином из мап коэффициентов
     Polynomial(const std::map<LongNatural, LongRational>& map);
 
-    // Возвращает мап коэффициентов (const&). Для получения коэффицентов лучше использовать isCoefZero и getCoef
+    // Возвращает мап коэффициентов (const&). Для получения коэффицента при степени лучше использовать isCoefZero и getCoef.
     const std::map<LongNatural, LongRational>& getMap() const;
 
     // Возращает равен ли коэффицент при степени нулю (true - равен, false - не равен)
     bool isCoefZero(const LongNatural& degree) const;
 
-    // Возвращает коэффициент при степени (если коэф=0 возвращает 0/1)
-    LongRational getCoef(const LongNatural& degree) const;
+    // Возвращает коэффициент при степени (const&) (если коэф=0 возвращает 0/1)
+    const LongRational& getCoef(const LongNatural& degree) const;
 
     // Возвращает степень полинома (const&)
     const LongNatural& getDegree() const;
