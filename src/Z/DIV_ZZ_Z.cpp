@@ -19,7 +19,7 @@ LongInteger DIV_ZZ_Z(const LongInteger& dividend, const LongInteger& divisor) {
     LongNatural quotient = DIV_NN_N(abs_dividend, abs_divisor);
 
     // Создаю целое число из знака и натурального (натуральное заранее преобразую в целое)
-    LongInteger result(sign_dividend != sign_divisor, TRANS_N_Z(quotient).getArr());
+    LongInteger result(sign_dividend != sign_divisor, quotient.getArr());
 
     return result;
 }
