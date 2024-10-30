@@ -6,14 +6,14 @@
 #include "Z/LongInteger.hpp"
 
 Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coefficients(map), degree(LongNatural("0")) {
-    std::map<LongNatural, LongRational> tempCoefficients = coefficients;
-    for (const auto& [deg, coef] : tempCoefficients) {
+    std::map<LongNatural, LongRational> temp_map = coefficients;
+    for (const auto& [deg, coef] : temp_map) {
         if (coef.getNumerator() == LongInteger("0")) {
-            coefficients.erase(deg);
+            coefficients.erase(deg);  // стираем нулевые степени
             continue;
         }
         if (COM_NN_D(degree, deg) == 1) {
-            degree = deg;
+            degree = deg;  // степень многочлена равна максимальной степени при не нулевых коэффицентах
         }
     }
 }
@@ -22,9 +22,16 @@ const std::map<LongNatural, LongRational>& Polynomial::getMap() const {
     return coefficients;
 }
 
+bool Polynomial::isCoefZero(const LongNatural& degree) const {
+    if (coefficients.find(degree) == coefficients.end()) {
+        return true;  // если не найден - true
+    }
+    return false;
+}
+
 LongRational Polynomial::getCoef(const LongNatural& degree) const {
     if (coefficients.find(degree) == coefficients.end()) {
-        return LongRational(LongInteger("0"), LongNatural("1"));
+        return LongRational(LongInteger("0"), LongNatural("1"));  // если не найден вернуть 0/1
     }
     return coefficients.at(degree);
 }
@@ -42,6 +49,8 @@ std::string Polynomial::toString() const {
         } else {
             result += "(" + coef.toString() + ")" + "x^" + deg.toString() + " + ";
         }
+        // если строка получается больше 10000 символово обрезаем строку
+        if (result.size() > 10000) return result.substr(0, result.size() - 3) + "...";
     }
     if (result.empty()) {
         return "0";
@@ -50,9 +59,9 @@ std::string Polynomial::toString() const {
 }
 
 bool Polynomial::operator==(const Polynomial& other) const {
-    return coefficients == other.coefficients && degree == other.degree;
+    return coefficients == other.coefficients && degree == other.degree;  // если равны коэффиценты и степени
 }
 
 bool Polynomial::operator!=(const Polynomial& other) const {
-    return coefficients != other.coefficients || degree != other.degree;
+    return !(*this == other);  // обраное к равентсву
 }

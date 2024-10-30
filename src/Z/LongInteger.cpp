@@ -67,7 +67,7 @@ void LongInteger::trimLeadingZeroes() {
         arr.erase(arr.begin());
     }
     if (arr.size() == 1 && arr[0] == 0) {
-        negative = false;
+        negative = false;  // если число равно 0 - ставим знак положительным
     }
 }
 
@@ -96,14 +96,13 @@ size_t LongInteger::getLength() const {
     return arr.size();
 }
 
-// возвращает i-ый элемент массива числа (0 - старший разряд)
 uint8_t LongInteger::at(size_t i) const {
     if (i >= arr.size()) {
         throw std::out_of_range("LongInteger::at: index out of range");
     }
     return arr[i];
 }
-// возвращает i-ый разряд числа (0 - младший разряд)
+
 uint8_t LongInteger::radix(size_t i) const {
     if (i >= arr.size()) {
         return 0;

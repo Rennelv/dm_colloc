@@ -68,7 +68,6 @@ size_t LongNatural::getLength() const {
     return arr.size();
 }
 
-// Возвращает i-ый элемент массива числа (0 - старший разряд)
 uint8_t LongNatural::at(size_t i) const {
     if (i >= arr.size()) {
         throw std::out_of_range("LongNatural::at: index out of range");
@@ -76,7 +75,6 @@ uint8_t LongNatural::at(size_t i) const {
     return arr[i];
 }
 
-// Возвращает i-ый разряд числа (0 - младший разряд)
 uint8_t LongNatural::radix(size_t i) const {
     if (i >= arr.size()) {
         return 0;

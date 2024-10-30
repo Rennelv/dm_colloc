@@ -16,14 +16,22 @@ class LongRational {
     LongNatural denominator;  // знаменатель
 
    public:
+    // Создает число из длинного целого числа(числитель) и длинного натурального числа(знаменатель)
     LongRational(const LongInteger& numerator, const LongNatural& denominator);
 
-    const LongInteger& getNumerator() const;    // возвращает числитель
-    const LongNatural& getDenominator() const;  // возвращает знаменатель
-    std::string toString() const;               // возвращает число в виде строки (числитель / знаменатель)
+    // Возвращает числитель (const&)
+    const LongInteger& getNumerator() const;
 
-    bool operator==(const LongRational& other) const;  // оператор сравнения (проверяет равенство числителей и знаменателей)
-    bool operator!=(const LongRational& other) const;  // оператор сравнения (проверяет равенство числителей и знаменателей)
+    // Возвращает знаменатель (const&)
+    const LongNatural& getDenominator() const;
+
+    // Возвращает число в виде строки (числитель/знаменатель)
+    std::string toString() const;
+
+    // Оператор сравнения (проверяет равенство числителей и знаменателей)
+    bool operator==(const LongRational& other) const;
+    // Оператор сравнения (обратный оператору ==)
+    bool operator!=(const LongRational& other) const;
 };
 
 #endif  // LONGRATIONAL_HPP
