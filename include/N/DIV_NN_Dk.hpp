@@ -19,6 +19,6 @@
         где k - номер позиции этой цифры.
 */
 
-LongNatural DIV_NN_Dk(LongNatural& a, LongNatural& b);
+LongNatural DIV_NN_Dk(const LongNatural& a, const LongNatural& b);
 
 #endif  // DIV_NN_DK_HPP
