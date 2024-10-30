@@ -14,9 +14,9 @@
 using namespace std;
 
 LongRational RED_Q_Q(const LongRational &a) {
-    uint8_t gcf = GCF_NN_N(ABS_Z_N(a.getNumerator()), a.getDenominator());  // находим НОД числителя и знаменателя
-    LongInteger gcfInt(false, gcf.getArr());                                // делаем НОД целым числом
-    LongInteger p = DIV_ZZ_Z(a.getNumerator(), gcfInt);                     // делим числитель на НОД (деленеие целых)
+    LongNatural gcf = GCF_NN_N(ABS_Z_N(a.getNumerator()), a.getDenominator());  // находим НОД числителя и знаменателя
+    LongInteger gcfInt(false, gcf.getArr());                                    // делаем НОД целым числом
+    LongInteger p = DIV_ZZ_Z(a.getNumerator(), gcfInt);                         // делим числитель на НОД (деленеие целых)
     LongNatural q = DIV_NN_N(a.getDenominator(), gcf);  // делим знаменатель на НОД (деление натуральных)
     LongRational b(p, q);                               // создаем сокращенную дробь
     return b;                                           // возвращаем сокращенную дробь
