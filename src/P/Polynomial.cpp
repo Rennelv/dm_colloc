@@ -1,64 +1,67 @@
 #include "P/Polynomial.hpp"
 
-#include <stdexcept>
-
+#include "N/COM_NN_D.hpp"
+#include "N/LongNatural.hpp"
 #include "Q/LongRational.hpp"
+#include "Z/LongInteger.hpp"
 
-Polynomial::Polynomial(std::initializer_list<LongRational> list) {
-    coefficients = list;
-}
-
-Polynomial::Polynomial(size_t n, LongRational* arr) {
-    coefficients.reserve(n);
-    for (size_t i = 0; i < n; i++) {
-        coefficients.push_back(arr[i]);
+Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coefficients(map), degree({0}), zero(LongInteger(false, {0}), LongNatural({1})) {
+    std::map<LongNatural, LongRational> temp_map = coefficients;
+    for (const auto& [deg, coef] : temp_map) {
+        if (coef.getNumerator() == LongInteger("0")) {
+            coefficients.erase(deg);  // стираем нулевые степени
+            continue;
+        }
+        if (COM_NN_D(degree, deg) == 1) {
+            degree = deg;  // степень многочлена равна максимальной степени при не нулевых коэффицентах
+        }
     }
 }
 
-Polynomial::Polynomial(const std::vector<LongRational>& vec) {
-    coefficients = vec;
-}
-
-const std::vector<LongRational>& Polynomial::getArr() const {
+const std::map<LongNatural, LongRational>& Polynomial::getMap() const {
     return coefficients;
 }
 
+bool Polynomial::isCoefZero(const LongNatural& degree) const {
+    if (coefficients.find(degree) == coefficients.end()) {
+        return true;  // если не найден - true
+    }
+    return false;
+}
+
+const LongRational& Polynomial::getCoef(const LongNatural& degree) const {
+    if (coefficients.find(degree) == coefficients.end()) {
+        return zero;  // если не найден вернуть 0/1
+    }
+    return coefficients.at(degree);
+}
+
+const LongNatural& Polynomial::getDegree() const {
+    return degree;
+}
+
 std::string Polynomial::toString() const {
-    std::string result;
-    for (size_t i = 0; i < coefficients.size(); i++) {
-        if (coefficients[i].getNumerator().toString() == "0") {  // ЪЪЪ
-            continue;
+    std::string result = "";
+    for (const auto& [deg, coef] : coefficients) {
+        if (deg == LongNatural("0")) {
+            result += coef.toString() + " + ";
+
+        } else {
+            result += "(" + coef.toString() + ")" + "x^" + deg.toString() + " + ";
         }
-        result += "(" + coefficients[i].toString() + ")";  // ЪЪЪ
-        if (i != this->getDegree()) {
-            result += "x^" + std::to_string(this->getDegree() - i) + " + ";
-        }
+        // если строка получается больше 10000 символово обрезаем строку
+        if (result.size() > 10000) return result.substr(0, result.size() - 3) + "...";
     }
-    return result;
-}
-
-size_t Polynomial::getDegree() const {
-    return coefficients.size() - 1;
-}
-
-LongRational Polynomial::at(size_t i) const {
-    if (i >= coefficients.size()) {
-        throw std::out_of_range("Polynomial::at: index out of range");
+    if (result.empty()) {
+        return "0";
     }
-    return coefficients[i];
-}
-
-LongRational Polynomial::getCoef(size_t deg) const {
-    if (deg >= coefficients.size()) {
-        return LongRational(LongInteger{"0"}, LongNatural{"1"});
-    }
-    return coefficients[coefficients.size() - deg - 1];
+    return result.substr(0, result.size() - 3);
 }
 
 bool Polynomial::operator==(const Polynomial& other) const {
-    return this->coefficients == other.coefficients;
+    return coefficients == other.coefficients && degree == other.degree;  // если равны коэффиценты и степени
 }
 
 bool Polynomial::operator!=(const Polynomial& other) const {
-    return !(*this == other);
+    return !(*this == other);  // обраное к равентсву
 }

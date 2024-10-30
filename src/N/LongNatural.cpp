@@ -12,19 +12,6 @@ LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
     trimLeadingZeroes();
 }
 
-LongNatural::LongNatural(size_t n, int* arr) {
-    for (size_t i = 0; i < n; i++) {
-        if (arr[i] > 9 || arr[i] < 0) {
-            throw std::invalid_argument("LongNatural::LongNatural: passed array element is invalid");
-        }
-    }
-    this->arr.reserve(n);
-    for (size_t i = 0; i < n; i++) {
-        this->arr.push_back(static_cast<uint8_t>(arr[i]));
-    }
-    trimLeadingZeroes();
-}
-
 LongNatural::LongNatural(const std::vector<uint8_t>& vec) {
     for (size_t i = 0; i < vec.size(); i++) {
         if (vec[i] > 9) {
@@ -68,7 +55,6 @@ size_t LongNatural::getLength() const {
     return arr.size();
 }
 
-// Возвращает i-ый элемент массива числа (0 - старший разряд)
 uint8_t LongNatural::at(size_t i) const {
     if (i >= arr.size()) {
         throw std::out_of_range("LongNatural::at: index out of range");
@@ -76,7 +62,6 @@ uint8_t LongNatural::at(size_t i) const {
     return arr[i];
 }
 
-// Возвращает i-ый разряд числа (0 - младший разряд)
 uint8_t LongNatural::radix(size_t i) const {
     if (i >= arr.size()) {
         return 0;

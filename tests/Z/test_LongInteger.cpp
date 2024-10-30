@@ -8,13 +8,6 @@ TEST(LongIntegerTest, ConstructorFromInitializerList) {
     EXPECT_FALSE(li.isNegative());
 }
 
-TEST(LongIntegerTest, ConstructorFromArray) {
-    int arr[] = {1, 2, 3, 4};
-    LongInteger li(false, 4, arr);
-    EXPECT_EQ(li.toString(), "1234");
-    EXPECT_FALSE(li.isNegative());
-}
-
 TEST(LongIntegerTest, ConstructorFromVector) {
     std::vector<uint8_t> vec = {1, 2, 3, 4};
     LongInteger li(false, vec);
