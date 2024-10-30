@@ -30,11 +30,13 @@ TEST(Test_RED_Q_Q, Q1) {
     LongRational e(p2_neg, q2);
 
     LongInteger null(false, {0});
+    LongNatural q5({1});
     LongRational f(null, q2);
+    LongRational g(null, q5);
 
     EXPECT_EQ(RED_Q_Q(a), b);
     EXPECT_EQ(RED_Q_Q(b), b);
     EXPECT_EQ(RED_Q_Q(c), b);
     EXPECT_EQ(RED_Q_Q(d), e);
-    EXPECT_EQ(RED_Q_Q(f), f);
+    EXPECT_EQ(RED_Q_Q(f), g);
 }
