@@ -1,9 +1,6 @@
 #ifndef GCF_NN_N_HPP
 #define GCF_NN_N_HPP
 
-#include <algorithm>
-#include <stdexcept>
-
 #include "N/LongNatural.hpp"
 
 /*
