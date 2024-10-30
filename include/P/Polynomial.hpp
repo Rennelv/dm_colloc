@@ -1,10 +1,21 @@
 #ifndef POLYNOMIAL_HPP
 #define POLYNOMIAL_HPP
 
-#include <initializer_list>
-#include <vector>
+#include <map>
 
+#include "N/COM_NN_D.hpp"
+#include "N/LongNatural.hpp"
 #include "Q/LongRational.hpp"
+
+namespace std {
+template <>  // Объявление less для создания std::map коэффицентов с ключем LongNatural. map требует возможность сравнения ключей
+struct less<LongNatural> {
+    bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
+        return COM_NN_D(lhs, rhs) == 2;
+    }
+};
+}  // namespace std
+
 /*
     Выполнил Журавлев Дмитрий 3381
 
@@ -13,24 +24,34 @@
 */
 
 class Polynomial {
-    std::vector<LongRational> coefficients;  // массив коэффициентов
+    // Словарь (мапа) коэффициентов (степень -> коэффициент)
+    std::map<LongNatural, LongRational> coefficients;
+    // Степень полинома
+    LongNatural degree;
+
    public:
-    Polynomial(std::initializer_list<LongRational> list);  // создает полином из списка коэффициентов
-    Polynomial(size_t n, LongRational* arr);               // создает полином из массива коэффициентов
-    Polynomial(const std::vector<LongRational>& vec);      // создает полином из вектора коэффициентов
+    // Создает полином из мап коэффициентов
+    Polynomial(const std::map<LongNatural, LongRational>& map);
 
-    const std::vector<LongRational>& getArr() const;  // возвращает вектор коэффициентов (для работы лучше использовать методы at и getCoef)
+    // Возвращает мап коэффициентов (const&). Для получения коэффицентов лучше использовать isCoefZero и getCoef
+    const std::map<LongNatural, LongRational>& getMap() const;
 
-    // возвращает i-ый коэффициент из массива коэффициентов (0 - старший коэффициент)
-    LongRational at(size_t i) const;
-    // возвращает i-ый коэффициент при степени deg (0 - свободный член; если deg больше степени полинома или при степени deg коэффициента нет, возвращает 0/1)
-    LongRational getCoef(size_t deg) const;
+    // Возращает равен ли коэффицент при степени нулю (true - равен, false - не равен)
+    bool isCoefZero(const LongNatural& degree) const;
 
-    size_t getDegree() const;      // возвращает степень полинома
-    std::string toString() const;  // возвращает строку полинома
+    // Возвращает коэффициент при степени (если коэф=0 возвращает 0/1)
+    LongRational getCoef(const LongNatural& degree) const;
 
-    bool operator==(const Polynomial& other) const;  // оператор сравнения (проверяет равенство коэффициентов)
-    bool operator!=(const Polynomial& other) const;  // оператор сравнения (проверяет равенство коэффициентов)
+    // Возвращает степень полинома (const&)
+    const LongNatural& getDegree() const;
+
+    // Возвращает строку полинома ("(-654/646)x^3 + (-654/65)x^1 + 55/1")
+    std::string toString() const;
+
+    // Оператор сравнения (проверяет равенство коэффициентов)
+    bool operator==(const Polynomial& other) const;
+    // Оператор сравнения (обратный оператору ==)
+    bool operator!=(const Polynomial& other) const;
 };
 
 #endif

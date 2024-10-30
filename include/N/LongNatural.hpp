@@ -18,19 +18,34 @@ class LongNatural {
     void trimLeadingZeroes();  // вспомогательный метод для удаления ведущих нулей
 
    public:
-    LongNatural(std::initializer_list<uint8_t> list);  // создает число из списка инциализации
-    LongNatural(size_t n, int* arr);                   // создает число из массива
-    LongNatural(const std::vector<uint8_t>& vec);      // создает число из вектора
-    LongNatural(const std::string& string);            // создает число из строки
+    // Создает число из списка инциализации
+    LongNatural(std::initializer_list<uint8_t> list);
+    // Создает число из массива
+    LongNatural(size_t n, int* arr);
+    // Создает число из вектора
+    LongNatural(const std::vector<uint8_t>& vec);
+    // Создает число из строки
+    LongNatural(const std::string& string);
 
-    const std::vector<uint8_t>& getArr() const;  // возвращает вектор числа
-    uint8_t at(size_t i) const;                  // возвращает i-ый элемент массива числа (0 - старший разряд)
-    uint8_t radix(size_t i) const;               // возвращает i-ый разряд числа (0 - младший разряд)
-    size_t getLength() const;                    // возвращает количество цифр числа
-    std::string toString() const;                // возвращает строку числа
+    // Возвращает вектор числа (const&)
+    const std::vector<uint8_t>& getArr() const;
 
-    bool operator==(const LongNatural& other) const;  // оператор сравнения (проверяет равенство массивов цифр)
-    bool operator!=(const LongNatural& other) const;  // оператор сравнения (проверяет равенство массивов цифр)
+    // Возвращает i-ый элемент массива числа (0 - старший разряд)
+    uint8_t at(size_t i) const;
+
+    // Возвращает i-ый разряд числа (0 - младший разряд)
+    uint8_t radix(size_t i) const;
+
+    // Возвращает количество цифр числа
+    size_t getLength() const;
+
+    // Возвращает строку числа
+    std::string toString() const;
+
+    // Оператор сравнения (проверяет равенство массивов цифр)
+    bool operator==(const LongNatural& other) const;
+    // Оператор сравнения (обратный оператору ==)
+    bool operator!=(const LongNatural& other) const;
 };
 
 #endif  // LONGNATURAL_HPP
