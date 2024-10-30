@@ -49,7 +49,7 @@ TEST(Test_MUL_QQ_Q, Q7_3) {
 }
 
 TEST(Test_MUL_QQ_Q, Q7_4) {
-    LongInteger p1(fale, {0});
+    LongInteger p1(false, {0});
     LongNatural q1({2, 1});
     LongRational a3(p1, q1);
     LongInteger p2(true, {1, 4});
