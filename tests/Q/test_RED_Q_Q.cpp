@@ -1,7 +1,5 @@
 #include <gtest/gtest.h>
 
-#include <vector>
-
 #include "N/LongNatural.hpp"
 #include "Q/LongRational.hpp"
 #include "Q/RED_Q_Q.hpp"
