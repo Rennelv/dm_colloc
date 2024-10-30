@@ -12,6 +12,6 @@
         Polynomial - результат умножения многочлена на x^k, k-натуральное или 0.
 */
 
-Polynomial MUL_Pxk_P(const Polynomial& a, size_t k);
+Polynomial MUL_Pxk_P(const Polynomial& a, const LongNatural& k);
 
 #endif
