@@ -35,7 +35,7 @@ class Polynomial {
     // Создает полином из мап коэффициентов
     Polynomial(const std::map<LongNatural, LongRational>& map);
 
-    // Возвращает мап коэффициентов (const&). Для получения коэффицента при степени лучше использовать isCoefZero и getCoef.
+    // Возвращает мап коэффициентов (const&). Для получения коэффицента при конкретной степени лучше использовать isCoefZero и getCoef.
     const std::map<LongNatural, LongRational>& getMap() const;
 
     // Возращает равен ли коэффицент при степени нулю (true - равен, false - не равен)
