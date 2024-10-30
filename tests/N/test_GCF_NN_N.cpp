@@ -6,7 +6,7 @@ TEST(test_GCF_NN_N, SameNumber) {
     LongNatural a("42");
     LongNatural b("42");
     LongNatural result = GCF_NN_N(a, b);
-    EXPECT_EQ(result, a);   // НОД(42, 42) = 42
+    EXPECT_EQ(result, a);  // НОД(42, 42) = 42
 }
 
 TEST(test_GCF_NN_N, OneDividesAnother) {
@@ -34,7 +34,7 @@ TEST(test_GCF_NN_N, LargeNumbers) {
     LongNatural a("123456789");
     LongNatural b("987654321");
     LongNatural result = GCF_NN_N(a, b);
-    LongNatural expected_result("9");  
+    LongNatural expected_result("9");
     EXPECT_EQ(result, expected_result);
 }
 
