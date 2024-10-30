@@ -9,7 +9,7 @@ LongNatural LCM_NN_N(const LongNatural& a, const LongNatural& b) {
 
     LongNatural GCF = GCF_NN_N(a, b);     // НОД двух чисел
     LongNatural result = MUL_NN_N(a, b);  // умножаем a на b
-    result = DIV_NN_N(result, GCF);       // дедим произведение на их НОД
+    result = DIV_NN_N(result, GCF);       // делим произведение на их НОД
 
     return result;
 }
