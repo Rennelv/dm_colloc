@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.22)
 project(dm_math LANGUAGES CXX)
 
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 17)
+# Ensure that the standard is required and doesn't fall back to a lower version
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)  # Use only standard C++ features
+
 # # Check for Ninja and set it as the default generator if available
 # find_program(NINJA_EXECUTABLE ninja)
 # if ((NOT (CMAKE_GENERATOR STREQUAL "Ninja")) AND NINJA_EXECUTABLE AND (CMAKE_GENERATOR STREQUAL "Unix Makefiles"))
@@ -13,14 +19,27 @@ message(STATUS "CMake Generator: ${CMAKE_GENERATOR}")
 # Export compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Set default build type to Release if not specified
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build." FORCE)
+endif()
+
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     message(STATUS "Building in Debug mode")
 else()
     message(STATUS "Building in Release mode")
 endif()
 
-# Set the output directory for the compiled binaries
+# Set output directory for binaries
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# Enable ccache if available
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+    set(CMAKE_C_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+    message(STATUS "Using ccache to speed up builds")
+endif()
 
 # Ensure static linking for GCC/MinGW
 if(MINGW)
@@ -45,15 +64,20 @@ option(GENERATE_TESTS "Generate tests" OFF)
 # Add the executable target
 add_executable(dm_math ${SOURCES})
 
-# Set compiler flags for debugging
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -pedantic")
+# Enable Unity Builds option
+# option(ENABLE_UNITY "Enable Unity Builds for faster compile times" ON)
+if(ENABLE_UNITY)
+    set_target_properties(dm_math PROPERTIES UNITY_BUILD ON)
+    message(STATUS "Unity Build enabled for faster compile times")
+endif()
 
-# Optionally, you can add more configurations, such as release flags
+# Set compiler flags
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -pedantic")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
-# Создаем тесты только в режиме отладки 
+# Add tests only if requested
 if (GENERATE_TESTS)
-    # Recursively find all source files in the src directory
+    # Recursively find all source files for test dependencies
     file(GLOB_RECURSE SOURCES_FOR_TESTS
         "${PROJECT_SOURCE_DIR}/src/N/*.cpp"
         "${PROJECT_SOURCE_DIR}/src/P/*.cpp"
@@ -61,23 +85,28 @@ if (GENERATE_TESTS)
         "${PROJECT_SOURCE_DIR}/src/Z/*.cpp"
     )
 
-    # Найти и подключить библиотеку GTest
+    # Find and link the GTest library
     find_package(GTest REQUIRED)
     include_directories(${GTEST_INCLUDE_DIRS})
 
-    # Включить тестирование
+    # Enable testing
     enable_testing()
 
-    # Рекурсивно найти все тестовые файлы в папке tests и добавить их в список TEST_SOURCES
+    # Recursively find all test files
     file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/tests/*.cpp")
 
-    # Создать исполняемый файл для всех тестов
+    # Create executable for tests
     add_executable(dm_tests ${TEST_SOURCES} ${SOURCES_FOR_TESTS} )
+    
+    # Set Unity Build for tests if enabled
+    if(ENABLE_UNITY)
+        set_target_properties(dm_tests PROPERTIES UNITY_BUILD ON)
+    endif()
 
-    # Слинковать тесты с основной библиотекой и GTest
+    # Link tests with the main library and GTest
     target_link_libraries(dm_tests ${GTEST_LIBRARIES} pthread)
 
-    # Добавить тесты в CTest
+    # Add tests to CTest
     add_test(NAME dm_tests COMMAND dm_tests)
 
     include(GoogleTest)

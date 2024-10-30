@@ -21,5 +21,5 @@ fi
 cmake -DGENERATE_TESTS=ON -DCMAKE_BUILD_TYPE=Debug -B "$BUILD_DIR"
 
 # Build the project
-cmake --build "$BUILD_DIR"
+cmake --build "$BUILD_DIR" -- -j$(nproc)
 

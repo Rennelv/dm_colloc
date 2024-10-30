@@ -35,8 +35,7 @@ jobs:
     - name: Install dependencies
       if: matrix.os == 'ubuntu-latest'
       run: |
-        sudo apt-get update
-        sudo apt-get install -y g++ cmake libgtest-dev
+        sudo apt-get install -y --no-upgrade g++ cmake libgtest-dev
 
     - name: Configure CMake
       run: >
@@ -45,10 +44,16 @@ jobs:
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -DGENERATE_TESTS=ON
+        -DENABLE_UNITY=ON
         -S ${{ github.workspace }}
 
     - name: Build
-      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+      if: matrix.os == 'ubuntu-latest'
+      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} -- -j$(nproc)
+
+    - name: Build
+      if: matrix.os == 'windows-latest'
+      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} ---j%NUMBER_OF_PROCESSORS%
 
     - name: Test
       if: matrix.os == 'ubuntu-latest'
