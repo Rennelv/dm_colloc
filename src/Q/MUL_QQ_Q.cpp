@@ -12,7 +12,7 @@ using namespace std;
 LongRational MUL_QQ_Q(const LongRational &a, const LongRational &b) {
     LongInteger p = MUL_ZZ_Z(a.getNumerator(), b.getNumerator());      // находим произведение числителей
     LongNatural q = MUL_NN_N(a.getDenominator(), b.getDenominator());  // находим произведение знаменателей
-    LongRational b(p, q);  // создаем дробь с полученными числителем и знаменателем
-    b = RED_Q_Q(b);        // сокращаем дробь
-    return b;              // возвращаем сокращенную дробь
+    LongRational c(p, q);  // создаем дробь с полученными числителем и знаменателем
+    c = RED_Q_Q(c);        // сокращаем дробь
+    return c;              // возвращаем сокращенную дробь
 }
