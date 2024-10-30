@@ -17,6 +17,6 @@
         LongNatural - остаток от деления.
 */
 
-LongNatural MOD_NN_N(LongNatural& a, LongNatural& b);
+LongNatural MOD_NN_N(const LongNatural& a, const LongNatural& b);
 
 #endif  // MOD_NN_N_HPP

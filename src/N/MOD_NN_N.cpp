@@ -5,11 +5,10 @@
 #include "N/NZER_N_B.hpp"
 #include "N/SUB_NN_N.hpp"
 
-LongNatural MOD_NN_N(LongNatural& a, LongNatural& b) {
+LongNatural MOD_NN_N(const LongNatural& a, const LongNatural& b) {
     if (!NZER_N_B(b)) {
         throw std::logic_error("Divider is zero");
     }
-    // халтурный момент, исправиттся сразу после фикса деления нацело
 
     LongNatural integerPart = DIV_NN_N(a, b);    // Получаем целую часть от деления
     LongNatural tmp = MUL_NN_N(b, integerPart);  // Умножаем целую часть от деления на делитель
