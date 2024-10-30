@@ -57,7 +57,7 @@ TEST(Test_MUL_QQ_Q, Q7_4) {
     LongRational b4(p2, q2);
     LongInteger p3(true, {0});
     LongNatural q3({1});
-    LongRational ans4(p2, q3);
+    LongRational ans4(p3, q3);
 
     EXPECT_EQ(MUL_QQ_Q(a4, b4), ans4);
 }
