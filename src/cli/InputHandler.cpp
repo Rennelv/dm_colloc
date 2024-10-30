@@ -7,72 +7,57 @@
 #include "Q/LongRational.hpp"
 #include "Z/LongInteger.hpp"
 
+// Считывает натуральное число
 LongNatural InputHandler::scanLongNatural() {
-    std::cout << "Введите натуральное число: ";
     std::string number;
     std::cin >> number;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        throw std::invalid_argument("InputHandler::scanLongNatural: invalid input");
+    }
     return LongNatural(number);
 }
 
+// Считывает целое число
 LongInteger InputHandler::scanLongInteger() {
-    std::cout << "Введите целое число: ";
     std::string number;
     std::cin >> number;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        throw std::invalid_argument("InputHandler::scanLongInteger: invalid input");
+    }
     return LongInteger(number);
 }
 
+// Считывает многочлен
 Polynomial InputHandler::scanPolynomial() {
-    std::cout << "Задайте многочлен в виде пар чисел (степень, коэффициент) в порядке убывания степеней, ввод заканчивается после ввода коэффициента при "
-                 "нулевой степени.\n";
-    std::cout << "Введите степень: ";
-    size_t degree;
-    std::cin >> degree;
-    if (std::cin.fail()) {
-        std::cout << "Неверный ввод\n";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        throw std::invalid_argument("Invalid input");
-    }
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    LongRational coefficient = scanLongRational();
-    std::vector<LongRational> coefficients(degree + 1, LongRational(LongInteger("0"), LongNatural("1")));
-    size_t idx = coefficients.size() - 1 - degree;
-    coefficients[idx] = coefficient;
-    size_t last_degree = degree;
-    while (degree != 0) {
-        std::cout << "Введите степень: ";
-        std::cin >> degree;
-        if (degree >= last_degree) {
-            std::cout << "Степень должна быть меньше предыдущей.\n";
-            throw std::invalid_argument("Invalid degree");
-        }
-        idx = coefficients.size() - 1 - degree;
+    std::map<LongNatural, LongRational> coefficients;
+    std::cout << "Задайте многочлен в виде пар чисел (степень, коэффициент), ввод заканчивается после ввода коэффициента при нулевой степени.\n";
+    while (true) {
+        std::cout << "Введите степень (натуральное число): ";
+        LongNatural degree = scanLongNatural();
+        std::cout << "Введите коэффициент (рациональное число) ниже\n";
         LongRational coefficient = scanLongRational();
-        coefficients[idx] = coefficient;
-    }
+        coefficients.emplace(degree, coefficient);
+        if (degree == LongNatural("0")) {
+            break;
+        }
+    };
+
     return Polynomial(coefficients);
 }
 
+// Считывает длинное рациональное число
 LongRational InputHandler::scanLongRational() {
     std::string number1, number2;
 
     std::cout << "Введите числитель (целое число) и знаменатель (натуральное число) через пробел: ";
-    std::cin >> number1 >> number2;
 
-    if (std::cin.fail()) {
-        std::cout << "Неверный ввод\n";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        throw std::invalid_argument("Invalid input");
-    }
+    LongInteger numerator = scanLongInteger();
 
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-    LongInteger numerator = LongInteger(number1);
-
-    LongNatural denominator = LongNatural(number2);
+    LongNatural denominator = scanLongNatural();
 
     return LongRational(numerator, denominator);
 }

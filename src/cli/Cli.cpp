@@ -6,10 +6,30 @@
 #include <string>
 #include <utility>
 
+#include "N/ADD_1N_N.hpp"
 #include "N/ADD_NN_N.hpp"
 #include "N/COM_NN_D.hpp"
+#include "N/DIV_NN_Dk.hpp"
+#include "N/DIV_NN_N.hpp"
+#include "N/GCF_NN_N.hpp"
+#include "N/MOD_NN_N.hpp"
 #include "N/MUL_ND_N.hpp"
+#include "N/MUL_NN_N.hpp"
+#include "N/MUL_Nk_N.hpp"
+#include "N/NZER_N_B.hpp"
+#include "N/SUB_NDN_N.hpp"
 #include "N/SUB_NN_N.hpp"
+#include "Q/INT_Q_B.hpp"
+#include "Q/RED_Q_Q.hpp"
+#include "Q/TRANS_Q_Z.hpp"
+#include "Z/ABS_Z_N.hpp"
+#include "Z/ADD_ZZ_Z.hpp"
+#include "Z/DIV_ZZ_Z.hpp"
+#include "Z/MUL_ZM_Z.hpp"
+#include "Z/MUL_ZZ_Z.hpp"
+#include "Z/POZ_Z_D.hpp"
+#include "Z/TRANS_N_Z.hpp"
+#include "Z/TRANS_Z_N.hpp"
 
 void Cli::clearScreen() {
     std::cout << "\033[2J\033[1;1H";
@@ -55,6 +75,7 @@ void Cli::run() {
 }
 
 void Cli::printHistory() {
+    return;  // WIP
     std::pair<int, int> lastPos = cursorPos;
     size_t row = 1;
     moveCursor(row, 150);
@@ -303,38 +324,50 @@ void Cli::naturalFunc(NaturalFunctions func) {
     try {
         switch (func) {
             case NaturalFunctions::COM_NN_D: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
                 auto result = COM_NN_D(a, b);
-                std::cout << result << std::endl;
+                std::cout << "Результат " << result << std::endl;
                 updateHistory("COM_NN_D", {a.toString(), b.toString()}, std::to_string(result));
                 break;
             }
             case NaturalFunctions::NZER_N_B: {
+                std::cout << "Введите натуральное число: ";
                 LongNatural a = inputHandler.scanLongNatural();
-                // std::cout << NZER_N_B(a) << std::endl;
+                auto result = NZER_N_B(a);
+                std::cout << "Результат " << result << std::endl;
+                updateHistory("NZER_N_B", {a.toString()}, std::to_string(result));
                 break;
             }
             case NaturalFunctions::ADD_1N_N: {
+                std::cout << "Введите натуральное число: ";
                 LongNatural a = inputHandler.scanLongNatural();
-                // std::cout << ADD_1N_N(a).toString() << std::endl;
+                auto result = ADD_1N_N(a);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("ADD_1N_N", {a.toString()}, result.toString());
                 break;
             }
             case NaturalFunctions::ADD_NN_N: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                std::cout << ADD_NN_N(a, b).toString() << std::endl;
+                auto result = ADD_NN_N(a, b);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("ADD_NN_N", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case NaturalFunctions::SUB_NN_N: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
                 auto result = SUB_NN_N(a, b);
-                std::cout << result.toString() << std::endl;
+                std::cout << "Результат " << result.toString() << std::endl;
                 updateHistory("SUB_NN_N", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case NaturalFunctions::MUL_ND_N: {
+                std::cout << "Введите натуральное число: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 std::cout << "Введите цифру d: ";
                 int d;
@@ -346,13 +379,15 @@ void Cli::naturalFunc(NaturalFunctions func) {
                     break;
                 }
                 auto result = MUL_ND_N(a, d);
-                std::cout << result.toString() << std::endl;
+                std::cout << "Результат" << result.toString() << std::endl;
                 updateHistory("MUL_ND_N", {a.toString(), std::to_string(d)}, result.toString());
                 break;
             }
             case NaturalFunctions::MUL_Nk_N: {
+                std::cout << "Введите натуральное число: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 size_t k;
+                std::cout << "Введите k: ";
                 std::cin >> k;
                 if (std::cin.fail()) {
                     printError("Неверный ввод");
@@ -360,19 +395,26 @@ void Cli::naturalFunc(NaturalFunctions func) {
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     break;
                 }
-                // std::cout << MUL_Nk_N(a, k).toString() << std::endl;
+                auto result = MUL_Nk_N(a, k);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("MUL_Nk_N", {a.toString(), std::to_string(k)}, result.toString());
                 break;
             }
             case NaturalFunctions::MUL_NN_N: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                // std::cout << MUL_NN_N(a, b).toString() << std::endl;
+                auto result = MUL_NN_N(a, b);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("MUL_NN_N", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case NaturalFunctions::SUB_NDN_N: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
                 int d;
+                std::cout << "Введите цифру d: ";
                 std::cin >> d;
                 if (std::cin.fail() || d > 9) {
                     printError("Неверный ввод");
@@ -380,45 +422,54 @@ void Cli::naturalFunc(NaturalFunctions func) {
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     break;
                 }
-                // std::cout << SUB_NDN_N(a, b, d).toString() << std::endl;
+                auto result = SUB_NDN_N(a, b, d);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("SUB_NDN_N", {a.toString(), b.toString(), std::to_string(d)}, result.toString());
                 break;
             }
             case NaturalFunctions::DIV_NN_Dk: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                size_t k;
-                std::cin >> k;
-                if (std::cin.fail()) {
-                    printError("Неверный ввод");
-                    std::cin.clear();
-                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    break;
-                }
-                // std::cout << DIV_NN_Dk(a, b, k).toString() << std::endl;
+                auto result = DIV_NN_Dk(a, b);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("DIV_NN_Dk", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case NaturalFunctions::DIV_NN_N: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                // std::cout << DIV_NN_N(a, b).toString() << std::endl;
+                auto result = DIV_NN_N(a, b);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("DIV_NN_N", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case NaturalFunctions::MOD_NN_N: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                // std::cout << MOD_NN_N(a, b).toString() << std::endl;
+                auto result = MOD_NN_N(a, b);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("MOD_NN_N", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case NaturalFunctions::GCF_NN_N: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                // std::cout << GCF_NN_N(a, b).toString() << std::endl;
+                auto result = GCF_NN_N(a, b);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("GCF_NN_N", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case NaturalFunctions::LCM_NN_N: {
+                std::cout << "Введите два натуральных числа через пробел: ";
                 LongNatural a = inputHandler.scanLongNatural();
                 LongNatural b = inputHandler.scanLongNatural();
-                // std::cout << LCM_NN_N(a, b).toString() << std::endl;
+                // auto result = LCM_NN_N(a, b);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("LCM_NN_N", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             default:
@@ -434,58 +485,87 @@ void Cli::integerFunc(IntegerFunctions func) {
     try {
         switch (func) {
             case IntegerFunctions::ABS_Z_N: {
+                std::cout << "Введите целое число: ";
                 LongInteger a = inputHandler.scanLongInteger();
-                // std::cout << ABS_Z_N(a).toString() << std::endl;
+                auto result = ABS_Z_N(a);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("ABS_Z_N", {a.toString()}, result.toString());
                 break;
             }
             case IntegerFunctions::POZ_Z_D: {
+                std::cout << "Введите целое число: ";
                 LongInteger a = inputHandler.scanLongInteger();
-                // std::cout << POZ_Z_D(a) << std::endl;
-                break;
+                auto result = POZ_Z_D(a);
+                std::cout << "Результат " << result << std::endl;
+                updateHistory("POZ_Z_D", {a.toString()}, std::to_string(result));
             }
             case IntegerFunctions::MUL_ZM_Z: {
+                std::cout << "Введите целое число: ";
                 LongInteger a = inputHandler.scanLongInteger();
-                // std::cout << MUL_ZM_Z(a).toString() << std::endl;
+                auto result = MUL_ZM_Z(a);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("MUL_ZM_Z", {a.toString()}, result.toString());
                 break;
             }
             case IntegerFunctions::TRANS_N_Z: {
+                std::cout << "Введите натуральное число: ";
                 LongNatural a = inputHandler.scanLongNatural();
-                // std::cout << TRANS_N_Z(a).toString() << std::endl;
+                auto result = TRANS_N_Z(a);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("TRANS_N_Z", {a.toString()}, result.toString());
                 break;
             }
             case IntegerFunctions::TRANS_Z_N: {
+                std::cout << "Введите целое число: ";
                 LongInteger a = inputHandler.scanLongInteger();
-                // std::cout << TRANS_Z_N(a).toString() << std::endl;
+                auto result = TRANS_Z_N(a);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("TRANS_Z_N", {a.toString()}, result.toString());
                 break;
             }
             case IntegerFunctions::ADD_ZZ_Z: {
+                std::cout << "Введите два целых числа через пробел: ";
                 LongInteger a = inputHandler.scanLongInteger();
                 LongInteger b = inputHandler.scanLongInteger();
-                // std::cout << ADD_ZZ_Z(a, b).toString() << std::endl;
+                auto result = ADD_ZZ_Z(a, b);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("ADD_ZZ_Z", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case IntegerFunctions::SUB_ZZ_Z: {
+                std::cout << "Введите два целых числа через пробел: ";
                 LongInteger a = inputHandler.scanLongInteger();
                 LongInteger b = inputHandler.scanLongInteger();
-                // std::cout << SUB_ZZ_Z(a, b).toString() << std::endl;
+                // auto result = SUB_ZZ_Z(a, b);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("SUB_ZZ_Z", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case IntegerFunctions::MUL_ZZ_Z: {
+                std::cout << "Введите два целых числа через пробел: ";
                 LongInteger a = inputHandler.scanLongInteger();
                 LongInteger b = inputHandler.scanLongInteger();
-                // std::cout << MUL_ZZ_Z(a, b).toString() << std::endl;
+                auto result = MUL_ZZ_Z(a, b);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("MUL_ZZ_Z", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case IntegerFunctions::DIV_ZZ_Z: {
+                std::cout << "Введите два целых числа через пробел: ";
                 LongInteger a = inputHandler.scanLongInteger();
                 LongInteger b = inputHandler.scanLongInteger();
-                // std::cout << DIV_ZZ_Z(a, b).toString() << std::endl;
+                auto result = DIV_ZZ_Z(a, b);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("DIV_ZZ_Z", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case IntegerFunctions::MOD_ZZ_Z: {
+                std::cout << "Введите два целых числа через пробел: ";
                 LongInteger a = inputHandler.scanLongInteger();
                 LongInteger b = inputHandler.scanLongInteger();
-                // std::cout << MOD_ZZ_Z(a, b).toString() << std::endl;
+                // auto result = MOD_ZZ_Z(a, b);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("MOD_ZZ_Z", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             default:
@@ -501,47 +581,71 @@ void Cli::rationalFunc(RationalFunctions func) {
     try {
         switch (func) {
             case RationalFunctions::RED_Q_Q: {
+                std::cout << "Введите рациональное число\n";
                 LongRational a = inputHandler.scanLongRational();
-                // std::cout << RED_Q_Q(a).toString() << std::endl;
+                auto result = RED_Q_Q(a);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("RED_Q_Q", {a.toString()}, result.toString());
                 break;
             }
             case RationalFunctions::INT_Q_B: {
+                std::cout << "Введите рациональное число\n";
                 LongRational a = inputHandler.scanLongRational();
-                // std::cout << INT_Q_B(a) << std::endl;
+                auto result = INT_Q_B(a);
+                std::cout << "Результат " << result << std::endl;
+                updateHistory("INT_Q_B", {a.toString()}, std::to_string(result));
                 break;
             }
             case RationalFunctions::TRANS_Z_Q: {
+                std::cout << "Введите целое число\n";
                 LongInteger a = inputHandler.scanLongInteger();
-                // std::cout << TRANS_Z_Q(a).toString() << std::endl;
+                // auto result = TRANS_Z_Q(a);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("TRANS_Z_Q", {a.toString()}, result.toString());
                 break;
             }
             case RationalFunctions::TRANS_Q_Z: {
+                std::cout << "Введите рациональное число\n";
                 LongRational a = inputHandler.scanLongRational();
-                // std::cout << TRANS_Q_Z(a).toString() << std::endl;
+                auto result = TRANS_Q_Z(a);
+                std::cout << "Результат " << result.toString() << std::endl;
+                updateHistory("TRANS_Q_Z", {a.toString()}, result.toString());
                 break;
             }
             case RationalFunctions::ADD_QQ_Q: {
+                std::cout << "Введите два рациональных числа\n";
                 LongRational a = inputHandler.scanLongRational();
                 LongRational b = inputHandler.scanLongRational();
-                // std::cout << ADD_QQ_Q(a, b).toString() << std::endl;
+                // auto result = ADD_QQ_Q(a, b);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("ADD_QQ_Q", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case RationalFunctions::SUB_QQ_Q: {
+                std::cout << "Введите два рациональных числа\n";
                 LongRational a = inputHandler.scanLongRational();
                 LongRational b = inputHandler.scanLongRational();
-                // std::cout << SUB_QQ_Q(a, b).toString() << std::endl;
+                // auto result = SUB_QQ_Q(a, b);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("SUB_QQ_Q", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case RationalFunctions::MUL_QQ_Q: {
+                std::cout << "Введите два рациональных числа\n";
                 LongRational a = inputHandler.scanLongRational();
                 LongRational b = inputHandler.scanLongRational();
-                // std::cout << MUL_QQ_Q(a, b).toString() << std::endl;
+                // auto result = MUL_QQ_Q(a, b);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("MUL_QQ_Q", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case RationalFunctions::DIV_QQ_Q: {
+                std::cout << "Введите два рациональных числа\n";
                 LongRational a = inputHandler.scanLongRational();
                 LongRational b = inputHandler.scanLongRational();
-                // std::cout << DIV_QQ_Q(a, b).toString() << std::endl;
+                // auto result = DIV_QQ_Q(a, b);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("DIV_QQ_Q", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             default:
@@ -557,26 +661,38 @@ void Cli::polynomialFunc(PolynomialFunctions func) {
     try {
         switch (func) {
             case PolynomialFunctions::ADD_PP_P: {
+                std::cout << "Задайте два многочлена\n";
                 Polynomial a = inputHandler.scanPolynomial();
                 Polynomial b = inputHandler.scanPolynomial();
-                // std::cout << ADD_PP_P(a, b).toString() << std::endl;
+                // auto result = ADD_PP_P(a, b);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("ADD_PP_P", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::SUB_PP_P: {
+                std::cout << "Задайте два многочлена\n";
                 Polynomial a = inputHandler.scanPolynomial();
                 Polynomial b = inputHandler.scanPolynomial();
-                // std::cout << SUB_PP_P(a, b).toString() << std::endl;
+                // auto result = SUB_PP_P(a, b);
+                // std::cout << "Результат " <<  result.toString() << std::endl;
+                // updateHistory("SUB_PP_P", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::MUL_PQ_P: {
+                std::cout << "Задайте многочлен\n";
                 Polynomial a = inputHandler.scanPolynomial();
+                std::cout << "Введите рациональное число\n";
                 LongRational q = inputHandler.scanLongRational();
-                // std::cout << MUL_PQ_P(a, q).toString() << std::endl;
+                // auto result = MUL_PQ_P(a, q);
+                // std::cout << "Результат " <<  result.toString() << std::endl;
+                // updateHistory("MUL_PQ_P", {a.toString(), q.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::MUL_Pxk_P: {
+                std::cout << "Задайте многочлен\n";
                 Polynomial a = inputHandler.scanPolynomial();
                 size_t k;
+                std::cout << "Введите k: ";
                 std::cin >> k;
                 if (std::cin.fail()) {
                     printError("Неверный ввод");
@@ -584,56 +700,85 @@ void Cli::polynomialFunc(PolynomialFunctions func) {
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     break;
                 }
-                // std::cout << MUL_Pxk_P(a, k).toString() << std::endl;
+                // auto result = MUL_Pxk_P(a, k);
+                // std::cout << "Результат " << result.toString() << std::endl;
+                // updateHistory("MUL_Pxk_P", {a.toString(), std::to_string(k)}, result.toString());
                 break;
             }
             case PolynomialFunctions::LED_P_Q: {
+                std::cout << "Задайте многочлен\n";
                 Polynomial a = inputHandler.scanPolynomial();
-                // std::cout << LED_P_Q(a).toString() << std::endl;
+                // auto result = LED_P_Q(a);
+                // std::cout << "Результат " <<  result.toString() << std::endl;
+                // updateHistory("LED_P_Q", {a.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::DEG_P_N: {
+                std::cout << "Задайте многочлен\n";
                 Polynomial a = inputHandler.scanPolynomial();
-                // std::cout << DEG_P_N(a) << std::endl;
+                // auto result = DEG_P_N(a);
+                // std::cout << "Результат " <<  result.toString() << std::endl;
+                // updateHistory("DEG_P_N", {a.toString()}, std::to_string(result));
                 break;
             }
             case PolynomialFunctions::FAC_P_Q: {
+                std::cout << "Задайте многочлен\n";
                 Polynomial a = inputHandler.scanPolynomial();
-                // std::cout << FAC_P_Q(a).toString() << std::endl;
+                // auto result = FAC_P_Q(a);
+                // std::cout << "Результат " <<  result.toString() << std::endl;
+                // updateHistory("FAC_P_Q", {a.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::MUL_PP_P: {
+                std::cout << "Задайте два многочлена\n";
                 Polynomial a = inputHandler.scanPolynomial();
                 Polynomial b = inputHandler.scanPolynomial();
-                // std::cout << MUL_PP_P(a, b).toString() << std::endl;
+                // auto result = MUL_PP_P(a, b);
+                // std::cout << "Результат " << < result.toString() << std::endl;
+                // updateHistory("MUL_PP_P", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::DIV_PP_P: {
+                std::cout << "Задайте два многочлена\n";
                 Polynomial a = inputHandler.scanPolynomial();
                 Polynomial b = inputHandler.scanPolynomial();
-                // std::cout << DIV_PP_P(a, b).toString() << std::endl;
+                // auto result = DIV_PP_P(a, b);
+                // std::cout << result.toString() << std::endl;
+                // updateHistory("DIV_PP_P", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::MOD_PP_P: {
+                std::cout << "Задайте два многочлена\n";
                 Polynomial a = inputHandler.scanPolynomial();
                 Polynomial b = inputHandler.scanPolynomial();
-                // std::cout << MOD_PP_P(a, b).toString() << std::endl;
+                // auto result = MOD_PP_P(a, b);
+                // std::cout << result.toString() << std::endl;
+                // updateHistory("MOD_PP_P", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::GCF_PP_P: {
+                std::cout << "Задайте два многочлена\n";
                 Polynomial a = inputHandler.scanPolynomial();
                 Polynomial b = inputHandler.scanPolynomial();
-                // std::cout << GCF_PP_P(a, b).toString() << std::endl;
+                // auto result = GCF_PP_P(a, b);
+                // std::cout << result.toString() << std::endl;
+                // updateHistory("GCF_PP_P", {a.toString(), b.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::DER_P_P: {
+                std::cout << "Задайте многочлен\n";
                 Polynomial a = inputHandler.scanPolynomial();
-                // std::cout << DER_P_P(a).toString() << std::endl;
+                // auto result = DER_P_P(a);
+                // std::cout << result.toString() << std::endl;
+                // updateHistory("DER_P_P", {a.toString()}, result.toString());
                 break;
             }
             case PolynomialFunctions::NMR_P_P: {
+                std::cout << "Задайте многочлен\n";
                 Polynomial a = inputHandler.scanPolynomial();
-                // std::cout << NMR_P_P(a).toString() << std::endl;
+                // auto result = NMR_P_P(a);
+                // std::cout << result.toString() << std::endl;
+                // updateHistory("NMR_P_P", {a.toString()}, result.toString());
                 break;
             }
             default:
