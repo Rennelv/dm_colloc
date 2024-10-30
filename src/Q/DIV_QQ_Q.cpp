@@ -6,7 +6,7 @@
 
 using namespace std;
 
-LongRational MUL_QQ_Q(const LongRational &a, const LongRational &b) {
+LongRational DIV_QQ_Q(const LongRational &a, const LongRational &b) {
     LongInteger p(b.getNumerator().isNegative(),
                   b.getDenominator().getArr());  // создаем целое число p по модулю равное знаменателю второй дроби и знака второй дроби
     LongNatural q(b.getNumerator().getArr());  // создаем натуральное число q равное по модулю числителю второй дроби
