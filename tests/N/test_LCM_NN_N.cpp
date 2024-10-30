@@ -34,12 +34,12 @@ TEST(test_LCM_NN_N, LargeNumbers) {
     LongNatural a("123456789");
     LongNatural b("987654321");
     LongNatural expected("13548070123626141");
-    EXPECT_EQ(LCM_NN_N(a, b), expected); // НОК(123456789, 987654321) = 13548070123626141
+    EXPECT_EQ(LCM_NN_N(a, b), expected);  // НОК(123456789, 987654321) = 13548070123626141
 }
 
 TEST(test_LCM_NN_N, ZeroNumber) {
     LongNatural a("0");
     LongNatural b("12");
-    LongNatural expected("0");  
-    EXPECT_EQ(LCM_NN_N(a, b), expected); // НОК(0, 12) = 0
+    LongNatural expected("0");
+    EXPECT_EQ(LCM_NN_N(a, b), expected);  // НОК(0, 12) = 0
 }
