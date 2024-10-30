@@ -31,7 +31,7 @@ TEST(DIV_ZZ_Z, PositiveDivNegativeEqual) {
 }
 
 // Тест деления отрицательного числа на отрицательное
-// (-624) : (-312) == -2
+// (-624) : (-312) == 2
 TEST(DIV_ZZ_Z, NegativeDivNegative) {
     LongInteger dividend(true, {6, 2, 4});
     LongInteger divisor(true, {3, 1, 2});
