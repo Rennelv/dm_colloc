@@ -3,7 +3,7 @@
 #include "N/LongNatural.hpp"
 #include "N/MUL_NN_N.hpp"
 #include "Q/LongRational.hpp"
-#include "Q/RED_QQ_Q.hpp"
+#include "Q/RED_Q_Q.hpp"
 #include "Z/LongInteger.hpp"
 #include "Z/MUL_ZZ_Z.hpp"
 
