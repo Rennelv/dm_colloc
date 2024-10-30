@@ -13,20 +13,20 @@ LongInteger SUB_ZZ_Z(const LongInteger& a, const LongInteger& b) {
     LongNatural absA = ABS_Z_N(a);  // получаем модуль числа a
     LongNatural absB = ABS_Z_N(b);  // получаем модуль числа b
 
-    // если знаки одинаковые
-    if (signA == signB) {
-        if (COM_NN_D(absA, absB) == 2) {
-            LongNatural result = SUB_NN_N(absA, absB);
-            return LongInteger(signA == 1, result.getArr());  // если absA > absB, вычитаем absB из absA, возвращая результат с сохранением знака
-        } else if (COM_NN_D(absA, absB) == 1) {
-            LongNatural result = SUB_NN_N(absB, absA);
-            return LongInteger(signA == 2, result.getArr());  // если absA < absB, вычитаем absA из absB, возвращая результат со сменой знака
-        } else {
-            return LongInteger(false, {0});  // если absA == absB, возвращаем 0
-        }
+    // если знаки разные, складываем модули и сохраняем знак
+    if (signA != signB) {
+        LongNatural result = ADD_NN_N(absA, absB);
+        return LongInteger(signA == 1, result.getArr());  // возвращаем с учетом знака
     }
 
-    // если знаки разные, складываем модули и сохраняем знак
-    LongNatural result = ADD_NN_N(absA, absB);
-    return LongInteger(signA == 1, result.getArr());  // возвращаем с учетом знака
+    // если знаки одинаковые
+    if (COM_NN_D(absA, absB) == 2) {
+        LongNatural result = SUB_NN_N(absA, absB);
+        return LongInteger(signA == 1, result.getArr());  // если absA > absB, вычитаем absB из absA, возвращая результат с сохранением знака
+    } else if (COM_NN_D(absA, absB) == 1) {
+        LongNatural result = SUB_NN_N(absB, absA);
+        return LongInteger(signA == 2, result.getArr());  // если absA < absB, вычитаем absA из absB, возвращая результат со сменой знака
+    } else {
+        return LongInteger(false, {0});  // если absA == absB, возвращаем 0
+    }
 }
