@@ -48,12 +48,12 @@ jobs:
         -S ${{ github.workspace }}
 
     - name: Build
-      if: matrix.os == 'ubuntu-latest'
-      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} -- -j$(nproc)
-
-    - name: Build
-      if: matrix.os == 'windows-latest'
-      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} ---j%NUMBER_OF_PROCESSORS%
+      run: |
+        if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
+          cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} -- -j$(nproc)
+        elif [ "${{ matrix.os }}" == "windows-latest" ]; then
+          cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} -- -j%NUMBER_OF_PROCESSORS%
+        fi
 
     - name: Test
       if: matrix.os == 'ubuntu-latest'
