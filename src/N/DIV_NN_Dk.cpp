@@ -5,7 +5,7 @@
 #include "N/MUL_Nk_N.hpp"
 #include "N/NZER_N_B.hpp"
 
-LongNatural DIV_NN_Dk(LongNatural& a, LongNatural& b) {
+LongNatural DIV_NN_Dk(const LongNatural& a, const LongNatural& b) {
     if (!NZER_N_B(b)) {
         throw std::logic_error("Division by zero is undefined.");
     }

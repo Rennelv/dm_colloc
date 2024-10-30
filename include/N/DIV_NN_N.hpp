@@ -17,6 +17,6 @@
         LongNatural - неполное частное от деления.
 */
 
-LongNatural DIV_NN_N(LongNatural& a, LongNatural& b);
+LongNatural DIV_NN_N(const LongNatural& a, const LongNatural& b);
 
 #endif  // DIV_NN_N_HPP
