@@ -1,8 +1,5 @@
 #include "Q/RED_Q_Q.hpp"
 
-#include <iostream>
-#include <vector>
-
 #include "N/DIV_NN_N.hpp"
 #include "N/GCF_NN_N.hpp"
 #include "N/LongNatural.hpp"
