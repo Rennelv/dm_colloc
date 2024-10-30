@@ -13,6 +13,6 @@ LongRational MUL_QQ_Q(const LongRational &a, const LongRational &b) {
     LongInteger p = MUL_ZZ_Z(a.getNumerator(), b.getNumerator());      // находим произведение числителей
     LongNatural q = MUL_NN_N(a.getDenominator(), b.getDenominator());  // находим произведение знаменателей
     LongRational b(p, q);  // создаем дробь с полученными числителем и знаменателем
-    b = RED_QQ_Q(b);       // сокращаем дробь
+    b = RED_Q_Q(b);        // сокращаем дробь
     return b;              // возвращаем сокращенную дробь
 }
