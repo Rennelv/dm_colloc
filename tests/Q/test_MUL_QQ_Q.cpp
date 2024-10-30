@@ -43,7 +43,7 @@ TEST(Test_MUL_QQ_Q, Q7_3) {
     LongRational b3(p2, q2);
     LongInteger p3(false, {4});
     LongNatural q3({9});
-    LongRational ans3(p2, q3);
+    LongRational ans3(p3, q3);
 
     EXPECT_EQ(MUL_QQ_Q(a3, b3), ans3);
 }
@@ -51,13 +51,13 @@ TEST(Test_MUL_QQ_Q, Q7_3) {
 TEST(Test_MUL_QQ_Q, Q7_4) {
     LongInteger p1(false, {0});
     LongNatural q1({2, 1});
-    LongRational a3(p1, q1);
+    LongRational a4(p1, q1);
     LongInteger p2(true, {1, 4});
     LongNatural q2({1, 5});
-    LongRational b3(p2, q2);
+    LongRational b4(p2, q2);
     LongInteger p3(false, {0});
     LongNatural q3({1});
-    LongRational ans3(p2, q3);
+    LongRational ans4(p2, q3);
 
-    EXPECT_EQ(MUL_QQ_Q(a3, b3), ans3);
+    EXPECT_EQ(MUL_QQ_Q(a4, b4), ans4);
 }
