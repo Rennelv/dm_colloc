@@ -57,7 +57,7 @@ TEST(DIV_ZZ_Z, DivByNegativeOne) {
     EXPECT_EQ(DIV_ZZ_Z(dividend, divisor), expected);
 }
 
-// Тест деления нуля на положительное число
+// Тест деления нуля на положительное число!
 // 0 : (312) == 0
 TEST(DIV_ZZ_Z, ZeroDivPositive) {
     LongInteger dividend(false, {0});
