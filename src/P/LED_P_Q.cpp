@@ -1,13 +1,11 @@
 #include "P/LED_P_Q.hpp"
 
-Polynomial LED_P_Q_P(const Polynomial& a) {
+LongRational LED_P_Q(const Polynomial& a) {
     const std::map<LongNatural, LongRational>& poly_map = a.getMap();  // возвращает мап коэффициентов
-    LongNatural biggest_key = LongNatural("0");
-    for (const auto& [key, value] : poly_map) {
-        if (key > biggest_key) {
-            biggest_key = key;
-        }
+    if (poly_map.empty()) {
+        return LongRational(LongInteger("0"), LongNatural("1"));  // возвращает 0, если мап пустой
+    } else {
+        auto it = poly_map.begin();  // начало мап -> наибольшая степень, старший коэффициент
+        return it->second;           // возвращает старший коэффициент
     }
-    // Возвращаем новый полином с обновленным map
-    return poly_map.getCoef(biggest_key);
 }

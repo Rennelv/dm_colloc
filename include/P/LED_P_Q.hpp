@@ -12,6 +12,6 @@
         LongRational- старший коэффициент многочлена.
 */
 
-Polynomial LED_P_Q(const Polynomial& a);
+LongRational LED_P_Q(const Polynomial& a);
 
 #endif
