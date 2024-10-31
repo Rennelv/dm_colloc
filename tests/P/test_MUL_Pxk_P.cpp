@@ -57,3 +57,8 @@ TEST(test_MUL_Pxk_P, FirstDegree) {
     Polynomial res(res_pol);
     EXPECT_EQ(MUL_Pxk_P(a, LongNatural("1")), res);  // ((8/3)x^3 + 3x^2 + 6x^1 + 4x^0) * x^1 = (8/3)x^4 + 3x^3 + 6x^2 + 4x^1
 }
+TEST(test_MUL_Pxk_P, EmptyPolynomial) {
+    std::map<LongNatural, LongRational> fst_pol;
+    Polynomial a(fst_pol);
+    EXPECT_EQ(MUL_Pxk_P(a, LongNatural("4")), a);  // 0 * x^4 = 0
+}
