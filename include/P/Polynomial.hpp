@@ -7,15 +7,6 @@
 #include "N/LongNatural.hpp"
 #include "Q/LongRational.hpp"
 
-// namespace std {
-// template <>  // Объявление less для создания std::map коэффицентов с ключем LongNatural. map требует возможность сравнения ключей
-// struct less<LongNatural> {
-//     bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
-//         return COM_NN_D(lhs, rhs) == 1;
-//     }
-// };
-// }  // namespace std
-
 struct LongNaturalCompareLess {
     bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
         return COM_NN_D(lhs, rhs) == 1;
