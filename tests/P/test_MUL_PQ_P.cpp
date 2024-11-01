@@ -30,6 +30,7 @@ TEST(test_MUL_PQ_P, NormalPolynomial) {
 }
 TEST(test_MUL_PQ_P, MulZero) {
     std::map<LongNatural, LongRational> fst_pol;
+    std::map<LongNatural, LongRational> res_pol;
     LongRational num1 = LongRational(LongInteger("8"), LongNatural("3"));
     LongRational num2 = LongRational(LongInteger("3"), LongNatural("1"));
     LongRational num3 = LongRational(LongInteger("6"), LongNatural("1"));
@@ -40,7 +41,8 @@ TEST(test_MUL_PQ_P, MulZero) {
     fst_pol.emplace(LongNatural("1"), num3);
     fst_pol.emplace(LongNatural("0"), num4);
     Polynomial a(fst_pol);
-    EXPECT_EQ(MUL_PQ_P(a, zero), zero);  // ((8/3)x^3 + 3x^2 + 6x^1 + 4x^0) * 0 = 0
+    Polynomial res(res_pol);
+    EXPECT_EQ(MUL_PQ_P(a, zero), res_pol);  // ((8/3)x^3 + 3x^2 + 6x^1 + 4x^0) * 0 = 0
 }
 
 TEST(test_MUL_PQ_P, EmptyPolynomial) {
