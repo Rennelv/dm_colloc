@@ -44,7 +44,7 @@ jobs:
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -DGENERATE_TESTS=ON
-        # -DENABLE_UNITY=ON
+        -DENABLE_UNITY=ON
         -S ${{ github.workspace }}
 
     - name: Build

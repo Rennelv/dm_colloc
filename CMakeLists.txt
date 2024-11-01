@@ -98,10 +98,10 @@ if (GENERATE_TESTS)
     # Create executable for tests
     add_executable(dm_tests ${TEST_SOURCES} ${SOURCES_FOR_TESTS} )
     
-    # Set Unity Build for tests if enabled
-    if(ENABLE_UNITY)
-        set_target_properties(dm_tests PROPERTIES UNITY_BUILD ON)
-    endif()
+    # # Set Unity Build for tests if enabled
+    # if(ENABLE_UNITY)
+    #     set_target_properties(dm_tests PROPERTIES UNITY_BUILD ON)
+    # endif()
 
     # Link tests with the main library and GTest
     target_link_libraries(dm_tests ${GTEST_LIBRARIES} pthread)
