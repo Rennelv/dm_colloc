@@ -3,6 +3,7 @@ build_tests
 .cache
 .vscode
 *.zip
+*.ini
 
 # Prerequisites
 *.d
