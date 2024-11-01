@@ -1,6 +1,7 @@
 #ifndef POLYNOMIAL_HPP
 #define POLYNOMIAL_HPP
 
+#define CoefficientsMap std::map<LongNatural, LongRational, LongNaturalComparator>
 #include <map>
 
 #include "N/COM_NN_D.hpp"
@@ -13,6 +14,12 @@ struct LongNaturalCompareLess {
     }
 };
 
+struct LongNaturalComparator {
+    bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
+        return COM_NN_D(lhs, rhs) == 2;  // lhs > rhs for descending order
+    }
+};
+
 /*
     Выполнил Журавлев Дмитрий 3381
 
@@ -21,6 +28,7 @@ struct LongNaturalCompareLess {
 */
 
 class Polynomial {
+    // Тип для словаря коэффициентов
     // Словарь (мапа) коэффициентов (степень -> коэффициент)
     std::map<LongNatural, LongRational> coefficients;
     // Степень полинома
