@@ -98,12 +98,22 @@ TEST(PolynomialTest, LargeCoefficients) {
     EXPECT_EQ(p.toString(), "(12345678901234567890/1)x^2 + 98765432109876543210/1");
 }
 
-// Test isCoefZero for polynomial with large coefficients
-TEST(PolynomialTest, IsZero) {
+// // Test isCoefZero for polynomial with large coefficients
+// TEST(PolynomialTest, IsZero) {
+//     std::map<LongNatural, LongRational> coefficients = {{LongNatural("2"), LongRational(LongInteger("0"), LongNatural("1"))},
+//                                                         {LongNatural("0"), LongRational(LongInteger("98765432109876543210"), LongNatural("1"))}};
+//     Polynomial p(coefficients);
+//     EXPECT_EQ(p.isCoefZero(LongNatural({0})), false);
+//     EXPECT_EQ(p.isCoefZero(LongNatural({2})), true);
+//     EXPECT_EQ(p.isCoefZero(LongNatural({9})), true);
+// }
+
+// Test ifCoef for polynomial with large coefficients
+TEST(PolynomialTest, IfCoef) {
     std::map<LongNatural, LongRational> coefficients = {{LongNatural("2"), LongRational(LongInteger("0"), LongNatural("1"))},
                                                         {LongNatural("0"), LongRational(LongInteger("98765432109876543210"), LongNatural("1"))}};
     Polynomial p(coefficients);
-    EXPECT_EQ(p.isCoefZero(LongNatural({0})), false);
-    EXPECT_EQ(p.isCoefZero(LongNatural({2})), true);
-    EXPECT_EQ(p.isCoefZero(LongNatural({9})), true);
+    EXPECT_EQ(p.isCoef(LongNatural({0})), true);
+    EXPECT_EQ(p.isCoef(LongNatural({2})), false);
+    EXPECT_EQ(p.isCoef(LongNatural({9})), false);
 }

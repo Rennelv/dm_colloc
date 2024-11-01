@@ -3,6 +3,8 @@
 #include <cstddef>
 #include <stdexcept>
 
+#include "N/COM_NN_D.hpp"
+
 LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
     for (size_t i = 0; i < arr.size(); i++) {
         if (arr[i] > 9) {
@@ -75,4 +77,8 @@ bool LongNatural::operator==(const LongNatural& other) const {
 
 bool LongNatural::operator!=(const LongNatural& other) const {
     return !(*this == other);  // Если числа не равны, то они не равны
+}
+
+bool LongNatural::operator<(const LongNatural& other) const {
+    return COM_NN_D(*this, other) == 1;  // Если число меньше, то COM_NN_D возвращает 1
 }
