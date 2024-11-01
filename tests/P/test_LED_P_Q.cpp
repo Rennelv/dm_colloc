@@ -16,8 +16,8 @@ TEST(test_LED_P_Q, NormalPolynomial) {
     Polynomial a(fst_pol);
     EXPECT_EQ(LED_P_Q(a), num1);  // из многочлена (8/3)x^3 + 3x^2 + 6x^1 + 4x^0 возвращает старший коэффициент 8/3
 }
-/*
-TEST(test_LED_P_Q, ZeroCoef) {
+
+TEST(test_LED_P_Q, first) {
     std::map<LongNatural, LongRational> fst_pol;
     LongRational num1 = LongRational(LongInteger("0"), LongNatural("1"));
     LongRational num2 = LongRational(LongInteger("0"), LongNatural("1"));
@@ -30,7 +30,7 @@ TEST(test_LED_P_Q, ZeroCoef) {
     Polynomial a(fst_pol);
     EXPECT_EQ(LED_P_Q(a), num3);  // из многочлена 0x^3 + 0x^2 + 6x^1 + 4x^0 возвращает старший коэффициент 0
 }
-TEST(test_LED_P_Q, AllCoefZero) {
+TEST(test_LED_P_Q, second) {
     std::map<LongNatural, LongRational> fst_pol;
     LongRational num1 = LongRational(LongInteger("0"), LongNatural("1"));
     LongRational num2 = LongRational(LongInteger("0"), LongNatural("1"));
@@ -43,7 +43,7 @@ TEST(test_LED_P_Q, AllCoefZero) {
     Polynomial a(fst_pol);
     EXPECT_EQ(LED_P_Q(a), num1);  // из многочлена 0x^3 + 0x^2 + 0x^1 + 0x^0 возвращает старший коэффициент 0
 }
-*/
+
 TEST(test_LED_P_Q, EmptyPolynomial) {
     std::map<LongNatural, LongRational> fst_pol;
     Polynomial a(fst_pol);
