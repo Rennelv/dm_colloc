@@ -80,3 +80,18 @@ TEST(test_FAC_P_Q, ZeroCoefficient) {
     EXPECT_EQ(result.getNumerator().toString(), "6");    // Ожидаемый НОД = 6
     EXPECT_EQ(result.getDenominator().toString(), "1");  // Ожидаемый НОК = 1
 }
+
+TEST(test_FAC_P_Q, ZeroPolynomial) {
+    std::map<LongNatural, LongRational> poly;
+    poly.emplace(LongNatural("0"), LongRational(LongInteger("0"), LongNatural("1")));
+    Polynomial a(poly);
+    LongRational result = FAC_P_Q(a);
+
+    std::map<LongNatural, LongRational> expect_poly;
+    expect_poly.emplace(LongNatural("0"), LongRational(LongInteger("0"), LongNatural("1")));
+    Polynomial expect(expect_poly);
+
+    EXPECT_EQ(a.toString(), expect.toString());          // (0/1)x^0 = (0/1)x^0
+    EXPECT_EQ(result.getNumerator().toString(), "0");    // Ожидаемый НОД = 0ы
+    EXPECT_EQ(result.getDenominator().toString(), "1");  // Ожидаемый НОК = 1
+}
