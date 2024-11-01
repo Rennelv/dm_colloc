@@ -7,14 +7,11 @@
 #include "N/LongNatural.hpp"
 #include "Q/LongRational.hpp"
 
-namespace std {
-template <>  // Объявление less для создания std::map коэффицентов с ключем LongNatural. map требует возможность сравнения ключей
-struct less<LongNatural> {
+struct LongNaturalCompareLess {
     bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
-        return COM_NN_D(lhs, rhs) == 2;
+        return COM_NN_D(lhs, rhs) == 1;
     }
 };
-}  // namespace std
 
 /*
     Выполнил Журавлев Дмитрий 3381
@@ -39,13 +36,16 @@ class Polynomial {
     // для итерации по всем коэффициентам
     const std::map<LongNatural, LongRational>& getMap() const;
 
-    // Возращает равен ли коэффицент при степени нулю (true - равен, false - не равен)
-    bool isCoefZero(const LongNatural& degree) const;
+    // Возвращает RW мап коэффициентов. Использовать для изменения коэффициентов существующего полинома
+    std::map<LongNatural, LongRational>& getMapRW();
+
+    // Возвращает существует ли коэффициент при степени (true - существует, false - не существует)
+    bool isCoef(const LongNatural& degree) const;
 
     // Возвращает коэффициент при степени (const&) (если коэф=0 возвращает 0/1)
     const LongRational& getCoef(const LongNatural& degree) const;
 
-    // Возвращает степень полинома (const&)
+    // Возвращает степень полинома из переменной degree (const&)
     const LongNatural& getDegree() const;
 
     // Возвращает строку полинома ("(-654/646)x^3 + (-654/65)x^1 + 55/1")

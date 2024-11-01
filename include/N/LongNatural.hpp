@@ -44,6 +44,8 @@ class LongNatural {
     bool operator==(const LongNatural& other) const;
     // Оператор сравнения (обратный оператору ==)
     bool operator!=(const LongNatural& other) const;
+    // Оператор сравнения (проверяет больше ли число other) использует COM_NN_D. Нужен для использования в std::map
+    bool operator<(const LongNatural& other) const;
 };
 
 #endif  // LONGNATURAL_HPP

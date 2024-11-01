@@ -6,6 +6,6 @@ LongRational LED_P_Q(const Polynomial& a) {
         return LongRational(LongInteger("0"), LongNatural("1"));  // возвращает 0, если мап пустой
     } else {
         // начало мап -> наибольшая степень, старший коэффициент
-        return poly_map.begin()->second;  // возвращает старший коэффициент
+        return poly_map.rbegin()->second;  // возвращает старший коэффициент
     }
 }
