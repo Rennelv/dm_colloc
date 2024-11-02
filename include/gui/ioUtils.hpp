@@ -66,4 +66,12 @@ void DisplayResultOrError(std::future<ResultType>& result_future, bool& calculat
     if (!error_str.empty()) ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "%s", error_str.c_str());
 }
 
+// template <typename ResultType, typename Func, typename... Args>
+// static void StartComputation(std::future<ResultType>& result_future, bool& calculation_started, std::string& error_str, Func func, Args... args) {
+//     result_future = std::async(std::launch::async, func, args...);
+//     calculation_started = true;
+// }
+
+void HelpMarker(const char* desc);
+
 #endif  // IO_UTILS_HPP
