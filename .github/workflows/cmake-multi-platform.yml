@@ -35,7 +35,7 @@ jobs:
     - name: Install dependencies
       if: matrix.os == 'ubuntu-latest'
       run: |
-        sudo apt-get install -y --no-upgrade g++ cmake libgtest-dev
+        sudo apt-get install -y --no-upgrade g++ cmake libgtest-dev libgl1-mesa-dev libglfw3 libglfw3-dev libglew-dev
 
     - name: Configure CMake
       run: >
