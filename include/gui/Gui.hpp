@@ -5,12 +5,6 @@ class Gui {
    public:
     void run();
 
-    void ShowNaturalCompareMenu();
-    void ShowNaturalCheckForZeroMenu();
-    void ShowNaturalAddOneMenu();
-    void ShowNaturalAddMenu();
-
-    // void ShowAllMenus();
     void ShowMainMenu();
     void ShowNaturalFuncMenu();
     void ShowIntegerFuncMenu();

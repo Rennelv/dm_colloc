@@ -17,4 +17,25 @@ enum class PolynomialFunctions {
     NMR_P_P,    // Преобразование многочлена — кратные корни в простые
 };
 
+class HandlePolynomialFunctions {
+    // static Polynomial parsePolynomial(const std::string& str);
+
+   public:
+    static void showMenu(bool* p_open);
+
+    static void show_ADD_PP_P(bool* p_open);
+    static void show_SUB_PP_P(bool* p_open);
+    static void show_MUL_PQ_P(bool* p_open);
+    static void show_MUL_Pxk_P(bool* p_open);
+    static void show_LED_P_Q(bool* p_open);
+    static void show_DEG_P_N(bool* p_open);
+    static void show_FAC_P_Q(bool* p_open);
+    static void show_MUL_PP_P(bool* p_open);
+    static void show_DIV_PP_P(bool* p_open);
+    static void show_MOD_PP_P(bool* p_open);
+    static void show_GCF_PP_P(bool* p_open);
+    static void show_DER_P_P(bool* p_open);
+    static void show_NMR_P_P(bool* p_open);
+};
+
 #endif  // POLYNOMIALFUNCTIONS_HPP

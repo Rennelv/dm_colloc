@@ -21,22 +21,22 @@ enum class NaturalFunctions {
 
 class HandleNaturalFunctions {
    public:
-    void ShowNaturalFuncMenu();
+    static void showMenu(bool *p_open);
 
-    void Show_COM_NN_D(bool *p_open);
-    void Show_NZER_N_B(bool *p_open);
-    void Show_ADD_1N_N(bool *p_open);
-    void Show_ADD_NN_N(bool *p_open);
-    void Show_SUB_NN_N(bool *p_open);
-    void Show_MUL_ND_N(bool *p_open);
-    void Show_MUL_Nk_N(bool *p_open);
-    void Show_MUL_NN_N(bool *p_open);
-    void Show_SUB_NDN_N(bool *p_open);
-    void Show_DIV_NN_Dk(bool *p_open);
-    void Show_DIV_NN_N(bool *p_open);
-    void Show_MOD_NN_N(bool *p_open);
-    void Show_GCF_NN_N(bool *p_open);
-    void Show_LCM_NN_N(bool *p_open);
+    static void show_COM_NN_D(bool *p_open);
+    static void show_NZER_N_B(bool *p_open);
+    static void show_ADD_1N_N(bool *p_open);
+    static void show_ADD_NN_N(bool *p_open);
+    static void show_SUB_NN_N(bool *p_open);
+    static void show_MUL_ND_N(bool *p_open);
+    static void show_MUL_Nk_N(bool *p_open);
+    static void show_MUL_NN_N(bool *p_open);
+    static void show_SUB_NDN_N(bool *p_open);
+    static void show_DIV_NN_Dk(bool *p_open);
+    static void show_DIV_NN_N(bool *p_open);
+    static void show_MOD_NN_N(bool *p_open);
+    static void show_GCF_NN_N(bool *p_open);
+    static void show_LCM_NN_N(bool *p_open);
 };
 
 #endif  // NATURALFUNCTIONS_HPP
