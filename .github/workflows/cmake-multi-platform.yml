@@ -35,7 +35,7 @@ jobs:
     - name: Install dependencies
       if: matrix.os == 'ubuntu-latest'
       run: |
-        sudo apt-get install -y --no-upgrade g++ cmake libgtest-dev libgl1-mesa-dev libglfw3 libglfw3-dev libglew-dev
+        sudo apt-get install -y --no-upgrade g++ cmake libgtest-dev libgl1-mesa-dev libglfw3 libglfw3-dev libglew-dev ninja-build
 
     - name: Configure CMake
       run: >
@@ -45,6 +45,7 @@ jobs:
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -DGENERATE_TESTS=ON
         -DENABLE_UNITY=ON
+        -G Ninja
         -S ${{ github.workspace }}
 
     - name: Build
