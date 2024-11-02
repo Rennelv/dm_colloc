@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <stdexcept>
 
+#include "DroidSans_ttf.cpp"
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
 #include "gui/HandleIntegerFunctions.hpp"
@@ -47,7 +48,8 @@ void Gui::run() {
 
     // io.Fonts->AddFontFromFileTTF("DroidSans.ttf", 16);
     // Load font with Cyrillic characters support
-    io.Fonts->AddFontFromFileTTF("DroidSans.ttf", 16.0f, NULL, io.Fonts->GetGlyphRangesCyrillic());
+    // io.Fonts->AddFontFromFileTTF("DroidSans.ttf", 16.0f, NULL, io.Fonts->GetGlyphRangesCyrillic());
+    io.Fonts->AddFontFromMemoryCompressedTTF(DroidSans_compressed_data, DroidSans_compressed_size, 16.f, NULL, io.Fonts->GetGlyphRangesCyrillic());
 
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
@@ -80,23 +82,23 @@ void Gui::run() {
 void Gui::ShowMainMenu() {
     ImGui::Begin("Main Menu");
 
-    if (ImGui::Button("Natural Numbers (N)")) {
+    if (ImGui::Button("Натуральные числа с нулем (N)")) {
         showNaturalFuncMenu = !showNaturalFuncMenu;
     }
 
-    if (ImGui::Button("Integer Numbers (Z)")) {
+    if (ImGui::Button("Целые числа (Z)")) {
         showIntegerFuncMenu = !showIntegerFuncMenu;
     }
 
-    if (ImGui::Button("Rational Numbers (Q)")) {
+    if (ImGui::Button("Рациональные числа (Q)")) {
         showRationalFuncMenu = !showRationalFuncMenu;
     }
 
-    if (ImGui::Button("Polynomials (P)")) {
+    if (ImGui::Button("Многочлены (P)")) {
         showPolynomialFuncMenu = !showPolynomialFuncMenu;
     }
 
-    if (ImGui::Button("Exit")) {
+    if (ImGui::Button("Выход")) {
         glfwSetWindowShouldClose(glfwGetCurrentContext(), GLFW_TRUE);
     }
 

@@ -112,7 +112,7 @@ void HandleNaturalFunctions::show_GCF_NN_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two natural numbers separated by space:");
+    ImGui::Text("Введите два натуральных числа:");
     static std::string a_str;
     static std::string b_str;
 
@@ -124,7 +124,7 @@ void HandleNaturalFunctions::show_GCF_NN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Посчитать")) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -141,7 +141,8 @@ void HandleNaturalFunctions::show_GCF_NN_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("НОД натуральных чисел");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -152,7 +153,7 @@ void HandleNaturalFunctions::show_COM_NN_D(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two natural numbers separated by space:");
+    ImGui::Text("Введите два натуральных числа:");
 
     static std::string a_str;  // Buffer for input 'a'
     static std::string b_str;  // Buffer for input 'b'
@@ -183,8 +184,12 @@ void HandleNaturalFunctions::show_COM_NN_D(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Сравнение натуральных чисел: 2 - если первое больше второго, 0, если равно, 1 иначе.");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
+    // if (result == "0") result = "=";
+    // if (result == "1") result = "<";
+    // if (result == "2") result = ">";
     ImGui::End();
 }
 
@@ -194,7 +199,7 @@ void HandleNaturalFunctions::show_NZER_N_B(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a natural number:");
+    ImGui::Text("Введите натуральное число:");
     static std::string a_str;  // Buffer for input 'a'
     InputTextWithResize("a", a_str);
 
@@ -220,7 +225,8 @@ void HandleNaturalFunctions::show_NZER_N_B(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Проверка на ноль: если число не равно нулю, то «да» иначе «нет»");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -231,7 +237,7 @@ void HandleNaturalFunctions::show_ADD_1N_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a natural number:");
+    ImGui::Text("Введите натуральное число:");
     static std::string a_str;  // Buffer for input 'a'
     InputTextWithResize("a", a_str);
 
@@ -257,7 +263,8 @@ void HandleNaturalFunctions::show_ADD_1N_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Добавление 1 к натуральному числу");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -268,7 +275,7 @@ void HandleNaturalFunctions::show_ADD_NN_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two natural numbers separated by space:");
+    ImGui::Text("Введите два натуральных числа:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string b_str;  // Buffer for input 'b'
     InputTextWithResize("a", a_str);
@@ -297,7 +304,8 @@ void HandleNaturalFunctions::show_ADD_NN_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Сложение натуральных чисел");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -308,7 +316,7 @@ void HandleNaturalFunctions::show_SUB_NN_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two natural numbers separated by space:");
+    ImGui::Text("Введите два натуральных числа:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string b_str;  // Buffer for input 'b'
     InputTextWithResize("a", a_str);
@@ -337,7 +345,8 @@ void HandleNaturalFunctions::show_SUB_NN_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Вычитание из первого большего натурального числа второго меньшего или равного");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -348,7 +357,7 @@ void HandleNaturalFunctions::show_MUL_ND_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a natural number and a digit separated by space:");
+    ImGui::Text("Введите натуральное число и цифру:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string d_str;  // Buffer for input 'b'
     InputTextWithResize("a", a_str);
@@ -380,7 +389,8 @@ void HandleNaturalFunctions::show_MUL_ND_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Умножение натурального числа на цифру");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -391,7 +401,7 @@ void HandleNaturalFunctions::show_MUL_Nk_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a natural number and a power of 10 separated by space:");
+    ImGui::Text("Введите натуральное число и степень 10:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string k_str;  // Buffer for input 'b'
     InputTextWithResize("a", a_str);
@@ -423,7 +433,8 @@ void HandleNaturalFunctions::show_MUL_Nk_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Умножение натурального числа на 10^k, k-натуральное");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -434,7 +445,7 @@ void HandleNaturalFunctions::show_MUL_NN_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two natural numbers separated by space:");
+    ImGui::Text("Введите два натуральных числа:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string b_str;  // Buffer for input 'b'
     InputTextWithResize("a", a_str);
@@ -463,7 +474,8 @@ void HandleNaturalFunctions::show_MUL_NN_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Умножение натуральных чисел");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -474,7 +486,7 @@ void HandleNaturalFunctions::show_SUB_NDN_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter three natural numbers separated by space:");
+    ImGui::Text("Введите три натуральных числа:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string b_str;  // Buffer for input 'b'
     static std::string d_str;  // Buffer for input 'd'
@@ -509,7 +521,8 @@ void HandleNaturalFunctions::show_SUB_NDN_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Вычитание из натурального другого натурального, умноженного на цифру для случая с неотрицательным результатом");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -520,7 +533,7 @@ void HandleNaturalFunctions::show_DIV_NN_Dk(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two natural numbers separated by space:");
+    ImGui::Text("Введите два натуральных числа:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string b_str;  // Buffer for input 'b'
     InputTextWithResize("a", a_str);
@@ -549,7 +562,9 @@ void HandleNaturalFunctions::show_DIV_NN_Dk(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker(
+        "Вычисление первой цифры деления большего натурального на меньшее, домноженное на 10^k,где k - номер позиции этой цифры (номер считается с нуля)");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -560,7 +575,7 @@ void HandleNaturalFunctions::show_DIV_NN_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two natural numbers separated by space:");
+    ImGui::Text("Введите два натуральных числа:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string b_str;  // Buffer for input 'b'
     InputTextWithResize("a", a_str);
@@ -589,6 +604,8 @@ void HandleNaturalFunctions::show_DIV_NN_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
+    ImGui::SameLine();
+    HelpMarker("Неполное частное от деления первого натурального числа на второе с остатком (делитель отличен от нуля)");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -599,7 +616,7 @@ void HandleNaturalFunctions::show_MOD_NN_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two natural numbers separated by space:");
+    ImGui::Text("Введите два натуральных числа:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string b_str;  // Buffer for input 'b'
     InputTextWithResize("a", a_str);
@@ -628,6 +645,8 @@ void HandleNaturalFunctions::show_MOD_NN_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
+    ImGui::SameLine();
+    HelpMarker("Остаток от деления первого натурального числа на второе натуральное (делитель отличен от нуля)");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -638,7 +657,7 @@ void HandleNaturalFunctions::show_LCM_NN_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two natural numbers separated by space:");
+    ImGui::Text("Введите два натуральных числа:");
     static std::string a_str;  // Buffer for input 'a'
     static std::string b_str;  // Buffer for input 'b'
     InputTextWithResize("a", a_str);
@@ -646,7 +665,7 @@ void HandleNaturalFunctions::show_LCM_NN_N(bool* p_open) {
 
     static std::future<LongNatural> result_future;
     static bool calculation_started = false;
-    static LongNatural result("0");
+    static std::string result;
     static std::string error_str;
 
     if (ImGui::Button("Calculate")) {
@@ -667,18 +686,8 @@ void HandleNaturalFunctions::show_LCM_NN_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
-    if (calculation_started) {
-        // Check if the result is ready
-        if (result_future.wait_for(std::chrono::seconds(0)) == std::future_status::ready) {
-            result = result_future.get();
-            calculation_started = false;
-        } else {
-            ImGui::Text("Calculating...");
-        }
-    } else {
-        ImGui::Text("Result: %s", result.toString().c_str());
-    }
-    ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "%s", error_str.c_str());
+    ImGui::SameLine();
+    HelpMarker("НОК натуральных чисел");
+    DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
