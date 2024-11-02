@@ -16,8 +16,13 @@ void InputTextWithResize(const char* label, std::string& str) {
         (void*)&str);
 }
 
-// template <typename ResultType, typename Func, typename... Args>
-// static void StartComputation(std::future<ResultType>& result_future, bool& calculation_started, std::string& error_str, Func func, Args... args) {
-//     result_future = std::async(std::launch::async, func, args...);
-//     calculation_started = true;
-// }
+void HelpMarker(const char* desc) {
+    ImGui::TextDisabled("(?)");
+    if (ImGui::IsItemHovered()) {
+        ImGui::BeginTooltip();
+        ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+        ImGui::TextUnformatted(desc);
+        ImGui::PopTextWrapPos();
+        ImGui::EndTooltip();
+    }
+}

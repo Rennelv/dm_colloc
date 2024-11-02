@@ -1,9 +1,6 @@
 #include "gui/HandlePolynomialFunctions.hpp"
 
-#include <sys/stat.h>
-
 #include <map>
-// #include <regex>
 #include <string>
 
 #include "N/LongNatural.hpp"
@@ -21,53 +18,6 @@
 #include "Q/LongRational.hpp"
 #include "gui/ioUtils.hpp"
 #include "imgui.h"
-
-// Polynomial HandlePolynomialFunctions::parsePolynomial(const std::string& poly) {
-//     std::map<LongNatural, LongRational> terms;
-//     std::regex termRegex(R"(([+-]?\s*\d+(?:\/\d*)?)x(\d+)|([+-]?\s*\d+(?:\/\d*)?))");
-//     std::smatch match;
-//     std::string s = poly;
-
-//     auto parseFraction = [](const std::string& fractionStr) -> std::pair<std::string, std::string> {
-//         std::string numerator = fractionStr, denominator = "1";
-//         auto slashPos = fractionStr.find('/');
-
-//         if (slashPos != std::string::npos) {
-//             numerator = fractionStr.substr(0, slashPos);
-//             denominator = fractionStr.substr(slashPos + 1);
-//         }
-
-//         numerator.erase(remove_if(numerator.begin(), numerator.end(), ::isspace), numerator.end());
-//         denominator.erase(remove_if(denominator.begin(), denominator.end(), ::isspace), denominator.end());
-
-//         return {numerator, denominator};
-//     };
-
-//     while (std::regex_search(s, match, termRegex)) {
-//         std::pair<std::string, std::string> coeff{"1", "1"};
-//         std::string degree = "0";
-
-//         if (match[1].matched) {  // Matches terms with 'x', e.g., "2/5x3" or "-3x1"
-//             std::string coeffStr = match[1].str();
-//             if (coeffStr == "+") {
-//                 coeff = {"1", "1"};
-//             } else if (coeffStr == "-") {
-//                 coeff = {"-1", "1"};
-//             } else {
-//                 coeff = parseFraction(coeffStr);
-//             }
-//             degree = match[2].str();
-//         } else if (match[3].matched) {  // Matches constant terms like "15/6" or "-15/6"
-//             coeff = parseFraction(match[3].str());
-//             degree = "0";
-//         }
-
-//         terms.emplace(LongNatural(degree), LongRational(coeff.first, coeff.second));
-//         s = match.suffix();
-//     }
-
-//     return Polynomial(terms);
-// }
 
 void HandlePolynomialFunctions::showMenu(bool* p_open) {
     static bool ADD_PP_P_open = false;
@@ -145,17 +95,6 @@ void HandlePolynomialFunctions::showMenu(bool* p_open) {
 
     ImGui::End();
 }
-
-// static void HelpMarker(const char* desc) {
-//     ImGui::TextDisabled("(?)");
-//     if (ImGui::IsItemHovered()) {
-//         ImGui::BeginTooltip();
-//         ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-//         ImGui::TextUnformatted(desc);
-//         ImGui::PopTextWrapPos();
-//         ImGui::EndTooltip();
-//     }
-// }
 
 std::string map_to_poly_string(const std::map<LongNatural, LongRational>& terms) {
     if (terms.empty()) {
@@ -576,7 +515,7 @@ void HandlePolynomialFunctions::show_FAC_P_Q(bool* p_open) {
     if (ImGui::Button("Calculate")) {
         try {
             Polynomial a(a_terms);
-
+            // kill me
             // result_future = std::async(std::launch::async, FAC_P_Q, a); // thats ****** up
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
