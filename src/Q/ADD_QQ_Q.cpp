@@ -2,6 +2,7 @@
 
 #include "N/DIV_NN_N.hpp"
 #include "N/LCM_NN_N.hpp"
+#include "Q/RED_Q_Q.hpp"
 #include "Z/ADD_ZZ_Z.hpp"
 #include "Z/MUL_ZZ_Z.hpp"
 
@@ -17,5 +18,7 @@ LongRational ADD_QQ_Q(const LongRational& a, const LongRational& b) {
 
     LongInteger numeratorResult = ADD_ZZ_Z(numeratorA, numeratorB);  // Складываем числители
 
-    return LongRational(numeratorResult, lcm);
+    LongRational result(numeratorResult, lcm);
+
+    return RED_Q_Q(result);
 }

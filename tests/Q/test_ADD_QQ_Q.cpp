@@ -42,13 +42,13 @@ TEST(Test_ADD_QQ_Q, NegativeRationals) {
     LongNatural q1({4});
     LongRational a3(p1, q1);  // -1/4
 
-    LongInteger p2(true, {2});
+    LongInteger p2(true, {3});
     LongNatural q2({4});
-    LongRational b3(p2, q2);  // -2/4
+    LongRational b3(p2, q2);  // -3/4
 
-    LongInteger p3(true, {3});
-    LongNatural q3({4});
-    LongRational expected_result(p3, q3);  // -1/4 + (-2/4) = -3/4
+    LongInteger p3(true, {1});
+    LongNatural q3({1});
+    LongRational expected_result(p3, q3);  // -1/4 + (-3/4) = -4/4 = -1
 
     EXPECT_EQ(ADD_QQ_Q(a3, b3), expected_result);
 }
