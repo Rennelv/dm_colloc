@@ -14,4 +14,20 @@ enum class IntegerFunctions {
     MOD_ZZ_Z,   // Остаток от деления целого на целое(делитель отличен от нуля)
 };
 
+class HandleIntegerFunctions {
+   public:
+    static void showMenu(bool* p_open);
+
+    static void show_ABS_Z_N(bool* p_open);
+    static void show_POZ_Z_D(bool* p_open);
+    static void show_MUL_ZM_Z(bool* p_open);
+    static void show_TRANS_N_Z(bool* p_open);
+    static void show_TRANS_Z_N(bool* p_open);
+    static void show_ADD_ZZ_Z(bool* p_open);
+    static void show_SUB_ZZ_Z(bool* p_open);
+    static void show_MUL_ZZ_Z(bool* p_open);
+    static void show_DIV_ZZ_Z(bool* p_open);
+    static void show_MOD_ZZ_Z(bool* p_open);
+};
+
 #endif  // INTEGERFUNCTIONS_HPP

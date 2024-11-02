@@ -12,4 +12,18 @@ enum class RationalFunctions {
     DIV_QQ_Q,   // Деление дробей (делитель отличен от нуля)
 };
 
+class HandleRationalFunctions {
+   public:
+    static void showMenu(bool* p_open);
+
+    static void show_RED_Q_Q(bool* p_open);
+    static void show_INT_Q_B(bool* p_open);
+    static void show_TRANS_Z_Q(bool* p_open);
+    static void show_TRANS_Q_Z(bool* p_open);
+    static void show_ADD_QQ_Q(bool* p_open);
+    static void show_SUB_QQ_Q(bool* p_open);
+    static void show_MUL_QQ_Q(bool* p_open);
+    static void show_DIV_QQ_Q(bool* p_open);
+};
+
 #endif  // RATIONALFUNCTIONS_HPP
