@@ -7,7 +7,10 @@
 
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
-#include "gui/NaturalFunctions.hpp"
+#include "gui/HandleIntegerFunctions.hpp"
+#include "gui/HandleNaturalFunctions.hpp"
+#include "gui/HandlePolynomialFunctions.hpp"
+#include "gui/HandleRationalFunctions.hpp"
 #include "imgui.h"
 
 static void glfw_error_callback(int error, const char* description) {
@@ -42,8 +45,6 @@ void Gui::run() {
     ImGui_ImplGlfw_InitForOpenGL(window, true);  // Second param install_callback=true will install GLFW callbacks and chain to existing ones.
     ImGui_ImplOpenGL3_Init();
 
-    HandleNaturalFunctions handleNaturalFunctions;
-
     // io.Fonts->AddFontFromFileTTF("DroidSans.ttf", 16);
     // Load font with Cyrillic characters support
     io.Fonts->AddFontFromFileTTF("DroidSans.ttf", 16.0f, NULL, io.Fonts->GetGlyphRangesCyrillic());
@@ -52,15 +53,17 @@ void Gui::run() {
         glfwPollEvents();
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
+
         ImGui::NewFrame();
 
         if (showMainMenu) ShowMainMenu();
-        if (showNaturalFuncMenu) handleNaturalFunctions.ShowNaturalFuncMenu();
-        // if (showIntegerFuncMenu) ShowIntegerFuncMenu();
-        // if (showRationalFuncMenu) ShowRationalFuncMenu();
-        // if (showPolynomialFuncMenu) ShowPolynomialFuncMenu();
+        if (showNaturalFuncMenu) HandleNaturalFunctions::showMenu(&showNaturalFuncMenu);
+        if (showIntegerFuncMenu) HandleIntegerFunctions::showMenu(&showIntegerFuncMenu);
+        if (showRationalFuncMenu) HandleRationalFunctions::showMenu(&showRationalFuncMenu);
+        if (showPolynomialFuncMenu) HandlePolynomialFunctions::showMenu(&showPolynomialFuncMenu);
 
         ImGui::Render();
+
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
         glViewport(0, 0, display_w, display_h);

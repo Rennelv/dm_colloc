@@ -51,6 +51,8 @@ if(MINGW)
 endif()
 
 
+set(ENABLE_IMGUI ON CACHE BOOL "Enable ImGui")
+
 # Conditionally add ImGui
 if (ENABLE_IMGUI)
     include(FetchContent)

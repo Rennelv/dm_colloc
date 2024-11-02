@@ -32,7 +32,7 @@ LongInteger::LongInteger(bool negative, const std::string& string) : negative(ne
     trimLeadingZeroes();
 }
 
-LongInteger::LongInteger(const std::string& string) : LongInteger(string[0] == '-', string[0] == '-' ? string.substr(1) : string) {
+LongInteger::LongInteger(const std::string& string) : LongInteger(string.at(0) == '-', string.at(0) == '-' ? string.substr(1) : string) {
 }
 
 void LongInteger::trimLeadingZeroes() {
