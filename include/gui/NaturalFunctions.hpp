@@ -22,23 +22,21 @@ enum class NaturalFunctions {
 class HandleNaturalFunctions {
    public:
     void ShowNaturalFuncMenu();
-    void HandleNaturalFunc(int choice);
-    void naturalFunc(NaturalFunctions func);
 
-    void Show_COM_NN_D();
-    void Show_NZER_N_B();
-    void Show_ADD_1N_N();
-    void Show_ADD_NN_N();
-    void Show_SUB_NN_N();
-    void Show_MUL_ND_N();
-    void Show_MUL_Nk_N();
-    void Show_MUL_NN_N();
-    void Show_SUB_NDN_N();
-    void Show_DIV_NN_Dk();
-    void Show_DIV_NN_N();
-    void Show_MOD_NN_N();
-    void Show_GCF_NN_N();
-    void Show_LCM_NN_N();
+    void Show_COM_NN_D(bool *p_open);
+    void Show_NZER_N_B(bool *p_open);
+    void Show_ADD_1N_N(bool *p_open);
+    void Show_ADD_NN_N(bool *p_open);
+    void Show_SUB_NN_N(bool *p_open);
+    void Show_MUL_ND_N(bool *p_open);
+    void Show_MUL_Nk_N(bool *p_open);
+    void Show_MUL_NN_N(bool *p_open);
+    void Show_SUB_NDN_N(bool *p_open);
+    void Show_DIV_NN_Dk(bool *p_open);
+    void Show_DIV_NN_N(bool *p_open);
+    void Show_MOD_NN_N(bool *p_open);
+    void Show_GCF_NN_N(bool *p_open);
+    void Show_LCM_NN_N(bool *p_open);
 };
 
 #endif  // NATURALFUNCTIONS_HPP
