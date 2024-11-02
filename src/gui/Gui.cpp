@@ -5,9 +5,9 @@
 #include <cstdio>
 #include <stdexcept>
 
-#include "DroidSans_ttf.cpp"
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
+#include "gui/DroidSans_ttf.hpp"
 #include "gui/HandleIntegerFunctions.hpp"
 #include "gui/HandleNaturalFunctions.hpp"
 #include "gui/HandlePolynomialFunctions.hpp"
