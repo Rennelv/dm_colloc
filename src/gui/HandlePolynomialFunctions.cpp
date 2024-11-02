@@ -10,6 +10,7 @@
 #include "P/DER_P_P.hpp"
 // #include "P/FAC_P_Q.hpp"
 // #include "P/GCF_PP_P.hpp"
+#include "P/FAC_P_Q.hpp"
 #include "P/LED_P_Q.hpp"
 // #include "P/MOD_PP_P.hpp"
 #include "P/MUL_PQ_P.hpp"
@@ -511,12 +512,14 @@ void HandlePolynomialFunctions::show_FAC_P_Q(bool* p_open) {
     static bool calculation_started = false;
     static std::string result;
     static std::string error_str;
+    static Polynomial a(a_terms);
 
     if (ImGui::Button("Calculate")) {
+        a = Polynomial(a_terms);
         try {
-            Polynomial a(a_terms);
+            // Polynomial a(a_terms);
             // kill me
-            // result_future = std::async(std::launch::async, FAC_P_Q, a); // thats ****** up
+            result_future = std::async(std::launch::async, FAC_P_Q, std::ref(a));  // thats ****** up
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
@@ -530,6 +533,7 @@ void HandlePolynomialFunctions::show_FAC_P_Q(bool* p_open) {
     }
 
     DisplayResultOrError(result_future, calculation_started, result, error_str);
+    ImGui::Text("Новый многочлен: %s", a.toString().c_str());
     ImGui::End();
 }
 
