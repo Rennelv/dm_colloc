@@ -7,10 +7,7 @@ Polynomial SUB_PP_P(const Polynomial& a, const Polynomial& b) {
     const std::map<LongNatural, LongRational>& coefficients_a = a.getMap();  // получаем коэффициенты первого полинома
 
     // создаем map для хранения коэффициентов итогового полинома и дублируем в него коэффициенты первого полинома
-    std::map<LongNatural, LongRational> coefficients;
-    for (const auto& [key, value] : coefficients_a) {
-        coefficients.emplace(key, value);
-    }
+    std::map<LongNatural, LongRational> coefficients = coefficients_a;
 
     const std::map<LongNatural, LongRational>& coefficients_b = b.getMap();  // получаем коэффициенты второго полинома
 
