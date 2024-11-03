@@ -57,7 +57,7 @@ set(ENABLE_IMGUI ON CACHE BOOL "Enable ImGui")
 find_package(glfw3 QUIET)
 
 if ((NOT glfw3_FOUND) AND ENABLE_IMGUI)
-    message(STATUS "GLFW not found. Fetching and building GLFW locally.")
+    message(STATUS "GLFW not found. Fetching and building GLFW locally. Its better to install GLFW system-wide first.")
     include(FetchContent)
     FetchContent_Declare(
         glfw
