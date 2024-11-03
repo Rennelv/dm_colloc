@@ -22,10 +22,6 @@ const std::map<LongNatural, LongRational>& Polynomial::getMap() const {
     return coefficients;
 }
 
-std::map<LongNatural, LongRational>& Polynomial::getMapRW() {
-    return coefficients;
-}
-
 bool Polynomial::isCoef(const LongNatural& degree) const {
     return coefficients.find(degree) != coefficients.end();  // если найден - true
 }

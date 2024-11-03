@@ -1,24 +1,23 @@
 #ifndef POLYNOMIAL_HPP
 #define POLYNOMIAL_HPP
 
-#define CoefficientsMap std::map<LongNatural, LongRational, LongNaturalComparator>
 #include <map>
 
-#include "N/COM_NN_D.hpp"
+// #include "N/COM_NN_D.hpp"
 #include "N/LongNatural.hpp"
 #include "Q/LongRational.hpp"
 
-struct LongNaturalCompareLess {
-    bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
-        return COM_NN_D(lhs, rhs) == 1;
-    }
-};
+// struct LongNaturalCompareLess {
+//     bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
+//         return COM_NN_D(lhs, rhs) == 1;
+//     }
+// };
 
-struct LongNaturalComparator {
-    bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
-        return COM_NN_D(lhs, rhs) == 2;  // lhs > rhs for descending order
-    }
-};
+// struct LongNaturalComparator {
+//     bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
+//         return COM_NN_D(lhs, rhs) == 2;  // lhs > rhs for descending order
+//     }
+// };
 
 /*
     Выполнил Журавлев Дмитрий 3381
@@ -28,7 +27,6 @@ struct LongNaturalComparator {
 */
 
 class Polynomial {
-    // Тип для словаря коэффициентов
     // Словарь (мапа) коэффициентов (степень -> коэффициент)
     std::map<LongNatural, LongRational> coefficients;
     // Степень полинома
@@ -43,9 +41,6 @@ class Polynomial {
     // Возвращает мап коэффициентов (const&). Для получения коэффицента при конкретной степени лучше использовать isCoefZero и getCoef, а getMap использовать
     // для итерации по всем коэффициентам
     const std::map<LongNatural, LongRational>& getMap() const;
-
-    // Возвращает RW мап коэффициентов. Использовать для изменения коэффициентов существующего полинома
-    std::map<LongNatural, LongRational>& getMapRW();
 
     // Возвращает существует ли коэффициент при степени (true - существует, false - не существует)
     bool isCoef(const LongNatural& degree) const;
