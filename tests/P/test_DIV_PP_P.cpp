@@ -53,7 +53,6 @@ TEST(DIV_PP_P, DivisionByHigherDegree) {
 TEST(DIV_PP_P, ZeroDividend) {
     // Создаем нулевой многочлен p1 и ненулевой многочлен p2
     std::map<LongNatural, LongRational> zero_map;
-    zero_map.emplace(LongNatural("0"), LongRational(LongInteger("0"), LongNatural("1")));
     Polynomial p1(zero_map);
 
     std::map<LongNatural, LongRational> p2_map;
