@@ -3,7 +3,7 @@
 #include <stdexcept>
 
 LongRational::LongRational(const LongInteger& numerator, const LongNatural& denominator) : numerator(numerator), denominator(denominator) {
-    if (denominator.getLength() <= 1 && denominator.getArr()[0] == 0) {
+    if (denominator.at(0) == 0) {
         throw std::invalid_argument("LongRational::LongRational: denominator is zero");
     }
 }

@@ -1,5 +1,7 @@
 #include "gui/HandleIntegerFunctions.hpp"
 
+#include <new>
+
 #include "N/LongNatural.hpp"
 #include "Z/ABS_Z_N.hpp"
 #include "Z/ADD_ZZ_Z.hpp"
@@ -27,11 +29,6 @@ void HandleIntegerFunctions::showMenu(bool* p_open) {
     static bool DIV_ZZ_Z_open = false;
     static bool MOD_ZZ_Z_open = false;
 
-    if (!ImGui::Begin("Integer Functions Menu", p_open)) {
-        ImGui::End();
-        return;
-    }
-
     if (ABS_Z_N_open) show_ABS_Z_N(&ABS_Z_N_open);
     if (POZ_Z_D_open) show_POZ_Z_D(&POZ_Z_D_open);
     if (MUL_ZM_Z_open) show_MUL_ZM_Z(&MUL_ZM_Z_open);
@@ -42,6 +39,11 @@ void HandleIntegerFunctions::showMenu(bool* p_open) {
     if (MUL_ZZ_Z_open) show_MUL_ZZ_Z(&MUL_ZZ_Z_open);
     if (DIV_ZZ_Z_open) show_DIV_ZZ_Z(&DIV_ZZ_Z_open);
     if (MOD_ZZ_Z_open) show_MOD_ZZ_Z(&MOD_ZZ_Z_open);
+
+    if (!ImGui::Begin("Integer Functions Menu", p_open)) {
+        ImGui::End();
+        return;
+    }
 
     if (ImGui::Button("1. Абсолютная величина числа")) {
         ABS_Z_N_open = !ABS_Z_N_open;
