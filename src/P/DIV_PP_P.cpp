@@ -1,11 +1,12 @@
 #include "P/DIV_PP_P.hpp"
-#include "Q/DIV_QQ_Q.hpp"
+
+#include "N/SUB_NN_N.hpp"
+#include "P/ADD_PP_P.hpp"
 #include "P/DEG_P_N.hpp"
+#include "P/MUL_PQ_P.hpp"
 #include "P/MUL_Pxk_P.hpp"
 #include "P/SUB_PP_P.hpp"
-#include "P/ADD_PP_P.hpp"
-#include "P/MUL_PQ_P.hpp"
-#include "N/SUB_NN_N.hpp"
+#include "Q/DIV_QQ_Q.hpp"
 
 Polynomial DIV_PP_P(const Polynomial& dividend, const Polynomial& divisor) {
     // Проверка на единичный многочлен (если divisor == 1, возвращаем dividend)
@@ -25,9 +26,9 @@ Polynomial DIV_PP_P(const Polynomial& dividend, const Polynomial& divisor) {
     Polynomial remainder = dividend;
 
     // Пока степень остатка >= степени делителя
-    while (COM_NN_D(DEG_P_N(remainder), deg_divisor) != 1) { // Используем функцию сравнения
+    while (COM_NN_D(DEG_P_N(remainder), deg_divisor) != 1) {  // Используем функцию сравнения
         // Вычисляем текущую степень частного как разность степеней
-        LongNatural degree_diff = SUB_NN_N(DEG_P_N(remainder), deg_divisor); // Используем функцию вычитания
+        LongNatural degree_diff = SUB_NN_N(DEG_P_N(remainder), deg_divisor);  // Используем функцию вычитания
 
         // Получаем коэффициенты старших членов
         LongRational leading_coeff_dividend = remainder.getCoef(DEG_P_N(remainder));
