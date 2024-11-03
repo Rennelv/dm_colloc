@@ -53,6 +53,22 @@ endif()
 
 set(ENABLE_IMGUI ON CACHE BOOL "Enable ImGui")
 
+# Check if GLFW is already installed
+find_package(glfw3 QUIET)
+
+if ((NOT glfw3_FOUND) AND ENABLE_IMGUI)
+    message(STATUS "GLFW not found. Fetching and building GLFW locally.")
+    include(FetchContent)
+    FetchContent_Declare(
+        glfw
+        GIT_REPOSITORY https://github.com/glfw/glfw.git
+        GIT_TAG 3.3.8
+    )
+    FetchContent_MakeAvailable(glfw)
+else()
+    message(STATUS "GLFW found.")
+endif()
+
 # Conditionally add ImGui
 if (ENABLE_IMGUI)
     include(FetchContent)
@@ -73,7 +89,11 @@ if (ENABLE_IMGUI)
     ${imgui_external_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
     ${imgui_external_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
     )
-    target_include_directories(imgui PUBLIC ${imgui_external_SOURCE_DIR})
+    if (glfw3_FOUND)
+        target_include_directories(imgui PUBLIC ${imgui_external_SOURCE_DIR})
+    else()
+        target_include_directories(imgui PUBLIC ${imgui_external_SOURCE_DIR} ${glfw_SOURCE_DIR}/include)
+    endif()
     include(FetchContent)
 endif()
 
@@ -95,7 +115,7 @@ add_executable(dm_math ${SOURCES})
 if (ENABLE_IMGUI)
     add_definitions(-DENABLE_GUI)
     find_package(OpenGL REQUIRED)
-    find_package(glfw3 REQUIRED)
+    # find_package(glfw3 REQUIRED)
     target_link_libraries(dm_math OpenGL::GL glfw imgui)
 endif()
 
