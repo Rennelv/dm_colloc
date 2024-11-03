@@ -15,6 +15,7 @@ LongInteger SUB_ZZ_Z(const LongInteger& a, const LongInteger& b) {
 
     // если знаки разные, складываем модули и сохраняем знак
     if (signA != signB) {
+        if (signA == 0) return LongInteger(signB == 2, absB.getArr());  // возвращаем с учетом знака второго числа, если первое нуль
         LongNatural result = ADD_NN_N(absA, absB);
         return LongInteger(signA == 1, result.getArr());  // возвращаем с учетом знака
     }
