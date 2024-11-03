@@ -18,14 +18,5 @@ Polynomial ADD_PP_P(const Polynomial& a, const Polynomial& b) {
         }
     }
 
-    // Убираем нулевые коэффициенты из результирующего многочлена
-    for (auto it = resultCoefficients.begin(); it != resultCoefficients.end();) {
-        if (it->second.getNumerator() == LongInteger(false, {0})) {
-            it = resultCoefficients.erase(it);
-        } else {
-            ++it;
-        }
-    }
-
     return Polynomial(resultCoefficients);
 }

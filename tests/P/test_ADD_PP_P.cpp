@@ -103,3 +103,39 @@ TEST(Test_ADD_PP_P, ZeroPolynomial) {
 
     EXPECT_EQ(ADD_PP_P(a, b), expected_poly);
 }
+
+TEST(Test_ADD_PP_P, HigherDegreeForSecondPolynomial) {
+    std::map<LongNatural, LongRational> poly1;
+    std::map<LongNatural, LongRational> poly2;
+    std::map<LongNatural, LongRational> expected;
+
+    // poly1: (1/2)x + 3
+    LongRational deg11 = LongRational(LongInteger("1"), LongNatural("2"));
+    LongRational deg01 = LongRational(LongInteger("3"), LongNatural("1"));
+    poly1.emplace(LongNatural("1"), deg11);
+    poly1.emplace(LongNatural("0"), deg01);
+
+    // poly2: (5/4)x^3 + (2/3)x^2 + 1
+    LongRational deg32 = LongRational(LongInteger("5"), LongNatural("4"));
+    LongRational deg22 = LongRational(LongInteger("2"), LongNatural("3"));
+    LongRational deg02 = LongRational(LongInteger("1"), LongNatural("1"));
+    poly2.emplace(LongNatural("3"), deg32);
+    poly2.emplace(LongNatural("2"), deg22);
+    poly2.emplace(LongNatural("0"), deg02);
+
+    // expected: (5/4)x^3 + (2/3)x^2 + (1/2)x + 4
+    LongRational deg33 = LongRational(LongInteger("5"), LongNatural("4"));
+    LongRational deg23 = LongRational(LongInteger("2"), LongNatural("3"));
+    LongRational deg13 = LongRational(LongInteger("1"), LongNatural("2"));
+    LongRational deg03 = LongRational(LongInteger("4"), LongNatural("1"));
+    expected.emplace(LongNatural("3"), deg33);
+    expected.emplace(LongNatural("2"), deg23);
+    expected.emplace(LongNatural("1"), deg13);
+    expected.emplace(LongNatural("0"), deg03);
+
+    Polynomial a(poly1);
+    Polynomial b(poly2);
+    Polynomial expected_poly(expected);
+
+    EXPECT_EQ(ADD_PP_P(a, b), expected_poly);
+}
