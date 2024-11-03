@@ -28,6 +28,25 @@ TEST(DIV_PP_P, DivisionWithoutRemainder) {
     EXPECT_EQ(DIV_PP_P(p1, p2), expected);
 }
 
+// Тест деления многочлена на единичный многочлен
+TEST(DIV_PP_P, DivisionByOne) {
+    // Создаем многочлен p1 = x^2 + x + 1 и делитель p2 = 1
+    std::map<LongNatural, LongRational> p1_map;
+    p1_map.emplace(LongNatural("2"), LongRational(LongInteger("1"), LongNatural("1")));
+    p1_map.emplace(LongNatural("1"), LongRational(LongInteger("1"), LongNatural("1")));
+    p1_map.emplace(LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1")));
+    Polynomial p1(p1_map);
+
+    std::map<LongNatural, LongRational> p2_map;
+    p2_map.emplace(LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1")));
+    Polynomial p2(p2_map);
+
+    // Ожидаемое частное: x^2 + x + 1
+    Polynomial expected(p1_map);
+
+    EXPECT_EQ(DIV_PP_P(p1, p2), expected);
+}
+
 // Тест деления многочлена на более высокий по степени
 TEST(DIV_PP_P, DivisionByHigherDegree) {
     // Создаем многочлен p1 = x^2 + x + 1 и делитель p2 = x^3
