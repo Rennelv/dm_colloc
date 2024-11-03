@@ -23,6 +23,8 @@ class HandlePolynomialFunctions {
    public:
     static void showMenu(bool* p_open);
 
+    // std::string MapToPolyStr(const std::map<LongNatural, LongRational>& terms);
+
     static void show_ADD_PP_P(bool* p_open);
     static void show_SUB_PP_P(bool* p_open);
     static void show_MUL_PQ_P(bool* p_open);

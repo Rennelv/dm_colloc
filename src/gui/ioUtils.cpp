@@ -29,7 +29,7 @@ void HelpMarker(const char* desc) {
     }
 }
 
-void str_to_fraction(const std::string& str, std::string& numerator, std::string& denominator) {
+void StrToFraction(const std::string& str, std::string& numerator, std::string& denominator) {
     std::istringstream iss(str);
     if (!(iss >> numerator >> denominator)) {
         throw std::invalid_argument("Invalid coefficent input format. Please enter two numbers separated by a space.");

@@ -5,11 +5,11 @@
 #include <string>
 
 #include "N/LongNatural.hpp"
-// #include "P/ADD_PP_P.hpp"
+#include "P/ADD_PP_P.hpp"
 #include "P/DEG_P_N.hpp"
 // #include "P/DIV_PP_P.hpp"
 #include "P/DER_P_P.hpp"
-// #include "P/FAC_P_Q.hpp"
+#include "P/FAC_P_Q.hpp"
 // #include "P/GCF_PP_P.hpp"
 #include "P/FAC_P_Q.hpp"
 #include "P/LED_P_Q.hpp"
@@ -17,6 +17,7 @@
 #include "P/MUL_PQ_P.hpp"
 #include "P/MUL_Pxk_P.hpp"
 #include "P/Polynomial.hpp"
+#include "P/SUB_PP_P.hpp"
 #include "Q/LongRational.hpp"
 #include "gui/ioUtils.hpp"
 #include "imgui.h"
@@ -98,7 +99,7 @@ void HandlePolynomialFunctions::showMenu(bool* p_open) {
     ImGui::End();
 }
 
-std::string map_to_poly_string(const std::map<LongNatural, LongRational>& terms) {
+std::string MapToPolyStr(const std::map<LongNatural, LongRational>& terms) {
     if (terms.empty()) {
         return "0";
     }
@@ -132,7 +133,7 @@ void parsePolynomial(std::string label_no, std::map<LongNatural, LongRational>& 
         std::string num_str;
         std::string den_str;
         try {
-            str_to_fraction(coef_str, num_str, den_str);
+            StrToFraction(coef_str, num_str, den_str);
             terms.emplace(LongNatural(degree_str), LongRational(num_str, den_str));
             // degree_str.clear();
             // num_str.clear();
@@ -154,7 +155,7 @@ void parsePolynomial(std::string label_no, std::map<LongNatural, LongRational>& 
     }
     ImGui::Text("Текущий многочлен:");
     ImGui::BeginChild((std::string("Текущий многочлен ") + label_no + ": ").c_str(), ImVec2(0, ImGui::GetTextLineHeightWithSpacing() * 1.5f), true);
-    ImGui::Text("%s", map_to_poly_string(terms).c_str());
+    ImGui::Text("%s", MapToPolyStr(terms).c_str());
     ImGui::EndChild();
 }
 
@@ -188,7 +189,7 @@ void HandlePolynomialFunctions::show_ADD_PP_P(bool* p_open) {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
 
-            // result_future = std::async(std::launch::async, ADD_PP_P, a, b);
+            result_future = std::async(std::launch::async, ADD_PP_P, a, b);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
@@ -200,7 +201,8 @@ void HandlePolynomialFunctions::show_ADD_PP_P(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Сложение многочленов");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -237,7 +239,7 @@ void HandlePolynomialFunctions::show_SUB_PP_P(bool* p_open) {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
 
-            // result_future = std::async(std::launch::async, SUB_PP_P, a, b);
+            result_future = std::async(std::launch::async, SUB_PP_P, a, b);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
@@ -249,7 +251,8 @@ void HandlePolynomialFunctions::show_SUB_PP_P(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Вычитание многочленов");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -302,7 +305,8 @@ void HandlePolynomialFunctions::show_MUL_PQ_P(bool* p_open) {
             error_str2 = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Умножение многочлена на рациональное число");
     DisplayResultOrError(result_future, calculation_started, result, error_str2);
     ImGui::End();
 }
@@ -352,11 +356,143 @@ void HandlePolynomialFunctions::show_MUL_Pxk_P(bool* p_open) {
             error_str2 = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Умножение многочлена на x^k, k-натуральное или 0");
     DisplayResultOrError(result_future, calculation_started, result, error_str2);
     ImGui::End();
 }
 
+void HandlePolynomialFunctions::show_LED_P_Q(bool* p_open) {
+    if (!ImGui::Begin("Polynomial Functions: LED_P_Q", p_open)) {
+        ImGui::End();
+        return;
+    }
+
+    ImGui::Text("Enter a polynomial:");
+    static std::map<LongNatural, LongRational> a_terms;
+
+    static std::string a_degree_str;
+    static std::string a_coef_str;
+
+    static std::string error_str1;
+
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
+
+    static std::future<LongRational> result_future;
+    static bool calculation_started = false;
+    static std::string result;
+    static std::string error_str;
+
+    if (ImGui::Button("Calculate")) {
+        try {
+            Polynomial a(a_terms);
+
+            result_future = std::async(std::launch::async, LED_P_Q, a);
+            calculation_started = true;
+        } catch (const std::invalid_argument& e) {
+            error_str = "Invalid input: " + std::string(e.what());
+        } catch (const std::logic_error& e) {
+            error_str = "Error during computations: " + std::string(e.what());
+        } catch (const std::bad_alloc& e) {
+            error_str = "Error allocating memory: " + std::string(e.what());
+        } catch (const std::exception& e) {
+            error_str = "Unknown error during computations: " + std::string(e.what());
+        }
+    }
+    ImGui::SameLine();
+    HelpMarker("Старший коэффициент многочлена");
+    DisplayResultOrError(result_future, calculation_started, result, error_str);
+    ImGui::End();
+}
+
+void HandlePolynomialFunctions::show_DEG_P_N(bool* p_open) {
+    if (!ImGui::Begin("Polynomial Functions: DEG_P_N", p_open)) {
+        ImGui::End();
+        return;
+    }
+
+    ImGui::Text("Enter a polynomial:");
+    static std::map<LongNatural, LongRational> a_terms;
+
+    static std::string a_degree_str;
+    static std::string a_coef_str;
+
+    static std::string error_str1;
+
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
+
+    static std::future<LongNatural> result_future;
+    static bool calculation_started = false;
+    static std::string result;
+    static std::string error_str;
+
+    if (ImGui::Button("Calculate")) {
+        try {
+            Polynomial a(a_terms);
+
+            result_future = std::async(std::launch::async, DEG_P_N, a);
+            calculation_started = true;
+        } catch (const std::invalid_argument& e) {
+            error_str = "Invalid input: " + std::string(e.what());
+        } catch (const std::logic_error& e) {
+            error_str = "Error during computations: " + std::string(e.what());
+        } catch (const std::bad_alloc& e) {
+            error_str = "Error allocating memory: " + std::string(e.what());
+        } catch (const std::exception& e) {
+            error_str = "Unknown error during computations: " + std::string(e.what());
+        }
+    }
+    ImGui::SameLine();
+    HelpMarker("Степень многочлена");
+    DisplayResultOrError(result_future, calculation_started, result, error_str);
+    ImGui::End();
+}
+
+void HandlePolynomialFunctions::show_FAC_P_Q(bool* p_open) {
+    if (!ImGui::Begin("Polynomial Functions: FAC_P_Q", p_open)) {
+        ImGui::End();
+        return;
+    }
+
+    ImGui::Text("Enter a polynomial:");
+    static std::map<LongNatural, LongRational> a_terms;
+
+    static std::string a_degree_str;
+    static std::string a_coef_str;
+
+    static std::string error_str1;
+
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
+
+    static std::future<LongRational> result_future;
+    static bool calculation_started = false;
+    static std::string result;
+    static std::string error_str;
+    static Polynomial a(a_terms);
+
+    if (ImGui::Button("Calculate")) {
+        a = Polynomial(a_terms);
+        try {
+            // Polynomial a(a_terms);
+            // kill me
+            result_future = std::async(std::launch::async, FAC_P_Q, std::ref(a));  // thats ****** up
+            calculation_started = true;
+        } catch (const std::invalid_argument& e) {
+            error_str = "Invalid input: " + std::string(e.what());
+        } catch (const std::logic_error& e) {
+            error_str = "Error during computations: " + std::string(e.what());
+        } catch (const std::bad_alloc& e) {
+            error_str = "Error allocating memory: " + std::string(e.what());
+        } catch (const std::exception& e) {
+            error_str = "Unknown error during computations: " + std::string(e.what());
+        }
+    }
+    ImGui::SameLine();
+    HelpMarker("Вынесение из многочлена НОК знаменателей коэффициентов и НОД числителей");
+    DisplayResultOrError(result_future, calculation_started, result, error_str);
+    ImGui::Text("Новый многочлен: %s", a.toString().c_str());
+    ImGui::End();
+}
 void HandlePolynomialFunctions::show_MUL_PP_P(bool* p_open) {
     if (!ImGui::Begin("Polynomial Functions: MUL_PP_P", p_open)) {
         ImGui::End();
@@ -401,137 +537,9 @@ void HandlePolynomialFunctions::show_MUL_PP_P(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Умножение многочленов");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
-    ImGui::End();
-}
-
-void HandlePolynomialFunctions::show_LED_P_Q(bool* p_open) {
-    if (!ImGui::Begin("Polynomial Functions: LED_P_Q", p_open)) {
-        ImGui::End();
-        return;
-    }
-
-    ImGui::Text("Enter a polynomial:");
-    static std::map<LongNatural, LongRational> a_terms;
-
-    static std::string a_degree_str;
-    static std::string a_coef_str;
-
-    static std::string error_str1;
-
-    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
-
-    static std::future<LongRational> result_future;
-    static bool calculation_started = false;
-    static std::string result;
-    static std::string error_str;
-
-    if (ImGui::Button("Calculate")) {
-        try {
-            Polynomial a(a_terms);
-
-            result_future = std::async(std::launch::async, LED_P_Q, a);
-            calculation_started = true;
-        } catch (const std::invalid_argument& e) {
-            error_str = "Invalid input: " + std::string(e.what());
-        } catch (const std::logic_error& e) {
-            error_str = "Error during computations: " + std::string(e.what());
-        } catch (const std::bad_alloc& e) {
-            error_str = "Error allocating memory: " + std::string(e.what());
-        } catch (const std::exception& e) {
-            error_str = "Unknown error during computations: " + std::string(e.what());
-        }
-    }
-
-    DisplayResultOrError(result_future, calculation_started, result, error_str);
-    ImGui::End();
-}
-
-void HandlePolynomialFunctions::show_DEG_P_N(bool* p_open) {
-    if (!ImGui::Begin("Polynomial Functions: DEG_P_N", p_open)) {
-        ImGui::End();
-        return;
-    }
-
-    ImGui::Text("Enter a polynomial:");
-    static std::map<LongNatural, LongRational> a_terms;
-
-    static std::string a_degree_str;
-    static std::string a_coef_str;
-
-    static std::string error_str1;
-
-    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
-
-    static std::future<LongNatural> result_future;
-    static bool calculation_started = false;
-    static std::string result;
-    static std::string error_str;
-
-    if (ImGui::Button("Calculate")) {
-        try {
-            Polynomial a(a_terms);
-
-            result_future = std::async(std::launch::async, DEG_P_N, a);
-            calculation_started = true;
-        } catch (const std::invalid_argument& e) {
-            error_str = "Invalid input: " + std::string(e.what());
-        } catch (const std::logic_error& e) {
-            error_str = "Error during computations: " + std::string(e.what());
-        } catch (const std::bad_alloc& e) {
-            error_str = "Error allocating memory: " + std::string(e.what());
-        } catch (const std::exception& e) {
-            error_str = "Unknown error during computations: " + std::string(e.what());
-        }
-    }
-
-    DisplayResultOrError(result_future, calculation_started, result, error_str);
-    ImGui::End();
-}
-
-void HandlePolynomialFunctions::show_FAC_P_Q(bool* p_open) {
-    if (!ImGui::Begin("Polynomial Functions: FAC_P_Q", p_open)) {
-        ImGui::End();
-        return;
-    }
-
-    ImGui::Text("Enter a polynomial:");
-    static std::map<LongNatural, LongRational> a_terms;
-
-    static std::string a_degree_str;
-    static std::string a_coef_str;
-
-    static std::string error_str1;
-
-    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
-
-    static std::future<LongRational> result_future;
-    static bool calculation_started = false;
-    static std::string result;
-    static std::string error_str;
-    static Polynomial a(a_terms);
-
-    if (ImGui::Button("Calculate")) {
-        a = Polynomial(a_terms);
-        try {
-            // Polynomial a(a_terms);
-            // kill me
-            result_future = std::async(std::launch::async, FAC_P_Q, std::ref(a));  // thats ****** up
-            calculation_started = true;
-        } catch (const std::invalid_argument& e) {
-            error_str = "Invalid input: " + std::string(e.what());
-        } catch (const std::logic_error& e) {
-            error_str = "Error during computations: " + std::string(e.what());
-        } catch (const std::bad_alloc& e) {
-            error_str = "Error allocating memory: " + std::string(e.what());
-        } catch (const std::exception& e) {
-            error_str = "Unknown error during computations: " + std::string(e.what());
-        }
-    }
-
-    DisplayResultOrError(result_future, calculation_started, result, error_str);
-    ImGui::Text("Новый многочлен: %s", a.toString().c_str());
     ImGui::End();
 }
 
@@ -579,7 +587,8 @@ void HandlePolynomialFunctions::show_DIV_PP_P(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Частное от деления многочлена на многочлен при делении с остатком");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -628,7 +637,8 @@ void HandlePolynomialFunctions::show_MOD_PP_P(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Остаток от деления многочлена на многочлен при делении с остатком");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -677,7 +687,8 @@ void HandlePolynomialFunctions::show_GCF_PP_P(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("НОД многочленов");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -719,7 +730,8 @@ void HandlePolynomialFunctions::show_DER_P_P(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Производная многочлена");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -761,7 +773,8 @@ void HandlePolynomialFunctions::show_NMR_P_P(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Преобразование многочлена — кратные корни в простые");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
