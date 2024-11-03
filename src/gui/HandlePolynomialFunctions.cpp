@@ -7,8 +7,8 @@
 #include "N/LongNatural.hpp"
 #include "P/ADD_PP_P.hpp"
 #include "P/DEG_P_N.hpp"
-// #include "P/DIV_PP_P.hpp"
 #include "P/DER_P_P.hpp"
+#include "P/DIV_PP_P.hpp"
 #include "P/FAC_P_Q.hpp"
 // #include "P/GCF_PP_P.hpp"
 #include "P/FAC_P_Q.hpp"
@@ -165,7 +165,7 @@ void HandlePolynomialFunctions::show_ADD_PP_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two polynomials:");
+    ImGui::Text("Введите два многочлена:");
     static std::map<LongNatural, LongRational> a_terms;
     static std::map<LongNatural, LongRational> b_terms;
 
@@ -213,7 +213,7 @@ void HandlePolynomialFunctions::show_SUB_PP_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two polynomials:");
+    ImGui::Text("Введите два многочлена:");
     static std::map<LongNatural, LongRational> a_terms;
     static std::map<LongNatural, LongRational> b_terms;
 
@@ -263,7 +263,7 @@ void HandlePolynomialFunctions::show_MUL_PQ_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a polynomial:");
+    ImGui::Text("Введите многочлен:");
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
@@ -273,7 +273,7 @@ void HandlePolynomialFunctions::show_MUL_PQ_P(bool* p_open) {
 
     parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
 
-    ImGui::Text("Enter a rational number:");
+    ImGui::Text("Введите рациональное число:");
     static std::string num_str;
     static std::string den_str;
     static std::string error_str2;
@@ -317,7 +317,7 @@ void HandlePolynomialFunctions::show_MUL_Pxk_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a polynomial:");
+    ImGui::Text("Введите многочлен:");
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
@@ -368,7 +368,7 @@ void HandlePolynomialFunctions::show_LED_P_Q(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a polynomial:");
+    ImGui::Text("Введите многочлен:");
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
@@ -411,7 +411,7 @@ void HandlePolynomialFunctions::show_DEG_P_N(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a polynomial:");
+    ImGui::Text("Введите многочлен:");
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
@@ -454,7 +454,7 @@ void HandlePolynomialFunctions::show_FAC_P_Q(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a polynomial:");
+    ImGui::Text("Введите многочлен:");
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
@@ -499,7 +499,7 @@ void HandlePolynomialFunctions::show_MUL_PP_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two polynomials:");
+    ImGui::Text("Введите два многочлена:");
     static std::map<LongNatural, LongRational> a_terms;
     static std::map<LongNatural, LongRational> b_terms;
 
@@ -549,7 +549,7 @@ void HandlePolynomialFunctions::show_DIV_PP_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two polynomials:");
+    ImGui::Text("Введите два многочлена:");
     static std::map<LongNatural, LongRational> a_terms;
     static std::map<LongNatural, LongRational> b_terms;
 
@@ -575,7 +575,7 @@ void HandlePolynomialFunctions::show_DIV_PP_P(bool* p_open) {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
 
-            // result_future = std::async(std::launch::async, DIV_PP_P, a, b);
+            result_future = std::async(std::launch::async, DIV_PP_P, a, b);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
@@ -599,7 +599,7 @@ void HandlePolynomialFunctions::show_MOD_PP_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two polynomials:");
+    ImGui::Text("Введите два многочлена:");
     static std::map<LongNatural, LongRational> a_terms;
     static std::map<LongNatural, LongRational> b_terms;
 
@@ -649,7 +649,7 @@ void HandlePolynomialFunctions::show_GCF_PP_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter two polynomials:");
+    ImGui::Text("Введите два многочлена:");
     static std::map<LongNatural, LongRational> a_terms;
     static std::map<LongNatural, LongRational> b_terms;
 
@@ -699,7 +699,7 @@ void HandlePolynomialFunctions::show_DER_P_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a polynomial:");
+    ImGui::Text("Введите многочлен:");
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
@@ -742,7 +742,7 @@ void HandlePolynomialFunctions::show_NMR_P_P(bool* p_open) {
         return;
     }
 
-    ImGui::Text("Enter a polynomial:");
+    ImGui::Text("Введите многочлен:");
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
