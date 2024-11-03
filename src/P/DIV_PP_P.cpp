@@ -9,9 +9,8 @@
 #include "Q/DIV_QQ_Q.hpp"
 
 Polynomial DIV_PP_P(const Polynomial& dividend, const Polynomial& divisor) {
-    // Инициализируем нулевой многочлен для частного
+    // Инициализируем многочлен для частного
     std::map<LongNatural, LongRational> zero_map;
-    zero_map.emplace(LongNatural("0"), LongRational(LongInteger("0"), LongNatural("1")));
     Polynomial quotient(zero_map);
 
     // Степень делимого и делителя
