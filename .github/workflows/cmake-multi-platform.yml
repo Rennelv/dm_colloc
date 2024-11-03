@@ -51,9 +51,9 @@ jobs:
     - name: Build
       run: |
         if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
-          cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} -- -j$(nproc)
+          cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} --parallel
         elif [ "${{ matrix.os }}" == "windows-latest" ]; then
-          cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} -- -j%NUMBER_OF_PROCESSORS%
+          cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }} --parallel
         fi
 
     - name: Test

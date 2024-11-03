@@ -3,6 +3,7 @@
 
 #include <chrono>
 #include <future>
+#include <new>
 #include <string>
 #include <type_traits>
 
@@ -63,15 +64,33 @@ void DisplayResultOrError(std::future<ResultType>& result_future, bool& calculat
         ImGui::Text("Result: %s", result.c_str());
         ImGui::EndChild();
     }
+    if (!result.empty() && ImGui::Button("Copy to clipboard")) {
+        ImGui::SetClipboardText(result.c_str());
+    }
     if (!error_str.empty()) ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "%s", error_str.c_str());
 }
 
-// template <typename ResultType, typename Func, typename... Args>
-// static void StartComputation(std::future<ResultType>& result_future, bool& calculation_started, std::string& error_str, Func func, Args... args) {
-//     result_future = std::async(std::launch::async, func, args...);
-//     calculation_started = true;
-// }
+template <typename ResultType, typename Func, typename... Args>
+void Calculate(std::future<ResultType>& result_future, bool& calculation_started, std::string& result, std::string& error_str, Func func, Args... args) {
+    if (ImGui::Button("Calculate")) {
+        result.clear();
+        try {
+            result_future = std::async(std::launch::async, func, args...);
+            calculation_started = true;
+        } catch (const std::invalid_argument& e) {
+            error_str = "Invalid input: " + std::string(e.what());
+        } catch (const std::logic_error& e) {
+            error_str = "Error during computations: " + std::string(e.what());
+        } catch (const std::bad_alloc& e) {
+            error_str = "Error allocating memory: " + std::string(e.what());
+        } catch (const std::exception& e) {
+            error_str = "Unknown error during computations: " + std::string(e.what());
+        }
+    }
+}
 
 void HelpMarker(const char* desc);
+
+void str_to_fraction(const std::string& str, std::string& numerator, std::string& denominator);
 
 #endif  // IO_UTILS_HPP

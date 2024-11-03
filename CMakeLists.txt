@@ -93,6 +93,7 @@ add_executable(dm_math ${SOURCES})
 
 # Link libraries
 if (ENABLE_IMGUI)
+    add_definitions(-DENABLE_GUI)
     find_package(OpenGL REQUIRED)
     find_package(glfw3 REQUIRED)
     target_link_libraries(dm_math OpenGL::GL glfw imgui)

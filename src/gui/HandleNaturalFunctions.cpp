@@ -40,11 +40,6 @@ void HandleNaturalFunctions::showMenu(bool* p_open) {
     static bool GCF_NN_N_open = false;
     static bool LCM_NN_N_open = false;
 
-    if (!ImGui::Begin("Natural Functions Menu", p_open)) {
-        ImGui::End();
-        return;
-    }
-
     if (COM_NN_D_open) show_COM_NN_D(&COM_NN_D_open);
     if (NZER_N_B_open) show_NZER_N_B(&NZER_N_B_open);
     if (ADD_1N_N_open) show_ADD_1N_N(&ADD_1N_N_open);
@@ -59,6 +54,11 @@ void HandleNaturalFunctions::showMenu(bool* p_open) {
     if (MOD_NN_N_open) show_MOD_NN_N(&MOD_NN_N_open);
     if (GCF_NN_N_open) show_GCF_NN_N(&GCF_NN_N_open);
     if (LCM_NN_N_open) show_LCM_NN_N(&LCM_NN_N_open);
+
+    if (!ImGui::Begin("Natural Functions Menu", p_open)) {
+        ImGui::End();
+        return;
+    }
 
     if (ImGui::Button("1. Сравнение натуральных чисел")) {
         COM_NN_D_open = !COM_NN_D_open;

@@ -9,6 +9,9 @@ LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : n
             throw std::invalid_argument("LongInteger::LongInteger: passed initializer_list element is invalid");
         }
     }
+    if (arr.empty()) {
+        arr.push_back(0);
+    }
     trimLeadingZeroes();
 }
 
@@ -17,6 +20,9 @@ LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negat
         if (vec[i] > 9) {
             throw std::invalid_argument("LongInteger::LongInteger: passed vector element is invalid");
         }
+    }
+    if (arr.empty()) {
+        arr.push_back(0);
     }
     trimLeadingZeroes();
 }
@@ -28,6 +34,9 @@ LongInteger::LongInteger(bool negative, const std::string& string) : negative(ne
             throw std::invalid_argument("LongInteger::LongInteger: passed string element is invalid");
         }
         arr.push_back(static_cast<uint8_t>(string[i] - '0'));
+    }
+    if (arr.empty()) {
+        arr.push_back(0);
     }
     trimLeadingZeroes();
 }

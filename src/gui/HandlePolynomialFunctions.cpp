@@ -1,6 +1,7 @@
 #include "gui/HandlePolynomialFunctions.hpp"
 
 #include <map>
+#include <new>
 #include <string>
 
 #include "N/LongNatural.hpp"
@@ -35,11 +36,6 @@ void HandlePolynomialFunctions::showMenu(bool* p_open) {
     static bool DER_P_P_open = false;
     static bool NMR_P_P_open = false;
 
-    if (!ImGui::Begin("Polynomial Functions Menu", p_open)) {
-        ImGui::End();
-        return;
-    }
-
     if (ADD_PP_P_open) show_ADD_PP_P(&ADD_PP_P_open);
     if (SUB_PP_P_open) show_SUB_PP_P(&SUB_PP_P_open);
     if (MUL_PQ_P_open) show_MUL_PQ_P(&MUL_PQ_P_open);
@@ -53,6 +49,11 @@ void HandlePolynomialFunctions::showMenu(bool* p_open) {
     if (GCF_PP_P_open) show_GCF_PP_P(&GCF_PP_P_open);
     if (DER_P_P_open) show_DER_P_P(&DER_P_P_open);
     if (NMR_P_P_open) show_NMR_P_P(&NMR_P_P_open);
+
+    if (!ImGui::Begin("Polynomial Functions Menu", p_open)) {
+        ImGui::End();
+        return;
+    }
 
     if (ImGui::Button("1. Сложение многочленов")) {
         ADD_PP_P_open = !ADD_PP_P_open;
@@ -120,23 +121,22 @@ std::string map_to_poly_string(const std::map<LongNatural, LongRational>& terms)
     return result.substr(0, result.size() - 3);
 }
 
-void parsePolynomial(std::string label_no, std::map<LongNatural, LongRational>& terms, std::string& degree_str, std::string& num_str, std::string& den_str,
-                     std::string& error_str) {
+void parsePolynomial(std::string label_no, std::map<LongNatural, LongRational>& terms, std::string& degree_str, std::string& coef_str, std::string& error_str) {
     ImGui::Text("Введите степень при x добавляемого члена (натуральное число): ");
     InputTextWithResize((std::string("degree") + label_no).c_str(), degree_str);
-    ImGui::Text(" ");
-    ImGui::Text("Введите числитель добавляемого члена (целое число): ");
-    InputTextWithResize((std::string("num") + label_no).c_str(), num_str);
-    ImGui::Text("Введите знаменатель добавляемого члена (натуральное число): ");
-    InputTextWithResize((std::string("den") + label_no).c_str(), den_str);
-    ImGui::Text(" ");
+    ImGui::Text("Введите числитель и знаменатель добавляемого члена разделяя их пробелом (целое число и натуральное число): ");
+    InputTextWithResize((std::string("num") + label_no).c_str(), coef_str);
+
     if (ImGui::Button((std::string("Добавить член ") + label_no).c_str())) {
         error_str.clear();
+        std::string num_str;
+        std::string den_str;
         try {
+            str_to_fraction(coef_str, num_str, den_str);
             terms.emplace(LongNatural(degree_str), LongRational(num_str, den_str));
-            degree_str.clear();
-            num_str.clear();
-            den_str.clear();
+            // degree_str.clear();
+            // num_str.clear();
+            // den_str.clear();
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
         } catch (const std::bad_alloc& e) {
@@ -169,16 +169,14 @@ void HandlePolynomialFunctions::show_ADD_PP_P(bool* p_open) {
     static std::map<LongNatural, LongRational> b_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
     static std::string b_degree_str;
-    static std::string b_num_str;
-    static std::string b_den_str;
+    static std::string b_coef_str;
     static std::string error_str1;
     static std::string error_str2;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
-    parsePolynomial("2", b_terms, b_degree_str, b_num_str, b_den_str, error_str2);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
+    parsePolynomial("2", b_terms, b_degree_str, b_coef_str, error_str2);
 
     static std::future<Polynomial> result_future;
     static bool calculation_started = false;
@@ -218,16 +216,16 @@ void HandlePolynomialFunctions::show_SUB_PP_P(bool* p_open) {
     static std::map<LongNatural, LongRational> b_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string b_degree_str;
-    static std::string b_num_str;
-    static std::string b_den_str;
+    static std::string b_coef_str;
+
     static std::string error_str1;
     static std::string error_str2;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
-    parsePolynomial("2", b_terms, b_degree_str, b_num_str, b_den_str, error_str2);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
+    parsePolynomial("2", b_terms, b_degree_str, b_coef_str, error_str2);
 
     static std::future<Polynomial> result_future;
     static bool calculation_started = false;
@@ -266,11 +264,11 @@ void HandlePolynomialFunctions::show_MUL_PQ_P(bool* p_open) {
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string error_str1;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
 
     ImGui::Text("Enter a rational number:");
     static std::string num_str;
@@ -319,11 +317,11 @@ void HandlePolynomialFunctions::show_MUL_Pxk_P(bool* p_open) {
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string error_str1;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
 
     ImGui::Text("Enter a natural number:");
     static std::string k_str;
@@ -370,16 +368,16 @@ void HandlePolynomialFunctions::show_MUL_PP_P(bool* p_open) {
     static std::map<LongNatural, LongRational> b_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string b_degree_str;
-    static std::string b_num_str;
-    static std::string b_den_str;
+    static std::string b_coef_str;
+
     static std::string error_str1;
     static std::string error_str2;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
-    parsePolynomial("2", b_terms, b_degree_str, b_num_str, b_den_str, error_str2);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
+    parsePolynomial("2", b_terms, b_degree_str, b_coef_str, error_str2);
 
     static std::future<Polynomial> result_future;
     static bool calculation_started = false;
@@ -418,11 +416,11 @@ void HandlePolynomialFunctions::show_LED_P_Q(bool* p_open) {
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string error_str1;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
 
     static std::future<LongRational> result_future;
     static bool calculation_started = false;
@@ -460,11 +458,11 @@ void HandlePolynomialFunctions::show_DEG_P_N(bool* p_open) {
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string error_str1;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
 
     static std::future<LongNatural> result_future;
     static bool calculation_started = false;
@@ -502,11 +500,11 @@ void HandlePolynomialFunctions::show_FAC_P_Q(bool* p_open) {
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string error_str1;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
 
     static std::future<LongRational> result_future;
     static bool calculation_started = false;
@@ -548,16 +546,16 @@ void HandlePolynomialFunctions::show_DIV_PP_P(bool* p_open) {
     static std::map<LongNatural, LongRational> b_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string b_degree_str;
-    static std::string b_num_str;
-    static std::string b_den_str;
+    static std::string b_coef_str;
+
     static std::string error_str1;
     static std::string error_str2;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
-    parsePolynomial("2", b_terms, b_degree_str, b_num_str, b_den_str, error_str2);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
+    parsePolynomial("2", b_terms, b_degree_str, b_coef_str, error_str2);
 
     static std::future<Polynomial> result_future;
     static bool calculation_started = false;
@@ -597,16 +595,16 @@ void HandlePolynomialFunctions::show_MOD_PP_P(bool* p_open) {
     static std::map<LongNatural, LongRational> b_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string b_degree_str;
-    static std::string b_num_str;
-    static std::string b_den_str;
+    static std::string b_coef_str;
+
     static std::string error_str1;
     static std::string error_str2;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
-    parsePolynomial("2", b_terms, b_degree_str, b_num_str, b_den_str, error_str2);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
+    parsePolynomial("2", b_terms, b_degree_str, b_coef_str, error_str2);
 
     static std::future<Polynomial> result_future;
     static bool calculation_started = false;
@@ -646,16 +644,16 @@ void HandlePolynomialFunctions::show_GCF_PP_P(bool* p_open) {
     static std::map<LongNatural, LongRational> b_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string b_degree_str;
-    static std::string b_num_str;
-    static std::string b_den_str;
+    static std::string b_coef_str;
+
     static std::string error_str1;
     static std::string error_str2;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
-    parsePolynomial("2", b_terms, b_degree_str, b_num_str, b_den_str, error_str2);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
+    parsePolynomial("2", b_terms, b_degree_str, b_coef_str, error_str2);
 
     static std::future<Polynomial> result_future;
     static bool calculation_started = false;
@@ -694,11 +692,11 @@ void HandlePolynomialFunctions::show_DER_P_P(bool* p_open) {
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string error_str1;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
 
     static std::future<Polynomial> result_future;
     static bool calculation_started = false;
@@ -736,11 +734,11 @@ void HandlePolynomialFunctions::show_NMR_P_P(bool* p_open) {
     static std::map<LongNatural, LongRational> a_terms;
 
     static std::string a_degree_str;
-    static std::string a_num_str;
-    static std::string a_den_str;
+    static std::string a_coef_str;
+
     static std::string error_str1;
 
-    parsePolynomial("1", a_terms, a_degree_str, a_num_str, a_den_str, error_str1);
+    parsePolynomial("1", a_terms, a_degree_str, a_coef_str, error_str1);
 
     static std::future<Polynomial> result_future;
     static bool calculation_started = false;
