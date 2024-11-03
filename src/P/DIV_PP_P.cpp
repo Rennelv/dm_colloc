@@ -1,5 +1,6 @@
 #include "P/DIV_PP_P.hpp"
 
+#include "N/COM_NN_D.hpp"
 #include "N/SUB_NN_N.hpp"
 #include "P/ADD_PP_P.hpp"
 #include "P/DEG_P_N.hpp"
