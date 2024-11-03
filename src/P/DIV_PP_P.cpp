@@ -1,11 +1,12 @@
 #include "P/DIV_PP_P.hpp"
-#include "Q/DIV_QQ_Q.hpp"
+
+#include "N/SUB_NN_N.hpp"
+#include "P/ADD_PP_P.hpp"
 #include "P/DEG_P_N.hpp"
+#include "P/MUL_PQ_P.hpp"
 #include "P/MUL_Pxk_P.hpp"
 #include "P/SUB_PP_P.hpp"
-#include "P/ADD_PP_P.hpp"
-#include "P/MUL_PQ_P.hpp"
-#include "N/SUB_NN_N.hpp"
+#include "Q/DIV_QQ_Q.hpp"
 
 Polynomial DIV_PP_P(const Polynomial& dividend, const Polynomial& divisor) {
     // Инициализируем нулевой многочлен для частного

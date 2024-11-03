@@ -1,8 +1,9 @@
 #include <gtest/gtest.h>
+
+#include "N/LongNatural.hpp"
 #include "P/DIV_PP_P.hpp"
 #include "P/Polynomial.hpp"
 #include "Q/LongRational.hpp"
-#include "N/LongNatural.hpp"
 #include "Z/LongInteger.hpp"
 
 // Тест деления многочленов с нулевым остатком
