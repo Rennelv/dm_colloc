@@ -124,7 +124,7 @@ void HandleNaturalFunctions::show_GCF_NN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);

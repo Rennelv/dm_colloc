@@ -94,7 +94,7 @@ void HandleIntegerFunctions::show_ABS_Z_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongInteger a_n(a_str);
 
@@ -110,7 +110,8 @@ void HandleIntegerFunctions::show_ABS_Z_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Абсолютная величина числа, результат - натуральное");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -130,7 +131,7 @@ void HandleIntegerFunctions::show_POZ_Z_D(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongInteger a_n(a_str);
 
@@ -146,7 +147,8 @@ void HandleIntegerFunctions::show_POZ_Z_D(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Определение положительности числа (2 - положительное, 0 — равное нулю, 1 - отрицательное)");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -166,7 +168,7 @@ void HandleIntegerFunctions::show_MUL_ZM_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongInteger a_n(a_str);
 
@@ -182,7 +184,8 @@ void HandleIntegerFunctions::show_MUL_ZM_Z(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Умножение целого на (-1)");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -202,7 +205,7 @@ void HandleIntegerFunctions::show_TRANS_N_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongNatural a_n(a_str);
 
@@ -218,7 +221,8 @@ void HandleIntegerFunctions::show_TRANS_N_Z(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Преобразование натурального в целое");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -238,7 +242,7 @@ void HandleIntegerFunctions::show_TRANS_Z_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongInteger a_n(a_str);
 
@@ -254,7 +258,8 @@ void HandleIntegerFunctions::show_TRANS_Z_N(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Преобразование целого неотрицательного в натуральное");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -276,7 +281,7 @@ void HandleIntegerFunctions::show_ADD_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);
@@ -293,7 +298,8 @@ void HandleIntegerFunctions::show_ADD_ZZ_Z(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Сложение целых чисел");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -315,7 +321,7 @@ void HandleIntegerFunctions::show_SUB_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);
@@ -332,7 +338,8 @@ void HandleIntegerFunctions::show_SUB_ZZ_Z(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Вычитание целых чисел");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -354,7 +361,7 @@ void HandleIntegerFunctions::show_MUL_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);
@@ -371,7 +378,8 @@ void HandleIntegerFunctions::show_MUL_ZZ_Z(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Умножение целых чисел");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -393,7 +401,7 @@ void HandleIntegerFunctions::show_DIV_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);
@@ -410,7 +418,8 @@ void HandleIntegerFunctions::show_DIV_ZZ_Z(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Частное от деления целого на целое (делитель отличен от нуля)");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -432,24 +441,25 @@ void HandleIntegerFunctions::show_MOD_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    // if (ImGui::Button("Посчитать")) {
-    //     try {
-    //         LongInteger a_n(a_str);
-    //         LongInteger b_n(b_str);
+    if (ImGui::Button("Calculate")) {
+        try {
+            LongInteger a_n(a_str);
+            LongInteger b_n(b_str);
 
-    //         result_future = std::async(std::launch::async, MOD_ZZ_Z, a_n, b_n);
-    //         calculation_started = true;
-    //     } catch (const std::invalid_argument& e) {
-    //         error_str = "Invalid input: " + std::string(e.what());
-    //     } catch (const std::logic_error& e) {
-    //         error_str = "Error during computations: " + std::string(e.what());
-    //     } catch (const std::bad_alloc& e) {
-    //         error_str = "Error allocating memory: " + std::string(e.what());
-    //     } catch (const std::exception& e) {
-    //         error_str = "Unknown error during computations: " + std::string(e.what());
-    //     }
-    // }
-
+            // result_future = std::async(std::launch::async, MOD_ZZ_Z, a_n, b_n);
+            calculation_started = true;
+        } catch (const std::invalid_argument& e) {
+            error_str = "Invalid input: " + std::string(e.what());
+        } catch (const std::logic_error& e) {
+            error_str = "Error during computations: " + std::string(e.what());
+        } catch (const std::bad_alloc& e) {
+            error_str = "Error allocating memory: " + std::string(e.what());
+        } catch (const std::exception& e) {
+            error_str = "Unknown error during computations: " + std::string(e.what());
+        }
+    }
+    ImGui::SameLine();
+    HelpMarker("Остаток от деления целого на целое(делитель отличен от нуля)");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }

@@ -6,13 +6,13 @@
 #include <string>
 
 #include "N/LongNatural.hpp"
-
-// #include "Q/ADD_QQ_Q.hpp"
+#include "Q/ADD_QQ_Q.hpp"
 #include "Q/DIV_QQ_Q.hpp"
 #include "Q/INT_Q_B.hpp"
 #include "Q/LongRational.hpp"
 #include "Q/MUL_QQ_Q.hpp"
 #include "Q/RED_Q_Q.hpp"
+#include "Q/SUB_QQ_Q.hpp"
 #include "Q/TRANS_Q_Z.hpp"
 #include "Q/TRANS_Z_Q.hpp"
 #include "Z/LongInteger.hpp"
@@ -87,11 +87,11 @@ void HandleRationalFunctions::show_RED_Q_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             std::string num_str;
             std::string den_str;
-            str_to_fraction(fraction_str, num_str, den_str);
+            StrToFraction(fraction_str, num_str, den_str);
 
             LongRational a_n((LongInteger(num_str)), LongNatural(den_str));
 
@@ -107,7 +107,8 @@ void HandleRationalFunctions::show_RED_Q_Q(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Сокращение дроби");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -128,26 +129,64 @@ void HandleRationalFunctions::show_INT_Q_B(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             std::string num_str;
             std::string den_str;
-            str_to_fraction(fraction_str, num_str, den_str);
+            StrToFraction(fraction_str, num_str, den_str);
             LongRational a_n((LongInteger(num_str)), LongNatural(den_str));
 
             result_future = std::async(std::launch::async, INT_Q_B, a_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
-            // } catch (const std::logic_error& e) {
-            //     error_str = "Error during computations: " + std::string(e.what());
-            // } catch (const std::bad_alloc& e) {
-            //     error_str = "Error allocating memory: " + std::string(e.what());
-            // } catch (const std::exception& e) {
-            //     error_str = "Unknown error during computations: " + std::string(e.what());
+        } catch (const std::logic_error& e) {
+            error_str = "Error during computations: " + std::string(e.what());
+        } catch (const std::bad_alloc& e) {
+            error_str = "Error allocating memory: " + std::string(e.what());
+        } catch (const std::exception& e) {
+            error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
+    ImGui::SameLine();
+    HelpMarker("Проверка сокращенного дробного на целое, если рациональное число является целым, то «да», иначе «нет»");
+    DisplayResultOrError(result_future, calculation_started, result, error_str);
+    ImGui::End();
+}
 
+void HandleRationalFunctions::show_TRANS_Z_Q(bool* p_open) {
+    if (!ImGui::Begin("Рациональные функции: TRANS_Z_Q", p_open)) {
+        ImGui::End();
+        return;
+    }
+
+    ImGui::Text("Введите целое число:");
+    static std::string a_str;
+    InputTextWithResize("num", a_str);
+
+    static std::future<LongRational> result_future;
+    static bool calculation_started = false;
+    static std::string result;
+    static std::string error_str;
+
+    if (ImGui::Button("Calculate")) {
+        try {
+            LongInteger a_n(a_str);
+
+            result_future = std::async(std::launch::async, TRANS_Z_Q, a_n);
+            calculation_started = true;
+        } catch (const std::invalid_argument& e) {
+            error_str = "Invalid input: " + std::string(e.what());
+        } catch (const std::logic_error& e) {
+            error_str = "Error during computations: " + std::string(e.what());
+        } catch (const std::bad_alloc& e) {
+            error_str = "Error allocating memory: " + std::string(e.what());
+        } catch (const std::exception& e) {
+            error_str = "Unknown error during computations: " + std::string(e.what());
+        }
+    }
+    ImGui::SameLine();
+    HelpMarker("Преобразование целого в дробное");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -168,11 +207,11 @@ void HandleRationalFunctions::show_TRANS_Q_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             std::string num_str;
             std::string den_str;
-            str_to_fraction(fraction_str, num_str, den_str);
+            StrToFraction(fraction_str, num_str, den_str);
             LongRational a_n((LongInteger(num_str)), LongNatural(den_str));
 
             result_future = std::async(std::launch::async, TRANS_Q_Z, a_n);
@@ -187,43 +226,8 @@ void HandleRationalFunctions::show_TRANS_Q_Z(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
-    DisplayResultOrError(result_future, calculation_started, result, error_str);
-    ImGui::End();
-}
-
-void HandleRationalFunctions::show_TRANS_Z_Q(bool* p_open) {
-    if (!ImGui::Begin("Рациональные функции: TRANS_Z_Q", p_open)) {
-        ImGui::End();
-        return;
-    }
-
-    ImGui::Text("Введите целое число:");
-    static std::string a_str;
-    InputTextWithResize("num", a_str);
-
-    static std::future<LongRational> result_future;
-    static bool calculation_started = false;
-    static std::string result;
-    static std::string error_str;
-
-    if (ImGui::Button("Посчитать")) {
-        try {
-            LongInteger a_n(a_str);
-
-            result_future = std::async(std::launch::async, TRANS_Z_Q, a_n);
-            calculation_started = true;
-        } catch (const std::invalid_argument& e) {
-            error_str = "Invalid input: " + std::string(e.what());
-        } catch (const std::logic_error& e) {
-            error_str = "Error during computations: " + std::string(e.what());
-        } catch (const std::bad_alloc& e) {
-            error_str = "Error allocating memory: " + std::string(e.what());
-        } catch (const std::exception& e) {
-            error_str = "Unknown error during computations: " + std::string(e.what());
-        }
-    }
-
+    ImGui::SameLine();
+    HelpMarker("Преобразование сокращенного дробного в целое (если знаменатель равен 1)");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -247,19 +251,19 @@ void HandleRationalFunctions::show_ADD_QQ_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             std::string num1_str;
             std::string den1_str;
-            str_to_fraction(fraction1_str, num1_str, den1_str);
+            StrToFraction(fraction1_str, num1_str, den1_str);
             std::string num2_str;
             std::string den2_str;
-            str_to_fraction(fraction2_str, num2_str, den2_str);
+            StrToFraction(fraction2_str, num2_str, den2_str);
 
             LongRational a_n((LongInteger(num1_str)), LongNatural(den1_str));
             LongRational b_n((LongInteger(num2_str)), LongNatural(den2_str));
 
-            // result_future = std::async(std::launch::async, ADD_QQ_Q, a_n, b_n);
+            result_future = std::async(std::launch::async, ADD_QQ_Q, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
@@ -271,7 +275,8 @@ void HandleRationalFunctions::show_ADD_QQ_Q(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Сложение дробей");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -295,18 +300,18 @@ void HandleRationalFunctions::show_SUB_QQ_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             std::string num1_str;
             std::string den1_str;
-            str_to_fraction(fraction1_str, num1_str, den1_str);
+            StrToFraction(fraction1_str, num1_str, den1_str);
             std::string num2_str;
             std::string den2_str;
-            str_to_fraction(fraction2_str, num2_str, den2_str);
+            StrToFraction(fraction2_str, num2_str, den2_str);
             LongRational a_n((LongInteger(num1_str)), LongNatural(den1_str));
             LongRational b_n((LongInteger(num2_str)), LongNatural(den2_str));
 
-            // result_future = std::async(std::launch::async, SUB_QQ_Q, a_n, b_n);
+            result_future = std::async(std::launch::async, SUB_QQ_Q, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
@@ -318,7 +323,8 @@ void HandleRationalFunctions::show_SUB_QQ_Q(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Вычитание дробей");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -342,14 +348,14 @@ void HandleRationalFunctions::show_MUL_QQ_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             std::string num1_str;
             std::string den1_str;
-            str_to_fraction(fraction1_str, num1_str, den1_str);
+            StrToFraction(fraction1_str, num1_str, den1_str);
             std::string num2_str;
             std::string den2_str;
-            str_to_fraction(fraction2_str, num2_str, den2_str);
+            StrToFraction(fraction2_str, num2_str, den2_str);
 
             LongRational a_n((LongInteger(num1_str)), LongNatural(den1_str));
             LongRational b_n((LongInteger(num2_str)), LongNatural(den2_str));
@@ -366,7 +372,8 @@ void HandleRationalFunctions::show_MUL_QQ_Q(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Умножение дробей");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
@@ -390,14 +397,14 @@ void HandleRationalFunctions::show_DIV_QQ_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Посчитать")) {
+    if (ImGui::Button("Calculate")) {
         try {
             std::string num1_str;
             std::string den1_str;
-            str_to_fraction(fraction1_str, num1_str, den1_str);
+            StrToFraction(fraction1_str, num1_str, den1_str);
             std::string num2_str;
             std::string den2_str;
-            str_to_fraction(fraction2_str, num2_str, den2_str);
+            StrToFraction(fraction2_str, num2_str, den2_str);
 
             LongRational a_n((LongInteger(num1_str)), LongNatural(den1_str));
             LongRational b_n((LongInteger(num2_str)), LongNatural(den2_str));
@@ -414,7 +421,8 @@ void HandleRationalFunctions::show_DIV_QQ_Q(bool* p_open) {
             error_str = "Unknown error during computations: " + std::string(e.what());
         }
     }
-
+    ImGui::SameLine();
+    HelpMarker("Деление дробей (делитель отличен от нуля)");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }

@@ -91,6 +91,6 @@ void Calculate(std::future<ResultType>& result_future, bool& calculation_started
 
 void HelpMarker(const char* desc);
 
-void str_to_fraction(const std::string& str, std::string& numerator, std::string& denominator);
+void StrToFraction(const std::string& str, std::string& numerator, std::string& denominator);
 
 #endif  // IO_UTILS_HPP
