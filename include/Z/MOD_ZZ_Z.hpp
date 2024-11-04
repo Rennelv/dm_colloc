@@ -8,12 +8,12 @@
 
     Функция MOD_ZZ_Z ищет остаток от деления одного целого числа на другое (делитель отличен от нуля)
     Принимает:
-        a - целое число
-        b - целое число, не равное нулю
+        dividend - делимое, целое число
+        divisor - делитель, целое число, не равное нулю
     Возвращает:
-        остаток от деления a на b
+        остаток от деления dividend на divisor
 */
 
-LongInteger MOD_ZZ_Z(const LongInteger &a, const LongInteger &b);
+LongInteger MOD_ZZ_Z(const LongInteger& dividend, const LongInteger& divisor);
 
 #endif

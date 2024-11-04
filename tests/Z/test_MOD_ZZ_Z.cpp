@@ -18,13 +18,13 @@ TEST(test_MOD_ZZ_Z, DividentPositiveDivisorNegativee) {
 TEST(test_MOD_ZZ_Z, DividentNegativeDivisorPositive) {
     LongInteger a(true, {1, 0});                // -10
     LongInteger b(false, {3});                  // 3
-    EXPECT_EQ(MOD_ZZ_Z(a, b).toString(), "1");  // -10 % 3 = 1
+    EXPECT_EQ(MOD_ZZ_Z(a, b).toString(), "2");  // -10 % 3 = 2
 }
 
 TEST(test_MOD_ZZ_Z, DividentNegativeDivisorNegative) {
     LongInteger a(true, {1, 0});                // -10
     LongInteger b(true, {3});                   // -3
-    EXPECT_EQ(MOD_ZZ_Z(a, b).toString(), "1");  // -10 % -3 = 1
+    EXPECT_EQ(MOD_ZZ_Z(a, b).toString(), "2");  // -10 % -3 = 2
 }
 
 TEST(test_MOD_ZZ_Z, RemainderIsZero) {
