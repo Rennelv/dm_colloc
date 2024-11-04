@@ -46,9 +46,6 @@ void Gui::run() {
     ImGui_ImplGlfw_InitForOpenGL(window, true);  // Second param install_callback=true will install GLFW callbacks and chain to existing ones.
     ImGui_ImplOpenGL3_Init();
 
-    // io.Fonts->AddFontFromFileTTF("DroidSans.ttf", 16);
-    // Load font with Cyrillic characters support
-    // io.Fonts->AddFontFromFileTTF("DroidSans.ttf", 16.0f, NULL, io.Fonts->GetGlyphRangesCyrillic());
     io.Fonts->AddFontFromMemoryCompressedTTF(DroidSans_compressed_data, DroidSans_compressed_size, 16.f, NULL, io.Fonts->GetGlyphRangesCyrillic());
 
     while (!glfwWindowShouldClose(window)) {

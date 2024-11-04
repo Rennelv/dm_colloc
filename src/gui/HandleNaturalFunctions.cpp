@@ -107,7 +107,7 @@ void HandleNaturalFunctions::showMenu(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_GCF_NN_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: GCF_NN_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: GCF_NN_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -148,7 +148,7 @@ void HandleNaturalFunctions::show_GCF_NN_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_COM_NN_D(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: COM_NN_D", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: COM_NN_D", p_open)) {
         ImGui::End();
         return;
     }
@@ -194,7 +194,7 @@ void HandleNaturalFunctions::show_COM_NN_D(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_NZER_N_B(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: NZER_N_B", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: NZER_N_B", p_open)) {
         ImGui::End();
         return;
     }
@@ -232,7 +232,7 @@ void HandleNaturalFunctions::show_NZER_N_B(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_ADD_1N_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: ADD_1N_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: ADD_1N_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -270,7 +270,7 @@ void HandleNaturalFunctions::show_ADD_1N_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_ADD_NN_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: ADD_NN_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: ADD_NN_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -311,7 +311,7 @@ void HandleNaturalFunctions::show_ADD_NN_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_SUB_NN_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: SUB_NN_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: SUB_NN_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -352,7 +352,7 @@ void HandleNaturalFunctions::show_SUB_NN_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_MUL_ND_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: MUL_ND_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: MUL_ND_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -396,7 +396,7 @@ void HandleNaturalFunctions::show_MUL_ND_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_MUL_Nk_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: MUL_Nk_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: MUL_Nk_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -440,7 +440,7 @@ void HandleNaturalFunctions::show_MUL_Nk_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_MUL_NN_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: MUL_NN_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: MUL_NN_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -481,7 +481,7 @@ void HandleNaturalFunctions::show_MUL_NN_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_SUB_NDN_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: SUB_NDN_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: SUB_NDN_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -528,7 +528,7 @@ void HandleNaturalFunctions::show_SUB_NDN_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_DIV_NN_Dk(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: DIV_NN_Dk", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: DIV_NN_Dk", p_open)) {
         ImGui::End();
         return;
     }
@@ -570,7 +570,7 @@ void HandleNaturalFunctions::show_DIV_NN_Dk(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_DIV_NN_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: DIV_NN_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: DIV_NN_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -611,7 +611,7 @@ void HandleNaturalFunctions::show_DIV_NN_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_MOD_NN_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: MOD_NN_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: MOD_NN_N", p_open)) {
         ImGui::End();
         return;
     }
@@ -652,7 +652,7 @@ void HandleNaturalFunctions::show_MOD_NN_N(bool* p_open) {
 }
 
 void HandleNaturalFunctions::show_LCM_NN_N(bool* p_open) {
-    if (!ImGui::Begin("Natural Functions: LCM_NN_N", p_open)) {
+    if (!ImGui::Begin("Натуральные Функции: LCM_NN_N", p_open)) {
         ImGui::End();
         return;
     }
