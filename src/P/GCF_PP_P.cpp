@@ -1,7 +1,5 @@
 #include "P/GCF_PP_P.hpp"
 
-#include <iostream>
-
 #include "N/LongNatural.hpp"
 #include "P/DEG_P_N.hpp"
 #include "P/MOD_PP_P.hpp"
@@ -31,8 +29,8 @@ Polynomial GCF_PP_P(const Polynomial& p1, const Polynomial& p2) {
             return Polynomial(one_map);
         }
 
-        a = b;
-        b = remainder;
+        a = std::move(b);
+        b = std::move(remainder);
     }
 
     return a;
