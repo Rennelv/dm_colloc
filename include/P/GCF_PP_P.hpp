@@ -4,16 +4,16 @@
 #include "P/Polynomial.hpp"
 
 /*
-    Выполинала Уфимцева Алиса 3381
+    Выполнила: Уфимцева Алиса, группа 3381
 
-    Функция GCF_PP_P принимает два многочлена и находит их наибольший общий делитель.
+    Функция GCF_PP_P находит наибольший общий делитель (НОД) двух многочленов.
     Принимает:
         p1 - первый многочлен
         p2 - второй многочлен
     Возвращает:
-        Polynomial - НОД многочленов (приведенный многочлен)
+        Polynomial - НОД многочленов p1 и p2
 */
 
-Polynomial GCF_PP_P(const Polynomial &a, const Polynomial &b);
+Polynomial GCF_PP_P(const Polynomial& p1, const Polynomial& p2);
 
-#endif  // GCF_PP_P_HPP
+#endif
