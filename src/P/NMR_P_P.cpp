@@ -1,6 +1,7 @@
 #include "P/NMR_P_P.hpp"
 
 #include "N/LongNatural.hpp"
+#include "P/DEG_P_N.hpp"
 #include "P/DER_P_P.hpp"
 #include "P/DIV_PP_P.hpp"
 #include "P/GCF_PP_P.hpp"
