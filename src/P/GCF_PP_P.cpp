@@ -1,7 +1,5 @@
 #include "P/GCF_PP_P.hpp"
 
-#include <iostream>
-
 #include "N/LongNatural.hpp"
 #include "P/DEG_P_N.hpp"
 #include "P/FAC_P_Q.hpp"
