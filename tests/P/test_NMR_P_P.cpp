@@ -65,13 +65,9 @@ TEST(NMR_P_P, JustNumber) {
     std::map<LongNatural, LongRational> p_map;
     p_map.emplace(LongNatural("0"), LongRational(LongInteger("17"), LongNatural("1")));  // 17
     Polynomial p(p_map);
+    // Ожидаемый результат: 17
 
-    // Ожидаемый результат: 1
-    std::map<LongNatural, LongRational> expected_map;
-    expected_map.emplace(LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1")));  // 1
-    Polynomial expected(expected_map);
-
-    EXPECT_EQ(NMR_P_P(p), expected);
+    EXPECT_EQ(NMR_P_P(p), p);
 }
 
 TEST(NMR_P_P, NoRoots) {

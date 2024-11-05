@@ -9,10 +9,9 @@
 #include "Z/LongInteger.hpp"
 
 Polynomial NMR_P_P(const Polynomial& p) {
-    if (DEG_P_N(p) == LongNatural("0") && p.getCoef(LongNatural("0")) != LongRational(LongInteger("0"), LongNatural("1"))) {
-        std::map<LongNatural, LongRational> one_map;
-        one_map.emplace(LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1")));
-        return Polynomial(one_map);
+    // Если многочлен - число, возвращаем его же
+    if (DEG_P_N(p) == LongNatural("0")) {
+        return p;
     }
 
     Polynomial derivative = DER_P_P(p);        // Считаем производную многочлена
