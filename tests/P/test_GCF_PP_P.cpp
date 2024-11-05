@@ -64,8 +64,7 @@ TEST(GCF_PP_P, GCDWithZeroPolynomial) {
     EXPECT_EQ(GCF_PP_P(p1, p2), p1);
 }
 
-// Тест на возврат приведенного многочлена
-TEST(GCF_PP_P, MyGCDTest) {
+TEST(GCF_PP_P, MyGCDTest1) {
     // Создаем многочлен p1 = x^2 + 2x + 1
     std::map<LongNatural, LongRational> p1_map;
     p1_map.emplace(LongNatural("2"), LongRational(LongInteger("1"), LongNatural("1")));
@@ -82,6 +81,26 @@ TEST(GCF_PP_P, MyGCDTest) {
     // Ожидаемый НОД: x + 1
     std::map<LongNatural, LongRational> res_map;
     res_map.emplace(LongNatural("1"), LongRational(LongInteger("1"), LongNatural("1")));
+    res_map.emplace(LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1")));
+    Polynomial expected(res_map);
+
+    EXPECT_EQ(GCF_PP_P(p1, p2), expected);
+}
+
+TEST(GCF_PP_P, GCDTest2) {
+    // Создаем многочлен p1 = x^2 - 1
+    std::map<LongNatural, LongRational> p1_map;
+    p1_map.emplace(LongNatural("2"), LongRational(LongInteger("1"), LongNatural("1")));
+    p1_map.emplace(LongNatural("0"), LongRational(LongInteger("-1"), LongNatural("1")));
+    Polynomial p1(p1_map);
+
+    // Создаем многочлен p2 = 2x
+    std::map<LongNatural, LongRational> p2_map;
+    p2_map.emplace(LongNatural("1"), LongRational(LongInteger("2"), LongNatural("1")));
+    Polynomial p2(p2_map);
+
+    // Ожидаемый НОД: 1
+    std::map<LongNatural, LongRational> res_map;
     res_map.emplace(LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1")));
     Polynomial expected(res_map);
 
