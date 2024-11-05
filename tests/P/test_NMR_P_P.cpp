@@ -77,9 +77,9 @@ TEST(NMR_P_P, JustNumber) {
 TEST(NMR_P_P, NoRoots) {
     // Многочлен p = x^4 + x^2 + 1
     std::map<LongNatural, LongRational> p_map;
-    p_map.emplace(LongNatural("4"), LongRational(LongInteger("1"), LongNatural("1")));   // x^4
-    p_map.emplace(LongNatural("2"), LongRational(LongInteger("1"), LongNatural("1")));   // x^2
-    p_map.emplace(LongNatural("0"), LongRational(LongInteger("-1"), LongNatural("1")));  // -1
+    p_map.emplace(LongNatural("4"), LongRational(LongInteger("1"), LongNatural("1")));  // x^4
+    p_map.emplace(LongNatural("2"), LongRational(LongInteger("1"), LongNatural("1")));  // x^2
+    p_map.emplace(LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1")));  // 1
     Polynomial p(p_map);
     // Ожидаемый результат: x^4 + x^2 +1
 
