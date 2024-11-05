@@ -39,10 +39,8 @@ Polynomial GCF_PP_P(const Polynomial& p1, const Polynomial& p2) {
         b = std::move(remainder);
     }
 
-    // Выводим приведенный многочлен
+    // Возращаем приведенный многочлен
     LongRational a0 = a.getCoef(a.getDegree());
     a = MUL_PQ_P(a, DIV_QQ_Q(LongRational(LongInteger(false, {1}), LongNatural{1}), a0));
-
-    std::cout << "ANSWER: " << a.toString() << std::endl;
     return a;
 }
