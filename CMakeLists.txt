@@ -62,7 +62,7 @@ if ((NOT glfw3_FOUND) AND ENABLE_IMGUI)
     FetchContent_Declare(
         glfw
         GIT_REPOSITORY https://github.com/glfw/glfw.git
-        GIT_TAG 3.3.8
+        GIT_TAG 3.4
     )
     FetchContent_MakeAvailable(glfw)
 else()
@@ -75,7 +75,7 @@ if (ENABLE_IMGUI)
     FetchContent_Declare(
         imgui_external
         GIT_REPOSITORY https://github.com/ocornut/imgui.git
-        GIT_TAG v1.88
+        GIT_TAG v1.91.4
         EXCLUDE_FROM_ALL
     )
 
