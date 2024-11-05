@@ -64,7 +64,7 @@ TEST(GCF_PP_P, GCDWithZeroPolynomial) {
     EXPECT_EQ(GCF_PP_P(p1, p2), p1);
 }
 
-// Тест на возврыт приведенного многочлена
+// Тест на возврат приведенного многочлена
 TEST(GCF_PP_P, MyGCDTest) {
     // Создаем многочлен p1 = x^2 + 2x + 1
     std::map<LongNatural, LongRational> p1_map;

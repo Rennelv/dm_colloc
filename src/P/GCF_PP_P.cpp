@@ -29,7 +29,7 @@ Polynomial GCF_PP_P(const Polynomial& p1, const Polynomial& p2) {
 
         Polynomial remainder = MOD_PP_P(a, b);
 
-        // Если НОД равен единичному многочлену, возвращаем его
+        // Если НОД равен единичному многочлену, то возвращаем его
         if (DEG_P_N(remainder) == LongNatural("0") && remainder.getCoef(LongNatural("0")) == LongRational(LongInteger("1"), LongNatural("1"))) {
             std::map<LongNatural, LongRational> one_map;
             one_map.emplace(LongNatural("0"), LongRational(LongInteger("1"), LongNatural("1")));

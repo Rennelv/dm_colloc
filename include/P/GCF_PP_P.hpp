@@ -11,7 +11,7 @@
         a - первый многочлен
         b - второй многочлен
     Возвращает:
-        Polynomial - НОД многочленов
+        Polynomial - НОД многочленов (приведенный многочлен)
 */
 
 Polynomial GCF_PP_P(const Polynomial &a, const Polynomial &b);
