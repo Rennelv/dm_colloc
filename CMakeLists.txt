@@ -50,6 +50,53 @@ if(MINGW)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libgcc -static-libstdc++ -static")
 endif()
 
+
+set(ENABLE_IMGUI ON CACHE BOOL "Enable ImGui")
+
+# Check if GLFW is already installed
+find_package(glfw3 QUIET)
+
+if ((NOT glfw3_FOUND) AND ENABLE_IMGUI)
+    message(WARNING "GLFW not found. Fetching and building GLFW locally. Its better to install GLFW system-wide first.")
+    include(FetchContent)
+    FetchContent_Declare(
+        glfw
+        GIT_REPOSITORY https://github.com/glfw/glfw.git
+        GIT_TAG 3.4
+    )
+    FetchContent_MakeAvailable(glfw)
+else()
+    message(STATUS "GLFW found.")
+endif()
+
+# Conditionally add ImGui
+if (ENABLE_IMGUI)
+    include(FetchContent)
+    FetchContent_Declare(
+        imgui_external
+        GIT_REPOSITORY https://github.com/ocornut/imgui.git
+        GIT_TAG v1.91.4
+        EXCLUDE_FROM_ALL
+    )
+
+    FetchContent_MakeAvailable(imgui_external)
+
+    add_library(imgui
+    ${imgui_external_SOURCE_DIR}/imgui.cpp
+    ${imgui_external_SOURCE_DIR}/imgui_draw.cpp
+    ${imgui_external_SOURCE_DIR}/imgui_tables.cpp
+    ${imgui_external_SOURCE_DIR}/imgui_widgets.cpp
+    ${imgui_external_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
+    ${imgui_external_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
+    )
+    if (glfw3_FOUND)
+        target_include_directories(imgui PUBLIC ${imgui_external_SOURCE_DIR})
+    else()
+        target_include_directories(imgui PUBLIC ${imgui_external_SOURCE_DIR} ${glfw_SOURCE_DIR}/include)
+    endif()
+    include(FetchContent)
+endif()
+
 # Include directories
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
@@ -63,6 +110,14 @@ option(GENERATE_TESTS "Generate tests" OFF)
 
 # Add the executable target
 add_executable(dm_math ${SOURCES})
+
+# Link libraries
+if (ENABLE_IMGUI)
+    add_definitions(-DENABLE_GUI)
+    find_package(OpenGL REQUIRED)
+    # find_package(glfw3 REQUIRED)
+    target_link_libraries(dm_math OpenGL::GL glfw imgui)
+endif()
 
 # Enable Unity Builds option
 # option(ENABLE_UNITY "Enable Unity Builds for faster compile times" ON)

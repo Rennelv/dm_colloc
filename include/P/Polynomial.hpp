@@ -3,15 +3,8 @@
 
 #include <map>
 
-#include "N/COM_NN_D.hpp"
 #include "N/LongNatural.hpp"
 #include "Q/LongRational.hpp"
-
-struct LongNaturalCompareLess {
-    bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
-        return COM_NN_D(lhs, rhs) == 1;
-    }
-};
 
 /*
     Выполнил Журавлев Дмитрий 3381
@@ -35,9 +28,6 @@ class Polynomial {
     // Возвращает мап коэффициентов (const&). Для получения коэффицента при конкретной степени лучше использовать isCoefZero и getCoef, а getMap использовать
     // для итерации по всем коэффициентам
     const std::map<LongNatural, LongRational>& getMap() const;
-
-    // Возвращает RW мап коэффициентов. Использовать для изменения коэффициентов существующего полинома
-    std::map<LongNatural, LongRational>& getMapRW();
 
     // Возвращает существует ли коэффициент при степени (true - существует, false - не существует)
     bool isCoef(const LongNatural& degree) const;

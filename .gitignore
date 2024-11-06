@@ -1,8 +1,10 @@
-build
-build_tests
+build*/
+
 .cache
 .vscode
 *.zip
+*.ini
+
 
 # Prerequisites
 *.d

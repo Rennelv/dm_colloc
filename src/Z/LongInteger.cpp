@@ -6,8 +6,11 @@
 LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : negative(negative), arr(list) {
     for (size_t i = 0; i < arr.size(); i++) {
         if (arr[i] > 9) {
-            throw std::invalid_argument("LongInteger::LongInteger: passed initializer_list element is invalid");
+            throw std::invalid_argument("LongInteger constructor: passed initializer_list element is invalid");
         }
+    }
+    if (arr.empty()) {
+        arr.push_back(0);
     }
     trimLeadingZeroes();
 }
@@ -15,8 +18,11 @@ LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : n
 LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negative(negative), arr(vec) {
     for (size_t i = 0; i < vec.size(); i++) {
         if (vec[i] > 9) {
-            throw std::invalid_argument("LongInteger::LongInteger: passed vector element is invalid");
+            throw std::invalid_argument("LongInteger constructor: passed vector element is invalid");
         }
+    }
+    if (arr.empty()) {
+        arr.push_back(0);
     }
     trimLeadingZeroes();
 }
@@ -25,14 +31,17 @@ LongInteger::LongInteger(bool negative, const std::string& string) : negative(ne
     arr.reserve(string.size());
     for (size_t i = 0; i < string.size(); i++) {
         if (string[i] < '0' || string[i] > '9') {
-            throw std::invalid_argument("LongInteger::LongInteger: passed string element is invalid");
+            throw std::invalid_argument("LongInteger constructor: passed string element is invalid");
         }
         arr.push_back(static_cast<uint8_t>(string[i] - '0'));
+    }
+    if (arr.empty()) {
+        arr.push_back(0);
     }
     trimLeadingZeroes();
 }
 
-LongInteger::LongInteger(const std::string& string) : LongInteger(string[0] == '-', string[0] == '-' ? string.substr(1) : string) {
+LongInteger::LongInteger(const std::string& string) : LongInteger(string.at(0) == '-', string.at(0) == '-' ? string.substr(1) : string) {
 }
 
 void LongInteger::trimLeadingZeroes() {
