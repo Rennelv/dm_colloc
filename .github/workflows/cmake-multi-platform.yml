@@ -9,10 +9,10 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 2
 
     strategy:
       fail-fast: false
-
       matrix:
         os: [ubuntu-latest]
         build_type: [Release]
@@ -31,6 +31,14 @@ jobs:
       shell: bash
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.strings.outputs.build-output-dir }}/_deps
+        key: build-deps-${{ runner.os }}-${{ hashFiles('CMakeLists.txt', '**/CMakeLists.txt') }}
+        restore-keys: |
+          build-deps-${{ runner.os }}-
 
     - name: Install dependencies
       if: matrix.os == 'ubuntu-latest'
@@ -68,21 +76,18 @@ jobs:
           sudo apt-get install -y clang-format;
         fi
         if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          choco install llvm --version=14.0.0; # Adjust version as needed
+          choco install llvm --version=14.0.0;
         fi
 
     - name: Run check code formatting
       if: matrix.os == 'ubuntu-latest'
       run: |
-        # Находим все файлы .cpp и .hpp и проверяем их форматирование
         unformatted_files=$(find ${{ github.workspace }}/src ${{ github.workspace }}/include ${{ github.workspace }}/tests -name "*.cpp" -o -name "*.hpp" | xargs clang-format --dry-run --Werror)
     
-        # Проверяем, есть ли неотформатированные файлы
         if [ -z "$unformatted_files" ]; then
           echo "All files are properly formatted."
         else
           echo "The following files need formatting:"
           echo "$unformatted_files"
-          exit 1  # Завершаем с ошибкой, если есть неотформатированные файлы
+          exit 1
         fi
-
