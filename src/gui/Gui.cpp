@@ -18,17 +18,11 @@ static void glfw_error_callback(int error, const char* description) {
     fprintf(stderr, "GLFW Error %d: %s\n", error, description);
 }
 
-static bool showMainMenu = true;
-static bool showNaturalFuncMenu = false;
-static bool showIntegerFuncMenu = false;
-static bool showRationalFuncMenu = false;
-static bool showPolynomialFuncMenu = false;
-
 void Gui::run() {
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit()) throw std::runtime_error("Failed to initialize GLFW");
 
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL3 example", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(1280, 720, "Wonderhoy!!!", nullptr, nullptr);
     if (window == nullptr) throw std::runtime_error("Failed to create window");
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);  // Enable vsync
@@ -55,11 +49,7 @@ void Gui::run() {
 
         ImGui::NewFrame();
 
-        if (showMainMenu) ShowMainMenu();
-        if (showNaturalFuncMenu) HandleNaturalFunctions::showMenu(&showNaturalFuncMenu);
-        if (showIntegerFuncMenu) HandleIntegerFunctions::showMenu(&showIntegerFuncMenu);
-        if (showRationalFuncMenu) HandleRationalFunctions::showMenu(&showRationalFuncMenu);
-        if (showPolynomialFuncMenu) HandlePolynomialFunctions::showMenu(&showPolynomialFuncMenu);
+        showMainMenu();
 
         ImGui::Render();
 
@@ -76,7 +66,17 @@ void Gui::run() {
     return;
 }
 
-void Gui::ShowMainMenu() {
+void Gui::showMainMenu() {
+    static bool showNaturalFuncMenu = false;
+    static bool showIntegerFuncMenu = false;
+    static bool showRationalFuncMenu = false;
+    static bool showPolynomialFuncMenu = false;
+
+    if (showNaturalFuncMenu) HandleNaturalFunctions::showMenu(&showNaturalFuncMenu);
+    if (showIntegerFuncMenu) HandleIntegerFunctions::showMenu(&showIntegerFuncMenu);
+    if (showRationalFuncMenu) HandleRationalFunctions::showMenu(&showRationalFuncMenu);
+    if (showPolynomialFuncMenu) HandlePolynomialFunctions::showMenu(&showPolynomialFuncMenu);
+
     ImGui::Begin("Main Menu");
 
     if (ImGui::Button("Натуральные числа с нулем (N)")) {

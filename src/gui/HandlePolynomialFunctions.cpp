@@ -10,12 +10,13 @@
 #include "P/DER_P_P.hpp"
 #include "P/DIV_PP_P.hpp"
 #include "P/FAC_P_Q.hpp"
-// #include "P/GCF_PP_P.hpp"
-#include "P/FAC_P_Q.hpp"
+#include "P/GCF_PP_P.hpp"
 #include "P/LED_P_Q.hpp"
-// #include "P/MOD_PP_P.hpp"
+#include "P/MOD_PP_P.hpp"
+#include "P/MUL_PP_P.hpp"
 #include "P/MUL_PQ_P.hpp"
 #include "P/MUL_Pxk_P.hpp"
+#include "P/NMR_P_P.hpp"
 #include "P/Polynomial.hpp"
 #include "P/SUB_PP_P.hpp"
 #include "Q/LongRational.hpp"
@@ -293,6 +294,7 @@ void HandlePolynomialFunctions::show_MUL_PQ_P(bool* p_open) {
         error_str2.clear();
         try {
             LongRational q(num_str, den_str);
+
             result_future = std::async(std::launch::async, MUL_PQ_P, Polynomial(a_terms), q);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -344,6 +346,7 @@ void HandlePolynomialFunctions::show_MUL_Pxk_P(bool* p_open) {
         error_str2.clear();
         try {
             LongNatural k(k_str);
+
             result_future = std::async(std::launch::async, MUL_Pxk_P, Polynomial(a_terms), k);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -525,7 +528,7 @@ void HandlePolynomialFunctions::show_MUL_PP_P(bool* p_open) {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
 
-            // result_future = std::async(std::launch::async, MUL_PP_P, a, b);
+            result_future = std::async(std::launch::async, MUL_PP_P, a, b);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
@@ -625,7 +628,7 @@ void HandlePolynomialFunctions::show_MOD_PP_P(bool* p_open) {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
 
-            // result_future = std::async(std::launch::async, MOD_PP_P, a, b);
+            result_future = std::async(std::launch::async, MOD_PP_P, a, b);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
@@ -675,7 +678,7 @@ void HandlePolynomialFunctions::show_GCF_PP_P(bool* p_open) {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
 
-            // result_future = std::async(std::launch::async, GCF_PP_P, a, b);
+            result_future = std::async(std::launch::async, GCF_PP_P, a, b);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
@@ -761,7 +764,7 @@ void HandlePolynomialFunctions::show_NMR_P_P(bool* p_open) {
         try {
             Polynomial a(a_terms);
 
-            // result_future = std::async(std::launch::async, NMR_P_P, a);
+            result_future = std::async(std::launch::async, NMR_P_P, a);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());

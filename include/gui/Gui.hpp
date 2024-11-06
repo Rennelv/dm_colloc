@@ -5,11 +5,7 @@ class Gui {
    public:
     void run();
 
-    void ShowMainMenu();
-    void ShowNaturalFuncMenu();
-    void ShowIntegerFuncMenu();
-    void ShowRationalFuncMenu();
-    void ShowPolynomialFuncMenu();
+    void showMainMenu();
 };
 
 #endif  // GUI_HPP

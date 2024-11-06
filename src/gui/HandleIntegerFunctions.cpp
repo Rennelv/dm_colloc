@@ -6,8 +6,8 @@
 #include "Z/ABS_Z_N.hpp"
 #include "Z/ADD_ZZ_Z.hpp"
 #include "Z/DIV_ZZ_Z.hpp"
-// #include "Z/MOD_ZZ_Z.hpp"
 #include "Z/LongInteger.hpp"
+#include "Z/MOD_ZZ_Z.hpp"
 #include "Z/MUL_ZM_Z.hpp"
 #include "Z/MUL_ZZ_Z.hpp"
 #include "Z/POZ_Z_D.hpp"
@@ -446,7 +446,7 @@ void HandleIntegerFunctions::show_MOD_ZZ_Z(bool* p_open) {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);
 
-            // result_future = std::async(std::launch::async, MOD_ZZ_Z, a_n, b_n);
+            result_future = std::async(std::launch::async, MOD_ZZ_Z, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
             error_str = "Invalid input: " + std::string(e.what());
