@@ -8,7 +8,7 @@
 LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
     for (size_t i = 0; i < arr.size(); i++) {
         if (arr[i] > 9) {
-            throw std::invalid_argument("LongNatural::LongNatural: passed initializer_list element is invalid");
+            throw std::invalid_argument("LongNatural constructor: passed initializer_list element is invalid");
         }
     }
     if (arr.empty()) {
@@ -20,7 +20,7 @@ LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
 LongNatural::LongNatural(const std::vector<uint8_t>& vec) {
     for (size_t i = 0; i < vec.size(); i++) {
         if (vec[i] > 9) {
-            throw std::invalid_argument("LongNatural::LongNatural: passed vector element is invalid");
+            throw std::invalid_argument("LongNatural constructor: passed vector element is invalid");
         }
     }
     arr = vec;
@@ -34,7 +34,7 @@ LongNatural::LongNatural(const std::string& string) {
     arr.reserve(string.size());
     for (size_t i = 0; i < string.size(); i++) {
         if (string[i] < '0' || string[i] > '9') {
-            throw std::invalid_argument("LongNatural::LongNatural: passed string element is invalid");
+            throw std::invalid_argument("LongNatural constructor: passed string element is invalid");
         }
         arr.push_back(static_cast<uint8_t>(string[i] - '0'));
     }

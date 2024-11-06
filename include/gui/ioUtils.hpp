@@ -13,15 +13,17 @@
 #include "Z/LongInteger.hpp"
 #include "imgui.h"
 
+/*
+    Выполнил Журавлев Дмитрий 3381
+
+    Набор вспомогательных функций для графического интерфейса.
+
+*/
+
+// Ввод теста в строку с автоматическим увеличением ее максимальной длины
 void InputTextWithResize(const char* label, std::string& str);
 
-// template <typename ResultType, typename Func, typename... Args>
-// static void StartComputation(std::future<ResultType>& result_future, bool& calculation_started, std::string& error_str, Func func, Args... args) {
-//     result_future = std::async(std::launch::async, func, args...);
-//     calculation_started = true;
-// }
-
-// Display the result of the computation or an error message if the computation failed
+// Вывод результата вычислений или ошибки
 template <typename ResultType>
 void DisplayResultOrError(std::future<ResultType>& result_future, bool& calculation_started, std::string& result, std::string& error_str) {
     if (calculation_started) {
@@ -61,7 +63,7 @@ void DisplayResultOrError(std::future<ResultType>& result_future, bool& calculat
         }
     } else {
         ImGui::BeginChild("Result", ImVec2(0, ImGui::GetTextLineHeightWithSpacing() * 5), true, ImGuiWindowFlags_HorizontalScrollbar);
-        ImGui::Text("Result: %s", result.c_str());
+        if (!result.empty()) ImGui::Text("Result: %s", result.c_str());
         ImGui::EndChild();
     }
     if (!result.empty() && ImGui::Button("Copy to clipboard")) {
@@ -70,27 +72,29 @@ void DisplayResultOrError(std::future<ResultType>& result_future, bool& calculat
     if (!error_str.empty()) ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "%s", error_str.c_str());
 }
 
-template <typename ResultType, typename Func, typename... Args>
-void Calculate(std::future<ResultType>& result_future, bool& calculation_started, std::string& result, std::string& error_str, Func func, Args... args) {
-    if (ImGui::Button("Calculate")) {
-        result.clear();
-        try {
-            result_future = std::async(std::launch::async, func, args...);
-            calculation_started = true;
-        } catch (const std::invalid_argument& e) {
-            error_str = "Invalid input: " + std::string(e.what());
-        } catch (const std::logic_error& e) {
-            error_str = "Error during computations: " + std::string(e.what());
-        } catch (const std::bad_alloc& e) {
-            error_str = "Error allocating memory: " + std::string(e.what());
-        } catch (const std::exception& e) {
-            error_str = "Unknown error during computations: " + std::string(e.what());
-        }
-    }
-}
+// template <typename ResultType, typename Func, typename... Args>
+// void Calculate(std::future<ResultType>& result_future, bool& calculation_started, std::string& result, std::string& error_str, Func func, Args... args) {
+//     if (ImGui::Button("Calculate")) {
+//         result.clear();
+//         try {
+//             result_future = std::async(std::launch::async, func, args...);
+//             calculation_started = true;
+//         } catch (const std::invalid_argument& e) {
+//             error_str = "Invalid input: " + std::string(e.what());
+//         } catch (const std::logic_error& e) {
+//             error_str = "Error during computations: " + std::string(e.what());
+//         } catch (const std::bad_alloc& e) {
+//             error_str = "Error allocating memory: " + std::string(e.what());
+//         } catch (const std::exception& e) {
+//             error_str = "Unknown error during computations: " + std::string(e.what());
+//         }
+//     }
+// }
 
+// Подсказка (?) в интерфейсе
 void HelpMarker(const char* desc);
 
+// Переводит строку с двумя числами, разделенными пробелом, в числитель и знаменатель
 void StrToFraction(const std::string& str, std::string& numerator, std::string& denominator);
 
 #endif  // IO_UTILS_HPP

@@ -14,6 +14,13 @@ enum class IntegerFunctions {
     MOD_ZZ_Z,   // Остаток от деления целого на целое(делитель отличен от нуля)
 };
 
+/*
+    Выполнил Журавлев Дмитрий 3381
+
+    Класс обработчика функций целых чисел для графического интерфейса.
+
+*/
+
 class HandleIntegerFunctions {
    public:
     static void showMenu(bool* p_open);

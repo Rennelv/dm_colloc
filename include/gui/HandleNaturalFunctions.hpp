@@ -19,6 +19,13 @@ enum class NaturalFunctions {
     LCM_NN_N,  // НОК натуральных чисел
 };
 
+/*
+    Выполнил Журавлев Дмитрий 3381
+
+    Класс обработчика функций натуральных чисел для графического интерфейса.
+
+*/
+
 class HandleNaturalFunctions {
    public:
     static void showMenu(bool *p_open);

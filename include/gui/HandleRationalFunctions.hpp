@@ -12,6 +12,13 @@ enum class RationalFunctions {
     DIV_QQ_Q,   // Деление дробей (делитель отличен от нуля)
 };
 
+/*
+    Выполнил Журавлев Дмитрий 3381
+
+    Класс обработчика функций рациональных чисел для графического интерфейса.
+
+*/
+
 class HandleRationalFunctions {
    public:
     static void showMenu(bool* p_open);

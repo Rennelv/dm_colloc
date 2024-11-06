@@ -171,7 +171,6 @@ void HandleNaturalFunctions::show_COM_NN_D(bool* p_open) {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, COM_NN_D, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -212,7 +211,6 @@ void HandleNaturalFunctions::show_NZER_N_B(bool* p_open) {
         try {
             LongNatural a_n(a_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, NZER_N_B, a_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -250,7 +248,6 @@ void HandleNaturalFunctions::show_ADD_1N_N(bool* p_open) {
         try {
             LongNatural a_n(a_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, ADD_1N_N, a_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -291,7 +288,6 @@ void HandleNaturalFunctions::show_ADD_NN_N(bool* p_open) {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, ADD_NN_N, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -332,7 +328,6 @@ void HandleNaturalFunctions::show_SUB_NN_N(bool* p_open) {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, SUB_NN_N, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -376,7 +371,6 @@ void HandleNaturalFunctions::show_MUL_ND_N(bool* p_open) {
             }
             uint8_t d_n = d_str[0] - '0';
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, MUL_ND_N, a_n, d_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -420,7 +414,6 @@ void HandleNaturalFunctions::show_MUL_Nk_N(bool* p_open) {
             }
             uint64_t k_n = std::stoull(k_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, MUL_Nk_N, a_n, k_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -461,7 +454,6 @@ void HandleNaturalFunctions::show_MUL_NN_N(bool* p_open) {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, MUL_NN_N, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -508,7 +500,6 @@ void HandleNaturalFunctions::show_SUB_NDN_N(bool* p_open) {
             }
             uint8_t d_n = d_str[0] - '0';
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, SUB_NDN_N, a_n, b_n, d_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -549,7 +540,6 @@ void HandleNaturalFunctions::show_DIV_NN_Dk(bool* p_open) {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, DIV_NN_Dk, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -591,7 +581,6 @@ void HandleNaturalFunctions::show_DIV_NN_N(bool* p_open) {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, DIV_NN_N, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -632,7 +621,6 @@ void HandleNaturalFunctions::show_MOD_NN_N(bool* p_open) {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, MOD_NN_N, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {
@@ -673,7 +661,6 @@ void HandleNaturalFunctions::show_LCM_NN_N(bool* p_open) {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
 
-            // Start the computation in a separate thread
             result_future = std::async(std::launch::async, LCM_NN_N, a_n, b_n);
             calculation_started = true;
         } catch (const std::invalid_argument& e) {

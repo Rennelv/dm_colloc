@@ -4,7 +4,7 @@
 
 LongRational::LongRational(const LongInteger& numerator, const LongNatural& denominator) : numerator(numerator), denominator(denominator) {
     if (denominator.at(0) == 0) {
-        throw std::invalid_argument("LongRational::LongRational: denominator is zero");
+        throw std::invalid_argument("LongRational constructor: denominator is zero");
     }
 }
 

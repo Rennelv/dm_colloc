@@ -3,21 +3,8 @@
 
 #include <map>
 
-// #include "N/COM_NN_D.hpp"
 #include "N/LongNatural.hpp"
 #include "Q/LongRational.hpp"
-
-// struct LongNaturalCompareLess {
-//     bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
-//         return COM_NN_D(lhs, rhs) == 1;
-//     }
-// };
-
-// struct LongNaturalComparator {
-//     bool operator()(const LongNatural& lhs, const LongNatural& rhs) const {
-//         return COM_NN_D(lhs, rhs) == 2;  // lhs > rhs for descending order
-//     }
-// };
 
 /*
     Выполнил Журавлев Дмитрий 3381

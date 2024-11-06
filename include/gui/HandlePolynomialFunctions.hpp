@@ -17,6 +17,13 @@ enum class PolynomialFunctions {
     NMR_P_P,    // Преобразование многочлена — кратные корни в простые
 };
 
+/*
+    Выполнил Журавлев Дмитрий 3381
+
+    Класс обработчика функций многочленов для графического интерфейса.
+
+*/
+
 class HandlePolynomialFunctions {
     // static Polynomial parsePolynomial(const std::string& str);
 
