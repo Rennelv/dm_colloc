@@ -13,12 +13,16 @@
 #include "Z/LongInteger.hpp"
 #include "imgui.h"
 
-/*
-    Выполнил Журавлев Дмитрий 3381
-
-    Набор вспомогательных функций для графического интерфейса.
-
-*/
+/**
+ * @file ioUtils.hpp
+ * @brief Набор вспомогательных функций для графического интерфейса.
+ *
+ * @details
+ * Этот файл содержит объявления функций, которые используются для ввода и вывода данных в графическом интерфейсе,
+ * а также для обработки результатов вычислений и ошибок.
+ *
+ * @author Журавлев Дмитрий 3381
+ */
 
 // Ввод теста в строку с автоматическим увеличением ее максимальной длины
 void InputTextWithResize(const char* label, std::string& str);
@@ -74,7 +78,7 @@ void DisplayResultOrError(std::future<ResultType>& result_future, bool& calculat
 
 // template <typename ResultType, typename Func, typename... Args>
 // void Calculate(std::future<ResultType>& result_future, bool& calculation_started, std::string& result, std::string& error_str, Func func, Args... args) {
-//     if (ImGui::Button("Calculate")) {
+//     if (ImGui::Button("Calculate") && !calculation_started) {
 //         result.clear();
 //         try {
 //             result_future = std::async(std::launch::async, func, args...);
@@ -91,10 +95,16 @@ void DisplayResultOrError(std::future<ResultType>& result_future, bool& calculat
 //     }
 // }
 
-// Подсказка (?) в интерфейсе
+// Подсказка "(?)" в интерфейсе
 void HelpMarker(const char* desc);
 
 // Переводит строку с двумя числами, разделенными пробелом, в числитель и знаменатель
 void StrToFraction(const std::string& str, std::string& numerator, std::string& denominator);
+
+// Переводит map коэффициентов многочлена в строку
+std::string MapToPolyStr(const std::map<LongNatural, LongRational>& terms);
+
+// Блок интерфейса ввода многочлена с добавлением членов
+void parsePolynomial(std::string label_no, std::map<LongNatural, LongRational>& terms, std::string& degree_str, std::string& coef_str, std::string& error_str);
 
 #endif  // IO_UTILS_HPP

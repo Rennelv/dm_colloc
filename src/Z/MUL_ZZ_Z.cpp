@@ -1,13 +1,9 @@
 #include "Z/MUL_ZZ_Z.hpp"
 
-#include <iostream>
-#include <vector>
-
 #include "N/LongNatural.hpp"
 #include "N/MUL_NN_N.hpp"
 #include "Z/ABS_Z_N.hpp"
 #include "Z/LongInteger.hpp"
-#include "Z/MUL_ZM_Z.hpp"
 #include "Z/POZ_Z_D.hpp"
 
 using namespace std;

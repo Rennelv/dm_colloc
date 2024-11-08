@@ -19,16 +19,16 @@
 #include "gui/ioUtils.hpp"
 #include "imgui.h"
 
-void HandleRationalFunctions::showMenu(bool* p_open) {
-    static bool RED_Q_Q_open = false;
-    static bool INT_Q_B_open = false;
-    static bool TRANS_Z_Q_open = false;
-    static bool TRANS_Q_Z_open = false;
-    static bool ADD_QQ_Q_open = false;
-    static bool SUB_QQ_Q_open = false;
-    static bool MUL_QQ_Q_open = false;
-    static bool DIV_QQ_Q_open = false;
+bool HandleRationalFunctions::RED_Q_Q_open = false;
+bool HandleRationalFunctions::INT_Q_B_open = false;
+bool HandleRationalFunctions::TRANS_Z_Q_open = false;
+bool HandleRationalFunctions::TRANS_Q_Z_open = false;
+bool HandleRationalFunctions::ADD_QQ_Q_open = false;
+bool HandleRationalFunctions::SUB_QQ_Q_open = false;
+bool HandleRationalFunctions::MUL_QQ_Q_open = false;
+bool HandleRationalFunctions::DIV_QQ_Q_open = false;
 
+void HandleRationalFunctions::showMenu(bool* p_open) {
     if (RED_Q_Q_open) show_RED_Q_Q(&RED_Q_Q_open);
     if (INT_Q_B_open) show_INT_Q_B(&INT_Q_B_open);
     if (TRANS_Q_Z_open) show_TRANS_Q_Z(&TRANS_Q_Z_open);
@@ -87,7 +87,7 @@ void HandleRationalFunctions::show_RED_Q_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             std::string num_str;
             std::string den_str;
@@ -129,7 +129,7 @@ void HandleRationalFunctions::show_INT_Q_B(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             std::string num_str;
             std::string den_str;
@@ -169,7 +169,7 @@ void HandleRationalFunctions::show_TRANS_Z_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
 
@@ -207,7 +207,7 @@ void HandleRationalFunctions::show_TRANS_Q_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             std::string num_str;
             std::string den_str;
@@ -251,7 +251,7 @@ void HandleRationalFunctions::show_ADD_QQ_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             std::string num1_str;
             std::string den1_str;
@@ -300,7 +300,7 @@ void HandleRationalFunctions::show_SUB_QQ_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             std::string num1_str;
             std::string den1_str;
@@ -348,7 +348,7 @@ void HandleRationalFunctions::show_MUL_QQ_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             std::string num1_str;
             std::string den1_str;
@@ -397,7 +397,7 @@ void HandleRationalFunctions::show_DIV_QQ_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             std::string num1_str;
             std::string den1_str;

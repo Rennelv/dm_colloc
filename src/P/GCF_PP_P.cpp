@@ -2,7 +2,6 @@
 
 #include "N/LongNatural.hpp"
 #include "P/DEG_P_N.hpp"
-#include "P/FAC_P_Q.hpp"
 #include "P/MOD_PP_P.hpp"
 #include "P/MUL_PQ_P.hpp"
 #include "Q/DIV_QQ_Q.hpp"

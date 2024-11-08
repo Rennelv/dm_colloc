@@ -5,8 +5,6 @@
 #include "P/DER_P_P.hpp"
 #include "P/DIV_PP_P.hpp"
 #include "P/GCF_PP_P.hpp"
-#include "Q/LongRational.hpp"
-#include "Z/LongInteger.hpp"
 
 Polynomial NMR_P_P(const Polynomial& p) {
     // Если многочлен - число, возвращаем его же

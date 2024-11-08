@@ -23,21 +23,21 @@
 #include "gui/ioUtils.hpp"
 #include "imgui.h"
 
-void HandlePolynomialFunctions::showMenu(bool* p_open) {
-    static bool ADD_PP_P_open = false;
-    static bool SUB_PP_P_open = false;
-    static bool MUL_PQ_P_open = false;
-    static bool MUL_Pxk_P_open = false;
-    static bool LED_P_Q_open = false;
-    static bool DEG_P_N_open = false;
-    static bool FAC_P_Q_open = false;
-    static bool MUL_PP_P_open = false;
-    static bool DIV_PP_P_open = false;
-    static bool MOD_PP_P_open = false;
-    static bool GCF_PP_P_open = false;
-    static bool DER_P_P_open = false;
-    static bool NMR_P_P_open = false;
+bool HandlePolynomialFunctions::ADD_PP_P_open = false;
+bool HandlePolynomialFunctions::SUB_PP_P_open = false;
+bool HandlePolynomialFunctions::MUL_PQ_P_open = false;
+bool HandlePolynomialFunctions::MUL_Pxk_P_open = false;
+bool HandlePolynomialFunctions::LED_P_Q_open = false;
+bool HandlePolynomialFunctions::DEG_P_N_open = false;
+bool HandlePolynomialFunctions::FAC_P_Q_open = false;
+bool HandlePolynomialFunctions::MUL_PP_P_open = false;
+bool HandlePolynomialFunctions::DIV_PP_P_open = false;
+bool HandlePolynomialFunctions::MOD_PP_P_open = false;
+bool HandlePolynomialFunctions::GCF_PP_P_open = false;
+bool HandlePolynomialFunctions::DER_P_P_open = false;
+bool HandlePolynomialFunctions::NMR_P_P_open = false;
 
+void HandlePolynomialFunctions::showMenu(bool* p_open) {
     if (ADD_PP_P_open) show_ADD_PP_P(&ADD_PP_P_open);
     if (SUB_PP_P_open) show_SUB_PP_P(&SUB_PP_P_open);
     if (MUL_PQ_P_open) show_MUL_PQ_P(&MUL_PQ_P_open);
@@ -100,66 +100,6 @@ void HandlePolynomialFunctions::showMenu(bool* p_open) {
     ImGui::End();
 }
 
-std::string MapToPolyStr(const std::map<LongNatural, LongRational>& terms) {
-    if (terms.empty()) {
-        return "0";
-    }
-    std::string result = "";
-    // добавляем в строку коэффиценты с наибольшей степени
-    for (auto it = terms.rbegin(); it != terms.rend(); ++it) {
-        auto [deg, coef] = *it;
-        if (deg == LongNatural("0")) {
-            result += coef.toString() + " + ";
-
-        } else {
-            result += "(" + coef.toString() + ")" + "x^" + deg.toString() + " + ";
-        }
-        // если строка получается больше 10000 символово обрезаем строку
-        if (result.size() > 10000) {
-            return result.substr(0, result.size() - 3) + "..." + "и еще " + std::to_string(terms.size() - std::distance(terms.rbegin(), it)) +
-                   " ненулевых членов";
-        }
-    }
-    return result.substr(0, result.size() - 3);
-}
-
-void parsePolynomial(std::string label_no, std::map<LongNatural, LongRational>& terms, std::string& degree_str, std::string& coef_str, std::string& error_str) {
-    ImGui::Text("Введите степень при x добавляемого члена (натуральное число): ");
-    InputTextWithResize((std::string("degree") + label_no).c_str(), degree_str);
-    ImGui::Text("Введите числитель и знаменатель добавляемого члена разделяя их пробелом (целое число и натуральное число): ");
-    InputTextWithResize((std::string("num") + label_no).c_str(), coef_str);
-
-    if (ImGui::Button((std::string("Добавить член ") + label_no).c_str())) {
-        error_str.clear();
-        std::string num_str;
-        std::string den_str;
-        try {
-            StrToFraction(coef_str, num_str, den_str);
-            terms.emplace(LongNatural(degree_str), LongRational(num_str, den_str));
-            // degree_str.clear();
-            // num_str.clear();
-            // den_str.clear();
-        } catch (const std::invalid_argument& e) {
-            error_str = "Invalid input: " + std::string(e.what());
-        } catch (const std::bad_alloc& e) {
-            error_str = "Error allocating memory: " + std::string(e.what());
-        } catch (const std::exception& e) {
-            error_str = "Unknown error during computations: " + std::string(e.what());
-        }
-    }
-    ImGui::SameLine();
-    if (ImGui::Button((std::string("Очистить многочлен ") + label_no).c_str())) {
-        terms.clear();
-    }
-    if (!error_str.empty()) {
-        ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "%s", error_str.c_str());
-    }
-    ImGui::Text("Текущий многочлен:");
-    ImGui::BeginChild((std::string("Текущий многочлен ") + label_no + ": ").c_str(), ImVec2(0, ImGui::GetTextLineHeightWithSpacing() * 1.5f), true);
-    ImGui::Text("%s", MapToPolyStr(terms).c_str());
-    ImGui::EndChild();
-}
-
 void HandlePolynomialFunctions::show_ADD_PP_P(bool* p_open) {
     if (!ImGui::Begin("Polynomial Functions: ADD_PP_P", p_open)) {
         ImGui::End();
@@ -185,7 +125,7 @@ void HandlePolynomialFunctions::show_ADD_PP_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
@@ -235,7 +175,7 @@ void HandlePolynomialFunctions::show_SUB_PP_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
@@ -290,7 +230,7 @@ void HandlePolynomialFunctions::show_MUL_PQ_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         error_str2.clear();
         try {
             LongRational q(num_str, den_str);
@@ -342,7 +282,7 @@ void HandlePolynomialFunctions::show_MUL_Pxk_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         error_str2.clear();
         try {
             LongNatural k(k_str);
@@ -386,7 +326,7 @@ void HandlePolynomialFunctions::show_LED_P_Q(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
 
@@ -429,7 +369,7 @@ void HandlePolynomialFunctions::show_DEG_P_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
 
@@ -473,7 +413,7 @@ void HandlePolynomialFunctions::show_FAC_P_Q(bool* p_open) {
     static std::string error_str;
     static Polynomial a(a_terms);
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         a = Polynomial(a_terms);
         try {
             // Polynomial a(a_terms);
@@ -523,7 +463,7 @@ void HandlePolynomialFunctions::show_MUL_PP_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
@@ -573,7 +513,7 @@ void HandlePolynomialFunctions::show_DIV_PP_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
@@ -623,7 +563,7 @@ void HandlePolynomialFunctions::show_MOD_PP_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
@@ -673,7 +613,7 @@ void HandlePolynomialFunctions::show_GCF_PP_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
             Polynomial b(b_terms);
@@ -717,7 +657,7 @@ void HandlePolynomialFunctions::show_DER_P_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
 
@@ -760,7 +700,7 @@ void HandlePolynomialFunctions::show_NMR_P_P(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             Polynomial a(a_terms);
 

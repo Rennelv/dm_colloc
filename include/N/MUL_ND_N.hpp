@@ -3,17 +3,20 @@
 
 #include "LongNatural.hpp"
 
-/*
-    Выполнил Гладилин Евгений 3381
+/**
+ * @file MUL_ND_N.hpp
+ * @brief Функция для умножения натурального числа на цифру.
+ */
 
-    Функция MUL_ND_N принимает два натуральное число и цифру. Возвращает их произведение.
-    Принимает:
-        a - натуральное число
-        b - цифра
-    Возвращает:
-        LongNatural - произведение числа и цифры
-*/
+/**
+ * @brief Функция MUL_ND_N принимает натуральное число и цифру, возвращает их произведение.
+ *
+ * @param a Натуральное число.
+ * @param b Цифра.
+ * @return Произведение числа и цифры.
+ * @author Гладилин Евгений 3381
+ */
 
-LongNatural MUL_ND_N(const LongNatural& a, const uint8_t& b);
+LongNatural MUL_ND_N(const LongNatural& a, uint8_t b);
 
 #endif  // MUL_ND_N_HPP

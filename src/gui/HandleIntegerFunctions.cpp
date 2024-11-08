@@ -17,18 +17,18 @@
 #include "gui/ioUtils.hpp"
 #include "imgui.h"
 
-void HandleIntegerFunctions::showMenu(bool* p_open) {
-    static bool ABS_Z_N_open = false;
-    static bool POZ_Z_D_open = false;
-    static bool MUL_ZM_Z_open = false;
-    static bool TRANS_N_Z_open = false;
-    static bool TRANS_Z_N_open = false;
-    static bool ADD_ZZ_Z_open = false;
-    static bool SUB_ZZ_Z_open = false;
-    static bool MUL_ZZ_Z_open = false;
-    static bool DIV_ZZ_Z_open = false;
-    static bool MOD_ZZ_Z_open = false;
+bool HandleIntegerFunctions::ABS_Z_N_open = false;
+bool HandleIntegerFunctions::POZ_Z_D_open = false;
+bool HandleIntegerFunctions::MUL_ZM_Z_open = false;
+bool HandleIntegerFunctions::TRANS_N_Z_open = false;
+bool HandleIntegerFunctions::TRANS_Z_N_open = false;
+bool HandleIntegerFunctions::ADD_ZZ_Z_open = false;
+bool HandleIntegerFunctions::SUB_ZZ_Z_open = false;
+bool HandleIntegerFunctions::MUL_ZZ_Z_open = false;
+bool HandleIntegerFunctions::DIV_ZZ_Z_open = false;
+bool HandleIntegerFunctions::MOD_ZZ_Z_open = false;
 
+void HandleIntegerFunctions::showMenu(bool* p_open) {
     if (ABS_Z_N_open) show_ABS_Z_N(&ABS_Z_N_open);
     if (POZ_Z_D_open) show_POZ_Z_D(&POZ_Z_D_open);
     if (MUL_ZM_Z_open) show_MUL_ZM_Z(&MUL_ZM_Z_open);
@@ -94,7 +94,7 @@ void HandleIntegerFunctions::show_ABS_Z_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
 
@@ -131,7 +131,7 @@ void HandleIntegerFunctions::show_POZ_Z_D(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
 
@@ -168,7 +168,7 @@ void HandleIntegerFunctions::show_MUL_ZM_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
 
@@ -205,7 +205,7 @@ void HandleIntegerFunctions::show_TRANS_N_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
 
@@ -242,7 +242,7 @@ void HandleIntegerFunctions::show_TRANS_Z_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
 
@@ -281,7 +281,7 @@ void HandleIntegerFunctions::show_ADD_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);
@@ -321,7 +321,7 @@ void HandleIntegerFunctions::show_SUB_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);
@@ -361,7 +361,7 @@ void HandleIntegerFunctions::show_MUL_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);
@@ -401,7 +401,7 @@ void HandleIntegerFunctions::show_DIV_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);
@@ -441,7 +441,7 @@ void HandleIntegerFunctions::show_MOD_ZZ_Z(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongInteger a_n(a_str);
             LongInteger b_n(b_str);

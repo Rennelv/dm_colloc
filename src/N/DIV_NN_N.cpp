@@ -1,5 +1,7 @@
 #include "N/DIV_NN_N.hpp"
 
+#include <stdexcept>
+
 #include "N/ADD_NN_N.hpp"
 #include "N/DIV_NN_Dk.hpp"
 #include "N/MUL_NN_N.hpp"

@@ -1,8 +1,5 @@
 #include "N/NZER_N_B.hpp"
 
-#include <iostream>
-#include <vector>
-
 #include "N/LongNatural.hpp"
 
 using namespace std;

@@ -24,22 +24,22 @@
 #include "gui/ioUtils.hpp"
 #include "imgui.h"
 
-void HandleNaturalFunctions::showMenu(bool* p_open) {
-    static bool COM_NN_D_open = false;
-    static bool NZER_N_B_open = false;
-    static bool ADD_1N_N_open = false;
-    static bool ADD_NN_N_open = false;
-    static bool SUB_NN_N_open = false;
-    static bool MUL_ND_N_open = false;
-    static bool MUL_Nk_N_open = false;
-    static bool MUL_NN_N_open = false;
-    static bool SUB_NDN_N_open = false;
-    static bool DIV_NN_Dk_open = false;
-    static bool DIV_NN_N_open = false;
-    static bool MOD_NN_N_open = false;
-    static bool GCF_NN_N_open = false;
-    static bool LCM_NN_N_open = false;
+bool HandleNaturalFunctions::COM_NN_D_open = false;
+bool HandleNaturalFunctions::NZER_N_B_open = false;
+bool HandleNaturalFunctions::ADD_1N_N_open = false;
+bool HandleNaturalFunctions::ADD_NN_N_open = false;
+bool HandleNaturalFunctions::SUB_NN_N_open = false;
+bool HandleNaturalFunctions::MUL_ND_N_open = false;
+bool HandleNaturalFunctions::MUL_Nk_N_open = false;
+bool HandleNaturalFunctions::MUL_NN_N_open = false;
+bool HandleNaturalFunctions::SUB_NDN_N_open = false;
+bool HandleNaturalFunctions::DIV_NN_Dk_open = false;
+bool HandleNaturalFunctions::DIV_NN_N_open = false;
+bool HandleNaturalFunctions::MOD_NN_N_open = false;
+bool HandleNaturalFunctions::GCF_NN_N_open = false;
+bool HandleNaturalFunctions::LCM_NN_N_open = false;
 
+void HandleNaturalFunctions::showMenu(bool* p_open) {
     if (COM_NN_D_open) show_COM_NN_D(&COM_NN_D_open);
     if (NZER_N_B_open) show_NZER_N_B(&NZER_N_B_open);
     if (ADD_1N_N_open) show_ADD_1N_N(&ADD_1N_N_open);
@@ -124,7 +124,7 @@ void HandleNaturalFunctions::show_GCF_NN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -166,7 +166,7 @@ void HandleNaturalFunctions::show_COM_NN_D(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -207,7 +207,7 @@ void HandleNaturalFunctions::show_NZER_N_B(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
 
@@ -244,7 +244,7 @@ void HandleNaturalFunctions::show_ADD_1N_N(bool* p_open) {
     static std::string result("");
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
 
@@ -283,7 +283,7 @@ void HandleNaturalFunctions::show_ADD_NN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -323,7 +323,7 @@ void HandleNaturalFunctions::show_SUB_NN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -363,7 +363,7 @@ void HandleNaturalFunctions::show_MUL_ND_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             if (d_str.length() != 1 || !isdigit(d_str[0])) {
@@ -406,7 +406,7 @@ void HandleNaturalFunctions::show_MUL_Nk_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             if (k_str.length() == 0 || !isdigit(k_str[0])) {
@@ -449,7 +449,7 @@ void HandleNaturalFunctions::show_MUL_NN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -491,7 +491,7 @@ void HandleNaturalFunctions::show_SUB_NDN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -535,7 +535,7 @@ void HandleNaturalFunctions::show_DIV_NN_Dk(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -576,7 +576,7 @@ void HandleNaturalFunctions::show_DIV_NN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -616,7 +616,7 @@ void HandleNaturalFunctions::show_MOD_NN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
@@ -656,7 +656,7 @@ void HandleNaturalFunctions::show_LCM_NN_N(bool* p_open) {
     static std::string result;
     static std::string error_str;
 
-    if (ImGui::Button("Calculate")) {
+    if (ImGui::Button("Calculate") && !calculation_started) {
         try {
             LongNatural a_n(a_str);
             LongNatural b_n(b_str);
