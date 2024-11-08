@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Исходный файл src/N/MUL_Nk_N.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">dm_math<span id="projectnumber">&#160;0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d4c5d1e96b79ae48b393d3852e71b9f1.html">N</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">MUL_Nk_N.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="MUL__Nk__N_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="MUL__Nk__N_8hpp.html">N/MUL_Nk_N.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="foldopen" id="foldopen00003" data-start="{" data-end="}">
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="MUL__Nk__N_8hpp.html#a7bdcbc32ac8a86515b9a362b41337e88">    3</a></span><a class="code hl_class" href="classLongNatural.html">LongNatural</a> <a class="code hl_function" href="MUL__Nk__N_8cpp.html#a7bdcbc32ac8a86515b9a362b41337e88">MUL_Nk_N</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLongNatural.html">LongNatural</a>&amp; a, <span class="keywordtype">size_t</span> k) {</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    <span class="comment">// проверяем, является ли число нулем</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordflow">if</span> (a.<a class="code hl_function" href="classLongNatural.html#a2448a1c11077a7e922bd5dcd3e9d43c8">getLength</a>() == 1 &amp;&amp; a.<a class="code hl_function" href="classLongNatural.html#ae95da1b615921886c743603f75ef0c22">at</a>(0) == 0) {</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classLongNatural.html">LongNatural</a>({0});</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    }</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    std::vector&lt;uint8_t&gt; a_arr = a.<a class="code hl_function" href="classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();  <span class="comment">// получаем массив цифр числа</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    a_arr.insert(a_arr.end(), k, 0);  <span class="comment">// добавляем k нулей в конец массива цифр числа, то есть умножаем на 10^k</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classLongNatural.html">LongNatural</a>(a_arr);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>}</div>
+</div>
+<div class="ttc" id="aMUL__Nk__N_8cpp_html_a7bdcbc32ac8a86515b9a362b41337e88"><div class="ttname"><a href="MUL__Nk__N_8cpp.html#a7bdcbc32ac8a86515b9a362b41337e88">MUL_Nk_N</a></div><div class="ttdeci">LongNatural MUL_Nk_N(const LongNatural &amp;a, size_t k)</div><div class="ttdoc">Функция MUL_Nk_N умножает натуральное число на 10^k.</div><div class="ttdef"><b>Definition</b> <a href="#l00003">MUL_Nk_N.cpp:3</a></div></div>
+<div class="ttc" id="aMUL__Nk__N_8hpp_html"><div class="ttname"><a href="MUL__Nk__N_8hpp.html">MUL_Nk_N.hpp</a></div><div class="ttdoc">Функция для умножения натурального числа на 10^k.</div></div>
+<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition</b> <a href="LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+<div class="ttc" id="aclassLongNatural_html_a2448a1c11077a7e922bd5dcd3e9d43c8"><div class="ttname"><a href="classLongNatural.html#a2448a1c11077a7e922bd5dcd3e9d43c8">LongNatural::getLength</a></div><div class="ttdeci">size_t getLength() const</div><div class="ttdef"><b>Definition</b> <a href="LongNatural_8cpp_source.html#l00065">LongNatural.cpp:65</a></div></div>
+<div class="ttc" id="aclassLongNatural_html_ae336854d31963416d3a1cd91006fd8c2"><div class="ttname"><a href="classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">LongNatural::getArr</a></div><div class="ttdeci">const std::vector&lt; uint8_t &gt; &amp; getArr() const</div><div class="ttdef"><b>Definition</b> <a href="LongNatural_8cpp_source.html#l00053">LongNatural.cpp:53</a></div></div>
+<div class="ttc" id="aclassLongNatural_html_ae95da1b615921886c743603f75ef0c22"><div class="ttname"><a href="classLongNatural.html#ae95da1b615921886c743603f75ef0c22">LongNatural::at</a></div><div class="ttdeci">uint8_t at(size_t i) const</div><div class="ttdef"><b>Definition</b> <a href="LongNatural_8cpp_source.html#l00069">LongNatural.cpp:69</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
