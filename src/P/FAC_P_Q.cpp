@@ -9,6 +9,7 @@
 #include "Z/LongInteger.hpp"
 #include "Z/MUL_ZZ_Z.hpp"
 #include "Z/TRANS_N_Z.hpp"
+#include "Q/RED_Q_Q.hpp"
 
 LongRational FAC_P_Q(Polynomial& a) {
     const std::map<LongNatural, LongRational>& map = a.getMap();  // возвращает мап коэффициентов
@@ -42,5 +43,5 @@ LongRational FAC_P_Q(Polynomial& a) {
     a = new_poly;
 
     // Возвращаем вынесенный коффициент
-    return LongRational(gcf_long_integer, lcm);
+    return RED_Q_Q(LongRational(gcf_long_integer, lcm));
 }

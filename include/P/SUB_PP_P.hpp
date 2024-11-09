@@ -1,10 +1,10 @@
 #ifndef SUB_PP_P_HPP
 #define SUB_PP_P_HPP
 
-#include <N/LongNatural.hpp>
-#include <P/Polynomial.hpp>
-#include <Q/LongRational.hpp>
-#include <Z/LongInteger.hpp>
+#include "N/LongNatural.hpp"
+#include "P/Polynomial.hpp"
+#include "Q/LongRational.hpp"
+#include "Z/LongInteger.hpp"
 
 /**
  * @file SUB_PP_P.hpp

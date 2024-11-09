@@ -24,6 +24,5 @@ Polynomial SUB_PP_P(const Polynomial& a, const Polynomial& b) {
         }
     }
 
-    Polynomial result(coefficients);  // создаем полином с полученным map коэффициентов
-    return result;
+    return Polynomial(coefficients);
 }
