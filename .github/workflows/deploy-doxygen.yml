@@ -31,11 +31,11 @@ jobs:
         
     - name: Install dependencies
       run: |
-        sudo apt-get install -y --no-upgrade g++ cmake libgl1-mesa-dev libglfw3 libglfw3-dev libglew-dev doxygen graphviz
+        sudo apt-get install -y --no-upgrade g++ cmake libgl1-mesa-dev libglfw3 libglfw3-dev libglew-dev doxygen graphviz ninja-build
 
     - name: Set up CMake and build
       run: |
-        cmake -DCMAKE_BUILD_TYPE=Release -B ${{ steps.strings.outputs.build-output-dir }} -DENABLE_IMGUI=ON -S ${{ github.workspace }}
+        cmake -DCMAKE_BUILD_TYPE=Release -B ${{ steps.strings.outputs.build-output-dir }} -DENABLE_IMGUI=ON -G Ninja -S ${{ github.workspace }}
 
     - name: Generate Doxygen documentation
       run: doxygen Doxyfile
