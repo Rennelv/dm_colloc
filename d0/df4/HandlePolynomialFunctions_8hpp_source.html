@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Исходный файл include/gui/HandlePolynomialFunctions.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_48c1f94cd2ae07e13fa9a9f16a1d541c.html">gui</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">HandlePolynomialFunctions.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/df4/HandlePolynomialFunctions_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef POLYNOMIALFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define POLYNOMIALFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// enum class PolynomialFunctions {</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//     ADD_PP_P,   // Сложение многочленов</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//     SUB_PP_P,   // Вычитание многочленов</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//     MUL_PQ_P,   // Умножение многочлена на рациональное число</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//     MUL_Pxk_P,  // Умножение многочлена на x^k, k-натуральное или 0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//     LED_P_Q,    // Старший коэффициент многочлена</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//     DEG_P_N,    // Степень многочлена</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//     FAC_P_Q,    // Вынесение из многочлена НОК знаменателей коэффициентов и НОД числителей</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//     MUL_PP_P,   // Умножение многочленов</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//     DIV_PP_P,   // Частное от деления многочлена на многочлен при делении с остатком</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//     MOD_PP_P,   // Остаток от деления многочлена на многочлен при делении с остатком</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//     GCF_PP_P,   // НОД многочленов</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//     DER_P_P,    // Производная многочлена</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//     NMR_P_P,    // Преобразование многочлена — кратные корни в простые</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// };</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html">HandlePolynomialFunctions</a> {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#a022f1570c445668f66d67d759f6c1d98">   35</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a022f1570c445668f66d67d759f6c1d98">ADD_PP_P_open</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#a6a48af2426f4687e8bd6d028a13581dc">   36</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a6a48af2426f4687e8bd6d028a13581dc">SUB_PP_P_open</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#a6533bc98e58656014ffd464ee42ad66f">   37</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a6533bc98e58656014ffd464ee42ad66f">MUL_PQ_P_open</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#ab93fe5b818aa61ba45d5d522a3dfabc0">   38</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#ab93fe5b818aa61ba45d5d522a3dfabc0">MUL_Pxk_P_open</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#a1d46d37deb3fcb7dcd04bbc81d091e60">   39</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a1d46d37deb3fcb7dcd04bbc81d091e60">LED_P_Q_open</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#ad69603ab816495976b02508f08b5c3da">   40</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#ad69603ab816495976b02508f08b5c3da">DEG_P_N_open</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#a20719e1aa20b97c81879a6cabf2c008c">   41</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a20719e1aa20b97c81879a6cabf2c008c">FAC_P_Q_open</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#ac0f66e7537c449e1d5ed1cc74fd1b142">   42</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#ac0f66e7537c449e1d5ed1cc74fd1b142">MUL_PP_P_open</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#aab5696c576054c358c33d35988928981">   43</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#aab5696c576054c358c33d35988928981">DIV_PP_P_open</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#a6a6247305e9b3f8659292b0f1ee9347b">   44</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a6a6247305e9b3f8659292b0f1ee9347b">MOD_PP_P_open</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#ad82efa344bbf135699e9c251e3debd72">   45</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#ad82efa344bbf135699e9c251e3debd72">GCF_PP_P_open</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#ace6817bfe25a15d04fc87211f05e6d55">   46</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#ace6817bfe25a15d04fc87211f05e6d55">DER_P_P_open</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d7/df6/classHandlePolynomialFunctions.html#ac496d5216b6cdc5bd4f9c0306b11eed0">   47</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#ac496d5216b6cdc5bd4f9c0306b11eed0">NMR_P_P_open</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#abdf5c00890066b43102a4631eba845f8">showMenu</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// std::string MapToPolyStr(const std::map&lt;LongNatural, LongRational&gt;&amp; terms);</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a1ef56b2191b38b1dc97a04685f5bae8b">show_ADD_PP_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a42d84b0406ce340a531fe98d40f2abf3">show_SUB_PP_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#ae615a54e18cfd26dab3b49473baea938">show_MUL_PQ_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#ab9a04576456f0be568b6c776cea7535b">show_MUL_Pxk_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a01e0ee6ce76df1dae7b3ddfd247b7626">show_LED_P_Q</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a8d37a2aa4195752a00c13f9d50902347">show_DEG_P_N</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a10fccd8a57f14ca814f547d9a9c839dd">show_FAC_P_Q</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a2a7ea641db63fdcb77ab52fd53feab04">show_MUL_PP_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a54f60f72851c2b41ba587467f303f936">show_DIV_PP_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a8e5ebbce05b84bec7831b6560182c1f9">show_MOD_PP_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a24d04804bfb4866743af63b34ebfe042">show_GCF_PP_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a0014f40f367fdebe6a0f7fc7a18c4962">show_DER_P_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#a6a0cb64f384151b465be932045c63533">show_NMR_P_P</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// POLYNOMIALFUNCTIONS_HPP</span></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html">HandlePolynomialFunctions</a></div><div class="ttdoc">Класс для управления функциями многочленов в графическом интерфейсе.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00033">HandlePolynomialFunctions.hpp:33</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a0014f40f367fdebe6a0f7fc7a18c4962"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a0014f40f367fdebe6a0f7fc7a18c4962">HandlePolynomialFunctions::show_DER_P_P</a></div><div class="ttdeci">static void show_DER_P_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00639">HandlePolynomialFunctions.cpp:639</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a01e0ee6ce76df1dae7b3ddfd247b7626"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a01e0ee6ce76df1dae7b3ddfd247b7626">HandlePolynomialFunctions::show_LED_P_Q</a></div><div class="ttdeci">static void show_LED_P_Q(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00308">HandlePolynomialFunctions.cpp:308</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a022f1570c445668f66d67d759f6c1d98"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a022f1570c445668f66d67d759f6c1d98">HandlePolynomialFunctions::ADD_PP_P_open</a></div><div class="ttdeci">static bool ADD_PP_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00035">HandlePolynomialFunctions.hpp:35</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a10fccd8a57f14ca814f547d9a9c839dd"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a10fccd8a57f14ca814f547d9a9c839dd">HandlePolynomialFunctions::show_FAC_P_Q</a></div><div class="ttdeci">static void show_FAC_P_Q(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00394">HandlePolynomialFunctions.cpp:394</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a1d46d37deb3fcb7dcd04bbc81d091e60"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a1d46d37deb3fcb7dcd04bbc81d091e60">HandlePolynomialFunctions::LED_P_Q_open</a></div><div class="ttdeci">static bool LED_P_Q_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00039">HandlePolynomialFunctions.hpp:39</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a1ef56b2191b38b1dc97a04685f5bae8b"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a1ef56b2191b38b1dc97a04685f5bae8b">HandlePolynomialFunctions::show_ADD_PP_P</a></div><div class="ttdeci">static void show_ADD_PP_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00103">HandlePolynomialFunctions.cpp:103</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a20719e1aa20b97c81879a6cabf2c008c"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a20719e1aa20b97c81879a6cabf2c008c">HandlePolynomialFunctions::FAC_P_Q_open</a></div><div class="ttdeci">static bool FAC_P_Q_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00041">HandlePolynomialFunctions.hpp:41</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a24d04804bfb4866743af63b34ebfe042"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a24d04804bfb4866743af63b34ebfe042">HandlePolynomialFunctions::show_GCF_PP_P</a></div><div class="ttdeci">static void show_GCF_PP_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00589">HandlePolynomialFunctions.cpp:589</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a2a7ea641db63fdcb77ab52fd53feab04"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a2a7ea641db63fdcb77ab52fd53feab04">HandlePolynomialFunctions::show_MUL_PP_P</a></div><div class="ttdeci">static void show_MUL_PP_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00439">HandlePolynomialFunctions.cpp:439</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a42d84b0406ce340a531fe98d40f2abf3"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a42d84b0406ce340a531fe98d40f2abf3">HandlePolynomialFunctions::show_SUB_PP_P</a></div><div class="ttdeci">static void show_SUB_PP_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00151">HandlePolynomialFunctions.cpp:151</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a54f60f72851c2b41ba587467f303f936"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a54f60f72851c2b41ba587467f303f936">HandlePolynomialFunctions::show_DIV_PP_P</a></div><div class="ttdeci">static void show_DIV_PP_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00489">HandlePolynomialFunctions.cpp:489</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a6533bc98e58656014ffd464ee42ad66f"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a6533bc98e58656014ffd464ee42ad66f">HandlePolynomialFunctions::MUL_PQ_P_open</a></div><div class="ttdeci">static bool MUL_PQ_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00037">HandlePolynomialFunctions.hpp:37</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a6a0cb64f384151b465be932045c63533"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a6a0cb64f384151b465be932045c63533">HandlePolynomialFunctions::show_NMR_P_P</a></div><div class="ttdeci">static void show_NMR_P_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00682">HandlePolynomialFunctions.cpp:682</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a6a48af2426f4687e8bd6d028a13581dc"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a6a48af2426f4687e8bd6d028a13581dc">HandlePolynomialFunctions::SUB_PP_P_open</a></div><div class="ttdeci">static bool SUB_PP_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00036">HandlePolynomialFunctions.hpp:36</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a6a6247305e9b3f8659292b0f1ee9347b"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a6a6247305e9b3f8659292b0f1ee9347b">HandlePolynomialFunctions::MOD_PP_P_open</a></div><div class="ttdeci">static bool MOD_PP_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00044">HandlePolynomialFunctions.hpp:44</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a8d37a2aa4195752a00c13f9d50902347"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a8d37a2aa4195752a00c13f9d50902347">HandlePolynomialFunctions::show_DEG_P_N</a></div><div class="ttdeci">static void show_DEG_P_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00351">HandlePolynomialFunctions.cpp:351</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_a8e5ebbce05b84bec7831b6560182c1f9"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#a8e5ebbce05b84bec7831b6560182c1f9">HandlePolynomialFunctions::show_MOD_PP_P</a></div><div class="ttdeci">static void show_MOD_PP_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00539">HandlePolynomialFunctions.cpp:539</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_aab5696c576054c358c33d35988928981"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#aab5696c576054c358c33d35988928981">HandlePolynomialFunctions::DIV_PP_P_open</a></div><div class="ttdeci">static bool DIV_PP_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00043">HandlePolynomialFunctions.hpp:43</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_ab93fe5b818aa61ba45d5d522a3dfabc0"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#ab93fe5b818aa61ba45d5d522a3dfabc0">HandlePolynomialFunctions::MUL_Pxk_P_open</a></div><div class="ttdeci">static bool MUL_Pxk_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00038">HandlePolynomialFunctions.hpp:38</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_ab9a04576456f0be568b6c776cea7535b"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#ab9a04576456f0be568b6c776cea7535b">HandlePolynomialFunctions::show_MUL_Pxk_P</a></div><div class="ttdeci">static void show_MUL_Pxk_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00256">HandlePolynomialFunctions.cpp:256</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_abdf5c00890066b43102a4631eba845f8"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#abdf5c00890066b43102a4631eba845f8">HandlePolynomialFunctions::showMenu</a></div><div class="ttdeci">static void showMenu(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00040">HandlePolynomialFunctions.cpp:40</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_ac0f66e7537c449e1d5ed1cc74fd1b142"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#ac0f66e7537c449e1d5ed1cc74fd1b142">HandlePolynomialFunctions::MUL_PP_P_open</a></div><div class="ttdeci">static bool MUL_PP_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00042">HandlePolynomialFunctions.hpp:42</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_ac496d5216b6cdc5bd4f9c0306b11eed0"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#ac496d5216b6cdc5bd4f9c0306b11eed0">HandlePolynomialFunctions::NMR_P_P_open</a></div><div class="ttdeci">static bool NMR_P_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00047">HandlePolynomialFunctions.hpp:47</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_ace6817bfe25a15d04fc87211f05e6d55"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#ace6817bfe25a15d04fc87211f05e6d55">HandlePolynomialFunctions::DER_P_P_open</a></div><div class="ttdeci">static bool DER_P_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00046">HandlePolynomialFunctions.hpp:46</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_ad69603ab816495976b02508f08b5c3da"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#ad69603ab816495976b02508f08b5c3da">HandlePolynomialFunctions::DEG_P_N_open</a></div><div class="ttdeci">static bool DEG_P_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00040">HandlePolynomialFunctions.hpp:40</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_ad82efa344bbf135699e9c251e3debd72"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#ad82efa344bbf135699e9c251e3debd72">HandlePolynomialFunctions::GCF_PP_P_open</a></div><div class="ttdeci">static bool GCF_PP_P_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df4/HandlePolynomialFunctions_8hpp_source.html#l00045">HandlePolynomialFunctions.hpp:45</a></div></div>
+<div class="ttc" id="aclassHandlePolynomialFunctions_html_ae615a54e18cfd26dab3b49473baea938"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#ae615a54e18cfd26dab3b49473baea938">HandlePolynomialFunctions::show_MUL_PQ_P</a></div><div class="ttdeci">static void show_MUL_PQ_P(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00201">HandlePolynomialFunctions.cpp:201</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

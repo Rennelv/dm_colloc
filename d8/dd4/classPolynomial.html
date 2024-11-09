@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Класс Polynomial</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="../../d0/d72/classPolynomial-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс Polynomial</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для работы с многочленами с коэффициентами из длинных рациональных чисел.  
+ <a href="../../d8/dd4/classPolynomial.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d3/dae/Polynomial_8hpp_source.html">Polynomial.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a7dc8ef21e84c89e5a178d92ea4d2ed89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#a7dc8ef21e84c89e5a178d92ea4d2ed89">Polynomial</a> (const std::map&lt; <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &gt; &amp;map)</td></tr>
+<tr class="separator:a7dc8ef21e84c89e5a178d92ea4d2ed89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbed68f050f91079f6d149ca7f1c6a20"><td class="memItemLeft" align="right" valign="top">const std::map&lt; <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#afbed68f050f91079f6d149ca7f1c6a20">getMap</a> () const</td></tr>
+<tr class="separator:afbed68f050f91079f6d149ca7f1c6a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a391d2d147e60d6229ab4b9f4a1e3bd06"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#a391d2d147e60d6229ab4b9f4a1e3bd06">isCoef</a> (const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> &amp;<a class="el" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a>) const</td></tr>
+<tr class="separator:a391d2d147e60d6229ab4b9f4a1e3bd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed2075e68f23dee069e61653bae5d632"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#aed2075e68f23dee069e61653bae5d632">getCoef</a> (const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> &amp;<a class="el" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a>) const</td></tr>
+<tr class="separator:aed2075e68f23dee069e61653bae5d632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1016c38dd65b3d538cd43091b3f79f1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#aa1016c38dd65b3d538cd43091b3f79f1">getDegree</a> () const</td></tr>
+<tr class="separator:aa1016c38dd65b3d538cd43091b3f79f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affe46c12da2d77178de8271bd264c156"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#affe46c12da2d77178de8271bd264c156">toString</a> () const</td></tr>
+<tr class="separator:affe46c12da2d77178de8271bd264c156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221fa2b7494d726b2d0655a2e51f3f88"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#a221fa2b7494d726b2d0655a2e51f3f88">operator==</a> (const <a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a> &amp;other) const</td></tr>
+<tr class="separator:a221fa2b7494d726b2d0655a2e51f3f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5deec7ce5c966458b5f0d5f571805e17"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#a5deec7ce5c966458b5f0d5f571805e17">operator!=</a> (const <a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a> &amp;other) const</td></tr>
+<tr class="separator:a5deec7ce5c966458b5f0d5f571805e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a21dfd6a9b9e845dbdfad03302256f22c"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a></td></tr>
+<tr class="separator:a21dfd6a9b9e845dbdfad03302256f22c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae91b385ef8222c627e44718c1e9abde8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a></td></tr>
+<tr class="separator:ae91b385ef8222c627e44718c1e9abde8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a525e289454a2b31e6fd5a5472948bfcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d86/classLongRational.html">LongRational</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dd4/classPolynomial.html#a525e289454a2b31e6fd5a5472948bfcf">zero</a></td></tr>
+<tr class="separator:a525e289454a2b31e6fd5a5472948bfcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс для работы с многочленами с коэффициентами из длинных рациональных чисел. </p>
+<p>Класс предоставляет методы для создания многочлена из мапы коэффициентов, получения мапы коэффициентов, проверки существования коэффициента при заданной степени, получения коэффициента при заданной степени, получения степени многочлена и преобразования многочлена в строку. Многочлен представлен в виде словаря коэффициентов (степень -&gt; коэффициент) отсортированного от младшей степени к старшей.</p>
+<dl class="section author"><dt>Автор</dt><dd>Журавлев Дмитрий 3381 </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html">Polynomial.hpp</a> строка <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00026">26</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a7dc8ef21e84c89e5a178d92ea4d2ed89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dc8ef21e84c89e5a178d92ea4d2ed89">&#9670;&nbsp;</a></span>Polynomial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Polynomial::Polynomial </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html">Polynomial.cpp</a> строка <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00009">9</a></p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                                                                   : <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>(map), <a class="code" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a>({0}), <a class="code" href="../../d8/dd4/classPolynomial.html#a525e289454a2b31e6fd5a5472948bfcf">zero</a>(<a class="code" href="../../d9/d12/classLongInteger.html">LongInteger</a>(<span class="keyword">false</span>, {0}), <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>({1})) {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    std::map&lt;LongNatural, LongRational&gt; temp_map = <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [deg, coef] : temp_map) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">if</span> (coef.getNumerator() == <a class="code" href="../../d8/dd4/classPolynomial.html#a525e289454a2b31e6fd5a5472948bfcf">zero</a>.<a class="code" href="../../da/d86/classLongRational.html#a2be409e556aace5ba29246bb433e1baa">getNumerator</a>()) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.erase(deg);  <span class="comment">// стираем нулевые степени</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.empty()) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a> = <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.rbegin()-&gt;first;  <span class="comment">// если не пустой, то степень равна последней степени, иначе 0</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="ttc" id="aclassLongInteger_html"><div class="ttname"><a href="../../d9/d12/classLongInteger.html">LongInteger</a></div><div class="ttdoc">Класс для работы с длинными целыми числами.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d25/LongInteger_8hpp_source.html#l00026">LongInteger.hpp:26</a></div></div>
+<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+<div class="ttc" id="aclassLongRational_html_a2be409e556aace5ba29246bb433e1baa"><div class="ttname"><a href="../../da/d86/classLongRational.html#a2be409e556aace5ba29246bb433e1baa">LongRational::getNumerator</a></div><div class="ttdeci">const LongInteger &amp; getNumerator() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00011">LongRational.cpp:11</a></div></div>
+<div class="ttc" id="aclassPolynomial_html_a21dfd6a9b9e845dbdfad03302256f22c"><div class="ttname"><a href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">Polynomial::coefficients</a></div><div class="ttdeci">std::map&lt; LongNatural, LongRational &gt; coefficients</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dae/Polynomial_8hpp_source.html#l00028">Polynomial.hpp:28</a></div></div>
+<div class="ttc" id="aclassPolynomial_html_a525e289454a2b31e6fd5a5472948bfcf"><div class="ttname"><a href="../../d8/dd4/classPolynomial.html#a525e289454a2b31e6fd5a5472948bfcf">Polynomial::zero</a></div><div class="ttdeci">LongRational zero</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dae/Polynomial_8hpp_source.html#l00032">Polynomial.hpp:32</a></div></div>
+<div class="ttc" id="aclassPolynomial_html_ae91b385ef8222c627e44718c1e9abde8"><div class="ttname"><a href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">Polynomial::degree</a></div><div class="ttdeci">LongNatural degree</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dae/Polynomial_8hpp_source.html#l00030">Polynomial.hpp:30</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="aed2075e68f23dee069e61653bae5d632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed2075e68f23dee069e61653bae5d632">&#9670;&nbsp;</a></span>getCoef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &amp; Polynomial::getCoef </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> &amp;&#160;</td>
+          <td class="paramname"><em>degree</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html">Polynomial.cpp</a> строка <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00029">29</a></p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                                                                       {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.find(<a class="code" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a>) == <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.end()) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d8/dd4/classPolynomial.html#a525e289454a2b31e6fd5a5472948bfcf">zero</a>;  <span class="comment">// если не найден вернуть 0/1</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.at(<a class="code" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00028">coefficients</a>, <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00030">degree</a> и <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00032">zero</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="../../db/d6a/DIV__PP__P_8cpp_source.html#l00012">DIV_PP_P()</a> и <a class="el" href="../../dc/d17/GCF__PP__P_8cpp_source.html#l00011">GCF_PP_P()</a>.</p>
+
+</div>
+</div>
+<a id="aa1016c38dd65b3d538cd43091b3f79f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1016c38dd65b3d538cd43091b3f79f1">&#9670;&nbsp;</a></span>getDegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> &amp; Polynomial::getDegree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html">Polynomial.cpp</a> строка <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00036">36</a></p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                               {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00030">degree</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="../../d6/d2f/DEG__P__N_8cpp_source.html#l00003">DEG_P_N()</a>, <a class="el" href="../../db/d6a/DIV__PP__P_8cpp_source.html#l00012">DIV_PP_P()</a> и <a class="el" href="../../dc/d17/GCF__PP__P_8cpp_source.html#l00011">GCF_PP_P()</a>.</p>
+
+</div>
+</div>
+<a id="afbed68f050f91079f6d149ca7f1c6a20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbed68f050f91079f6d149ca7f1c6a20">&#9670;&nbsp;</a></span>getMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::map&lt; <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &gt; &amp; Polynomial::getMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html">Polynomial.cpp</a> строка <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00021">21</a></p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                                                  {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00028">coefficients</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="../../dc/d3f/ADD__PP__P_8cpp_source.html#l00007">ADD_PP_P()</a>, <a class="el" href="../../dc/d08/DER__P__P_8cpp_source.html#l00012">DER_P_P()</a>, <a class="el" href="../../dd/d5d/FAC__P__Q_8cpp_source.html#l00013">FAC_P_Q()</a>, <a class="el" href="../../d5/dbe/LED__P__Q_8cpp_source.html#l00003">LED_P_Q()</a>, <a class="el" href="../../db/d16/MUL__PP__P_8cpp_source.html#l00007">MUL_PP_P()</a>, <a class="el" href="../../df/d04/MUL__PQ__P_8cpp_source.html#l00005">MUL_PQ_P()</a>, <a class="el" href="../../db/da1/MUL__Pxk__P_8cpp_source.html#l00005">MUL_Pxk_P()</a> и <a class="el" href="../../d6/d22/SUB__PP__P_8cpp_source.html#l00006">SUB_PP_P()</a>.</p>
+
+</div>
+</div>
+<a id="a391d2d147e60d6229ab4b9f4a1e3bd06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a391d2d147e60d6229ab4b9f4a1e3bd06">&#9670;&nbsp;</a></span>isCoef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Polynomial::isCoef </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> &amp;&#160;</td>
+          <td class="paramname"><em>degree</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html">Polynomial.cpp</a> строка <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00025">25</a></p>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                                       {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.find(<a class="code" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a>) != <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.end();  <span class="comment">// если найден - true</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00028">coefficients</a> и <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00030">degree</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="../../dc/d08/DER__P__P_8cpp_source.html#l00012">DER_P_P()</a>.</p>
+
+</div>
+</div>
+<a id="a5deec7ce5c966458b5f0d5f571805e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5deec7ce5c966458b5f0d5f571805e17">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Polynomial::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html">Polynomial.cpp</a> строка <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00067">67</a></p>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                                         {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);  <span class="comment">// обраное к равентсву</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a221fa2b7494d726b2d0655a2e51f3f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a221fa2b7494d726b2d0655a2e51f3f88">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Polynomial::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html">Polynomial.cpp</a> строка <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00063">63</a></p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                                         {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a> == other.<a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a> &amp;&amp; <a class="code" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a> == other.<a class="code" href="../../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8">degree</a>;  <span class="comment">// если равны коэффиценты и степени</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00028">coefficients</a> и <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00030">degree</a>.</p>
+
+</div>
+</div>
+<a id="affe46c12da2d77178de8271bd264c156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affe46c12da2d77178de8271bd264c156">&#9670;&nbsp;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Polynomial::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html">Polynomial.cpp</a> строка <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00040">40</a></p>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                     {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.empty()) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::string result = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// добавляем в строку коэффиценты с наибольшей степени</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.rbegin(); it != <a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.rend(); ++it) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">auto</span> [deg, coef] = *it;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (deg == <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(<span class="stringliteral">&quot;0&quot;</span>)) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            result += coef.toString() + <span class="stringliteral">&quot; + &quot;</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            result += <span class="stringliteral">&quot;(&quot;</span> + coef.toString() + <span class="stringliteral">&quot;)&quot;</span> + <span class="stringliteral">&quot;x^&quot;</span> + deg.toString() + <span class="stringliteral">&quot; + &quot;</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// если строка получается больше 10000 символово обрезаем строку</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span> (result.size() &gt; 10000) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span> result.substr(0, result.size() - 3) + <span class="stringliteral">&quot;...&quot;</span> + <span class="stringliteral">&quot;и еще &quot;</span> + std::to_string(<a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.size() - std::distance(<a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.rbegin(), it)) +</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                   <span class="stringliteral">&quot; ненулевых членов&quot;</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> result.substr(0, result.size() - 3);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00028">coefficients</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00394">HandlePolynomialFunctions::show_FAC_P_Q()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a21dfd6a9b9e845dbdfad03302256f22c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21dfd6a9b9e845dbdfad03302256f22c">&#9670;&nbsp;</a></span>coefficients</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;<a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a>&gt; Polynomial::coefficients</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html">Polynomial.hpp</a> строка <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00028">28</a></p>
+
+<p class="reference">Используется в <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00029">getCoef()</a>, <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00021">getMap()</a>, <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00025">isCoef()</a>, <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00063">operator==()</a> и <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00040">toString()</a>.</p>
+
+</div>
+</div>
+<a id="ae91b385ef8222c627e44718c1e9abde8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae91b385ef8222c627e44718c1e9abde8">&#9670;&nbsp;</a></span>degree</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> Polynomial::degree</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html">Polynomial.hpp</a> строка <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00030">30</a></p>
+
+<p class="reference">Используется в <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00029">getCoef()</a>, <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00036">getDegree()</a>, <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00025">isCoef()</a> и <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00063">operator==()</a>.</p>
+
+</div>
+</div>
+<a id="a525e289454a2b31e6fd5a5472948bfcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525e289454a2b31e6fd5a5472948bfcf">&#9670;&nbsp;</a></span>zero</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d86/classLongRational.html">LongRational</a> Polynomial::zero</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html">Polynomial.hpp</a> строка <a class="el" href="../../d3/dae/Polynomial_8hpp_source.html#l00032">32</a></p>
+
+<p class="reference">Используется в <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00029">getCoef()</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/P/<a class="el" href="../../d3/dae/Polynomial_8hpp_source.html">Polynomial.hpp</a></li>
+<li>src/P/<a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html">Polynomial.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

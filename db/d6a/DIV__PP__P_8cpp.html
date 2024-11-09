@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Файл src/P/DIV_PP_P.cpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_32fc8c033d22afda3b4c0f91fce602b7.html">P</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл DIV_PP_P.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/dad/DIV__PP__P_8hpp_source.html">P/DIV_PP_P.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/db9/COM__NN__D_8hpp_source.html">N/COM_NN_D.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d12/SUB__NN__N_8hpp_source.html">N/SUB_NN_N.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/da0/ADD__PP__P_8hpp_source.html">P/ADD_PP_P.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d17/DEG__P__N_8hpp_source.html">P/DEG_P_N.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d6f/MUL__PQ__P_8hpp_source.html">P/MUL_PQ_P.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/da1/MUL__Pxk__P_8hpp_source.html">P/MUL_Pxk_P.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/de0/SUB__PP__P_8hpp_source.html">P/SUB_PP_P.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d10/DIV__QQ__Q_8hpp_source.html">Q/DIV_QQ_Q.hpp</a>&quot;</code><br />
+</div>
+<p><a href="../../db/d6a/DIV__PP__P_8cpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ae3d630355d3f5ad07276c3c1f916a058"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d6a/DIV__PP__P_8cpp.html#ae3d630355d3f5ad07276c3c1f916a058">DIV_PP_P</a> (const <a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a> &amp;dividend, const <a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a> &amp;divisor)</td></tr>
+<tr class="memdesc:ae3d630355d3f5ad07276c3c1f916a058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция DIV_PP_P выполняет целочисленное деление одного многочлена на другой.  <a href="../../db/d6a/DIV__PP__P_8cpp.html#ae3d630355d3f5ad07276c3c1f916a058">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae3d630355d3f5ad07276c3c1f916a058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Функции</h2>
+<a id="ae3d630355d3f5ad07276c3c1f916a058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3d630355d3f5ad07276c3c1f916a058">&#9670;&nbsp;</a></span>DIV_PP_P()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a> DIV_PP_P </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a> &amp;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d8/dd4/classPolynomial.html">Polynomial</a> &amp;&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция DIV_PP_P выполняет целочисленное деление одного многочлена на другой. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p1</td><td>Делимый многочлен. </td></tr>
+    <tr><td class="paramname">p2</td><td>Делитель многочлен. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><a class="el" href="../../d8/dd4/classPolynomial.html" title="Класс для работы с многочленами с коэффициентами из длинных рациональных чисел.">Polynomial</a> Частное от деления p1 на p2. </dd></dl>
+<dl class="section author"><dt>Автор</dt><dd>Уфимцева Алиса 3381 </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../db/d6a/DIV__PP__P_8cpp_source.html">DIV_PP_P.cpp</a> строка <a class="el" href="../../db/d6a/DIV__PP__P_8cpp_source.html#l00012">12</a></p>
+<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                                                                           {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// Проверка на единичный многочлен (если divisor == 1, возвращаем dividend)</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span> (divisor.<a class="code" href="../../d8/dd4/classPolynomial.html#aa1016c38dd65b3d538cd43091b3f79f1">getDegree</a>() == <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(<span class="stringliteral">&quot;0&quot;</span>) &amp;&amp; divisor.<a class="code" href="../../d8/dd4/classPolynomial.html#aed2075e68f23dee069e61653bae5d632">getCoef</a>(<a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(<span class="stringliteral">&quot;0&quot;</span>)) == <a class="code" href="../../da/d86/classLongRational.html">LongRational</a>(<a class="code" href="../../d9/d12/classLongInteger.html">LongInteger</a>(<span class="stringliteral">&quot;1&quot;</span>), <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(<span class="stringliteral">&quot;1&quot;</span>))) {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> dividend;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// Инициализируем нулевой многочлен для частного</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::map&lt;LongNatural, LongRational&gt; zero_map;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    zero_map.emplace(<a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(<span class="stringliteral">&quot;0&quot;</span>), <a class="code" href="../../da/d86/classLongRational.html">LongRational</a>(<a class="code" href="../../d9/d12/classLongInteger.html">LongInteger</a>(<span class="stringliteral">&quot;0&quot;</span>), <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(<span class="stringliteral">&quot;1&quot;</span>)));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="../../d8/dd4/classPolynomial.html">Polynomial</a> quotient(zero_map);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// Степень делимого и делителя</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> deg_dividend = <a class="code" href="../../d1/d17/DEG__P__N_8hpp.html#a5055cd1594a3a64264ae2b58df646f6d">DEG_P_N</a>(dividend);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> deg_divisor = <a class="code" href="../../d1/d17/DEG__P__N_8hpp.html#a5055cd1594a3a64264ae2b58df646f6d">DEG_P_N</a>(divisor);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="../../d8/dd4/classPolynomial.html">Polynomial</a> remainder = dividend;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Пока степень остатка &gt;= степени делителя</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(<a class="code" href="../../d1/d17/DEG__P__N_8hpp.html#a5055cd1594a3a64264ae2b58df646f6d">DEG_P_N</a>(remainder), deg_divisor) != 1) {  <span class="comment">// Используем функцию сравнения</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">// Вычисляем текущую степень частного как разность степеней</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> degree_diff = <a class="code" href="../../d1/d12/SUB__NN__N_8hpp.html#a2f5a01fad5dc0dbbcfad6848866710bd">SUB_NN_N</a>(<a class="code" href="../../d1/d17/DEG__P__N_8hpp.html#a5055cd1594a3a64264ae2b58df646f6d">DEG_P_N</a>(remainder), deg_divisor);  <span class="comment">// Используем функцию вычитания</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">// Получаем коэффициенты старших членов</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="../../da/d86/classLongRational.html">LongRational</a> leading_coeff_dividend = remainder.<a class="code" href="../../d8/dd4/classPolynomial.html#aed2075e68f23dee069e61653bae5d632">getCoef</a>(<a class="code" href="../../d1/d17/DEG__P__N_8hpp.html#a5055cd1594a3a64264ae2b58df646f6d">DEG_P_N</a>(remainder));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../da/d86/classLongRational.html">LongRational</a> leading_coeff_divisor = divisor.<a class="code" href="../../d8/dd4/classPolynomial.html#aed2075e68f23dee069e61653bae5d632">getCoef</a>(deg_divisor);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">// Делим коэффициенты</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../da/d86/classLongRational.html">LongRational</a> coeff_quotient = <a class="code" href="../../d0/d10/DIV__QQ__Q_8hpp.html#aa3897ec780b7b4ac20878dd8ae8bdf95">DIV_QQ_Q</a>(leading_coeff_dividend, leading_coeff_divisor);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// Создаем одночлен с этим коэффициентом и нужной степенью</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        std::map&lt;LongNatural, LongRational&gt; single_term_map;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        single_term_map.emplace(degree_diff, coeff_quotient);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="../../d8/dd4/classPolynomial.html">Polynomial</a> single_term(single_term_map);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">// Добавляем одночлен к частному</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        quotient = <a class="code" href="../../da/da0/ADD__PP__P_8hpp.html#a0132c08a63cdf7016a2ad649b5f752c7">ADD_PP_P</a>(quotient, single_term);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// Вычитаем произведение (divisor * одночлен) из остатка</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="../../d8/dd4/classPolynomial.html">Polynomial</a> product = <a class="code" href="../../de/da1/MUL__Pxk__P_8hpp.html#a0cf22732e24ba28db3c6964d2a62f08f">MUL_Pxk_P</a>(<a class="code" href="../../de/d6f/MUL__PQ__P_8hpp.html#a8fdfe4a429741ced081130a506e0404e">MUL_PQ_P</a>(divisor, coeff_quotient), degree_diff);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        remainder = <a class="code" href="../../da/de0/SUB__PP__P_8hpp.html#a7b19d8166280409c5dcdea2a55628120">SUB_PP_P</a>(remainder, product);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> quotient;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="ttc" id="aADD__PP__P_8hpp_html_a0132c08a63cdf7016a2ad649b5f752c7"><div class="ttname"><a href="../../da/da0/ADD__PP__P_8hpp.html#a0132c08a63cdf7016a2ad649b5f752c7">ADD_PP_P</a></div><div class="ttdeci">Polynomial ADD_PP_P(const Polynomial &amp;a, const Polynomial &amp;b)</div><div class="ttdoc">Функция ADD_PP_P складывает два многочлена.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d3f/ADD__PP__P_8cpp_source.html#l00007">ADD_PP_P.cpp:7</a></div></div>
+<div class="ttc" id="aCOM__NN__D_8hpp_html_a91c2d9097b66dbc41f066cd3ccc52449"><div class="ttname"><a href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a></div><div class="ttdeci">int COM_NN_D(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция COM_NN_D принимает два числа и сравнивает их.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D.cpp:3</a></div></div>
+<div class="ttc" id="aDEG__P__N_8hpp_html_a5055cd1594a3a64264ae2b58df646f6d"><div class="ttname"><a href="../../d1/d17/DEG__P__N_8hpp.html#a5055cd1594a3a64264ae2b58df646f6d">DEG_P_N</a></div><div class="ttdeci">LongNatural DEG_P_N(const Polynomial &amp;a)</div><div class="ttdoc">Функция DEG_P_N возвращает степень многочлена.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d2f/DEG__P__N_8cpp_source.html#l00003">DEG_P_N.cpp:3</a></div></div>
+<div class="ttc" id="aDIV__QQ__Q_8hpp_html_aa3897ec780b7b4ac20878dd8ae8bdf95"><div class="ttname"><a href="../../d0/d10/DIV__QQ__Q_8hpp.html#aa3897ec780b7b4ac20878dd8ae8bdf95">DIV_QQ_Q</a></div><div class="ttdeci">LongRational DIV_QQ_Q(const LongRational &amp;a, const LongRational &amp;b)</div><div class="ttdoc">Функция DIV_QQ_Q принимает две дроби и делит первую на вторую.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d27/DIV__QQ__Q_8cpp_source.html#l00009">DIV_QQ_Q.cpp:9</a></div></div>
+<div class="ttc" id="aMUL__PQ__P_8hpp_html_a8fdfe4a429741ced081130a506e0404e"><div class="ttname"><a href="../../de/d6f/MUL__PQ__P_8hpp.html#a8fdfe4a429741ced081130a506e0404e">MUL_PQ_P</a></div><div class="ttdeci">Polynomial MUL_PQ_P(const Polynomial &amp;a, const LongRational &amp;q)</div><div class="ttdoc">Функция MUL_PQ_P умножает многочлен на рациональное число.</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d04/MUL__PQ__P_8cpp_source.html#l00005">MUL_PQ_P.cpp:5</a></div></div>
+<div class="ttc" id="aMUL__Pxk__P_8hpp_html_a0cf22732e24ba28db3c6964d2a62f08f"><div class="ttname"><a href="../../de/da1/MUL__Pxk__P_8hpp.html#a0cf22732e24ba28db3c6964d2a62f08f">MUL_Pxk_P</a></div><div class="ttdeci">Polynomial MUL_Pxk_P(const Polynomial &amp;a, const LongNatural &amp;k)</div><div class="ttdoc">Функция MUL_Pxk_P умножает многочлен на x^k, где k - натуральное число или 0.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/da1/MUL__Pxk__P_8cpp_source.html#l00005">MUL_Pxk_P.cpp:5</a></div></div>
+<div class="ttc" id="aSUB__NN__N_8hpp_html_a2f5a01fad5dc0dbbcfad6848866710bd"><div class="ttname"><a href="../../d1/d12/SUB__NN__N_8hpp.html#a2f5a01fad5dc0dbbcfad6848866710bd">SUB_NN_N</a></div><div class="ttdeci">LongNatural SUB_NN_N(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция SUB_NN_N принимает два числа и возвращает результат вычитания из большего меньшего.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc1/SUB__NN__N_8cpp_source.html#l00010">SUB_NN_N.cpp:10</a></div></div>
+<div class="ttc" id="aSUB__PP__P_8hpp_html_a7b19d8166280409c5dcdea2a55628120"><div class="ttname"><a href="../../da/de0/SUB__PP__P_8hpp.html#a7b19d8166280409c5dcdea2a55628120">SUB_PP_P</a></div><div class="ttdeci">Polynomial SUB_PP_P(const Polynomial &amp;a, const Polynomial &amp;b)</div><div class="ttdoc">Функция SUB_PP_P вычитает один многочлен из другого.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/SUB__PP__P_8cpp_source.html#l00006">SUB_PP_P.cpp:6</a></div></div>
+<div class="ttc" id="aclassLongInteger_html"><div class="ttname"><a href="../../d9/d12/classLongInteger.html">LongInteger</a></div><div class="ttdoc">Класс для работы с длинными целыми числами.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d25/LongInteger_8hpp_source.html#l00026">LongInteger.hpp:26</a></div></div>
+<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+<div class="ttc" id="aclassLongRational_html"><div class="ttname"><a href="../../da/d86/classLongRational.html">LongRational</a></div><div class="ttdoc">Класс для работы с рациональными числами (дробями).</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/LongRational_8hpp_source.html#l00024">LongRational.hpp:24</a></div></div>
+<div class="ttc" id="aclassPolynomial_html"><div class="ttname"><a href="../../d8/dd4/classPolynomial.html">Polynomial</a></div><div class="ttdoc">Класс для работы с многочленами с коэффициентами из длинных рациональных чисел.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dae/Polynomial_8hpp_source.html#l00026">Polynomial.hpp:26</a></div></div>
+<div class="ttc" id="aclassPolynomial_html_aa1016c38dd65b3d538cd43091b3f79f1"><div class="ttname"><a href="../../d8/dd4/classPolynomial.html#aa1016c38dd65b3d538cd43091b3f79f1">Polynomial::getDegree</a></div><div class="ttdeci">const LongNatural &amp; getDegree() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd7/Polynomial_8cpp_source.html#l00036">Polynomial.cpp:36</a></div></div>
+<div class="ttc" id="aclassPolynomial_html_aed2075e68f23dee069e61653bae5d632"><div class="ttname"><a href="../../d8/dd4/classPolynomial.html#aed2075e68f23dee069e61653bae5d632">Polynomial::getCoef</a></div><div class="ttdeci">const LongRational &amp; getCoef(const LongNatural &amp;degree) const</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd7/Polynomial_8cpp_source.html#l00029">Polynomial.cpp:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../dc/d3f/ADD__PP__P_8cpp_source.html#l00007">ADD_PP_P()</a>, <a class="el" href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D()</a>, <a class="el" href="../../d6/d2f/DEG__P__N_8cpp_source.html#l00003">DEG_P_N()</a>, <a class="el" href="../../de/d27/DIV__QQ__Q_8cpp_source.html#l00009">DIV_QQ_Q()</a>, <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00029">Polynomial::getCoef()</a>, <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00036">Polynomial::getDegree()</a>, <a class="el" href="../../df/d04/MUL__PQ__P_8cpp_source.html#l00005">MUL_PQ_P()</a>, <a class="el" href="../../db/da1/MUL__Pxk__P_8cpp_source.html#l00005">MUL_Pxk_P()</a>, <a class="el" href="../../dc/dc1/SUB__NN__N_8cpp_source.html#l00010">SUB_NN_N()</a> и <a class="el" href="../../d6/d22/SUB__PP__P_8cpp_source.html#l00006">SUB_PP_P()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="../../dc/d4c/MOD__PP__P_8cpp_source.html#l00007">MOD_PP_P()</a>, <a class="el" href="../../d8/d51/NMR__P__P_8cpp_source.html#l00009">NMR_P_P()</a> и <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00489">HandlePolynomialFunctions::show_DIV_PP_P()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

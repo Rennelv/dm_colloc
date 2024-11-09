@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Исходный файл include/Q/LongRational.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_49573812a41deed162c4ee230890bf7e.html">Q</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">LongRational.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dc/d54/LongRational_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LONGRATIONAL_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LONGRATIONAL_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d74/LongNatural_8hpp.html">N/LongNatural.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d25/LongInteger_8hpp.html">Z/LongInteger.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../da/d86/classLongRational.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d86/classLongRational.html">LongRational</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../da/d86/classLongRational.html#acf99967b6d4a85b2d222e9645656ceac">   25</a></span>&#160;    <a class="code" href="../../d9/d12/classLongInteger.html">LongInteger</a> <a class="code" href="../../da/d86/classLongRational.html#acf99967b6d4a85b2d222e9645656ceac">numerator</a>;    <span class="comment">// числитель</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../da/d86/classLongRational.html#a20d500ad650f9d1a782cbf7ce48d0f29">   26</a></span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> <a class="code" href="../../da/d86/classLongRational.html#a20d500ad650f9d1a782cbf7ce48d0f29">denominator</a>;  <span class="comment">// знаменатель</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Создает число из длинного целого числа(числитель) и длинного натурального числа(знаменатель)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../da/d86/classLongRational.html#ab6761c1f9c8e5ae5f25cab5638037435">LongRational</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d12/classLongInteger.html">LongInteger</a>&amp; <a class="code" href="../../da/d86/classLongRational.html#acf99967b6d4a85b2d222e9645656ceac">numerator</a>, <span class="keyword">const</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&amp; <a class="code" href="../../da/d86/classLongRational.html#a20d500ad650f9d1a782cbf7ce48d0f29">denominator</a>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Возвращает числитель (const&amp;)</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d9/d12/classLongInteger.html">LongInteger</a>&amp; <a class="code" href="../../da/d86/classLongRational.html#a2be409e556aace5ba29246bb433e1baa">getNumerator</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// Возвращает знаменатель (const&amp;)</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&amp; <a class="code" href="../../da/d86/classLongRational.html#a6a83b5f8574073cb890cbdf59a91eb64">getDenominator</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// Возвращает число в виде строки (числитель/знаменатель)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::string <a class="code" href="../../da/d86/classLongRational.html#aba2fd2257bdb9d84dd25617ff8a5071a">toString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// Оператор сравнения (проверяет равенство числителей и знаменателей)</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../da/d86/classLongRational.html#a4e3f53de4e45a6515ff13da5c3562498">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../da/d86/classLongRational.html">LongRational</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// Оператор сравнения (обратный оператору ==)</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../da/d86/classLongRational.html#ac9b5adb381413fef6b2d5d5062e94416">operator!=</a>(<span class="keyword">const</span> <a class="code" href="../../da/d86/classLongRational.html">LongRational</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// LONGRATIONAL_HPP</span></div>
+<div class="ttc" id="aLongInteger_8hpp_html"><div class="ttname"><a href="../../d3/d25/LongInteger_8hpp.html">LongInteger.hpp</a></div><div class="ttdoc">Класс для работы с длинными целыми числами.</div></div>
+<div class="ttc" id="aLongNatural_8hpp_html"><div class="ttname"><a href="../../d7/d74/LongNatural_8hpp.html">LongNatural.hpp</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div></div>
+<div class="ttc" id="aclassLongInteger_html"><div class="ttname"><a href="../../d9/d12/classLongInteger.html">LongInteger</a></div><div class="ttdoc">Класс для работы с длинными целыми числами.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d25/LongInteger_8hpp_source.html#l00026">LongInteger.hpp:26</a></div></div>
+<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+<div class="ttc" id="aclassLongRational_html"><div class="ttname"><a href="../../da/d86/classLongRational.html">LongRational</a></div><div class="ttdoc">Класс для работы с рациональными числами (дробями).</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/LongRational_8hpp_source.html#l00024">LongRational.hpp:24</a></div></div>
+<div class="ttc" id="aclassLongRational_html_a20d500ad650f9d1a782cbf7ce48d0f29"><div class="ttname"><a href="../../da/d86/classLongRational.html#a20d500ad650f9d1a782cbf7ce48d0f29">LongRational::denominator</a></div><div class="ttdeci">LongNatural denominator</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/LongRational_8hpp_source.html#l00026">LongRational.hpp:26</a></div></div>
+<div class="ttc" id="aclassLongRational_html_a2be409e556aace5ba29246bb433e1baa"><div class="ttname"><a href="../../da/d86/classLongRational.html#a2be409e556aace5ba29246bb433e1baa">LongRational::getNumerator</a></div><div class="ttdeci">const LongInteger &amp; getNumerator() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00011">LongRational.cpp:11</a></div></div>
+<div class="ttc" id="aclassLongRational_html_a4e3f53de4e45a6515ff13da5c3562498"><div class="ttname"><a href="../../da/d86/classLongRational.html#a4e3f53de4e45a6515ff13da5c3562498">LongRational::operator==</a></div><div class="ttdeci">bool operator==(const LongRational &amp;other) const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00023">LongRational.cpp:23</a></div></div>
+<div class="ttc" id="aclassLongRational_html_a6a83b5f8574073cb890cbdf59a91eb64"><div class="ttname"><a href="../../da/d86/classLongRational.html#a6a83b5f8574073cb890cbdf59a91eb64">LongRational::getDenominator</a></div><div class="ttdeci">const LongNatural &amp; getDenominator() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00015">LongRational.cpp:15</a></div></div>
+<div class="ttc" id="aclassLongRational_html_ab6761c1f9c8e5ae5f25cab5638037435"><div class="ttname"><a href="../../da/d86/classLongRational.html#ab6761c1f9c8e5ae5f25cab5638037435">LongRational::LongRational</a></div><div class="ttdeci">LongRational(const LongInteger &amp;numerator, const LongNatural &amp;denominator)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00005">LongRational.cpp:5</a></div></div>
+<div class="ttc" id="aclassLongRational_html_aba2fd2257bdb9d84dd25617ff8a5071a"><div class="ttname"><a href="../../da/d86/classLongRational.html#aba2fd2257bdb9d84dd25617ff8a5071a">LongRational::toString</a></div><div class="ttdeci">std::string toString() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00019">LongRational.cpp:19</a></div></div>
+<div class="ttc" id="aclassLongRational_html_ac9b5adb381413fef6b2d5d5062e94416"><div class="ttname"><a href="../../da/d86/classLongRational.html#ac9b5adb381413fef6b2d5d5062e94416">LongRational::operator!=</a></div><div class="ttdeci">bool operator!=(const LongRational &amp;other) const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00027">LongRational.cpp:27</a></div></div>
+<div class="ttc" id="aclassLongRational_html_acf99967b6d4a85b2d222e9645656ceac"><div class="ttname"><a href="../../da/d86/classLongRational.html#acf99967b6d4a85b2d222e9645656ceac">LongRational::numerator</a></div><div class="ttdeci">LongInteger numerator</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/LongRational_8hpp_source.html#l00025">LongRational.hpp:25</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

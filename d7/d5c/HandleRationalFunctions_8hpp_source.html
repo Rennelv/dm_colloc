@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Исходный файл include/gui/HandleRationalFunctions.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_48c1f94cd2ae07e13fa9a9f16a1d541c.html">gui</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">HandleRationalFunctions.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d7/d5c/HandleRationalFunctions_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RATIONALFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RATIONALFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// enum class RationalFunctions {</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//     RED_Q_Q,  // Сокращение дроби</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//     INT_Q_B,  // Проверка сокращенного дробного на целое, если рациональное число является целым, то «да», иначе «нет»</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//     TRANS_Z_Q,  // Преобразование целого в дробное</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//     TRANS_Q_Z,  // Преобразование сокращенного дробного в целое (если знаменатель равен 1)</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//     ADD_QQ_Q,   // Сложение дробей</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//     SUB_QQ_Q,   // Вычитание дробей</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//     MUL_QQ_Q,   // Умножение дробей</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//     DIV_QQ_Q,   // Деление дробей (делитель отличен от нуля)</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// };</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../dc/dd4/classHandleRationalFunctions.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/dd4/classHandleRationalFunctions.html">HandleRationalFunctions</a> {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../dc/dd4/classHandleRationalFunctions.html#a08d7134f320dcdb66416098a913f9ab6">   27</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a08d7134f320dcdb66416098a913f9ab6">RED_Q_Q_open</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../dc/dd4/classHandleRationalFunctions.html#a85f601458d78868df9cd046ef29872d2">   28</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a85f601458d78868df9cd046ef29872d2">INT_Q_B_open</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../dc/dd4/classHandleRationalFunctions.html#ac4f946a9f45048d9d6437bbe4f76b8b7">   29</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#ac4f946a9f45048d9d6437bbe4f76b8b7">TRANS_Z_Q_open</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../dc/dd4/classHandleRationalFunctions.html#a46055bab98c32c91e43dd1c71afbe7a4">   30</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a46055bab98c32c91e43dd1c71afbe7a4">TRANS_Q_Z_open</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../dc/dd4/classHandleRationalFunctions.html#ab5defd7afdb73fb92a4fca4b6ec0140a">   31</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#ab5defd7afdb73fb92a4fca4b6ec0140a">ADD_QQ_Q_open</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../dc/dd4/classHandleRationalFunctions.html#a5752850bf8aa6a030d9140c1b5ba1403">   32</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a5752850bf8aa6a030d9140c1b5ba1403">SUB_QQ_Q_open</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../dc/dd4/classHandleRationalFunctions.html#a41c154d5e18ea9969c832e4baae2b63e">   33</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a41c154d5e18ea9969c832e4baae2b63e">MUL_QQ_Q_open</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../dc/dd4/classHandleRationalFunctions.html#a5aa5285952faff9c8a1b4ed8d82cd20d">   34</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a5aa5285952faff9c8a1b4ed8d82cd20d">DIV_QQ_Q_open</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a702b8d0be81dbb3ae76dacd2bea8b53a">showMenu</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#aeef103bec0aabcf378811dee33705603">show_RED_Q_Q</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a83e2608e52463213dfb9dc45cb515778">show_INT_Q_B</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a811780eaee90cff58d1836bb2b64733a">show_TRANS_Z_Q</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#ad9e0fa6e0990a519c7383fffcb348975">show_TRANS_Q_Z</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a9debc4904863140a5c30a663e3a3ed09">show_ADD_QQ_Q</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a54d6912712db9bd3ee67d0d1bb210ffd">show_SUB_QQ_Q</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a317ff3aca810fe7cb89cfd96847c32ba">show_MUL_QQ_Q</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a74d62e549d1966a498c8ed45b081eced">show_DIV_QQ_Q</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// RATIONALFUNCTIONS_HPP</span></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html">HandleRationalFunctions</a></div><div class="ttdoc">Класс для управления функциями рациональных чисел в графическом интерфейсе.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5c/HandleRationalFunctions_8hpp_source.html#l00025">HandleRationalFunctions.hpp:25</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a08d7134f320dcdb66416098a913f9ab6"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a08d7134f320dcdb66416098a913f9ab6">HandleRationalFunctions::RED_Q_Q_open</a></div><div class="ttdeci">static bool RED_Q_Q_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5c/HandleRationalFunctions_8hpp_source.html#l00027">HandleRationalFunctions.hpp:27</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a317ff3aca810fe7cb89cfd96847c32ba"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a317ff3aca810fe7cb89cfd96847c32ba">HandleRationalFunctions::show_MUL_QQ_Q</a></div><div class="ttdeci">static void show_MUL_QQ_Q(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00332">HandleRationalFunctions.cpp:332</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a41c154d5e18ea9969c832e4baae2b63e"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a41c154d5e18ea9969c832e4baae2b63e">HandleRationalFunctions::MUL_QQ_Q_open</a></div><div class="ttdeci">static bool MUL_QQ_Q_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5c/HandleRationalFunctions_8hpp_source.html#l00033">HandleRationalFunctions.hpp:33</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a46055bab98c32c91e43dd1c71afbe7a4"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a46055bab98c32c91e43dd1c71afbe7a4">HandleRationalFunctions::TRANS_Q_Z_open</a></div><div class="ttdeci">static bool TRANS_Q_Z_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5c/HandleRationalFunctions_8hpp_source.html#l00030">HandleRationalFunctions.hpp:30</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a54d6912712db9bd3ee67d0d1bb210ffd"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a54d6912712db9bd3ee67d0d1bb210ffd">HandleRationalFunctions::show_SUB_QQ_Q</a></div><div class="ttdeci">static void show_SUB_QQ_Q(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00284">HandleRationalFunctions.cpp:284</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a5752850bf8aa6a030d9140c1b5ba1403"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a5752850bf8aa6a030d9140c1b5ba1403">HandleRationalFunctions::SUB_QQ_Q_open</a></div><div class="ttdeci">static bool SUB_QQ_Q_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5c/HandleRationalFunctions_8hpp_source.html#l00032">HandleRationalFunctions.hpp:32</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a5aa5285952faff9c8a1b4ed8d82cd20d"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a5aa5285952faff9c8a1b4ed8d82cd20d">HandleRationalFunctions::DIV_QQ_Q_open</a></div><div class="ttdeci">static bool DIV_QQ_Q_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5c/HandleRationalFunctions_8hpp_source.html#l00034">HandleRationalFunctions.hpp:34</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a702b8d0be81dbb3ae76dacd2bea8b53a"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a702b8d0be81dbb3ae76dacd2bea8b53a">HandleRationalFunctions::showMenu</a></div><div class="ttdeci">static void showMenu(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00031">HandleRationalFunctions.cpp:31</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a74d62e549d1966a498c8ed45b081eced"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a74d62e549d1966a498c8ed45b081eced">HandleRationalFunctions::show_DIV_QQ_Q</a></div><div class="ttdeci">static void show_DIV_QQ_Q(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00381">HandleRationalFunctions.cpp:381</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a811780eaee90cff58d1836bb2b64733a"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a811780eaee90cff58d1836bb2b64733a">HandleRationalFunctions::show_TRANS_Z_Q</a></div><div class="ttdeci">static void show_TRANS_Z_Q(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00157">HandleRationalFunctions.cpp:157</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a83e2608e52463213dfb9dc45cb515778"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a83e2608e52463213dfb9dc45cb515778">HandleRationalFunctions::show_INT_Q_B</a></div><div class="ttdeci">static void show_INT_Q_B(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00116">HandleRationalFunctions.cpp:116</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a85f601458d78868df9cd046ef29872d2"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a85f601458d78868df9cd046ef29872d2">HandleRationalFunctions::INT_Q_B_open</a></div><div class="ttdeci">static bool INT_Q_B_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5c/HandleRationalFunctions_8hpp_source.html#l00028">HandleRationalFunctions.hpp:28</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_a9debc4904863140a5c30a663e3a3ed09"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#a9debc4904863140a5c30a663e3a3ed09">HandleRationalFunctions::show_ADD_QQ_Q</a></div><div class="ttdeci">static void show_ADD_QQ_Q(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00235">HandleRationalFunctions.cpp:235</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_ab5defd7afdb73fb92a4fca4b6ec0140a"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#ab5defd7afdb73fb92a4fca4b6ec0140a">HandleRationalFunctions::ADD_QQ_Q_open</a></div><div class="ttdeci">static bool ADD_QQ_Q_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5c/HandleRationalFunctions_8hpp_source.html#l00031">HandleRationalFunctions.hpp:31</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_ac4f946a9f45048d9d6437bbe4f76b8b7"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#ac4f946a9f45048d9d6437bbe4f76b8b7">HandleRationalFunctions::TRANS_Z_Q_open</a></div><div class="ttdeci">static bool TRANS_Z_Q_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5c/HandleRationalFunctions_8hpp_source.html#l00029">HandleRationalFunctions.hpp:29</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_ad9e0fa6e0990a519c7383fffcb348975"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#ad9e0fa6e0990a519c7383fffcb348975">HandleRationalFunctions::show_TRANS_Q_Z</a></div><div class="ttdeci">static void show_TRANS_Q_Z(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00194">HandleRationalFunctions.cpp:194</a></div></div>
+<div class="ttc" id="aclassHandleRationalFunctions_html_aeef103bec0aabcf378811dee33705603"><div class="ttname"><a href="../../dc/dd4/classHandleRationalFunctions.html#aeef103bec0aabcf378811dee33705603">HandleRationalFunctions::show_RED_Q_Q</a></div><div class="ttdeci">static void show_RED_Q_Q(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00074">HandleRationalFunctions.cpp:74</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

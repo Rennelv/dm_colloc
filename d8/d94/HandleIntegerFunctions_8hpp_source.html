@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Исходный файл include/gui/HandleIntegerFunctions.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_48c1f94cd2ae07e13fa9a9f16a1d541c.html">gui</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">HandleIntegerFunctions.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d8/d94/HandleIntegerFunctions_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef INTEGERFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define INTEGERFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// enum class IntegerFunctions {</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//     ABS_Z_N,  // Абсолютная величина числа, результат - натуральное</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//     POZ_Z_D,  // Определение положительности числа (2 - положительное, 0 — равное нулю, 1 - отрицательное)</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//     MUL_ZM_Z,   // Умножение целого на (-1)</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//     TRANS_N_Z,  // Преобразование натурального в целое</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//     TRANS_Z_N,  // Преобразование целого неотрицательного в натуральное</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//     ADD_ZZ_Z,   // Сложение целых чисел</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//     SUB_ZZ_Z,   // Вычитание целых чисел</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//     MUL_ZZ_Z,   // Умножение целых чисел</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//     DIV_ZZ_Z,   // Частное от деления целого на целое (делитель отличен от нуля)</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//     MOD_ZZ_Z,   // Остаток от деления целого на целое(делитель отличен от нуля)</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// };</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d1c/classHandleIntegerFunctions.html">HandleIntegerFunctions</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#ac9ee204a4236029df0e980b76d47f143">   28</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#ac9ee204a4236029df0e980b76d47f143">ABS_Z_N_open</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#a32712f43bde1c55cbae063df2f92e758">   29</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a32712f43bde1c55cbae063df2f92e758">POZ_Z_D_open</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#a97560b01a5412c5649a3d84ba2d2f02d">   30</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a97560b01a5412c5649a3d84ba2d2f02d">MUL_ZM_Z_open</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#afddfc6640dcbf1966088ee725860ae1c">   31</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#afddfc6640dcbf1966088ee725860ae1c">TRANS_N_Z_open</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#a2fa44501c14dd2504dfda5bed3e650a9">   32</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a2fa44501c14dd2504dfda5bed3e650a9">TRANS_Z_N_open</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#abbdad5ccb26b8dba23d4ccd99f8f1bf6">   33</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#abbdad5ccb26b8dba23d4ccd99f8f1bf6">ADD_ZZ_Z_open</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#a2966a5b289c1e9e9166b5e2fa8a3e536">   34</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a2966a5b289c1e9e9166b5e2fa8a3e536">SUB_ZZ_Z_open</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#ae61e14a414e06ba239490f4ecbf3d965">   35</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#ae61e14a414e06ba239490f4ecbf3d965">MUL_ZZ_Z_open</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#ade7f543f975fb1b0d490418452d3b031">   36</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#ade7f543f975fb1b0d490418452d3b031">DIV_ZZ_Z_open</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../df/d1c/classHandleIntegerFunctions.html#aaf7809ddf6f3ad4125caf7d0c24a03b5">   37</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#aaf7809ddf6f3ad4125caf7d0c24a03b5">MOD_ZZ_Z_open</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a61d24ec199c3381d3b6fdaaa12b9f2df">showMenu</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#ac14ee5c34418ee2be1fc31019b49a9de">show_ABS_Z_N</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a19bc0fb83bc6378925493113f1ec38e5">show_POZ_Z_D</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a86d3942d29284ca81acb488b0afc47b4">show_MUL_ZM_Z</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a47b9a4c3f2f6dde1e8e7bae1f4089f2a">show_TRANS_N_Z</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a33994993fb683e225648ee154cdcba13">show_TRANS_Z_N</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a0495d3a59731f4068d49fe9a8ee150d9">show_ADD_ZZ_Z</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a553713d0e89519409cfb34fc1cbdd893">show_SUB_ZZ_Z</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a9e9845e9bfc3292a0a538b48586621ce">show_MUL_ZZ_Z</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a0679d596be58544c4a44cfd6a74b2211">show_DIV_ZZ_Z</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a77b1184c5924e0fef60756c78829e60b">show_MOD_ZZ_Z</a>(<span class="keywordtype">bool</span>* p_open);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// INTEGERFUNCTIONS_HPP</span></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html">HandleIntegerFunctions</a></div><div class="ttdoc">Класс для управления функциями целых чисел в графическом интерфейсе.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00027">HandleIntegerFunctions.hpp:27</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a0495d3a59731f4068d49fe9a8ee150d9"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a0495d3a59731f4068d49fe9a8ee150d9">HandleIntegerFunctions::show_ADD_ZZ_Z</a></div><div class="ttdeci">static void show_ADD_ZZ_Z(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00267">HandleIntegerFunctions.cpp:267</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a0679d596be58544c4a44cfd6a74b2211"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a0679d596be58544c4a44cfd6a74b2211">HandleIntegerFunctions::show_DIV_ZZ_Z</a></div><div class="ttdeci">static void show_DIV_ZZ_Z(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00387">HandleIntegerFunctions.cpp:387</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a19bc0fb83bc6378925493113f1ec38e5"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a19bc0fb83bc6378925493113f1ec38e5">HandleIntegerFunctions::show_POZ_Z_D</a></div><div class="ttdeci">static void show_POZ_Z_D(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00119">HandleIntegerFunctions.cpp:119</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a2966a5b289c1e9e9166b5e2fa8a3e536"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a2966a5b289c1e9e9166b5e2fa8a3e536">HandleIntegerFunctions::SUB_ZZ_Z_open</a></div><div class="ttdeci">static bool SUB_ZZ_Z_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00034">HandleIntegerFunctions.hpp:34</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a2fa44501c14dd2504dfda5bed3e650a9"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a2fa44501c14dd2504dfda5bed3e650a9">HandleIntegerFunctions::TRANS_Z_N_open</a></div><div class="ttdeci">static bool TRANS_Z_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00032">HandleIntegerFunctions.hpp:32</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a32712f43bde1c55cbae063df2f92e758"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a32712f43bde1c55cbae063df2f92e758">HandleIntegerFunctions::POZ_Z_D_open</a></div><div class="ttdeci">static bool POZ_Z_D_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00029">HandleIntegerFunctions.hpp:29</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a33994993fb683e225648ee154cdcba13"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a33994993fb683e225648ee154cdcba13">HandleIntegerFunctions::show_TRANS_Z_N</a></div><div class="ttdeci">static void show_TRANS_Z_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00230">HandleIntegerFunctions.cpp:230</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a47b9a4c3f2f6dde1e8e7bae1f4089f2a"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a47b9a4c3f2f6dde1e8e7bae1f4089f2a">HandleIntegerFunctions::show_TRANS_N_Z</a></div><div class="ttdeci">static void show_TRANS_N_Z(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00193">HandleIntegerFunctions.cpp:193</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a553713d0e89519409cfb34fc1cbdd893"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a553713d0e89519409cfb34fc1cbdd893">HandleIntegerFunctions::show_SUB_ZZ_Z</a></div><div class="ttdeci">static void show_SUB_ZZ_Z(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00307">HandleIntegerFunctions.cpp:307</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a61d24ec199c3381d3b6fdaaa12b9f2df"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a61d24ec199c3381d3b6fdaaa12b9f2df">HandleIntegerFunctions::showMenu</a></div><div class="ttdeci">static void showMenu(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00031">HandleIntegerFunctions.cpp:31</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a77b1184c5924e0fef60756c78829e60b"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a77b1184c5924e0fef60756c78829e60b">HandleIntegerFunctions::show_MOD_ZZ_Z</a></div><div class="ttdeci">static void show_MOD_ZZ_Z(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00427">HandleIntegerFunctions.cpp:427</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a86d3942d29284ca81acb488b0afc47b4"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a86d3942d29284ca81acb488b0afc47b4">HandleIntegerFunctions::show_MUL_ZM_Z</a></div><div class="ttdeci">static void show_MUL_ZM_Z(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00156">HandleIntegerFunctions.cpp:156</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a97560b01a5412c5649a3d84ba2d2f02d"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a97560b01a5412c5649a3d84ba2d2f02d">HandleIntegerFunctions::MUL_ZM_Z_open</a></div><div class="ttdeci">static bool MUL_ZM_Z_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00030">HandleIntegerFunctions.hpp:30</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_a9e9845e9bfc3292a0a538b48586621ce"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a9e9845e9bfc3292a0a538b48586621ce">HandleIntegerFunctions::show_MUL_ZZ_Z</a></div><div class="ttdeci">static void show_MUL_ZZ_Z(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00347">HandleIntegerFunctions.cpp:347</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_aaf7809ddf6f3ad4125caf7d0c24a03b5"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#aaf7809ddf6f3ad4125caf7d0c24a03b5">HandleIntegerFunctions::MOD_ZZ_Z_open</a></div><div class="ttdeci">static bool MOD_ZZ_Z_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00037">HandleIntegerFunctions.hpp:37</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_abbdad5ccb26b8dba23d4ccd99f8f1bf6"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#abbdad5ccb26b8dba23d4ccd99f8f1bf6">HandleIntegerFunctions::ADD_ZZ_Z_open</a></div><div class="ttdeci">static bool ADD_ZZ_Z_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00033">HandleIntegerFunctions.hpp:33</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_ac14ee5c34418ee2be1fc31019b49a9de"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#ac14ee5c34418ee2be1fc31019b49a9de">HandleIntegerFunctions::show_ABS_Z_N</a></div><div class="ttdeci">static void show_ABS_Z_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00082">HandleIntegerFunctions.cpp:82</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_ac9ee204a4236029df0e980b76d47f143"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#ac9ee204a4236029df0e980b76d47f143">HandleIntegerFunctions::ABS_Z_N_open</a></div><div class="ttdeci">static bool ABS_Z_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00028">HandleIntegerFunctions.hpp:28</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_ade7f543f975fb1b0d490418452d3b031"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#ade7f543f975fb1b0d490418452d3b031">HandleIntegerFunctions::DIV_ZZ_Z_open</a></div><div class="ttdeci">static bool DIV_ZZ_Z_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00036">HandleIntegerFunctions.hpp:36</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_ae61e14a414e06ba239490f4ecbf3d965"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#ae61e14a414e06ba239490f4ecbf3d965">HandleIntegerFunctions::MUL_ZZ_Z_open</a></div><div class="ttdeci">static bool MUL_ZZ_Z_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00035">HandleIntegerFunctions.hpp:35</a></div></div>
+<div class="ttc" id="aclassHandleIntegerFunctions_html_afddfc6640dcbf1966088ee725860ae1c"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#afddfc6640dcbf1966088ee725860ae1c">HandleIntegerFunctions::TRANS_N_Z_open</a></div><div class="ttdeci">static bool TRANS_N_Z_open</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d94/HandleIntegerFunctions_8hpp_source.html#l00031">HandleIntegerFunctions.hpp:31</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

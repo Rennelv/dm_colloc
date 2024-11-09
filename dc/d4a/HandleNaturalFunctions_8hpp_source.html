@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Исходный файл include/gui/HandleNaturalFunctions.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_48c1f94cd2ae07e13fa9a9f16a1d541c.html">gui</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">HandleNaturalFunctions.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dc/d4a/HandleNaturalFunctions_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef NATURALFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define NATURALFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// enum class NaturalFunctions {</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//     COM_NN_D,  // Сравнение натуральных чисел: 2 - если первое больше второго, 0, если равно, 1 иначе.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//     NZER_N_B,  // Проверка на ноль: если число не равно нулю, то «да» иначе «нет»</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//     ADD_1N_N,  // Добавление 1 к натуральному числу</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//     ADD_NN_N,  // Сложение натуральных чисел</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//     SUB_NN_N,  // Вычитание из первого большего натурального числа второго меньшего или равного</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//     MUL_ND_N,   // Умножение натурального числа на цифру</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//     MUL_Nk_N,   // Умножение натурального числа на 10^k, k-натуральное</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//     MUL_NN_N,   // Умножение натуральных чисел</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//     SUB_NDN_N,  // Вычитание из натурального другого натурального, умноженного на цифру для случая с неотрицательным результатом</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//     DIV_NN_Dk,  // Вычисление первой цифры деления большего натурального на меньшее, домноженное на 10^k,где k - номер позиции этой цифры (номер считается с</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//                 // нуля)</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//     DIV_NN_N,  // Неполное частное от деления первого натурального числа на второе с остатком (делитель отличен от нуля)</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//     MOD_NN_N,  // Остаток от деления первого натурального числа на второе натуральное (делитель отличен от нуля)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//     GCF_NN_N,  // НОД натуральных чисел</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//     LCM_NN_N,  // НОК натуральных чисел</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// };</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d49/classHandleNaturalFunctions.html">HandleNaturalFunctions</a> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#ae32b61a1191c83eca7e1b8edf8e37d29">   35</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#ae32b61a1191c83eca7e1b8edf8e37d29">COM_NN_D_open</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#a451d294941e87a6b53c598e0c9a7ba4e">   36</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a451d294941e87a6b53c598e0c9a7ba4e">NZER_N_B_open</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#a93b3c5e3c0f044ae1e260c36350b40d7">   37</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a93b3c5e3c0f044ae1e260c36350b40d7">ADD_1N_N_open</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#a4644d609544aa3f4cbaeda9d0f5ef273">   38</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a4644d609544aa3f4cbaeda9d0f5ef273">ADD_NN_N_open</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#af539832cc5f202d27218aa30b3c8f105">   39</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#af539832cc5f202d27218aa30b3c8f105">SUB_NN_N_open</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#a1fa226a49e217d7727caf06eb2c4e6db">   40</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a1fa226a49e217d7727caf06eb2c4e6db">MUL_ND_N_open</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#aa0a92b5fe82641be0d9a5ff54f917ec0">   41</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#aa0a92b5fe82641be0d9a5ff54f917ec0">MUL_Nk_N_open</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#ae10ea78d28505b8ac2e88d5a9c7c85ce">   42</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#ae10ea78d28505b8ac2e88d5a9c7c85ce">MUL_NN_N_open</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#a99392c468ad86951e3929ba6959c1cd7">   43</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a99392c468ad86951e3929ba6959c1cd7">SUB_NDN_N_open</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#aab057106ba2333a2e2f5efb23308ec23">   44</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#aab057106ba2333a2e2f5efb23308ec23">DIV_NN_Dk_open</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#a79b55cb4e0b00cd0c88f4092a5721fb4">   45</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a79b55cb4e0b00cd0c88f4092a5721fb4">DIV_NN_N_open</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#a479d129f34919d7b1c9d924179381551">   46</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a479d129f34919d7b1c9d924179381551">MOD_NN_N_open</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#a0464bc9f758fcdaafafced934e646451">   47</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a0464bc9f758fcdaafafced934e646451">GCF_NN_N_open</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../dc/d49/classHandleNaturalFunctions.html#a0b85dab7a3f4b5b966b331cda9241534">   48</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a0b85dab7a3f4b5b966b331cda9241534">LCM_NN_N_open</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a0cbf438e62f585bf45aa9cc74318c3ce">showMenu</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a2805375cf7e37adacf89fe14b64a6032">show_COM_NN_D</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a64191fa0c7136d22895426b066b25a2b">show_NZER_N_B</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#adac6b0351858ef077b06dcdbd81f949f">show_ADD_1N_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a305be23a64706f379e08cfcfb654e5fd">show_ADD_NN_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a0fbb9d5667e32bfd769ae3611dd6a26b">show_SUB_NN_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#acd0927e1e6c35d2d2f5c1025caa525e6">show_MUL_ND_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a05467f3ff928eac309c2f790c383a3ee">show_MUL_Nk_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a176e4768ebae20888705d5b522c812ba">show_MUL_NN_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a257f6530ee0be744c62d5cc1e5f10522">show_SUB_NDN_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a417250369281db3f6be315580f682f46">show_DIV_NN_Dk</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a6462ca525baf168c5b4f39a046a8d68c">show_DIV_NN_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a52868f9a46fa99c2bd7af749f797fc59">show_MOD_NN_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#adbdf28b7c7c5031633f971eae0dd2553">show_GCF_NN_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#ac6796788f9615a28a73f358b640ff47b">show_LCM_NN_N</a>(<span class="keywordtype">bool</span> *p_open);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// NATURALFUNCTIONS_HPP</span></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html">HandleNaturalFunctions</a></div><div class="ttdoc">Класс для управления функциями натуральных чисел в графическом интерфейсе.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00034">HandleNaturalFunctions.hpp:34</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a0464bc9f758fcdaafafced934e646451"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a0464bc9f758fcdaafafced934e646451">HandleNaturalFunctions::GCF_NN_N_open</a></div><div class="ttdeci">static bool GCF_NN_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00047">HandleNaturalFunctions.hpp:47</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a05467f3ff928eac309c2f790c383a3ee"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a05467f3ff928eac309c2f790c383a3ee">HandleNaturalFunctions::show_MUL_Nk_N</a></div><div class="ttdeci">static void show_MUL_Nk_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00392">HandleNaturalFunctions.cpp:392</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a0b85dab7a3f4b5b966b331cda9241534"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a0b85dab7a3f4b5b966b331cda9241534">HandleNaturalFunctions::LCM_NN_N_open</a></div><div class="ttdeci">static bool LCM_NN_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00048">HandleNaturalFunctions.hpp:48</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a0cbf438e62f585bf45aa9cc74318c3ce"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a0cbf438e62f585bf45aa9cc74318c3ce">HandleNaturalFunctions::showMenu</a></div><div class="ttdeci">static void showMenu(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00042">HandleNaturalFunctions.cpp:42</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a0fbb9d5667e32bfd769ae3611dd6a26b"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a0fbb9d5667e32bfd769ae3611dd6a26b">HandleNaturalFunctions::show_SUB_NN_N</a></div><div class="ttdeci">static void show_SUB_NN_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00309">HandleNaturalFunctions.cpp:309</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a176e4768ebae20888705d5b522c812ba"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a176e4768ebae20888705d5b522c812ba">HandleNaturalFunctions::show_MUL_NN_N</a></div><div class="ttdeci">static void show_MUL_NN_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00435">HandleNaturalFunctions.cpp:435</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a1fa226a49e217d7727caf06eb2c4e6db"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a1fa226a49e217d7727caf06eb2c4e6db">HandleNaturalFunctions::MUL_ND_N_open</a></div><div class="ttdeci">static bool MUL_ND_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00040">HandleNaturalFunctions.hpp:40</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a257f6530ee0be744c62d5cc1e5f10522"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a257f6530ee0be744c62d5cc1e5f10522">HandleNaturalFunctions::show_SUB_NDN_N</a></div><div class="ttdeci">static void show_SUB_NDN_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00475">HandleNaturalFunctions.cpp:475</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a2805375cf7e37adacf89fe14b64a6032"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a2805375cf7e37adacf89fe14b64a6032">HandleNaturalFunctions::show_COM_NN_D</a></div><div class="ttdeci">static void show_COM_NN_D(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00150">HandleNaturalFunctions.cpp:150</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a305be23a64706f379e08cfcfb654e5fd"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a305be23a64706f379e08cfcfb654e5fd">HandleNaturalFunctions::show_ADD_NN_N</a></div><div class="ttdeci">static void show_ADD_NN_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00269">HandleNaturalFunctions.cpp:269</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a417250369281db3f6be315580f682f46"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a417250369281db3f6be315580f682f46">HandleNaturalFunctions::show_DIV_NN_Dk</a></div><div class="ttdeci">static void show_DIV_NN_Dk(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00521">HandleNaturalFunctions.cpp:521</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a451d294941e87a6b53c598e0c9a7ba4e"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a451d294941e87a6b53c598e0c9a7ba4e">HandleNaturalFunctions::NZER_N_B_open</a></div><div class="ttdeci">static bool NZER_N_B_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00036">HandleNaturalFunctions.hpp:36</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a4644d609544aa3f4cbaeda9d0f5ef273"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a4644d609544aa3f4cbaeda9d0f5ef273">HandleNaturalFunctions::ADD_NN_N_open</a></div><div class="ttdeci">static bool ADD_NN_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00038">HandleNaturalFunctions.hpp:38</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a479d129f34919d7b1c9d924179381551"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a479d129f34919d7b1c9d924179381551">HandleNaturalFunctions::MOD_NN_N_open</a></div><div class="ttdeci">static bool MOD_NN_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00046">HandleNaturalFunctions.hpp:46</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a52868f9a46fa99c2bd7af749f797fc59"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a52868f9a46fa99c2bd7af749f797fc59">HandleNaturalFunctions::show_MOD_NN_N</a></div><div class="ttdeci">static void show_MOD_NN_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00602">HandleNaturalFunctions.cpp:602</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a64191fa0c7136d22895426b066b25a2b"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a64191fa0c7136d22895426b066b25a2b">HandleNaturalFunctions::show_NZER_N_B</a></div><div class="ttdeci">static void show_NZER_N_B(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00195">HandleNaturalFunctions.cpp:195</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a6462ca525baf168c5b4f39a046a8d68c"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a6462ca525baf168c5b4f39a046a8d68c">HandleNaturalFunctions::show_DIV_NN_N</a></div><div class="ttdeci">static void show_DIV_NN_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00562">HandleNaturalFunctions.cpp:562</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a79b55cb4e0b00cd0c88f4092a5721fb4"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a79b55cb4e0b00cd0c88f4092a5721fb4">HandleNaturalFunctions::DIV_NN_N_open</a></div><div class="ttdeci">static bool DIV_NN_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00045">HandleNaturalFunctions.hpp:45</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a93b3c5e3c0f044ae1e260c36350b40d7"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a93b3c5e3c0f044ae1e260c36350b40d7">HandleNaturalFunctions::ADD_1N_N_open</a></div><div class="ttdeci">static bool ADD_1N_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00037">HandleNaturalFunctions.hpp:37</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_a99392c468ad86951e3929ba6959c1cd7"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a99392c468ad86951e3929ba6959c1cd7">HandleNaturalFunctions::SUB_NDN_N_open</a></div><div class="ttdeci">static bool SUB_NDN_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00043">HandleNaturalFunctions.hpp:43</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_aa0a92b5fe82641be0d9a5ff54f917ec0"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#aa0a92b5fe82641be0d9a5ff54f917ec0">HandleNaturalFunctions::MUL_Nk_N_open</a></div><div class="ttdeci">static bool MUL_Nk_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00041">HandleNaturalFunctions.hpp:41</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_aab057106ba2333a2e2f5efb23308ec23"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#aab057106ba2333a2e2f5efb23308ec23">HandleNaturalFunctions::DIV_NN_Dk_open</a></div><div class="ttdeci">static bool DIV_NN_Dk_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00044">HandleNaturalFunctions.hpp:44</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_ac6796788f9615a28a73f358b640ff47b"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#ac6796788f9615a28a73f358b640ff47b">HandleNaturalFunctions::show_LCM_NN_N</a></div><div class="ttdeci">static void show_LCM_NN_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00642">HandleNaturalFunctions.cpp:642</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_acd0927e1e6c35d2d2f5c1025caa525e6"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#acd0927e1e6c35d2d2f5c1025caa525e6">HandleNaturalFunctions::show_MUL_ND_N</a></div><div class="ttdeci">static void show_MUL_ND_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00349">HandleNaturalFunctions.cpp:349</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_adac6b0351858ef077b06dcdbd81f949f"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#adac6b0351858ef077b06dcdbd81f949f">HandleNaturalFunctions::show_ADD_1N_N</a></div><div class="ttdeci">static void show_ADD_1N_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00232">HandleNaturalFunctions.cpp:232</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_adbdf28b7c7c5031633f971eae0dd2553"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#adbdf28b7c7c5031633f971eae0dd2553">HandleNaturalFunctions::show_GCF_NN_N</a></div><div class="ttdeci">static void show_GCF_NN_N(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00109">HandleNaturalFunctions.cpp:109</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_ae10ea78d28505b8ac2e88d5a9c7c85ce"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#ae10ea78d28505b8ac2e88d5a9c7c85ce">HandleNaturalFunctions::MUL_NN_N_open</a></div><div class="ttdeci">static bool MUL_NN_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00042">HandleNaturalFunctions.hpp:42</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_ae32b61a1191c83eca7e1b8edf8e37d29"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#ae32b61a1191c83eca7e1b8edf8e37d29">HandleNaturalFunctions::COM_NN_D_open</a></div><div class="ttdeci">static bool COM_NN_D_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00035">HandleNaturalFunctions.hpp:35</a></div></div>
+<div class="ttc" id="aclassHandleNaturalFunctions_html_af539832cc5f202d27218aa30b3c8f105"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#af539832cc5f202d27218aa30b3c8f105">HandleNaturalFunctions::SUB_NN_N_open</a></div><div class="ttdeci">static bool SUB_NN_N_open</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d4a/HandleNaturalFunctions_8hpp_source.html#l00039">HandleNaturalFunctions.hpp:39</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

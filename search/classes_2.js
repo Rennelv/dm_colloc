@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['longinteger_0',['LongInteger',['../classLongInteger.html',1,'']]],
-  ['longnatural_1',['LongNatural',['../classLongNatural.html',1,'']]],
-  ['longrational_2',['LongRational',['../classLongRational.html',1,'']]]
+  ['longinteger_297',['LongInteger',['../d9/d12/classLongInteger.html',1,'']]],
+  ['longnatural_298',['LongNatural',['../d1/d9b/classLongNatural.html',1,'']]],
+  ['longrational_299',['LongRational',['../da/d86/classLongRational.html',1,'']]]
 ];

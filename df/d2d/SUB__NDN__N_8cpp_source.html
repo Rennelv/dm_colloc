@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Исходный файл src/N/SUB_NDN_N.cpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_d4c5d1e96b79ae48b393d3852e71b9f1.html">N</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SUB_NDN_N.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../df/d2d/SUB__NDN__N_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d88/SUB__NDN__N_8hpp.html">N/SUB_NDN_N.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html">N/COM_NN_D.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d74/LongNatural_8hpp.html">N/LongNatural.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d43/MUL__ND__N_8hpp.html">N/MUL_ND_N.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d12/SUB__NN__N_8hpp.html">N/SUB_NN_N.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../de/d88/SUB__NDN__N_8hpp.html#afdf6ae5ea7fc6f8e95031116a81e0889">   10</a></span>&#160;<a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> <a class="code" href="../../df/d2d/SUB__NDN__N_8cpp.html#afdf6ae5ea7fc6f8e95031116a81e0889">SUB_NDN_N</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&amp; a, <span class="keyword">const</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&amp; b, uint8_t k) {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> nb = <a class="code" href="../../d7/d43/MUL__ND__N_8hpp.html#a1b6582f51b8ced9d89f993b206d1a0da">MUL_ND_N</a>(b, k);  <span class="comment">// умножаем число b на k</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(a, nb) == 1) {  <span class="comment">// проверяем не превышает ли произведение первое число</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;The first number is less than the product of the second number and a digit.&quot;</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d12/SUB__NN__N_8hpp.html#a2f5a01fad5dc0dbbcfad6848866710bd">SUB_NN_N</a>(a, nb);  <span class="comment">// вычитаем из первого числа произведение</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="ttc" id="aCOM__NN__D_8hpp_html"><div class="ttname"><a href="../../d0/db9/COM__NN__D_8hpp.html">COM_NN_D.hpp</a></div><div class="ttdoc">Функция для сравнения двух длинных натуральных чисел.</div></div>
+<div class="ttc" id="aCOM__NN__D_8hpp_html_a91c2d9097b66dbc41f066cd3ccc52449"><div class="ttname"><a href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a></div><div class="ttdeci">int COM_NN_D(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция COM_NN_D принимает два числа и сравнивает их.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D.cpp:3</a></div></div>
+<div class="ttc" id="aLongNatural_8hpp_html"><div class="ttname"><a href="../../d7/d74/LongNatural_8hpp.html">LongNatural.hpp</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div></div>
+<div class="ttc" id="aMUL__ND__N_8hpp_html"><div class="ttname"><a href="../../d7/d43/MUL__ND__N_8hpp.html">MUL_ND_N.hpp</a></div><div class="ttdoc">Функция для умножения натурального числа на цифру.</div></div>
+<div class="ttc" id="aMUL__ND__N_8hpp_html_a1b6582f51b8ced9d89f993b206d1a0da"><div class="ttname"><a href="../../d7/d43/MUL__ND__N_8hpp.html#a1b6582f51b8ced9d89f993b206d1a0da">MUL_ND_N</a></div><div class="ttdeci">LongNatural MUL_ND_N(const LongNatural &amp;a, uint8_t b)</div><div class="ttdoc">Функция MUL_ND_N принимает натуральное число и цифру, возвращает их произведение.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d23/MUL__ND__N_8cpp_source.html#l00008">MUL_ND_N.cpp:8</a></div></div>
+<div class="ttc" id="aSUB__NDN__N_8cpp_html_afdf6ae5ea7fc6f8e95031116a81e0889"><div class="ttname"><a href="../../df/d2d/SUB__NDN__N_8cpp.html#afdf6ae5ea7fc6f8e95031116a81e0889">SUB_NDN_N</a></div><div class="ttdeci">LongNatural SUB_NDN_N(const LongNatural &amp;a, const LongNatural &amp;b, uint8_t k)</div><div class="ttdoc">Функция SUB_NDN_N принимает два натуральных числа и цифру. Возвращает разность первого и второго,...</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d2d/SUB__NDN__N_8cpp_source.html#l00010">SUB_NDN_N.cpp:10</a></div></div>
+<div class="ttc" id="aSUB__NDN__N_8hpp_html"><div class="ttname"><a href="../../de/d88/SUB__NDN__N_8hpp.html">SUB_NDN_N.hpp</a></div><div class="ttdoc">Функция для вычитания произведения натурального числа и цифры из другого натурального числа.</div></div>
+<div class="ttc" id="aSUB__NN__N_8hpp_html"><div class="ttname"><a href="../../d1/d12/SUB__NN__N_8hpp.html">SUB_NN_N.hpp</a></div><div class="ttdoc">Функция для вычитания одного длинного натурального числа из другого.</div></div>
+<div class="ttc" id="aSUB__NN__N_8hpp_html_a2f5a01fad5dc0dbbcfad6848866710bd"><div class="ttname"><a href="../../d1/d12/SUB__NN__N_8hpp.html#a2f5a01fad5dc0dbbcfad6848866710bd">SUB_NN_N</a></div><div class="ttdeci">LongNatural SUB_NN_N(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция SUB_NN_N принимает два числа и возвращает результат вычитания из большего меньшего.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc1/SUB__NN__N_8cpp_source.html#l00010">SUB_NN_N.cpp:10</a></div></div>
+<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

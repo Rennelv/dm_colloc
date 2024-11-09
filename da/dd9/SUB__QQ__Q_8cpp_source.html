@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Исходный файл src/Q/SUB_QQ_Q.cpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_7db853f207edac011e0fae2c1b41bcec.html">Q</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SUB_QQ_Q.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/dd9/SUB__QQ__Q_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/da4/SUB__QQ__Q_8hpp.html">Q/SUB_QQ_Q.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d11/DIV__NN__N_8hpp.html">N/DIV_NN_N.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d58/LCM__NN__N_8hpp.html">N/LCM_NN_N.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d01/RED__Q__Q_8hpp.html">Q/RED_Q_Q.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d3e/MUL__ZZ__Z_8hpp.html">Z/MUL_ZZ_Z.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d75/SUB__ZZ__Z_8hpp.html">Z/SUB_ZZ_Z.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d71/TRANS__N__Z_8hpp.html">Z/TRANS_N_Z.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../db/da4/SUB__QQ__Q_8hpp.html#a6bcea69934bdc4c6ceb0489bb182faa6">   10</a></span>&#160;<a class="code" href="../../da/d86/classLongRational.html">LongRational</a> <a class="code" href="../../da/dd9/SUB__QQ__Q_8cpp.html#a6bcea69934bdc4c6ceb0489bb182faa6">SUB_QQ_Q</a>(<span class="keyword">const</span> <a class="code" href="../../da/d86/classLongRational.html">LongRational</a>&amp; a, <span class="keyword">const</span> <a class="code" href="../../da/d86/classLongRational.html">LongRational</a>&amp; b) {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&amp; denominator_a = a.<a class="code" href="../../da/d86/classLongRational.html#a6a83b5f8574073cb890cbdf59a91eb64">getDenominator</a>();  <span class="comment">// получаем знаменатель первого числа</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&amp; denominator_b = b.<a class="code" href="../../da/d86/classLongRational.html#a6a83b5f8574073cb890cbdf59a91eb64">getDenominator</a>();  <span class="comment">// получаем знаменатель второго числа</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> lcm = <a class="code" href="../../d0/d58/LCM__NN__N_8hpp.html#a8e17bddc2f3e7f2199932de45266ec78">LCM_NN_N</a>(denominator_a, denominator_b);  <span class="comment">// находим НОК двух чисел</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d9/d12/classLongInteger.html">LongInteger</a> multiplier_a = <a class="code" href="../../d2/d71/TRANS__N__Z_8hpp.html#a42de941a94706743127da973e9f18059">TRANS_N_Z</a>(<a class="code" href="../../d8/d11/DIV__NN__N_8hpp.html#a2d4556cc40c846ff71a8da42499f96ea">DIV_NN_N</a>(lcm, denominator_a));  <span class="comment">// находим множитель для первого числа, деля НОК на знаменатель первого числа</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d9/d12/classLongInteger.html">LongInteger</a> multiplier_b = <a class="code" href="../../d2/d71/TRANS__N__Z_8hpp.html#a42de941a94706743127da973e9f18059">TRANS_N_Z</a>(<a class="code" href="../../d8/d11/DIV__NN__N_8hpp.html#a2d4556cc40c846ff71a8da42499f96ea">DIV_NN_N</a>(lcm, denominator_b));  <span class="comment">// находим множитель для второго числа, деля НОК на знаменатель второг числа</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="../../d9/d12/classLongInteger.html">LongInteger</a> numerator = <a class="code" href="../../d4/d75/SUB__ZZ__Z_8hpp.html#af85be655d0854a38bc70126c3c4e5d21">SUB_ZZ_Z</a>(<a class="code" href="../../d1/d3e/MUL__ZZ__Z_8hpp.html#a76018fb5c634cdc5ce75984f492d46e5">MUL_ZZ_Z</a>(a.<a class="code" href="../../da/d86/classLongRational.html#a2be409e556aace5ba29246bb433e1baa">getNumerator</a>(), multiplier_a), <a class="code" href="../../d1/d3e/MUL__ZZ__Z_8hpp.html#a76018fb5c634cdc5ce75984f492d46e5">MUL_ZZ_Z</a>(b.<a class="code" href="../../da/d86/classLongRational.html#a2be409e556aace5ba29246bb433e1baa">getNumerator</a>(), multiplier_b));  <span class="comment">// находим числитель</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="../../da/d86/classLongRational.html">LongRational</a> result(numerator, lcm);  <span class="comment">// создаем дробь с полученным числителем и знаменателем</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    result = <a class="code" href="../../dd/d01/RED__Q__Q_8hpp.html#a1e9ce11553ad44b1671591042a41b121">RED_Q_Q</a>(result);             <span class="comment">// сокращаем дробь</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="ttc" id="aDIV__NN__N_8hpp_html"><div class="ttname"><a href="../../d8/d11/DIV__NN__N_8hpp.html">DIV_NN_N.hpp</a></div><div class="ttdoc">Функция для вычисления неполного частного от деления первого натурального числа на второе.</div></div>
+<div class="ttc" id="aDIV__NN__N_8hpp_html_a2d4556cc40c846ff71a8da42499f96ea"><div class="ttname"><a href="../../d8/d11/DIV__NN__N_8hpp.html#a2d4556cc40c846ff71a8da42499f96ea">DIV_NN_N</a></div><div class="ttdeci">LongNatural DIV_NN_N(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция DIV_NN_N вычисляет неполное частное от деления первого натурального числа на второе.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dfe/DIV__NN__N_8cpp_source.html#l00011">DIV_NN_N.cpp:11</a></div></div>
+<div class="ttc" id="aLCM__NN__N_8hpp_html"><div class="ttname"><a href="../../d0/d58/LCM__NN__N_8hpp.html">LCM_NN_N.hpp</a></div><div class="ttdoc">Функция для вычисления НОК двух натуральных чисел.</div></div>
+<div class="ttc" id="aLCM__NN__N_8hpp_html_a8e17bddc2f3e7f2199932de45266ec78"><div class="ttname"><a href="../../d0/d58/LCM__NN__N_8hpp.html#a8e17bddc2f3e7f2199932de45266ec78">LCM_NN_N</a></div><div class="ttdeci">LongNatural LCM_NN_N(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция LCM_NN_N вычисляет НОК двух натуральных чисел.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/LCM__NN__N_8cpp_source.html#l00007">LCM_NN_N.cpp:7</a></div></div>
+<div class="ttc" id="aMUL__ZZ__Z_8hpp_html"><div class="ttname"><a href="../../d1/d3e/MUL__ZZ__Z_8hpp.html">MUL_ZZ_Z.hpp</a></div><div class="ttdoc">Функция для умножения двух целых чисел.</div></div>
+<div class="ttc" id="aMUL__ZZ__Z_8hpp_html_a76018fb5c634cdc5ce75984f492d46e5"><div class="ttname"><a href="../../d1/d3e/MUL__ZZ__Z_8hpp.html#a76018fb5c634cdc5ce75984f492d46e5">MUL_ZZ_Z</a></div><div class="ttdeci">LongInteger MUL_ZZ_Z(const LongInteger &amp;a, const LongInteger &amp;b)</div><div class="ttdoc">Функция MUL_ZZ_Z принимает два целых числа и перемножает их.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d99/MUL__ZZ__Z_8cpp_source.html#l00011">MUL_ZZ_Z.cpp:11</a></div></div>
+<div class="ttc" id="aRED__Q__Q_8hpp_html"><div class="ttname"><a href="../../dd/d01/RED__Q__Q_8hpp.html">RED_Q_Q.hpp</a></div><div class="ttdoc">Функция для сокращения дроби.</div></div>
+<div class="ttc" id="aRED__Q__Q_8hpp_html_a1e9ce11553ad44b1671591042a41b121"><div class="ttname"><a href="../../dd/d01/RED__Q__Q_8hpp.html#a1e9ce11553ad44b1671591042a41b121">RED_Q_Q</a></div><div class="ttdeci">LongRational RED_Q_Q(const LongRational &amp;a)</div><div class="ttdoc">Функция RED_Q_Q принимает дробь и сокращает её.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/df5/RED__Q__Q_8cpp_source.html#l00013">RED_Q_Q.cpp:13</a></div></div>
+<div class="ttc" id="aSUB__QQ__Q_8cpp_html_a6bcea69934bdc4c6ceb0489bb182faa6"><div class="ttname"><a href="../../da/dd9/SUB__QQ__Q_8cpp.html#a6bcea69934bdc4c6ceb0489bb182faa6">SUB_QQ_Q</a></div><div class="ttdeci">LongRational SUB_QQ_Q(const LongRational &amp;a, const LongRational &amp;b)</div><div class="ttdoc">Функция SUB_QQ_Q принимает две дроби и возвращает их разность.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd9/SUB__QQ__Q_8cpp_source.html#l00010">SUB_QQ_Q.cpp:10</a></div></div>
+<div class="ttc" id="aSUB__QQ__Q_8hpp_html"><div class="ttname"><a href="../../db/da4/SUB__QQ__Q_8hpp.html">SUB_QQ_Q.hpp</a></div><div class="ttdoc">Функция для вычитания двух рациональных чисел.</div></div>
+<div class="ttc" id="aSUB__ZZ__Z_8hpp_html"><div class="ttname"><a href="../../d4/d75/SUB__ZZ__Z_8hpp.html">SUB_ZZ_Z.hpp</a></div><div class="ttdoc">Функция для вычитания двух целых чисел.</div></div>
+<div class="ttc" id="aSUB__ZZ__Z_8hpp_html_af85be655d0854a38bc70126c3c4e5d21"><div class="ttname"><a href="../../d4/d75/SUB__ZZ__Z_8hpp.html#af85be655d0854a38bc70126c3c4e5d21">SUB_ZZ_Z</a></div><div class="ttdeci">LongInteger SUB_ZZ_Z(const LongInteger &amp;a, const LongInteger &amp;b)</div><div class="ttdoc">Функция SUB_ZZ_Z выполняет вычитание двух целых чисел.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2e/SUB__ZZ__Z_8cpp_source.html#l00009">SUB_ZZ_Z.cpp:9</a></div></div>
+<div class="ttc" id="aTRANS__N__Z_8hpp_html"><div class="ttname"><a href="../../d2/d71/TRANS__N__Z_8hpp.html">TRANS_N_Z.hpp</a></div><div class="ttdoc">Функция для преобразования натурального числа в целое.</div></div>
+<div class="ttc" id="aTRANS__N__Z_8hpp_html_a42de941a94706743127da973e9f18059"><div class="ttname"><a href="../../d2/d71/TRANS__N__Z_8hpp.html#a42de941a94706743127da973e9f18059">TRANS_N_Z</a></div><div class="ttdeci">LongInteger TRANS_N_Z(const LongNatural &amp;n)</div><div class="ttdoc">Функция TRANS_N_Z преобразовывает натуральное число в целое.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d80/TRANS__N__Z_8cpp_source.html#l00003">TRANS_N_Z.cpp:3</a></div></div>
+<div class="ttc" id="aclassLongInteger_html"><div class="ttname"><a href="../../d9/d12/classLongInteger.html">LongInteger</a></div><div class="ttdoc">Класс для работы с длинными целыми числами.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d25/LongInteger_8hpp_source.html#l00026">LongInteger.hpp:26</a></div></div>
+<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+<div class="ttc" id="aclassLongRational_html"><div class="ttname"><a href="../../da/d86/classLongRational.html">LongRational</a></div><div class="ttdoc">Класс для работы с рациональными числами (дробями).</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/LongRational_8hpp_source.html#l00024">LongRational.hpp:24</a></div></div>
+<div class="ttc" id="aclassLongRational_html_a2be409e556aace5ba29246bb433e1baa"><div class="ttname"><a href="../../da/d86/classLongRational.html#a2be409e556aace5ba29246bb433e1baa">LongRational::getNumerator</a></div><div class="ttdeci">const LongInteger &amp; getNumerator() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00011">LongRational.cpp:11</a></div></div>
+<div class="ttc" id="aclassLongRational_html_a6a83b5f8574073cb890cbdf59a91eb64"><div class="ttname"><a href="../../da/d86/classLongRational.html#a6a83b5f8574073cb890cbdf59a91eb64">LongRational::getDenominator</a></div><div class="ttdeci">const LongNatural &amp; getDenominator() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00015">LongRational.cpp:15</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

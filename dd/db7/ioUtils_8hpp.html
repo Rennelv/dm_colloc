@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Файл include/gui/ioUtils.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_48c1f94cd2ae07e13fa9a9f16a1d541c.html">gui</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл ioUtils.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Набор вспомогательных функций для графического интерфейса.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;future&gt;</code><br />
+<code>#include &lt;new&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d74/LongNatural_8hpp_source.html">N/LongNatural.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dae/Polynomial_8hpp_source.html">P/Polynomial.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d54/LongRational_8hpp_source.html">Q/LongRational.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d25/LongInteger_8hpp_source.html">Z/LongInteger.hpp</a>&quot;</code><br />
+<code>#include &quot;imgui.h&quot;</code><br />
+</div>
+<p><a href="../../dd/db7/ioUtils_8hpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a647d07109323df9ddc5f53cced78fe6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db7/ioUtils_8hpp.html#a647d07109323df9ddc5f53cced78fe6a">InputTextWithResize</a> (const char *label, std::string &amp;str)</td></tr>
+<tr class="separator:a647d07109323df9ddc5f53cced78fe6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a744fdcb68e920068e13e34c01531836e"><td class="memTemplParams" colspan="2">template&lt;typename ResultType &gt; </td></tr>
+<tr class="memitem:a744fdcb68e920068e13e34c01531836e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/db7/ioUtils_8hpp.html#a744fdcb68e920068e13e34c01531836e">DisplayResultOrError</a> (std::future&lt; ResultType &gt; &amp;result_future, bool &amp;calculation_started, std::string &amp;result, std::string &amp;error_str)</td></tr>
+<tr class="separator:a744fdcb68e920068e13e34c01531836e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944ee8bff130c6ebee7eabb5887db3ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db7/ioUtils_8hpp.html#a944ee8bff130c6ebee7eabb5887db3ce">HelpMarker</a> (const char *desc)</td></tr>
+<tr class="separator:a944ee8bff130c6ebee7eabb5887db3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c00abaf34c3db44e0726a18d1eea79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db7/ioUtils_8hpp.html#ab8c00abaf34c3db44e0726a18d1eea79">StrToFraction</a> (const std::string &amp;str, std::string &amp;numerator, std::string &amp;denominator)</td></tr>
+<tr class="separator:ab8c00abaf34c3db44e0726a18d1eea79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe8cbee0555da78a683d5d830ef2ec5a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db7/ioUtils_8hpp.html#afe8cbee0555da78a683d5d830ef2ec5a">MapToPolyStr</a> (const std::map&lt; <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &gt; &amp;terms)</td></tr>
+<tr class="separator:afe8cbee0555da78a683d5d830ef2ec5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8312568e83b3c3e93fdb8e5b45db79b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db7/ioUtils_8hpp.html#af8312568e83b3c3e93fdb8e5b45db79b">parsePolynomial</a> (std::string label_no, std::map&lt; <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &gt; &amp;terms, std::string &amp;degree_str, std::string &amp;coef_str, std::string &amp;error_str)</td></tr>
+<tr class="separator:af8312568e83b3c3e93fdb8e5b45db79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Набор вспомогательных функций для графического интерфейса. </p>
+<p>Этот файл содержит объявления функций, которые используются для ввода и вывода данных в графическом интерфейсе, а также для обработки результатов вычислений и ошибок.</p>
+<dl class="section author"><dt>Автор</dt><dd>Журавлев Дмитрий 3381 </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../dd/db7/ioUtils_8hpp_source.html">ioUtils.hpp</a></p>
+</div><h2 class="groupheader">Функции</h2>
+<a id="a744fdcb68e920068e13e34c01531836e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a744fdcb68e920068e13e34c01531836e">&#9670;&nbsp;</a></span>DisplayResultOrError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ResultType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void DisplayResultOrError </td>
+          <td>(</td>
+          <td class="paramtype">std::future&lt; ResultType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>result_future</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>calculation_started</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>error_str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../dd/db7/ioUtils_8hpp_source.html">ioUtils.hpp</a> строка <a class="el" href="../../dd/db7/ioUtils_8hpp_source.html#l00032">32</a></p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                                                                                                                    {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span> (calculation_started) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        error_str.clear();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span> (!result_future.valid()) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            error_str = <span class="stringliteral">&quot;Error starting the computation&quot;</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            calculation_started = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (result_future.wait_for(std::chrono::seconds(0)) == std::future_status::ready) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;ResultType, LongNatural&gt; || std::is_same_v&lt;ResultType, LongInteger&gt; || std::is_same_v&lt;ResultType, Polynomial&gt;) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                    result = result_future.get().toString();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;ResultType, LongRational&gt;) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    <a class="code" href="../../da/d86/classLongRational.html">LongRational</a> res = result_future.get();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    result = <span class="charliteral">&#39;\n&#39;</span> + res.<a class="code" href="../../da/d86/classLongRational.html#a2be409e556aace5ba29246bb433e1baa">getNumerator</a>().<a class="code" href="../../d9/d12/classLongInteger.html#a1eab552801ea0fb67cb3654a6a9a7835">toString</a>() + <span class="stringliteral">&quot;/\n&quot;</span> + res.<a class="code" href="../../da/d86/classLongRational.html#a6a83b5f8574073cb890cbdf59a91eb64">getDenominator</a>().<a class="code" href="../../d1/d9b/classLongNatural.html#aa67e2f678e8f6ee63886d6dc451daaa8">toString</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;ResultType, int&gt;) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    result = std::to_string(result_future.get());</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;ResultType, bool&gt;) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    result = result_future.get() ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    static_assert(std::is_same_v&lt;ResultType, LongNatural&gt; || std::is_same_v&lt;ResultType, int&gt; || std::is_same_v&lt;ResultType, bool&gt;,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                  <span class="stringliteral">&quot;Unsupported result type&quot;</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    result = <span class="stringliteral">&quot;Unsupported result type&quot;</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="comment">//</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::invalid_argument&amp; e) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                error_str = <span class="stringliteral">&quot;Invalid input: &quot;</span> + std::string(e.what());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::logic_error&amp; e) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                error_str = <span class="stringliteral">&quot;Error during computations: &quot;</span> + std::string(e.what());</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::bad_alloc&amp; e) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                error_str = <span class="stringliteral">&quot;Error allocating memory: &quot;</span> + std::string(e.what());</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                error_str = <span class="stringliteral">&quot;Unknown error during computations: &quot;</span> + std::string(e.what());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            calculation_started = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            ImGui::Text(<span class="stringliteral">&quot;Calculating...&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        ImGui::BeginChild(<span class="stringliteral">&quot;Result&quot;</span>, ImVec2(0, ImGui::GetTextLineHeightWithSpacing() * 5), <span class="keyword">true</span>, ImGuiWindowFlags_HorizontalScrollbar);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span> (!result.empty()) ImGui::Text(<span class="stringliteral">&quot;Result: %s&quot;</span>, result.c_str());</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        ImGui::EndChild();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span> (!result.empty() &amp;&amp; ImGui::Button(<span class="stringliteral">&quot;Copy to clipboard&quot;</span>)) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        ImGui::SetClipboardText(result.c_str());</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span> (!error_str.empty()) ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), <span class="stringliteral">&quot;%s&quot;</span>, error_str.c_str());</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="ttc" id="aclassLongInteger_html_a1eab552801ea0fb67cb3654a6a9a7835"><div class="ttname"><a href="../../d9/d12/classLongInteger.html#a1eab552801ea0fb67cb3654a6a9a7835">LongInteger::toString</a></div><div class="ttdeci">std::string toString() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d5e/LongInteger_8cpp_source.html#l00060">LongInteger.cpp:60</a></div></div>
+<div class="ttc" id="aclassLongNatural_html_aa67e2f678e8f6ee63886d6dc451daaa8"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html#aa67e2f678e8f6ee63886d6dc451daaa8">LongNatural::toString</a></div><div class="ttdeci">std::string toString() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da7/LongNatural_8cpp_source.html#l00057">LongNatural.cpp:57</a></div></div>
+<div class="ttc" id="aclassLongRational_html"><div class="ttname"><a href="../../da/d86/classLongRational.html">LongRational</a></div><div class="ttdoc">Класс для работы с рациональными числами (дробями).</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/LongRational_8hpp_source.html#l00024">LongRational.hpp:24</a></div></div>
+<div class="ttc" id="aclassLongRational_html_a2be409e556aace5ba29246bb433e1baa"><div class="ttname"><a href="../../da/d86/classLongRational.html#a2be409e556aace5ba29246bb433e1baa">LongRational::getNumerator</a></div><div class="ttdeci">const LongInteger &amp; getNumerator() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00011">LongRational.cpp:11</a></div></div>
+<div class="ttc" id="aclassLongRational_html_a6a83b5f8574073cb890cbdf59a91eb64"><div class="ttname"><a href="../../da/d86/classLongRational.html#a6a83b5f8574073cb890cbdf59a91eb64">LongRational::getDenominator</a></div><div class="ttdeci">const LongNatural &amp; getDenominator() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d93/LongRational_8cpp_source.html#l00015">LongRational.cpp:15</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d5/d93/LongRational_8cpp_source.html#l00015">LongRational::getDenominator()</a>, <a class="el" href="../../d5/d93/LongRational_8cpp_source.html#l00011">LongRational::getNumerator()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00057">LongNatural::toString()</a> и <a class="el" href="../../d1/d5e/LongInteger_8cpp_source.html#l00060">LongInteger::toString()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00082">HandleIntegerFunctions::show_ABS_Z_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00232">HandleNaturalFunctions::show_ADD_1N_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00269">HandleNaturalFunctions::show_ADD_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00103">HandlePolynomialFunctions::show_ADD_PP_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00235">HandleRationalFunctions::show_ADD_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00267">HandleIntegerFunctions::show_ADD_ZZ_Z()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00150">HandleNaturalFunctions::show_COM_NN_D()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00351">HandlePolynomialFunctions::show_DEG_P_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00639">HandlePolynomialFunctions::show_DER_P_P()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00521">HandleNaturalFunctions::show_DIV_NN_Dk()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00562">HandleNaturalFunctions::show_DIV_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00489">HandlePolynomialFunctions::show_DIV_PP_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00381">HandleRationalFunctions::show_DIV_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00387">HandleIntegerFunctions::show_DIV_ZZ_Z()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00394">HandlePolynomialFunctions::show_FAC_P_Q()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00109">HandleNaturalFunctions::show_GCF_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00589">HandlePolynomialFunctions::show_GCF_PP_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00116">HandleRationalFunctions::show_INT_Q_B()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00642">HandleNaturalFunctions::show_LCM_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00308">HandlePolynomialFunctions::show_LED_P_Q()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00602">HandleNaturalFunctions::show_MOD_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00539">HandlePolynomialFunctions::show_MOD_PP_P()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00427">HandleIntegerFunctions::show_MOD_ZZ_Z()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00349">HandleNaturalFunctions::show_MUL_ND_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00392">HandleNaturalFunctions::show_MUL_Nk_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00435">HandleNaturalFunctions::show_MUL_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00439">HandlePolynomialFunctions::show_MUL_PP_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00201">HandlePolynomialFunctions::show_MUL_PQ_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00256">HandlePolynomialFunctions::show_MUL_Pxk_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00332">HandleRationalFunctions::show_MUL_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00156">HandleIntegerFunctions::show_MUL_ZM_Z()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00347">HandleIntegerFunctions::show_MUL_ZZ_Z()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00682">HandlePolynomialFunctions::show_NMR_P_P()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00195">HandleNaturalFunctions::show_NZER_N_B()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00119">HandleIntegerFunctions::show_POZ_Z_D()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00074">HandleRationalFunctions::show_RED_Q_Q()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00475">HandleNaturalFunctions::show_SUB_NDN_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00309">HandleNaturalFunctions::show_SUB_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00151">HandlePolynomialFunctions::show_SUB_PP_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00284">HandleRationalFunctions::show_SUB_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00307">HandleIntegerFunctions::show_SUB_ZZ_Z()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00193">HandleIntegerFunctions::show_TRANS_N_Z()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00194">HandleRationalFunctions::show_TRANS_Q_Z()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00230">HandleIntegerFunctions::show_TRANS_Z_N()</a> и <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00157">HandleRationalFunctions::show_TRANS_Z_Q()</a>.</p>
+
+</div>
+</div>
+<a id="a944ee8bff130c6ebee7eabb5887db3ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944ee8bff130c6ebee7eabb5887db3ce">&#9670;&nbsp;</a></span>HelpMarker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HelpMarker </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>desc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html">ioUtils.cpp</a> строка <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00021">21</a></p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                  {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    ImGui::TextDisabled(<span class="stringliteral">&quot;(?)&quot;</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span> (ImGui::IsItemHovered()) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        ImGui::BeginTooltip();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        ImGui::TextUnformatted(desc);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        ImGui::PopTextWrapPos();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        ImGui::EndTooltip();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00082">HandleIntegerFunctions::show_ABS_Z_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00232">HandleNaturalFunctions::show_ADD_1N_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00269">HandleNaturalFunctions::show_ADD_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00103">HandlePolynomialFunctions::show_ADD_PP_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00235">HandleRationalFunctions::show_ADD_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00267">HandleIntegerFunctions::show_ADD_ZZ_Z()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00150">HandleNaturalFunctions::show_COM_NN_D()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00351">HandlePolynomialFunctions::show_DEG_P_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00639">HandlePolynomialFunctions::show_DER_P_P()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00521">HandleNaturalFunctions::show_DIV_NN_Dk()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00562">HandleNaturalFunctions::show_DIV_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00489">HandlePolynomialFunctions::show_DIV_PP_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00381">HandleRationalFunctions::show_DIV_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00387">HandleIntegerFunctions::show_DIV_ZZ_Z()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00394">HandlePolynomialFunctions::show_FAC_P_Q()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00109">HandleNaturalFunctions::show_GCF_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00589">HandlePolynomialFunctions::show_GCF_PP_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00116">HandleRationalFunctions::show_INT_Q_B()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00642">HandleNaturalFunctions::show_LCM_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00308">HandlePolynomialFunctions::show_LED_P_Q()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00602">HandleNaturalFunctions::show_MOD_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00539">HandlePolynomialFunctions::show_MOD_PP_P()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00427">HandleIntegerFunctions::show_MOD_ZZ_Z()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00349">HandleNaturalFunctions::show_MUL_ND_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00392">HandleNaturalFunctions::show_MUL_Nk_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00435">HandleNaturalFunctions::show_MUL_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00439">HandlePolynomialFunctions::show_MUL_PP_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00201">HandlePolynomialFunctions::show_MUL_PQ_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00256">HandlePolynomialFunctions::show_MUL_Pxk_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00332">HandleRationalFunctions::show_MUL_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00156">HandleIntegerFunctions::show_MUL_ZM_Z()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00347">HandleIntegerFunctions::show_MUL_ZZ_Z()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00682">HandlePolynomialFunctions::show_NMR_P_P()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00195">HandleNaturalFunctions::show_NZER_N_B()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00119">HandleIntegerFunctions::show_POZ_Z_D()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00074">HandleRationalFunctions::show_RED_Q_Q()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00475">HandleNaturalFunctions::show_SUB_NDN_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00309">HandleNaturalFunctions::show_SUB_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00151">HandlePolynomialFunctions::show_SUB_PP_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00284">HandleRationalFunctions::show_SUB_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00307">HandleIntegerFunctions::show_SUB_ZZ_Z()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00193">HandleIntegerFunctions::show_TRANS_N_Z()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00194">HandleRationalFunctions::show_TRANS_Q_Z()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00230">HandleIntegerFunctions::show_TRANS_Z_N()</a> и <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00157">HandleRationalFunctions::show_TRANS_Z_Q()</a>.</p>
+
+</div>
+</div>
+<a id="a647d07109323df9ddc5f53cced78fe6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a647d07109323df9ddc5f53cced78fe6a">&#9670;&nbsp;</a></span>InputTextWithResize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InputTextWithResize </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html">ioUtils.cpp</a> строка <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00007">7</a></p>
+<div class="fragment"><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;                                                            {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    ImGui::InputText(</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        label, &amp;str[0], str.capacity() + 1, ImGuiInputTextFlags_CallbackResize,</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        [](ImGuiInputTextCallbackData* data) -&gt; <span class="keywordtype">int</span> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            if (data-&gt;EventFlag == ImGuiInputTextFlags_CallbackResize) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                std::string* str = (std::string*)data-&gt;UserData;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                str-&gt;resize(data-&gt;BufTextLen);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                data-&gt;Buf = (char*)str-&gt;c_str();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        },</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        (<span class="keywordtype">void</span>*)&amp;str);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00063">parsePolynomial()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00082">HandleIntegerFunctions::show_ABS_Z_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00232">HandleNaturalFunctions::show_ADD_1N_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00269">HandleNaturalFunctions::show_ADD_NN_N()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00235">HandleRationalFunctions::show_ADD_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00267">HandleIntegerFunctions::show_ADD_ZZ_Z()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00150">HandleNaturalFunctions::show_COM_NN_D()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00521">HandleNaturalFunctions::show_DIV_NN_Dk()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00562">HandleNaturalFunctions::show_DIV_NN_N()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00381">HandleRationalFunctions::show_DIV_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00387">HandleIntegerFunctions::show_DIV_ZZ_Z()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00109">HandleNaturalFunctions::show_GCF_NN_N()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00116">HandleRationalFunctions::show_INT_Q_B()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00642">HandleNaturalFunctions::show_LCM_NN_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00602">HandleNaturalFunctions::show_MOD_NN_N()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00427">HandleIntegerFunctions::show_MOD_ZZ_Z()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00349">HandleNaturalFunctions::show_MUL_ND_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00392">HandleNaturalFunctions::show_MUL_Nk_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00435">HandleNaturalFunctions::show_MUL_NN_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00201">HandlePolynomialFunctions::show_MUL_PQ_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00256">HandlePolynomialFunctions::show_MUL_Pxk_P()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00332">HandleRationalFunctions::show_MUL_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00156">HandleIntegerFunctions::show_MUL_ZM_Z()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00347">HandleIntegerFunctions::show_MUL_ZZ_Z()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00195">HandleNaturalFunctions::show_NZER_N_B()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00119">HandleIntegerFunctions::show_POZ_Z_D()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00074">HandleRationalFunctions::show_RED_Q_Q()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00475">HandleNaturalFunctions::show_SUB_NDN_N()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00309">HandleNaturalFunctions::show_SUB_NN_N()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00284">HandleRationalFunctions::show_SUB_QQ_Q()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00307">HandleIntegerFunctions::show_SUB_ZZ_Z()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00193">HandleIntegerFunctions::show_TRANS_N_Z()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00194">HandleRationalFunctions::show_TRANS_Q_Z()</a>, <a class="el" href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00230">HandleIntegerFunctions::show_TRANS_Z_N()</a> и <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00157">HandleRationalFunctions::show_TRANS_Z_Q()</a>.</p>
+
+</div>
+</div>
+<a id="afe8cbee0555da78a683d5d830ef2ec5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe8cbee0555da78a683d5d830ef2ec5a">&#9670;&nbsp;</a></span>MapToPolyStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MapToPolyStr </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>terms</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html">ioUtils.cpp</a> строка <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00040">40</a></p>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                                                       {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (terms.empty()) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::string result = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// добавляем в строку коэффиценты с наибольшей степени</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = terms.rbegin(); it != terms.rend(); ++it) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">auto</span> [deg, coef] = *it;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (deg == <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(<span class="stringliteral">&quot;0&quot;</span>)) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            result += coef.toString() + <span class="stringliteral">&quot; + &quot;</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            result += <span class="stringliteral">&quot;(&quot;</span> + coef.toString() + <span class="stringliteral">&quot;)&quot;</span> + <span class="stringliteral">&quot;x^&quot;</span> + deg.toString() + <span class="stringliteral">&quot; + &quot;</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// если строка получается больше 10000 символово обрезаем строку</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span> (result.size() &gt; 10000) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span> result.substr(0, result.size() - 3) + <span class="stringliteral">&quot;...&quot;</span> + <span class="stringliteral">&quot;и еще &quot;</span> + std::to_string(terms.size() - std::distance(terms.rbegin(), it)) +</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                   <span class="stringliteral">&quot; ненулевых членов&quot;</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> result.substr(0, result.size() - 3);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00063">parsePolynomial()</a>.</p>
+
+</div>
+</div>
+<a id="af8312568e83b3c3e93fdb8e5b45db79b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8312568e83b3c3e93fdb8e5b45db79b">&#9670;&nbsp;</a></span>parsePolynomial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void parsePolynomial </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>label_no</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>, <a class="el" href="../../da/d86/classLongRational.html">LongRational</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>terms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>degree_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>coef_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>error_str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html">ioUtils.cpp</a> строка <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00063">63</a></p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                                                                                                                                     {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;Введите степень при x добавляемого члена (натуральное число): &quot;</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="../../d7/d22/ioUtils_8cpp.html#a647d07109323df9ddc5f53cced78fe6a">InputTextWithResize</a>((std::string(<span class="stringliteral">&quot;degree&quot;</span>) + label_no).c_str(), degree_str);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;Введите числитель и знаменатель добавляемого члена разделяя их пробелом (целое число и натуральное число): &quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="../../d7/d22/ioUtils_8cpp.html#a647d07109323df9ddc5f53cced78fe6a">InputTextWithResize</a>((std::string(<span class="stringliteral">&quot;num&quot;</span>) + label_no).c_str(), coef_str);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button((std::string(<span class="stringliteral">&quot;Добавить член &quot;</span>) + label_no).c_str())) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        error_str.clear();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        std::string num_str;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::string den_str;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="../../d7/d22/ioUtils_8cpp.html#ab8c00abaf34c3db44e0726a18d1eea79">StrToFraction</a>(coef_str, num_str, den_str);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            terms.emplace(<a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(degree_str), <a class="code" href="../../da/d86/classLongRational.html">LongRational</a>(num_str, den_str));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="comment">// degree_str.clear();</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="comment">// num_str.clear();</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="comment">// den_str.clear();</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::invalid_argument&amp; e) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            error_str = <span class="stringliteral">&quot;Invalid input: &quot;</span> + std::string(e.what());</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::bad_alloc&amp; e) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            error_str = <span class="stringliteral">&quot;Error allocating memory: &quot;</span> + std::string(e.what());</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            error_str = <span class="stringliteral">&quot;Unknown error during computations: &quot;</span> + std::string(e.what());</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    ImGui::SameLine();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button((std::string(<span class="stringliteral">&quot;Очистить многочлен &quot;</span>) + label_no).c_str())) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        terms.clear();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (!error_str.empty()) {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), <span class="stringliteral">&quot;%s&quot;</span>, error_str.c_str());</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;Текущий многочлен:&quot;</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    ImGui::BeginChild((std::string(<span class="stringliteral">&quot;Текущий многочлен &quot;</span>) + label_no + <span class="stringliteral">&quot;: &quot;</span>).c_str(), ImVec2(0, ImGui::GetTextLineHeightWithSpacing() * 1.5f), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;%s&quot;</span>, <a class="code" href="../../d7/d22/ioUtils_8cpp.html#afe8cbee0555da78a683d5d830ef2ec5a">MapToPolyStr</a>(terms).c_str());</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    ImGui::EndChild();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="ttc" id="aioUtils_8cpp_html_a647d07109323df9ddc5f53cced78fe6a"><div class="ttname"><a href="../../d7/d22/ioUtils_8cpp.html#a647d07109323df9ddc5f53cced78fe6a">InputTextWithResize</a></div><div class="ttdeci">void InputTextWithResize(const char *label, std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d22/ioUtils_8cpp_source.html#l00007">ioUtils.cpp:7</a></div></div>
+<div class="ttc" id="aioUtils_8cpp_html_ab8c00abaf34c3db44e0726a18d1eea79"><div class="ttname"><a href="../../d7/d22/ioUtils_8cpp.html#ab8c00abaf34c3db44e0726a18d1eea79">StrToFraction</a></div><div class="ttdeci">void StrToFraction(const std::string &amp;str, std::string &amp;numerator, std::string &amp;denominator)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d22/ioUtils_8cpp_source.html#l00032">ioUtils.cpp:32</a></div></div>
+<div class="ttc" id="aioUtils_8cpp_html_afe8cbee0555da78a683d5d830ef2ec5a"><div class="ttname"><a href="../../d7/d22/ioUtils_8cpp.html#afe8cbee0555da78a683d5d830ef2ec5a">MapToPolyStr</a></div><div class="ttdeci">std::string MapToPolyStr(const std::map&lt; LongNatural, LongRational &gt; &amp;terms)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d22/ioUtils_8cpp_source.html#l00040">ioUtils.cpp:40</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00007">InputTextWithResize()</a>, <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00040">MapToPolyStr()</a> и <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00032">StrToFraction()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00103">HandlePolynomialFunctions::show_ADD_PP_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00351">HandlePolynomialFunctions::show_DEG_P_N()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00639">HandlePolynomialFunctions::show_DER_P_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00489">HandlePolynomialFunctions::show_DIV_PP_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00394">HandlePolynomialFunctions::show_FAC_P_Q()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00589">HandlePolynomialFunctions::show_GCF_PP_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00308">HandlePolynomialFunctions::show_LED_P_Q()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00539">HandlePolynomialFunctions::show_MOD_PP_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00439">HandlePolynomialFunctions::show_MUL_PP_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00201">HandlePolynomialFunctions::show_MUL_PQ_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00256">HandlePolynomialFunctions::show_MUL_Pxk_P()</a>, <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00682">HandlePolynomialFunctions::show_NMR_P_P()</a> и <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00151">HandlePolynomialFunctions::show_SUB_PP_P()</a>.</p>
+
+</div>
+</div>
+<a id="ab8c00abaf34c3db44e0726a18d1eea79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c00abaf34c3db44e0726a18d1eea79">&#9670;&nbsp;</a></span>StrToFraction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StrToFraction </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>numerator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>denominator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html">ioUtils.cpp</a> строка <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00032">32</a></p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                                                                       {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::istringstream iss(str);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (!(iss &gt;&gt; numerator &gt;&gt; denominator)) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Invalid coefficent input format. Please enter two numbers separated by a space.&quot;</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Используется в <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00063">parsePolynomial()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00235">HandleRationalFunctions::show_ADD_QQ_Q()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00381">HandleRationalFunctions::show_DIV_QQ_Q()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00116">HandleRationalFunctions::show_INT_Q_B()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00332">HandleRationalFunctions::show_MUL_QQ_Q()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00074">HandleRationalFunctions::show_RED_Q_Q()</a>, <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00284">HandleRationalFunctions::show_SUB_QQ_Q()</a> и <a class="el" href="../../df/dd7/HandleRationalFunctions_8cpp_source.html#l00194">HandleRationalFunctions::show_TRANS_Q_Z()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

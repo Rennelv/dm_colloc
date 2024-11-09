@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dm_math: Исходный файл src/N/GCF_NN_N.cpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">dm_math
+   &#160;<span id="projectnumber">0.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_d4c5d1e96b79ae48b393d3852e71b9f1.html">N</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">GCF_NN_N.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/dd1/GCF__NN__N_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d94/GCF__NN__N_8hpp.html">N/GCF_NN_N.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/dd6/MOD__NN__N_8hpp.html">N/MOD_NN_N.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/df5/NZER__N__B_8hpp.html">N/NZER_N_B.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d6/d94/GCF__NN__N_8hpp.html#abad02f8c07a63b2ba78b579268ca9040">    6</a></span>&#160;<a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> <a class="code" href="../../d0/dd1/GCF__NN__N_8cpp.html#abad02f8c07a63b2ba78b579268ca9040">GCF_NN_N</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&amp; a, <span class="keyword">const</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&amp; b) {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> a_copy = a;  <span class="comment">// копися числа а</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> b_copy = b;  <span class="comment">// копия числа b</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> tmp({0});</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">/*  Алгоритм Евклида(модифицированный)</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">        Заменяет a на b, а b заменяет на остаток от деления a на b</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">        до тех пор, пока b не станет нулём</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="../../d3/df5/NZER__N__B_8hpp.html#a057bee4afc2d73980e4dd215ca074fcc">NZER_N_B</a>(b_copy)) {  <span class="comment">// выполняется пока меньшее из чисел не равно нулю</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        tmp = b_copy;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        b_copy = <a class="code" href="../../d5/dd6/MOD__NN__N_8hpp.html#ae1c52c0a976a24e543d34a2fcadaf133">MOD_NN_N</a>(a_copy, b_copy);  <span class="comment">// деление с остатком</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        a_copy = tmp;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> a_copy;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="ttc" id="aGCF__NN__N_8cpp_html_abad02f8c07a63b2ba78b579268ca9040"><div class="ttname"><a href="../../d0/dd1/GCF__NN__N_8cpp.html#abad02f8c07a63b2ba78b579268ca9040">GCF_NN_N</a></div><div class="ttdeci">LongNatural GCF_NN_N(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция GCF_NN_N вычисляет НОД двух натуральных чисел. Для поиска НОД используется алгоритм Евклида.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd1/GCF__NN__N_8cpp_source.html#l00006">GCF_NN_N.cpp:6</a></div></div>
+<div class="ttc" id="aGCF__NN__N_8hpp_html"><div class="ttname"><a href="../../d6/d94/GCF__NN__N_8hpp.html">GCF_NN_N.hpp</a></div><div class="ttdoc">Функция для вычисления НОД двух натуральных чисел.</div></div>
+<div class="ttc" id="aMOD__NN__N_8hpp_html"><div class="ttname"><a href="../../d5/dd6/MOD__NN__N_8hpp.html">MOD_NN_N.hpp</a></div><div class="ttdoc">Функция для вычисления остатка от деления одного натурального числа на другое.</div></div>
+<div class="ttc" id="aMOD__NN__N_8hpp_html_ae1c52c0a976a24e543d34a2fcadaf133"><div class="ttname"><a href="../../d5/dd6/MOD__NN__N_8hpp.html#ae1c52c0a976a24e543d34a2fcadaf133">MOD_NN_N</a></div><div class="ttdeci">LongNatural MOD_NN_N(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция MOD_NN_N вычисляет остаток от деления первого натурального числа на второе.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d43/MOD__NN__N_8cpp_source.html#l00010">MOD_NN_N.cpp:10</a></div></div>
+<div class="ttc" id="aNZER__N__B_8hpp_html"><div class="ttname"><a href="../../d3/df5/NZER__N__B_8hpp.html">NZER_N_B.hpp</a></div><div class="ttdoc">Функция для проверки числа на равенство нулю.</div></div>
+<div class="ttc" id="aNZER__N__B_8hpp_html_a057bee4afc2d73980e4dd215ca074fcc"><div class="ttname"><a href="../../d3/df5/NZER__N__B_8hpp.html#a057bee4afc2d73980e4dd215ca074fcc">NZER_N_B</a></div><div class="ttdeci">bool NZER_N_B(const LongNatural &amp;a)</div><div class="ttdoc">Функция NZER_N_B принимает число и проверяет не равно ли оно нулю.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/NZER__N__B_8cpp_source.html#l00007">NZER_N_B.cpp:7</a></div></div>
+<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
