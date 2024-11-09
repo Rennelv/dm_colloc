@@ -2,7 +2,7 @@ name: Deploy Doxygen Documentation
 
 on:
   workflow_run:
-    workflows: ["cmake-multi-platform"]  # Имя вашего основного workflow
+    workflows: ["CMake on multiple platforms"]  # Имя workflow
     types:
       - completed
 
