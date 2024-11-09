@@ -4,8 +4,6 @@
 #include "Q/RED_Q_Q.hpp"
 #include "Z/LongInteger.hpp"
 
-using namespace std;
-
 LongRational DIV_QQ_Q(const LongRational &a, const LongRational &b) {
     LongInteger p(b.getNumerator().isNegative(),
                   b.getDenominator().getArr());  // создаем целое число p по модулю равное знаменателю второй дроби и знака второй дроби
