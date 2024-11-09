@@ -4,12 +4,12 @@
 #include "N/GCF_NN_N.hpp"
 #include "N/LCM_NN_N.hpp"
 #include "N/LongNatural.hpp"
+#include "Q/RED_Q_Q.hpp"
 #include "Z/ABS_Z_N.hpp"
 #include "Z/DIV_ZZ_Z.hpp"
 #include "Z/LongInteger.hpp"
 #include "Z/MUL_ZZ_Z.hpp"
 #include "Z/TRANS_N_Z.hpp"
-#include "Q/RED_Q_Q.hpp"
 
 LongRational FAC_P_Q(Polynomial& a) {
     const std::map<LongNatural, LongRational>& map = a.getMap();  // возвращает мап коэффициентов
