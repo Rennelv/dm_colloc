@@ -1,0 +1,48 @@
+name: Deploy Doxygen Documentation
+
+on:
+  workflow_run:
+    workflows: ["cmake-multi-platform"]  # Имя вашего основного workflow
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # if: github.ref == 'refs/heads/main'  # Условие, проверяющее, что выполнение произошло в ветке main
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set reusable strings
+      id: strings
+      shell: bash
+      run: |
+        echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.strings.outputs.build-output-dir }}/_deps
+        key: build-deps-${{ runner.os }}-${{ hashFiles('CMakeLists.txt', '**/CMakeLists.txt') }}
+        restore-keys: |
+          build-deps-${{ runner.os }}-
+        
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y --no-upgrade g++ cmake libgl1-mesa-dev libglfw3 libglfw3-dev libglew-dev doxygen graphviz
+
+    - name: Set up CMake and build
+      run: |
+        cmake -DCMAKE_BUILD_TYPE=Release -B ${{ steps.strings.outputs.build-output-dir }} -DENABLE_IMGUI=ON -S ${{ github.workspace }}
+
+    - name: Generate Doxygen documentation
+      run: doxygen Doxyfile
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/html
+        publish_branch: gh-pages

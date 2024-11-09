@@ -4,6 +4,8 @@ build*/
 .vscode
 *.zip
 *.ini
+docs/
+Doxyfile
 
 
 # Prerequisites

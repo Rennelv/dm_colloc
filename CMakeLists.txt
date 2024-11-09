@@ -52,6 +52,8 @@ endif()
 
 include(FetchContent)
 
+set(ENABLE_DOXYGEN ON CACHE BOOL "Enable Doxygen")
+
 if (ENABLE_DOXYGEN)
     FetchContent_Declare(
         doxygen-awesome-css
