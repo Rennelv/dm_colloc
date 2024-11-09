@@ -5,7 +5,7 @@
 
 #include "N/LongNatural.hpp"
 
-LongNatural MUL_ND_N(const LongNatural& a, const uint8_t& b) {
+LongNatural MUL_ND_N(const LongNatural& a, uint8_t b) {
     std::vector<uint8_t> a_arr = a.getArr();  // получаем массивы цифр числа а
 
     std::vector<uint8_t> result_arr;       // массив для результата

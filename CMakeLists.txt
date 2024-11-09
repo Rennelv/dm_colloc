@@ -50,6 +50,26 @@ if(MINGW)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libgcc -static-libstdc++ -static")
 endif()
 
+include(FetchContent)
+
+set(ENABLE_DOXYGEN ON CACHE BOOL "Enable Doxygen")
+
+if (ENABLE_DOXYGEN)
+    FetchContent_Declare(
+        doxygen-awesome-css
+        URL https://github.com/jothepro/doxygen-awesome-css/archive/refs/heads/main.zip
+    )
+    FetchContent_MakeAvailable(doxygen-awesome-css)
+
+    # Save the location the files were cloned into
+    # This allows us to get the path to doxygen-awesome.css
+    FetchContent_GetProperties(doxygen-awesome-css SOURCE_DIR AWESOME_CSS_DIR)
+
+    # Generate the Doxyfile
+    set(DOXYFILE_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
+    set(DOXYFILE_OUT ${PROJECT_SOURCE_DIR}/Doxyfile)
+    configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
+endif()
 
 set(ENABLE_IMGUI ON CACHE BOOL "Enable ImGui")
 
@@ -58,7 +78,6 @@ find_package(glfw3 QUIET)
 
 if ((NOT glfw3_FOUND) AND ENABLE_IMGUI)
     message(WARNING "GLFW not found. Fetching and building GLFW locally. Its better to install GLFW system-wide first.")
-    include(FetchContent)
     FetchContent_Declare(
         glfw
         GIT_REPOSITORY https://github.com/glfw/glfw.git
@@ -71,7 +90,6 @@ endif()
 
 # Conditionally add ImGui
 if (ENABLE_IMGUI)
-    include(FetchContent)
     FetchContent_Declare(
         imgui_external
         GIT_REPOSITORY https://github.com/ocornut/imgui.git

@@ -1,7 +1,5 @@
 #include <gtest/gtest.h>
 
-#include <vector>
-
 #include "N/LongNatural.hpp"
 #include "N/NZER_N_B.hpp"
 
