@@ -65,3 +65,39 @@ TEST(DIV_ZZ_Z, ZeroDivPositive) {
     LongInteger expected(false, {0});
     EXPECT_EQ(DIV_ZZ_Z(dividend, divisor), expected);
 }
+
+// Тест деления с остатком
+// 625 : 312 == 2
+TEST(DIV_ZZ_Z, WithRemainder) {
+    LongInteger dividend(false, {6, 2, 5});
+    LongInteger divisor(false, {3, 1, 2});
+    LongInteger expected(false, {2});
+    EXPECT_EQ(DIV_ZZ_Z(dividend, divisor), expected);
+}
+
+// Тест деления с остатком
+// -625 : 312 == -3
+TEST(DIV_ZZ_Z, WithRemainderNegative) {
+    LongInteger dividend(true, {6, 2, 5});
+    LongInteger divisor(false, {3, 1, 2});
+    LongInteger expected(true, {3});
+    EXPECT_EQ(DIV_ZZ_Z(dividend, divisor), expected);
+}
+
+// Тест деления с остатком
+// 625 : -312 == -2
+TEST(DIV_ZZ_Z, WithRemainderNegativeDivisor) {
+    LongInteger dividend(false, {6, 2, 5});
+    LongInteger divisor(true, {3, 1, 2});
+    LongInteger expected(true, {2});
+    EXPECT_EQ(DIV_ZZ_Z(dividend, divisor), expected);
+}
+
+// Тест деления с остатком
+// -625 : -312 == 3
+TEST(DIV_ZZ_Z, WithRemainderBothNegative) {
+    LongInteger dividend(true, {6, 2, 5});
+    LongInteger divisor(true, {3, 1, 2});
+    LongInteger expected(false, {3});
+    EXPECT_EQ(DIV_ZZ_Z(dividend, divisor), expected);
+}
