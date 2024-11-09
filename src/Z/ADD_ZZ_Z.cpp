@@ -8,25 +8,25 @@
 
 LongInteger ADD_ZZ_Z(const LongInteger& a, const LongInteger& b) {
     // получаем знак чисел
-    int signA = POZ_Z_D(a);
-    int signB = POZ_Z_D(b);
+    int sign_a = POZ_Z_D(a);
+    int sign_b = POZ_Z_D(b);
 
     // получаем модули чисел
-    LongNatural absA = ABS_Z_N(a);
-    LongNatural absB = ABS_Z_N(b);
+    LongNatural abs_a = ABS_Z_N(a);
+    LongNatural abs_b = ABS_Z_N(b);
 
     // если знаки одинаковые, складываем модули и сохраняем знак
-    if (signA == signB) {
-        LongNatural result = ADD_NN_N(absA, absB);
-        return LongInteger(signA == 1, result.getArr());  // возвращаем с учетом знака
+    if (sign_a == sign_b) {
+        LongNatural result = ADD_NN_N(abs_a, abs_b);
+        return LongInteger(sign_a == 1, result.getArr());  // возвращаем с учетом знака
     }
 
     // если знаки разные, вычитаем меньший модуль из большего и сохраняем знак большего
-    if (COM_NN_D(absA, absB) == 2) {  // если absA > absB
-        LongNatural result = SUB_NN_N(absA, absB);
-        return LongInteger(signA == 1, result.getArr());
-    } else {  // если absA <= absB
-        LongNatural result = SUB_NN_N(absB, absA);
-        return LongInteger(signB == 1, result.getArr());
+    if (COM_NN_D(abs_a, abs_b) == 2) {  // если abs_a > abs_b
+        LongNatural result = SUB_NN_N(abs_a, abs_b);
+        return LongInteger(sign_a == 1, result.getArr());
+    } else {  // если abs_a <= abs_b
+        LongNatural result = SUB_NN_N(abs_b, abs_a);
+        return LongInteger(sign_b == 1, result.getArr());
     }
 }
