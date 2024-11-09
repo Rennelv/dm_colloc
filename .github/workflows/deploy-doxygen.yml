@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # if: github.ref == 'refs/heads/main'  # Условие, проверяющее, что выполнение произошло в ветке main
+    if: github.ref == 'refs/heads/main'  # Условие, проверяющее, что выполнение произошло в ветке main
 
     steps:
     - name: Checkout repository
