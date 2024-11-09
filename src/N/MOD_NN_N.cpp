@@ -12,8 +12,8 @@ LongNatural MOD_NN_N(const LongNatural& a, const LongNatural& b) {
         throw std::logic_error("Divider is zero");
     }
 
-    LongNatural integerPart = DIV_NN_N(a, b);    // Получаем целую часть от деления
-    LongNatural tmp = MUL_NN_N(b, integerPart);  // Умножаем целую часть от деления на делитель
+    LongNatural integer_part = DIV_NN_N(a, b);    // Получаем целую часть от деления
+    LongNatural tmp = MUL_NN_N(b, integer_part);  // Умножаем целую часть от деления на делитель
     LongNatural result = SUB_NN_N(a, tmp);  // Получаем остаток путём вычитания из делимого значения из прошлой строки
 
     return result;

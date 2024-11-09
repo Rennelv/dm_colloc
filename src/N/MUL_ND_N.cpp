@@ -1,6 +1,5 @@
 #include "N/MUL_ND_N.hpp"
 
-#include <algorithm>  // для std::reverse
 #include <cstddef>
 
 #include "N/LongNatural.hpp"
