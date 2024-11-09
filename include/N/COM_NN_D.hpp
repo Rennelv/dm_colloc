@@ -1,7 +1,7 @@
 #ifndef COM_NN_D_HPP
 #define COM_NN_D_HPP
 
-#include <N/LongNatural.hpp>
+#include "N/LongNatural.hpp"
 
 /**
  * @file COM_NN_D.hpp

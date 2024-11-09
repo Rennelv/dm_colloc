@@ -8,28 +8,25 @@
 LongNatural MUL_ND_N(const LongNatural& a, uint8_t b) {
     std::vector<uint8_t> a_arr = a.getArr();  // получаем массивы цифр числа а
 
-    std::vector<uint8_t> result_arr;       // массив для результата
-    result_arr.reserve(a_arr.size() + 1);  // резервируем место для результата
+    a_arr.reserve(a_arr.size() + 1);  // резервируем место, если увеличится разряд числа
+    uint8_t carry = 0;                // перенос
+    size_t a_len = a_arr.size();      // длина числа a
 
-    uint8_t carry = 0;            // перенос
-    size_t a_len = a_arr.size();  // длина числа a
+    for (size_t i = 0; i < a_len; i++) {
+        size_t idx = a_len - 1 - i;            // индекс цифры в числе a
+        uint8_t mul = a_arr[idx] * b + carry;  // умножаем цифру числа a ицифру b, затем добавляем перенос
 
-    for (int i = a_len - 1; i >= 0; i--) {
-        uint8_t mul = a_arr[i] * b + carry;  // умножаем цифры чисел и добавляем перенос
-
-        carry = mul / 10;                // вычисляем перенос
-        result_arr.push_back(mul % 10);  // добавляем остаток от деления на 10 в результат
+        carry = mul / 10;       // вычисляем перенос
+        a_arr[idx] = mul % 10;  // добавляем остаток от деления на 10 в результат
     }
 
     if (carry != 0) {
-        result_arr.push_back(carry);  // если есть перенос, то добавляем его в результат
+        a_arr.insert(a_arr.begin(), carry);  // если есть перенос, то добавляем его в результат
     }
 
-    while (result_arr.size() > 1 && result_arr.back() == 0) {  // убираем незначащие нули
-        result_arr.pop_back();
+    while (a_arr.size() > 1 && a_arr.front() == 0) {  // убираем незначащие нули
+        a_arr.erase(a_arr.begin());
     }
 
-    std::reverse(result_arr.begin(), result_arr.end());  // переворачиваем массив
-
-    return LongNatural(result_arr);  // возвращаем результат
+    return LongNatural(a_arr);  // возвращаем результат
 }
