@@ -1,9 +1,9 @@
 #ifndef SUB_QQ_Q_HPP
 #define SUB_QQ_Q_HPP
 
-#include <N/LongNatural.hpp>
-#include <Q/LongRational.hpp>
-#include <Z/LongInteger.hpp>
+#include "N/LongNatural.hpp"
+#include "Q/LongRational.hpp"
+#include "Z/LongInteger.hpp"
 
 /**
  * @file SUB_QQ_Q.hpp
