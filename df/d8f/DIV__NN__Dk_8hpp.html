@@ -142,42 +142,42 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(a, b) == 1) {  <span class="comment">// если второе число больше первого, возвращаем ноль</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> res = {0};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> scaled_b = b;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> k = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// приводим количество разрядов b к количеству разрядов а, уменьшенному на 1</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(scaled_b, a) == 1) {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        scaled_b = <a class="code" href="../../dd/d2a/MUL__Nk__N_8hpp.html#a7bdcbc32ac8a86515b9a362b41337e88">MUL_Nk_N</a>(b, ++k);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(scaled_b, a) == 2) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        scaled_b = <a class="code" href="../../dd/d2a/MUL__Nk__N_8hpp.html#a7bdcbc32ac8a86515b9a362b41337e88">MUL_Nk_N</a>(b, --k);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// ищем макисмальную цифру d такую, что d * scaledB &lt;= a</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    uint8_t d = 0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">for</span> (uint8_t test_digit = 1; test_digit &lt;= 9; test_digit++) {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> test_product = <a class="code" href="../../d7/d43/MUL__ND__N_8hpp.html#a1b6582f51b8ced9d89f993b206d1a0da">MUL_ND_N</a>(scaled_b, test_digit);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(test_product, a) != 2) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            d = test_digit;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// возвращаем результат в виде d * 10^k</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dd/d2a/MUL__Nk__N_8hpp.html#a7bdcbc32ac8a86515b9a362b41337e88">MUL_Nk_N</a>(<a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>({d}), k);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a17270babf99678ace63c897cbf5130f9">LongNatural::ZERO</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> scaled_b = b;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> k = 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// приводим количество разрядов b к количеству разрядов а, уменьшенному на 1</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(scaled_b, a) == 1) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        scaled_b = <a class="code" href="../../dd/d2a/MUL__Nk__N_8hpp.html#a7bdcbc32ac8a86515b9a362b41337e88">MUL_Nk_N</a>(b, ++k);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(scaled_b, a) == 2) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        scaled_b = <a class="code" href="../../dd/d2a/MUL__Nk__N_8hpp.html#a7bdcbc32ac8a86515b9a362b41337e88">MUL_Nk_N</a>(b, --k);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// ищем макисмальную цифру d такую, что d * scaledB &lt;= a</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    uint8_t d = 0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">for</span> (uint8_t test_digit = 1; test_digit &lt;= 9; test_digit++) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> test_product = <a class="code" href="../../d7/d43/MUL__ND__N_8hpp.html#a1b6582f51b8ced9d89f993b206d1a0da">MUL_ND_N</a>(scaled_b, test_digit);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(test_product, a) != 2) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            d = test_digit;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// возвращаем результат в виде d * 10^k</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dd/d2a/MUL__Nk__N_8hpp.html#a7bdcbc32ac8a86515b9a362b41337e88">MUL_Nk_N</a>(<a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>({d}), k);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 <div class="ttc" id="aCOM__NN__D_8hpp_html_a91c2d9097b66dbc41f066cd3ccc52449"><div class="ttname"><a href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a></div><div class="ttdeci">int COM_NN_D(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция COM_NN_D принимает два числа и сравнивает их.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D.cpp:3</a></div></div>
 <div class="ttc" id="aMUL__ND__N_8hpp_html_a1b6582f51b8ced9d89f993b206d1a0da"><div class="ttname"><a href="../../d7/d43/MUL__ND__N_8hpp.html#a1b6582f51b8ced9d89f993b206d1a0da">MUL_ND_N</a></div><div class="ttdeci">LongNatural MUL_ND_N(const LongNatural &amp;a, uint8_t b)</div><div class="ttdoc">Функция MUL_ND_N принимает натуральное число и цифру, возвращает их произведение.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d23/MUL__ND__N_8cpp_source.html#l00007">MUL_ND_N.cpp:7</a></div></div>
 <div class="ttc" id="aMUL__Nk__N_8hpp_html_a7bdcbc32ac8a86515b9a362b41337e88"><div class="ttname"><a href="../../dd/d2a/MUL__Nk__N_8hpp.html#a7bdcbc32ac8a86515b9a362b41337e88">MUL_Nk_N</a></div><div class="ttdeci">LongNatural MUL_Nk_N(const LongNatural &amp;a, size_t k)</div><div class="ttdoc">Функция MUL_Nk_N умножает натуральное число на 10^k.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc9/MUL__Nk__N_8cpp_source.html#l00003">MUL_Nk_N.cpp:3</a></div></div>
 <div class="ttc" id="aNZER__N__B_8hpp_html_a057bee4afc2d73980e4dd215ca074fcc"><div class="ttname"><a href="../../d3/df5/NZER__N__B_8hpp.html#a057bee4afc2d73980e4dd215ca074fcc">NZER_N_B</a></div><div class="ttdeci">bool NZER_N_B(const LongNatural &amp;a)</div><div class="ttdoc">Функция NZER_N_B принимает число и проверяет не равно ли оно нулю.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/NZER__N__B_8cpp_source.html#l00005">NZER_N_B.cpp:5</a></div></div>
 <div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+<div class="ttc" id="aclassLongNatural_html_a17270babf99678ace63c897cbf5130f9"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html#a17270babf99678ace63c897cbf5130f9">LongNatural::ZERO</a></div><div class="ttdeci">static const LongNatural ZERO</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00031">LongNatural.hpp:31</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Перекрестные ссылки <a class="el" href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D()</a>, <a class="el" href="../../dc/d23/MUL__ND__N_8cpp_source.html#l00007">MUL_ND_N()</a>, <a class="el" href="../../db/dc9/MUL__Nk__N_8cpp_source.html#l00003">MUL_Nk_N()</a> и <a class="el" href="../../dd/d24/NZER__N__B_8cpp_source.html#l00005">NZER_N_B()</a>.</p>
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D()</a>, <a class="el" href="../../dc/d23/MUL__ND__N_8cpp_source.html#l00007">MUL_ND_N()</a>, <a class="el" href="../../db/dc9/MUL__Nk__N_8cpp_source.html#l00003">MUL_Nk_N()</a>, <a class="el" href="../../dd/d24/NZER__N__B_8cpp_source.html#l00005">NZER_N_B()</a> и <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00031">LongNatural::ZERO</a>.</p>
 
 <p class="reference">Используется в <a class="el" href="../../db/dfe/DIV__NN__N_8cpp_source.html#l00011">DIV_NN_N()</a> и <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00521">HandleNaturalFunctions::show_DIV_NN_Dk()</a>.</p>
 

@@ -65,6 +65,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-attribs">Статические открытые данные</a> &#124;
 <a href="#pri-methods">Закрытые члены</a> &#124;
 <a href="#pri-attribs">Закрытые данные</a> &#124;
 <a href="../../db/de3/classLongNatural-members.html">Полный список членов класса</a>  </div>
@@ -103,6 +104,13 @@ $(function() {
 <tr class="memitem:a53a13c8d4e42efb5c069336ef68d6ed8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d9b/classLongNatural.html#a53a13c8d4e42efb5c069336ef68d6ed8">operator&lt;</a> (const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> &amp;other) const</td></tr>
 <tr class="separator:a53a13c8d4e42efb5c069336ef68d6ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Статические открытые данные</h2></td></tr>
+<tr class="memitem:a17270babf99678ace63c897cbf5130f9"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d9b/classLongNatural.html#a17270babf99678ace63c897cbf5130f9">ZERO</a> = <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>({0})</td></tr>
+<tr class="separator:a17270babf99678ace63c897cbf5130f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d4971535714de9cfea12e8677d38a58"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d9b/classLongNatural.html#a6d4971535714de9cfea12e8677d38a58">ONE</a> = <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>({1})</td></tr>
+<tr class="separator:a6d4971535714de9cfea12e8677d38a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Закрытые члены</h2></td></tr>
 <tr class="memitem:a752d4db58620682e2b529b9e0e8b6197"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d9b/classLongNatural.html#a752d4db58620682e2b529b9e0e8b6197">trimLeadingZeroes</a> ()</td></tr>
@@ -136,22 +144,22 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00008">8</a></p>
-<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                                                          : <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>(list) {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size(); i++) {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>[i] &gt; 9) {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;LongNatural constructor: passed initializer_list element is invalid&quot;</span>);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        }</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.empty()) {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.push_back(0);</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00011">11</a></p>
+<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                                                          : <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>(list) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size(); i++) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>[i] &gt; 9) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;LongNatural constructor: passed initializer_list element is invalid&quot;</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        }</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a752d4db58620682e2b529b9e0e8b6197">trimLeadingZeroes</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.empty()) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.push_back(0);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a752d4db58620682e2b529b9e0e8b6197">trimLeadingZeroes</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="ttc" id="aclassLongNatural_html_a41a1d56638ad3733d125b856ad3138fb"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">LongNatural::arr</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; arr</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00026">LongNatural.hpp:26</a></div></div>
-<div class="ttc" id="aclassLongNatural_html_a752d4db58620682e2b529b9e0e8b6197"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html#a752d4db58620682e2b529b9e0e8b6197">LongNatural::trimLeadingZeroes</a></div><div class="ttdeci">void trimLeadingZeroes()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da7/LongNatural_8cpp_source.html#l00047">LongNatural.cpp:47</a></div></div>
+<div class="ttc" id="aclassLongNatural_html_a752d4db58620682e2b529b9e0e8b6197"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html#a752d4db58620682e2b529b9e0e8b6197">LongNatural::trimLeadingZeroes</a></div><div class="ttdeci">void trimLeadingZeroes()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da7/LongNatural_8cpp_source.html#l00050">LongNatural.cpp:50</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00047">trimLeadingZeroes()</a>.</p>
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00050">trimLeadingZeroes()</a>.</p>
 
 </div>
 </div>
@@ -171,21 +179,21 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00020">20</a></p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                                      {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; vec.size(); i++) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">if</span> (vec[i] &gt; 9) {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;LongNatural constructor: passed vector element is invalid&quot;</span>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a> = vec;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.empty()) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.push_back(0);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a752d4db58620682e2b529b9e0e8b6197">trimLeadingZeroes</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00023">23</a></p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                                      {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; vec.size(); i++) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">if</span> (vec[i] &gt; 9) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;LongNatural constructor: passed vector element is invalid&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a> = vec;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.empty()) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.push_back(0);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a752d4db58620682e2b529b9e0e8b6197">trimLeadingZeroes</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00047">trimLeadingZeroes()</a>.</p>
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00050">trimLeadingZeroes()</a>.</p>
 
 </div>
 </div>
@@ -205,22 +213,22 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00033">33</a></p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                                {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.reserve(<span class="keywordtype">string</span>.size());</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <span class="keywordtype">string</span>.size(); i++) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> (<span class="keywordtype">string</span>[i] &lt; <span class="charliteral">&#39;0&#39;</span> || <span class="keywordtype">string</span>[i] &gt; <span class="charliteral">&#39;9&#39;</span>) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;LongNatural constructor: passed string element is invalid&quot;</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.push_back(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(<span class="keywordtype">string</span>[i] - <span class="charliteral">&#39;0&#39;</span>));</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.empty()) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.push_back(0);</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00036">36</a></p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                                {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.reserve(<span class="keywordtype">string</span>.size());</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <span class="keywordtype">string</span>.size(); i++) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> (<span class="keywordtype">string</span>[i] &lt; <span class="charliteral">&#39;0&#39;</span> || <span class="keywordtype">string</span>[i] &gt; <span class="charliteral">&#39;9&#39;</span>) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;LongNatural constructor: passed string element is invalid&quot;</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.push_back(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(<span class="keywordtype">string</span>[i] - <span class="charliteral">&#39;0&#39;</span>));</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a752d4db58620682e2b529b9e0e8b6197">trimLeadingZeroes</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.empty()) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.push_back(0);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="../../d1/d9b/classLongNatural.html#a752d4db58620682e2b529b9e0e8b6197">trimLeadingZeroes</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00047">trimLeadingZeroes()</a>.</p>
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00050">trimLeadingZeroes()</a>.</p>
 
 </div>
 </div>
@@ -241,17 +249,17 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00069">69</a></p>
-<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                      {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (i &gt;= <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size()) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;LongNatural::at: index out of range&quot;</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>[i];</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00072">72</a></p>
+<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                      {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span> (i &gt;= <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size()) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;LongNatural::at: index out of range&quot;</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>[i];</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a>.</p>
 
-<p class="reference">Используется в <a class="el" href="../../db/d4a/INT__Q__B_8cpp_source.html#l00005">INT_Q_B()</a>, <a class="el" href="../../d5/d93/LongRational_8cpp_source.html#l00005">LongRational::LongRational()</a> и <a class="el" href="../../db/dc9/MUL__Nk__N_8cpp_source.html#l00003">MUL_Nk_N()</a>.</p>
+<p class="reference">Используется в <a class="el" href="../../db/d4a/INT__Q__B_8cpp_source.html#l00005">INT_Q_B()</a>, <a class="el" href="../../d5/d93/LongRational_8cpp_source.html#l00011">LongRational::LongRational()</a> и <a class="el" href="../../db/dc9/MUL__Nk__N_8cpp_source.html#l00003">MUL_Nk_N()</a>.</p>
 
 </div>
 </div>
@@ -270,14 +278,14 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00053">53</a></p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                                    {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00056">56</a></p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                                    {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a>.</p>
 
-<p class="reference">Используется в <a class="el" href="../../d6/d14/ADD__1N__N_8cpp_source.html#l00005">ADD_1N_N()</a>, <a class="el" href="../../d6/d14/ADD__NN__N_8cpp_source.html#l00007">ADD_NN_N()</a>, <a class="el" href="../../d8/df5/ADD__QQ__Q_8cpp_source.html#l00009">ADD_QQ_Q()</a>, <a class="el" href="../../d9/d96/ADD__ZZ__Z_8cpp_source.html#l00009">ADD_ZZ_Z()</a>, <a class="el" href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D()</a>, <a class="el" href="../../de/d27/DIV__QQ__Q_8cpp_source.html#l00007">DIV_QQ_Q()</a>, <a class="el" href="../../dd/de7/DIV__ZZ__Z_8cpp_source.html#l00011">DIV_ZZ_Z()</a>, <a class="el" href="../../dc/d23/MUL__ND__N_8cpp_source.html#l00007">MUL_ND_N()</a>, <a class="el" href="../../db/dc9/MUL__Nk__N_8cpp_source.html#l00003">MUL_Nk_N()</a>, <a class="el" href="../../da/d0a/MUL__NN__N_8cpp_source.html#l00008">MUL_NN_N()</a>, <a class="el" href="../../d8/d99/MUL__ZZ__Z_8cpp_source.html#l00009">MUL_ZZ_Z()</a>, <a class="el" href="../../dc/df5/RED__Q__Q_8cpp_source.html#l00011">RED_Q_Q()</a>, <a class="el" href="../../dc/dc1/SUB__NN__N_8cpp_source.html#l00008">SUB_NN_N()</a>, <a class="el" href="../../dd/d2e/SUB__ZZ__Z_8cpp_source.html#l00009">SUB_ZZ_Z()</a>, <a class="el" href="../../d5/d80/TRANS__N__Z_8cpp_source.html#l00003">TRANS_N_Z()</a> и <a class="el" href="../../da/d9e/TRANS__Q__Z_8cpp_source.html#l00005">TRANS_Q_Z()</a>.</p>
+<p class="reference">Используется в <a class="el" href="../../d6/d14/ADD__1N__N_8cpp_source.html#l00005">ADD_1N_N()</a>, <a class="el" href="../../d6/d14/ADD__NN__N_8cpp_source.html#l00007">ADD_NN_N()</a>, <a class="el" href="../../d8/df5/ADD__QQ__Q_8cpp_source.html#l00009">ADD_QQ_Q()</a>, <a class="el" href="../../d9/d96/ADD__ZZ__Z_8cpp_source.html#l00009">ADD_ZZ_Z()</a>, <a class="el" href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D()</a>, <a class="el" href="../../de/d27/DIV__QQ__Q_8cpp_source.html#l00007">DIV_QQ_Q()</a>, <a class="el" href="../../dd/de7/DIV__ZZ__Z_8cpp_source.html#l00011">DIV_ZZ_Z()</a>, <a class="el" href="../../dc/d23/MUL__ND__N_8cpp_source.html#l00007">MUL_ND_N()</a>, <a class="el" href="../../db/dc9/MUL__Nk__N_8cpp_source.html#l00003">MUL_Nk_N()</a>, <a class="el" href="../../da/d0a/MUL__NN__N_8cpp_source.html#l00008">MUL_NN_N()</a>, <a class="el" href="../../d8/d99/MUL__ZZ__Z_8cpp_source.html#l00009">MUL_ZZ_Z()</a>, <a class="el" href="../../dc/df5/RED__Q__Q_8cpp_source.html#l00011">RED_Q_Q()</a>, <a class="el" href="../../dc/dc1/SUB__NN__N_8cpp_source.html#l00008">SUB_NN_N()</a>, <a class="el" href="../../dd/d2e/SUB__ZZ__Z_8cpp_source.html#l00010">SUB_ZZ_Z()</a>, <a class="el" href="../../d5/d80/TRANS__N__Z_8cpp_source.html#l00003">TRANS_N_Z()</a> и <a class="el" href="../../da/d9e/TRANS__Q__Z_8cpp_source.html#l00005">TRANS_Q_Z()</a>.</p>
 
 </div>
 </div>
@@ -296,10 +304,10 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00065">65</a></p>
-<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                    {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00068">68</a></p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                    {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a>.</p>
 
@@ -323,10 +331,10 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00087">87</a></p>
-<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                                           {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);  <span class="comment">// Если числа не равны, то они не равны</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00090">90</a></p>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                                           {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);  <span class="comment">// Если числа не равны, то они не равны</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -346,10 +354,10 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00091">91</a></p>
-<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                                          {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(*<span class="keyword">this</span>, other) == 1;  <span class="comment">// Если число меньше, то COM_NN_D возвращает 1</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00094">94</a></p>
+<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                                          {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(*<span class="keyword">this</span>, other) == 1;  <span class="comment">// Если число меньше, то COM_NN_D возвращает 1</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
 <div class="ttc" id="aCOM__NN__D_8hpp_html_a91c2d9097b66dbc41f066cd3ccc52449"><div class="ttname"><a href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a></div><div class="ttdeci">int COM_NN_D(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция COM_NN_D принимает два числа и сравнивает их.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D.cpp:3</a></div></div>
 </div><!-- fragment -->
 <p class="reference">Перекрестные ссылки <a class="el" href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D()</a>.</p>
@@ -372,10 +380,10 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00083">83</a></p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                                           {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a> == other.<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>;  <span class="comment">// Если массивы равны, то числа равны</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00086">86</a></p>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                                           {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a> == other.<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>;  <span class="comment">// Если массивы равны, то числа равны</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a>.</p>
 
@@ -397,13 +405,13 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00076">76</a></p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                         {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> (i &gt;= <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size()) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>[<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size() - i - 1];</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00079">79</a></p>
+<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                         {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (i &gt;= <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size()) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>[<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size() - i - 1];</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a>.</p>
 
@@ -426,18 +434,18 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00057">57</a></p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                      {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::string result;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size(); i++) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        result += <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>[i] + <span class="charliteral">&#39;0&#39;</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00060">60</a></p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                      {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::string result;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size(); i++) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        result += <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>[i] + <span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a>.</p>
 
-<p class="reference">Используется в <a class="el" href="../../dd/db7/ioUtils_8hpp_source.html#l00032">DisplayResultOrError()</a> и <a class="el" href="../../d5/d93/LongRational_8cpp_source.html#l00019">LongRational::toString()</a>.</p>
+<p class="reference">Используется в <a class="el" href="../../dd/db7/ioUtils_8hpp_source.html#l00032">DisplayResultOrError()</a> и <a class="el" href="../../d5/d93/LongRational_8cpp_source.html#l00025">LongRational::toString()</a>.</p>
 
 </div>
 </div>
@@ -464,16 +472,16 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00047">47</a></p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size() &gt; 1 &amp;&amp; <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.front() == 0) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.erase(<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.begin());</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00050">50</a></p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.size() &gt; 1 &amp;&amp; <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.front() == 0) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.erase(<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.begin());</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">arr</a>.</p>
 
-<p class="reference">Используется в <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00008">LongNatural()</a>.</p>
+<p class="reference">Используется в <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00011">LongNatural()</a>.</p>
 
 </div>
 </div>
@@ -500,7 +508,59 @@ $(function() {
 
 <p class="definition">См. определение в файле <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html">LongNatural.hpp</a> строка <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00026">26</a></p>
 
-<p class="reference">Используется в <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00069">at()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00053">getArr()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00065">getLength()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00008">LongNatural()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00083">operator==()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00076">radix()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00057">toString()</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00047">trimLeadingZeroes()</a>.</p>
+<p class="reference">Используется в <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00072">at()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00056">getArr()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00068">getLength()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00011">LongNatural()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00086">operator==()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00079">radix()</a>, <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00060">toString()</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00050">trimLeadingZeroes()</a>.</p>
+
+</div>
+</div>
+<a id="a6d4971535714de9cfea12e8677d38a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d4971535714de9cfea12e8677d38a58">&#9670;&nbsp;</a></span>ONE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> LongNatural::ONE = <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>({1})</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html">LongNatural.hpp</a> строка <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00033">33</a></p>
+
+<p class="reference">Используется в <a class="el" href="../../dc/d08/DER__P__P_8cpp_source.html#l00010">DER_P_P()</a>.</p>
+
+</div>
+</div>
+<a id="a17270babf99678ace63c897cbf5130f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17270babf99678ace63c897cbf5130f9">&#9670;&nbsp;</a></span>ZERO</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a> LongNatural::ZERO = <a class="el" href="../../d1/d9b/classLongNatural.html">LongNatural</a>({0})</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html">LongNatural.hpp</a> строка <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00031">31</a></p>
+
+<p class="reference">Используется в <a class="el" href="../../dc/d08/DER__P__P_8cpp_source.html#l00010">DER_P_P()</a>, <a class="el" href="../../d5/d5c/DIV__NN__Dk_8cpp_source.html#l00010">DIV_NN_Dk()</a>, <a class="el" href="../../db/d6a/DIV__PP__P_8cpp_source.html#l00012">DIV_PP_P()</a>, <a class="el" href="../../dc/d17/GCF__PP__P_8cpp_source.html#l00010">GCF_PP_P()</a>, <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00040">MapToPolyStr()</a>, <a class="el" href="../../db/dc9/MUL__Nk__N_8cpp_source.html#l00003">MUL_Nk_N()</a>, <a class="el" href="../../db/d16/MUL__PP__P_8cpp_source.html#l00007">MUL_PP_P()</a>, <a class="el" href="../../d8/d51/NMR__P__P_8cpp_source.html#l00009">NMR_P_P()</a> и <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00040">Polynomial::toString()</a>.</p>
 
 </div>
 </div>

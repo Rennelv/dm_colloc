@@ -195,7 +195,7 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// добавляем в строку коэффиценты с наибольшей степени</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = terms.rbegin(); it != terms.rend(); ++it) {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">auto</span> [deg, coef] = *it;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (deg == <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(<span class="stringliteral">&quot;0&quot;</span>)) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (deg == <a class="code" href="../../d1/d9b/classLongNatural.html#a17270babf99678ace63c897cbf5130f9">LongNatural::ZERO</a>) {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            result += coef.toString() + <span class="stringliteral">&quot; + &quot;</span>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        } <span class="keywordflow">else</span> {</div>
@@ -209,8 +209,10 @@ $(function() {
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> result.substr(0, result.size() - 3);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+<div class="ttc" id="aclassLongNatural_html_a17270babf99678ace63c897cbf5130f9"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html#a17270babf99678ace63c897cbf5130f9">LongNatural::ZERO</a></div><div class="ttdeci">static const LongNatural ZERO</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00031">LongNatural.hpp:31</a></div></div>
 </div><!-- fragment -->
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d7/d74/LongNatural_8hpp_source.html#l00031">LongNatural::ZERO</a>.</p>
+
 <p class="reference">Используется в <a class="el" href="../../d7/d22/ioUtils_8cpp_source.html#l00063">parsePolynomial()</a>.</p>
 
 </div>
@@ -296,6 +298,7 @@ $(function() {
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;%s&quot;</span>, <a class="code" href="../../d7/d22/ioUtils_8cpp.html#afe8cbee0555da78a683d5d830ef2ec5a">MapToPolyStr</a>(terms).c_str());</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    ImGui::EndChild();</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
 <div class="ttc" id="aclassLongRational_html"><div class="ttname"><a href="../../da/d86/classLongRational.html">LongRational</a></div><div class="ttdoc">Класс для работы с рациональными числами (дробями).</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/LongRational_8hpp_source.html#l00024">LongRational.hpp:24</a></div></div>
 <div class="ttc" id="aioUtils_8cpp_html_a647d07109323df9ddc5f53cced78fe6a"><div class="ttname"><a href="../../d7/d22/ioUtils_8cpp.html#a647d07109323df9ddc5f53cced78fe6a">InputTextWithResize</a></div><div class="ttdeci">void InputTextWithResize(const char *label, std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d22/ioUtils_8cpp_source.html#l00007">ioUtils.cpp:7</a></div></div>
 <div class="ttc" id="aioUtils_8cpp_html_ab8c00abaf34c3db44e0726a18d1eea79"><div class="ttname"><a href="../../d7/d22/ioUtils_8cpp.html#ab8c00abaf34c3db44e0726a18d1eea79">StrToFraction</a></div><div class="ttdeci">void StrToFraction(const std::string &amp;str, std::string &amp;numerator, std::string &amp;denominator)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d22/ioUtils_8cpp_source.html#l00032">ioUtils.cpp:32</a></div></div>

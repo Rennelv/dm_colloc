@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['trans_5fn_5fz_5fopen_583',['TRANS_N_Z_open',['../df/d1c/classHandleIntegerFunctions.html#afddfc6640dcbf1966088ee725860ae1c',1,'HandleIntegerFunctions']]],
-  ['trans_5fq_5fz_5fopen_584',['TRANS_Q_Z_open',['../dc/dd4/classHandleRationalFunctions.html#a46055bab98c32c91e43dd1c71afbe7a4',1,'HandleRationalFunctions']]],
-  ['trans_5fz_5fn_5fopen_585',['TRANS_Z_N_open',['../df/d1c/classHandleIntegerFunctions.html#a2fa44501c14dd2504dfda5bed3e650a9',1,'HandleIntegerFunctions']]],
-  ['trans_5fz_5fq_5fopen_586',['TRANS_Z_Q_open',['../dc/dd4/classHandleRationalFunctions.html#ac4f946a9f45048d9d6437bbe4f76b8b7',1,'HandleRationalFunctions']]]
+  ['sub_5fndn_5fn_5fopen_580',['SUB_NDN_N_open',['../dc/d49/classHandleNaturalFunctions.html#a99392c468ad86951e3929ba6959c1cd7',1,'HandleNaturalFunctions']]],
+  ['sub_5fnn_5fn_5fopen_581',['SUB_NN_N_open',['../dc/d49/classHandleNaturalFunctions.html#af539832cc5f202d27218aa30b3c8f105',1,'HandleNaturalFunctions']]],
+  ['sub_5fpp_5fp_5fopen_582',['SUB_PP_P_open',['../d7/df6/classHandlePolynomialFunctions.html#a6a48af2426f4687e8bd6d028a13581dc',1,'HandlePolynomialFunctions']]],
+  ['sub_5fqq_5fq_5fopen_583',['SUB_QQ_Q_open',['../dc/dd4/classHandleRationalFunctions.html#a5752850bf8aa6a030d9140c1b5ba1403',1,'HandleRationalFunctions']]],
+  ['sub_5fzz_5fz_5fopen_584',['SUB_ZZ_Z_open',['../df/d1c/classHandleIntegerFunctions.html#a2966a5b289c1e9e9166b5e2fa8a3e536',1,'HandleIntegerFunctions']]]
 ];
