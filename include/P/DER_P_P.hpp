@@ -1,7 +1,7 @@
 #ifndef DER_P_P_HPP
 #define DER_P_P_HPP
 
-#include <P/Polynomial.hpp>
+#include "P/Polynomial.hpp"
 
 /**
  * @file DER_P_P.hpp

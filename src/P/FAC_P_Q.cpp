@@ -4,6 +4,7 @@
 #include "N/GCF_NN_N.hpp"
 #include "N/LCM_NN_N.hpp"
 #include "N/LongNatural.hpp"
+#include "Q/RED_Q_Q.hpp"
 #include "Z/ABS_Z_N.hpp"
 #include "Z/DIV_ZZ_Z.hpp"
 #include "Z/LongInteger.hpp"
@@ -42,5 +43,5 @@ LongRational FAC_P_Q(Polynomial& a) {
     a = new_poly;
 
     // Возвращаем вынесенный коффициент
-    return LongRational(gcf_long_integer, lcm);
+    return RED_Q_Q(LongRational(gcf_long_integer, lcm));
 }

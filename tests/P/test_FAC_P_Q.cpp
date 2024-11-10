@@ -40,8 +40,8 @@ TEST(test_FAC_P_Q, FractionalCoefficients) {
     Polynomial expect(expect_poly);
 
     EXPECT_EQ(a.toString(), expect.toString());           // (4/5)x^2 + (6/10)x^1 + (8/15)x^0 = [(12/1)x^2 + (9/1)x^1 + (8/1)x^0] * (2/30)
-    EXPECT_EQ(result.getNumerator().toString(), "2");     // Ожидаемый НОД = 2
-    EXPECT_EQ(result.getDenominator().toString(), "30");  // Ожидаемый НОК = 30
+    EXPECT_EQ(result.getNumerator().toString(), "1");     // Ожидаемый НОД = 1
+    EXPECT_EQ(result.getDenominator().toString(), "15");  // Ожидаемый НОК = 15
 }
 
 TEST(test_FAC_P_Q, GCFAndLCMAreOne) {
@@ -92,6 +92,6 @@ TEST(test_FAC_P_Q, ZeroPolynomial) {
     Polynomial expect(expect_poly);
 
     EXPECT_EQ(a.toString(), expect.toString());          // (0/1)x^0 = (0/1)x^0
-    EXPECT_EQ(result.getNumerator().toString(), "0");    // Ожидаемый НОД = 0ы
+    EXPECT_EQ(result.getNumerator().toString(), "0");    // Ожидаемый НОД = 0
     EXPECT_EQ(result.getDenominator().toString(), "1");  // Ожидаемый НОК = 1
 }
