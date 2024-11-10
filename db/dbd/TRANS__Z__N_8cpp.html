@@ -119,12 +119,12 @@ $(function() {
 
 <p class="definition">См. определение в файле <a class="el" href="../../db/dbd/TRANS__Z__N_8cpp_source.html">TRANS_Z_N.cpp</a> строка <a class="el" href="../../db/dbd/TRANS__Z__N_8cpp_source.html#l00005">5</a></p>
 <div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                                            {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    std::vector&lt;uint8_t&gt; newArr = n.<a class="code" href="../../d9/d12/classLongInteger.html#a25d6fb30ca640ed1626200984f145b55">getArr</a>();  <span class="comment">// получаем массив цифр целого числа n</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    std::vector&lt;uint8_t&gt; new_arr = n.<a class="code" href="../../d9/d12/classLongInteger.html#a25d6fb30ca640ed1626200984f145b55">getArr</a>();  <span class="comment">// получаем массив цифр целого числа n</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordflow">if</span> (n.<a class="code" href="../../d9/d12/classLongInteger.html#a61db7a4f2e9e5bec7e239f20132597c8">isNegative</a>()) {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Error: the number must not be negative&quot;</span>);  <span class="comment">// если n &lt; 0, выбрасываем ошибку</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> result(newArr);  <span class="comment">// создаем натуральное число</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordflow">return</span> result;               <span class="comment">// возвращаем результат</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a> result(new_arr);  <span class="comment">// создаем натуральное число</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordflow">return</span> result;                <span class="comment">// возвращаем результат</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
 <div class="ttc" id="aclassLongInteger_html_a25d6fb30ca640ed1626200984f145b55"><div class="ttname"><a href="../../d9/d12/classLongInteger.html#a25d6fb30ca640ed1626200984f145b55">LongInteger::getArr</a></div><div class="ttdeci">const std::vector&lt; uint8_t &gt; &amp; getArr() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d5e/LongInteger_8cpp_source.html#l00056">LongInteger.cpp:56</a></div></div>
