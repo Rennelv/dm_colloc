@@ -1,7 +1,7 @@
 #ifndef POZ_Z_D_HPP
 #define POZ_Z_D_HPP
 
-#include <Z/LongInteger.hpp>
+#include "Z/LongInteger.hpp"
 
 /**
  * @file POZ_Z_D.hpp

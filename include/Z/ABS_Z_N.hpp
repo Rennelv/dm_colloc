@@ -1,8 +1,8 @@
 #ifndef ABS_Z_N_HPP
 #define ABS_Z_N_HPP
 
-#include <N/LongNatural.hpp>
-#include <Z/LongInteger.hpp>
+#include "N/LongNatural.hpp"
+#include "Z/LongInteger.hpp"
 
 /**
  * @file ABS_Z_N.hpp

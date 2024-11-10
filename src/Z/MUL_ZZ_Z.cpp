@@ -6,8 +6,6 @@
 #include "Z/LongInteger.hpp"
 #include "Z/POZ_Z_D.hpp"
 
-using namespace std;
-
 LongInteger MUL_ZZ_Z(const LongInteger &a, const LongInteger &b) {
     if (POZ_Z_D(a) == 0 || POZ_Z_D(b) == 0) {  // проверяем, есть ли среди чисел ноль
         LongInteger c(false, {0});             // создаем целое нулевое число, если одно из чисел ноль
@@ -20,9 +18,9 @@ LongInteger MUL_ZZ_Z(const LongInteger &a, const LongInteger &b) {
     if (b.isNegative()) {  // узнаем знак числа b
         flag = !flag;      // увеличием значение flag'а если число отрицательное
     }
-    LongNatural a1 = ABS_Z_N(a);        // находим модуль числа a
-    LongNatural b1 = ABS_Z_N(b);        // находим модуль числа b
-    LongNatural c1 = MUL_NN_N(a1, b1);  // находим произведение модулей
-    LongInteger c(flag, c1.getArr());   // создаем целое число, учитывая знаки переданных чисел
-    return c;                           // возвращаем произведение чисел
+    LongNatural abs_a = ABS_Z_N(a);              // находим модуль числа a
+    LongNatural abs_b = ABS_Z_N(b);              // находим модуль числа b
+    LongNatural abs_c = MUL_NN_N(abs_a, abs_b);  // находим произведение модулей
+    LongInteger c(flag, abs_c.getArr());         // создаем целое число, учитывая знаки переданных чисел
+    return c;                                    // возвращаем произведение чисел
 }
