@@ -5,6 +5,9 @@
 
 #include "N/COM_NN_D.hpp"
 
+const LongNatural LongNatural::ZERO = LongNatural({0});
+const LongNatural LongNatural::ONE = LongNatural({1});
+
 LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
     for (size_t i = 0; i < arr.size(); i++) {
         if (arr[i] > 9) {

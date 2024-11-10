@@ -6,10 +6,10 @@
 #include "Q/LongRational.hpp"
 #include "Z/LongInteger.hpp"
 
-Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coefficients(map), degree({0}), zero(LongInteger(false, {0}), LongNatural({1})) {
+Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coefficients(map), degree({0}) {
     std::map<LongNatural, LongRational> temp_map = coefficients;
     for (const auto& [deg, coef] : temp_map) {
-        if (coef.getNumerator() == zero.getNumerator()) {
+        if (coef.getNumerator() == LongInteger::ZERO) {
             coefficients.erase(deg);  // стираем нулевые степени
         }
     }
@@ -28,7 +28,7 @@ bool Polynomial::isCoef(const LongNatural& degree) const {
 
 const LongRational& Polynomial::getCoef(const LongNatural& degree) const {
     if (coefficients.find(degree) == coefficients.end()) {
-        return zero;  // если не найден вернуть 0/1
+        return LongRational::ZERO;  // если не найден вернуть 0/1
     }
     return coefficients.at(degree);
 }
@@ -45,7 +45,7 @@ std::string Polynomial::toString() const {
     // добавляем в строку коэффиценты с наибольшей степени
     for (auto it = coefficients.rbegin(); it != coefficients.rend(); ++it) {
         auto [deg, coef] = *it;
-        if (deg == LongNatural("0")) {
+        if (deg == LongNatural::ZERO) {
             result += coef.toString() + " + ";
 
         } else {

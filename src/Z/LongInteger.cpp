@@ -3,6 +3,9 @@
 #include <cstdint>
 #include <stdexcept>
 
+const LongInteger LongInteger::ZERO = LongInteger(false, {0});
+const LongInteger LongInteger::ONE = LongInteger(false, {1});
+
 LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : negative(negative), arr(list) {
     for (size_t i = 0; i < arr.size(); i++) {
         if (arr[i] > 9) {

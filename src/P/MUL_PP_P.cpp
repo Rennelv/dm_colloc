@@ -7,7 +7,7 @@
 Polynomial MUL_PP_P(const Polynomial& p1, const Polynomial& p2) {
     // Создаем нулевой многочлен для результата
     std::map<LongNatural, LongRational> zero_pol;
-    zero_pol.emplace(LongNatural("0"), LongRational(LongInteger("0"), LongNatural("1")));
+    zero_pol.emplace(LongNatural::ZERO, LongRational::ZERO);
     Polynomial result(zero_pol);
 
     // Проходим по всем степеням и коэффициентам p1

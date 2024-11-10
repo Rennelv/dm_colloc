@@ -11,13 +11,13 @@
 
 Polynomial DIV_PP_P(const Polynomial& dividend, const Polynomial& divisor) {
     // Проверка на единичный многочлен (если divisor == 1, возвращаем dividend)
-    if (divisor.getDegree() == LongNatural("0") && divisor.getCoef(LongNatural("0")) == LongRational(LongInteger("1"), LongNatural("1"))) {
+    if (divisor.getDegree() == LongNatural::ZERO && divisor.getCoef(LongNatural::ZERO) == LongRational::ONE) {
         return dividend;
     }
 
     // Инициализируем нулевой многочлен для частного
     std::map<LongNatural, LongRational> zero_map;
-    zero_map.emplace(LongNatural("0"), LongRational(LongInteger("0"), LongNatural("1")));
+    zero_map.emplace(LongNatural::ZERO, LongRational::ZERO);
     Polynomial quotient(zero_map);
 
     // Степень делимого и делителя

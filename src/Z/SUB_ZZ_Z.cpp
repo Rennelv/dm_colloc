@@ -4,7 +4,8 @@
 #include "N/COM_NN_D.hpp"  // сравнение модулей
 #include "N/SUB_NN_N.hpp"  // вычитание модулей чисел
 #include "Z/ABS_Z_N.hpp"   // получение модуля числа
-#include "Z/POZ_Z_D.hpp"   // определение знака числа
+#include "Z/LongInteger.hpp"
+#include "Z/POZ_Z_D.hpp"  // определение знака числа
 
 LongInteger SUB_ZZ_Z(const LongInteger& a, const LongInteger& b) {
     int sign_a = POZ_Z_D(a);  // определяем знак числа a
@@ -16,6 +17,7 @@ LongInteger SUB_ZZ_Z(const LongInteger& a, const LongInteger& b) {
     // если знаки разные, складываем модули и сохраняем знак
     if (sign_a != sign_b) {
         if (sign_a == 0) return LongInteger(sign_b == 2, abs_b.getArr());  // возвращаем с учетом знака второго числа, если первое нуль
+
         LongNatural result = ADD_NN_N(abs_a, abs_b);
         return LongInteger(sign_a == 1, result.getArr());  // возвращаем с учетом знака
     }
@@ -24,10 +26,12 @@ LongInteger SUB_ZZ_Z(const LongInteger& a, const LongInteger& b) {
     if (COM_NN_D(abs_a, abs_b) == 2) {
         LongNatural result = SUB_NN_N(abs_a, abs_b);
         return LongInteger(sign_a == 1, result.getArr());  // если abs_a > abs_b, вычитаем abs_b из abs_a, возвращая результат с сохранением знака
+
     } else if (COM_NN_D(abs_a, abs_b) == 1) {
         LongNatural result = SUB_NN_N(abs_b, abs_a);
         return LongInteger(sign_a == 2, result.getArr());  // если abs_a < abs_b, вычитаем abs_a из abs_b, возвращая результат со сменой знака
+
     } else {
-        return LongInteger(false, {0});  // если abs_a == abs_b, возвращаем 0
+        return LongInteger::ZERO;  // если abs_a == abs_b, возвращаем 0
     }
 }

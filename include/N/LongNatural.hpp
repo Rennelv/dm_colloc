@@ -27,6 +27,11 @@ class LongNatural {
     void trimLeadingZeroes();  // вспомогательный метод для удаления ведущих нулей
 
    public:
+    // Натуральное число 0
+    static const LongNatural ZERO;
+    // Натуральное число 1
+    static const LongNatural ONE;
+
     // Создает число из списка инциализации
     LongNatural(std::initializer_list<uint8_t> list);
     // Создает число из вектора

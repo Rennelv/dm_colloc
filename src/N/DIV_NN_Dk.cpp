@@ -13,8 +13,7 @@ LongNatural DIV_NN_Dk(const LongNatural& a, const LongNatural& b) {
     }
 
     if (COM_NN_D(a, b) == 1) {  // если второе число больше первого, возвращаем ноль
-        LongNatural res = {0};
-        return res;
+        return LongNatural::ZERO;
     }
 
     LongNatural scaled_b = b;

@@ -1,6 +1,6 @@
 #include "Z/DIV_ZZ_Z.hpp"
 
-#include "N/ADD_NN_N.hpp"
+#include "N/ADD_1N_N.hpp"
 #include "N/DIV_NN_N.hpp"
 #include "N/LongNatural.hpp"
 #include "N/MOD_NN_N.hpp"
@@ -21,8 +21,7 @@ LongInteger DIV_ZZ_Z(const LongInteger& dividend, const LongInteger& divisor) {
 
     // Если знак делимого положительный и остаток от деления не равен нулю - прибавляется к натуральному частному 1
     if (sign_dividend == 1 && NZER_N_B(MOD_NN_N(abs_dividend, abs_divisor))) {
-        LongNatural one("1");
-        quotient = ADD_NN_N(quotient, one);
+        quotient = ADD_1N_N(quotient);  // Прибавление 1 к натуральному числу
     }
 
     // Создаю целое число из знака и натурального (натуральное заранее преобразую в целое)
