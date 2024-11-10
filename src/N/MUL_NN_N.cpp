@@ -6,7 +6,7 @@
 #include "N/MUL_Nk_N.hpp"
 
 LongNatural MUL_NN_N(const LongNatural& a, const LongNatural& b) {
-    std::vector<uint8_t> b_arr = b.getArr();  // массив цифр числа b
+    const std::vector<uint8_t>& b_arr = b.getArr();  // массив цифр числа b
 
     LongNatural result({0});  // результат умножения
 

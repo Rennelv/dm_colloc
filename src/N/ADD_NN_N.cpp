@@ -1,22 +1,14 @@
 #include "N/ADD_NN_N.hpp"
 
-#include <algorithm>  // для std::reverse
 #include <cstddef>
 
-#include "N/COM_NN_D.hpp"
 #include "N/LongNatural.hpp"
 
 LongNatural ADD_NN_N(const LongNatural& a, const LongNatural& b) {
-    std::vector<uint8_t> a_arr = a.getArr();  // получаем массивы цифр числа а
-    std::vector<uint8_t> b_arr = b.getArr();  // получаем массивы цифр числа b
-
-    // если число а меньше числа b, то меняем их местами
-    if (COM_NN_D(a, b) == 1) {
-        a_arr = b.getArr();
-        b_arr = a.getArr();
-    }
-
-    a_arr.reserve(a_arr.size() + 1);  // резервируем место для результата
+    bool comp_res = a.getLength() >= b.getLength();  // длина а не меньше b
+    // получаем массивы цифр; len(a_arr) >= len(b_arr)
+    std::vector<uint8_t> a_arr = comp_res ? a.getArr() : b.getArr();         // копируем массив цифр большего числа
+    const std::vector<uint8_t>& b_arr = comp_res ? b.getArr() : a.getArr();  // получаем массив цифр меньшего числа
 
     uint8_t carry = 0;            // перенос
     size_t a_len = a_arr.size();  // длина числа a

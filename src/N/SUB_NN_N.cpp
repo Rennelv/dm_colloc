@@ -6,8 +6,8 @@
 #include "N/LongNatural.hpp"
 
 LongNatural SUB_NN_N(const LongNatural& a, const LongNatural& b) {
-    std::vector<uint8_t> a_arr = a.getArr();  // получаем массивы цифр числа а
-    std::vector<uint8_t> b_arr = b.getArr();  // получаем массивы цифр числа b
+    std::vector<uint8_t> a_arr = a.getArr();         // получаем массивы цифр числа а
+    const std::vector<uint8_t>& b_arr = b.getArr();  // получаем массивы цифр числа b
 
     // если число а меньше числа b, то возврашаем ошибку
     if (COM_NN_D(a, b) == 1) {
