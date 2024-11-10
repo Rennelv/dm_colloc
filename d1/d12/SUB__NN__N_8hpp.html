@@ -134,54 +134,49 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../dc/dc1/SUB__NN__N_8cpp_source.html">SUB_NN_N.cpp</a> строка <a class="el" href="../../dc/dc1/SUB__NN__N_8cpp_source.html#l00010">10</a></p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                                                                 {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    std::vector&lt;uint8_t&gt; a_arr = a.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();  <span class="comment">// получаем массивы цифр числа а</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    std::vector&lt;uint8_t&gt; b_arr = b.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();  <span class="comment">// получаем массивы цифр числа b</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// если число а меньше числа b, то возврашаем ошибку</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(a, b) == 1) {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;The first number is lower than the second&quot;</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::vector&lt;uint8_t&gt; result_arr;   <span class="comment">// массив для результата</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    result_arr.reserve(a_arr.size());  <span class="comment">// резервируем место для результата</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    uint8_t carry = 0;            <span class="comment">// перенос</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">size_t</span> a_len = a_arr.size();  <span class="comment">// длина числа a</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">size_t</span> b_len = b_arr.size();  <span class="comment">// длина числа b</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; b_len; i++) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">size_t</span> a_idx = a_len - 1 - i;  <span class="comment">// индес числа a</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">size_t</span> b_idx = b_len - 1 - i;  <span class="comment">// индекс числа b</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">if</span> (a_arr[a_idx] &gt;= b_arr[b_idx] + carry) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            result_arr.push_back(a_arr[a_idx] - carry - b_arr[b_idx]);  <span class="comment">// из выбранной цифры вычитаем цифру второго числа и перенс</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            carry = 0;                                                  <span class="comment">// не занимаем из следующей цифры</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            result_arr.push_back(a_arr[a_idx] + 10 - carry - b_arr[b_idx]);  <span class="comment">// занимаем у следующей цифры и вычитаем из выбранной цифру второго числа</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            carry = 1;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = b_len; i &lt; a_len; i++) {  <span class="comment">// добавляем оставшиеся цифры чила a и продолжаем занимать, пока число не будет больше 0</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">size_t</span> a_idx = a_len - 1 - i;  <span class="comment">// индекс числа a</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span> (a_arr[a_idx] &gt;= carry) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            result_arr.push_back(a_arr[a_idx] - carry);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            carry = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            result_arr.push_back(a_arr[a_idx] + 10 - carry);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            carry = 1;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">while</span> (result_arr.size() &gt; 1 &amp;&amp; result_arr.back() == 0) {  <span class="comment">// убираем незначащие нули</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        result_arr.pop_back();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::reverse(result_arr.begin(), result_arr.end());  <span class="comment">// переворачиваем массив</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(result_arr);  <span class="comment">// возвращаем результат</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<p class="definition">См. определение в файле <a class="el" href="../../dc/dc1/SUB__NN__N_8cpp_source.html">SUB_NN_N.cpp</a> строка <a class="el" href="../../dc/dc1/SUB__NN__N_8cpp_source.html#l00008">8</a></p>
+<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                                                                 {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    std::vector&lt;uint8_t&gt; a_arr = a.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();         <span class="comment">// получаем массивы цифр числа а</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">const</span> std::vector&lt;uint8_t&gt;&amp; b_arr = b.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();  <span class="comment">// получаем массивы цифр числа b</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// если число а меньше числа b, то возврашаем ошибку</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(a, b) == 1) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;The first number is lower than the second&quot;</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    uint8_t carry = 0;            <span class="comment">// перенос</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">size_t</span> a_len = a_arr.size();  <span class="comment">// длина числа a</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">size_t</span> b_len = b_arr.size();  <span class="comment">// длина числа b</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; b_len; i++) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">size_t</span> a_idx = a_len - 1 - i;  <span class="comment">// индес числа a</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">size_t</span> b_idx = b_len - 1 - i;  <span class="comment">// индекс числа b</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">if</span> (a_arr[a_idx] &gt;= b_arr[b_idx] + carry) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            a_arr[a_idx] = a_arr[a_idx] - carry - b_arr[b_idx];  <span class="comment">// из выбранной цифры вычитаем цифру второго числа и перенс</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            carry = 0;                                           <span class="comment">// не занимаем из следующей цифры</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            a_arr[a_idx] = a_arr[a_idx] + 10 - carry - b_arr[b_idx];  <span class="comment">// занимаем у следующей цифры и вычитаем из выбранной цифру второго числа</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            carry = 1;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">size_t</span> a_idx = a_len - 1 - b_len;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">while</span> (carry) {                   <span class="comment">// забирает 1 из следующих разрядов, пока дойдёт до цифры большей 0</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span> (a_arr[a_idx] &gt;= carry) {  <span class="comment">// если цифра больше 0</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            a_arr[a_idx] = a_arr[a_idx] - carry;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            carry = 0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        } <span class="keywordflow">else</span> {  <span class="comment">// если цифра 0</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            a_arr[a_idx] = a_arr[a_idx] + 10 - carry;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            a_idx--;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">while</span> (a_arr.size() &gt; 1 &amp;&amp; a_arr.front() == 0) {  <span class="comment">// убираем незначащие нули</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        a_arr.erase(a_arr.begin());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(a_arr);  <span class="comment">// возвращаем результат</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
 <div class="ttc" id="aCOM__NN__D_8hpp_html_a91c2d9097b66dbc41f066cd3ccc52449"><div class="ttname"><a href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a></div><div class="ttdeci">int COM_NN_D(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция COM_NN_D принимает два числа и сравнивает их.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D.cpp:3</a></div></div>
 <div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
 <div class="ttc" id="aclassLongNatural_html_ae336854d31963416d3a1cd91006fd8c2"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">LongNatural::getArr</a></div><div class="ttdeci">const std::vector&lt; uint8_t &gt; &amp; getArr() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da7/LongNatural_8cpp_source.html#l00053">LongNatural.cpp:53</a></div></div>

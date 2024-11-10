@@ -74,9 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d36/ADD__NN__N_8hpp_source.html">N/ADD_NN_N.hpp</a>&quot;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/db9/COM__NN__D_8hpp_source.html">N/COM_NN_D.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d74/LongNatural_8hpp_source.html">N/LongNatural.hpp</a>&quot;</code><br />
 </div>
 <p><a href="../../d6/d14/ADD__NN__N_8cpp_source.html">См. исходные тексты.</a></p>
@@ -125,50 +123,41 @@ $(function() {
 <dl class="section return"><dt>Возвращает</dt><dd>Сумма чисел. </dd></dl>
 <dl class="section author"><dt>Автор</dt><dd>Журавлев Дмитрий 3381 </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d6/d14/ADD__NN__N_8cpp_source.html">ADD_NN_N.cpp</a> строка <a class="el" href="../../d6/d14/ADD__NN__N_8cpp_source.html#l00009">9</a></p>
-<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                                                                 {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    std::vector&lt;uint8_t&gt; a_arr = a.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();  <span class="comment">// получаем массивы цифр числа а</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    std::vector&lt;uint8_t&gt; b_arr = b.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();  <span class="comment">// получаем массивы цифр числа b</span></div>
+<p class="definition">См. определение в файле <a class="el" href="../../d6/d14/ADD__NN__N_8cpp_source.html">ADD_NN_N.cpp</a> строка <a class="el" href="../../d6/d14/ADD__NN__N_8cpp_source.html#l00007">7</a></p>
+<div class="fragment"><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;                                                                 {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">bool</span> comp_res = a.<a class="code" href="../../d1/d9b/classLongNatural.html#a2448a1c11077a7e922bd5dcd3e9d43c8">getLength</a>() &gt;= b.<a class="code" href="../../d1/d9b/classLongNatural.html#a2448a1c11077a7e922bd5dcd3e9d43c8">getLength</a>();  <span class="comment">// длина а не меньше b</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">// получаем массивы цифр; len(a_arr) &gt;= len(b_arr)</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    std::vector&lt;uint8_t&gt; a_arr = comp_res ? a.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>() : b.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();         <span class="comment">// копируем массив цифр большего числа</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">const</span> std::vector&lt;uint8_t&gt;&amp; b_arr = comp_res ? b.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>() : a.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();  <span class="comment">// получаем массив цифр меньшего числа</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// если число а меньше числа b, то меняем их местами</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a>(a, b) == 1) {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        a_arr = b.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        b_arr = a.<a class="code" href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">getArr</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::vector&lt;uint8_t&gt; result_arr;       <span class="comment">// массив для результата</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    result_arr.reserve(a_arr.size() + 1);  <span class="comment">// резервируем место для результата</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    uint8_t carry = 0;  <span class="comment">// перенос</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">size_t</span> a_len = a_arr.size();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">size_t</span> b_len = b_arr.size();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    uint8_t carry = 0;            <span class="comment">// перенос</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">size_t</span> a_len = a_arr.size();  <span class="comment">// длина числа a</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">size_t</span> b_len = b_arr.size();  <span class="comment">// длина числа b</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; a_len; i++) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">size_t</span> a_idx = a_len - i - 1;        <span class="comment">// индекс для числа а с конца</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        uint8_t sum = a_arr[a_idx] + carry;  <span class="comment">// складываем цифру числа а и перенос</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">if</span> (i &lt; b_len) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordtype">size_t</span> b_idx = b_len - i - 1;  <span class="comment">// индекс для числа b с конца</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            sum += b_arr[b_idx];           <span class="comment">// если есть соответсвующая цифра числа b, то прибавляем ее</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; a_len; i++) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">size_t</span> a_idx = a_len - i - 1;        <span class="comment">// индекс для числа а с конца</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        uint8_t sum = a_arr[a_idx] + carry;  <span class="comment">// складываем цифру числа а и перенос</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        carry = sum / 10;         <span class="comment">// вычисляем перенос</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        a_arr[a_idx] = sum % 10;  <span class="comment">// добавляем остаток от деления на 10 в результат</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> (i &lt; b_len) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordtype">size_t</span> b_idx = b_len - i - 1;  <span class="comment">// индекс для числа b с конца</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            sum += b_arr[b_idx];           <span class="comment">// если есть соответсвующая цифра числа b, то прибавляем ее</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        carry = sum / 10;                <span class="comment">// вычисляем перенос</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        result_arr.push_back(sum % 10);  <span class="comment">// добавляем остаток от деления на 10 в результат</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> (carry != 0) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        result_arr.push_back(carry);  <span class="comment">// если есть перенос, то добавляем его в результат</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::reverse(result_arr.begin(), result_arr.end());  <span class="comment">// переворачиваем массив</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(result_arr);  <span class="comment">// возвращаем результат</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="ttc" id="aCOM__NN__D_8hpp_html_a91c2d9097b66dbc41f066cd3ccc52449"><div class="ttname"><a href="../../d0/db9/COM__NN__D_8hpp.html#a91c2d9097b66dbc41f066cd3ccc52449">COM_NN_D</a></div><div class="ttdeci">int COM_NN_D(const LongNatural &amp;a, const LongNatural &amp;b)</div><div class="ttdoc">Функция COM_NN_D принимает два числа и сравнивает их.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D.cpp:3</a></div></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (carry != 0) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        a_arr.insert(a_arr.begin(), carry);  <span class="comment">// если есть перенос, то добавляем его в новый разряд</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d9b/classLongNatural.html">LongNatural</a>(a_arr);  <span class="comment">// возвращаем результат</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 <div class="ttc" id="aclassLongNatural_html"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html">LongNatural</a></div><div class="ttdoc">Класс для работы с длинными натуральными числами с нулем.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/LongNatural_8hpp_source.html#l00025">LongNatural.hpp:25</a></div></div>
+<div class="ttc" id="aclassLongNatural_html_a2448a1c11077a7e922bd5dcd3e9d43c8"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html#a2448a1c11077a7e922bd5dcd3e9d43c8">LongNatural::getLength</a></div><div class="ttdeci">size_t getLength() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da7/LongNatural_8cpp_source.html#l00065">LongNatural.cpp:65</a></div></div>
 <div class="ttc" id="aclassLongNatural_html_ae336854d31963416d3a1cd91006fd8c2"><div class="ttname"><a href="../../d1/d9b/classLongNatural.html#ae336854d31963416d3a1cd91006fd8c2">LongNatural::getArr</a></div><div class="ttdeci">const std::vector&lt; uint8_t &gt; &amp; getArr() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da7/LongNatural_8cpp_source.html#l00053">LongNatural.cpp:53</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Перекрестные ссылки <a class="el" href="../../d4/d33/COM__NN__D_8cpp_source.html#l00003">COM_NN_D()</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00053">LongNatural::getArr()</a>.</p>
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00053">LongNatural::getArr()</a> и <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00065">LongNatural::getLength()</a>.</p>
 
 <p class="reference">Используется в <a class="el" href="../../d9/d96/ADD__ZZ__Z_8cpp_source.html#l00009">ADD_ZZ_Z()</a>, <a class="el" href="../../db/dfe/DIV__NN__N_8cpp_source.html#l00011">DIV_NN_N()</a>, <a class="el" href="../../dd/de7/DIV__ZZ__Z_8cpp_source.html#l00011">DIV_ZZ_Z()</a>, <a class="el" href="../../da/d0a/MUL__NN__N_8cpp_source.html#l00008">MUL_NN_N()</a>, <a class="el" href="../../db/da1/MUL__Pxk__P_8cpp_source.html#l00005">MUL_Pxk_P()</a>, <a class="el" href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00269">HandleNaturalFunctions::show_ADD_NN_N()</a> и <a class="el" href="../../dd/d2e/SUB__ZZ__Z_8cpp_source.html#l00009">SUB_ZZ_Z()</a>.</p>
 
