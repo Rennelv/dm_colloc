@@ -17,23 +17,23 @@ LongNatural DIV_NN_Dk(const LongNatural& a, const LongNatural& b) {
         return res;
     }
 
-    LongNatural scaledB = b;
+    LongNatural scaled_b = b;
     int k = 0;
 
     // приводим количество разрядов b к количеству разрядов а, уменьшенному на 1
-    while (COM_NN_D(scaledB, a) == 1) {
-        scaledB = MUL_Nk_N(b, ++k);
+    while (COM_NN_D(scaled_b, a) == 1) {
+        scaled_b = MUL_Nk_N(b, ++k);
     }
-    if (COM_NN_D(scaledB, a) == 2) {
-        scaledB = MUL_Nk_N(b, --k);
+    if (COM_NN_D(scaled_b, a) == 2) {
+        scaled_b = MUL_Nk_N(b, --k);
     }
 
     // ищем макисмальную цифру d такую, что d * scaledB <= a
     uint8_t d = 0;
-    for (uint8_t testDigit = 1; testDigit <= 9; testDigit++) {
-        LongNatural testProduct = MUL_ND_N(scaledB, testDigit);
-        if (COM_NN_D(testProduct, a) != 2) {
-            d = testDigit;
+    for (uint8_t test_digit = 1; test_digit <= 9; test_digit++) {
+        LongNatural test_product = MUL_ND_N(scaled_b, test_digit);
+        if (COM_NN_D(test_product, a) != 2) {
+            d = test_digit;
         } else {
             break;
         }

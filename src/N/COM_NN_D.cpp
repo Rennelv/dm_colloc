@@ -1,8 +1,8 @@
 #include "N/COM_NN_D.hpp"
 
 int COM_NN_D(const LongNatural& a, const LongNatural& b) {
-    std::vector<uint8_t> a_arr = a.getArr();  // получаем массивы цифр числа а
-    std::vector<uint8_t> b_arr = b.getArr();  // получаем массивы цифр числа b
+    const std::vector<uint8_t>& a_arr = a.getArr();  // получаем массивы цифр числа а
+    const std::vector<uint8_t>& b_arr = b.getArr();  // получаем массивы цифр числа b
 
     /*
         если количество цифр в числе а больше, чем в числе b, то первое больше второго

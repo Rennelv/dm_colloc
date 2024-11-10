@@ -15,7 +15,7 @@ LongNatural DIV_NN_N(const LongNatural& a, const LongNatural& b) {
 
     LongNatural a_copy = a;    // сохраняем значение a
     LongNatural result = {0};  // число для результатом
-    LongNatural tmp = {1};     // ЪЪЪ
+    LongNatural tmp = {1};     // временная переменная
 
     while (NZER_N_B(tmp)) {  // цикл представляет собой деление в столбик без остатка
         tmp = DIV_NN_Dk(a_copy, b);  // сохраняем полученную при делении первую цифру умноженную на 10^k, где k - разряд цисла
