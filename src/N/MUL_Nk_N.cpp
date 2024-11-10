@@ -3,7 +3,7 @@
 LongNatural MUL_Nk_N(const LongNatural& a, size_t k) {
     // проверяем, является ли число нулем
     if (a.getLength() == 1 && a.at(0) == 0) {
-        return LongNatural({0});
+        return LongNatural::ZERO;
     }
 
     std::vector<uint8_t> a_arr = a.getArr();  // получаем массив цифр числа

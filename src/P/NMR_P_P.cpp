@@ -8,7 +8,7 @@
 
 Polynomial NMR_P_P(const Polynomial& p) {
     // Если многочлен - число, возвращаем его же
-    if (DEG_P_N(p) == LongNatural("0")) {
+    if (DEG_P_N(p) == LongNatural::ZERO) {
         return p;
     }
 

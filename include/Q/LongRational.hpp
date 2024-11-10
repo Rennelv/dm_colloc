@@ -26,6 +26,11 @@ class LongRational {
     LongNatural denominator;  // знаменатель
 
    public:
+    // Рациональное нулевое число (0/1)
+    static const LongRational ZERO;
+    // Рациональное единичное число (1/1)
+    static const LongRational ONE;
+
     // Создает число из длинного целого числа(числитель) и длинного натурального числа(знаменатель)
     LongRational(const LongInteger& numerator, const LongNatural& denominator);
 

@@ -29,6 +29,11 @@ class LongInteger {
     void trimLeadingZeroes();  // вспомогательный метод для удаления ведущих нулей
 
    public:
+    // Целое число 0
+    static const LongInteger ZERO;
+    // Целое число 1
+    static const LongInteger ONE;
+
     // Создает число из списка инциализации
     LongInteger(bool isNegative, std::initializer_list<uint8_t> list);
     // Создает число из вектора

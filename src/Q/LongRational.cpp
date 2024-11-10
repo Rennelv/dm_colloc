@@ -2,6 +2,12 @@
 
 #include <stdexcept>
 
+#include "N/LongNatural.hpp"
+#include "Z/LongInteger.hpp"
+
+const LongRational LongRational::ZERO = LongRational({LongInteger(false, {0}), LongNatural({1})});
+const LongRational LongRational::ONE = LongRational({LongInteger(false, {1}), LongNatural({1})});
+
 LongRational::LongRational(const LongInteger& numerator, const LongNatural& denominator) : numerator(numerator), denominator(denominator) {
     if (denominator.at(0) == 0) {
         throw std::invalid_argument("LongRational constructor: denominator is zero");

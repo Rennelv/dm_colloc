@@ -28,8 +28,6 @@ class Polynomial {
     std::map<LongNatural, LongRational> coefficients;
     // Степень полинома
     LongNatural degree;
-    // Нулевое рациональное число для возврата const& при получении коэффицента
-    LongRational zero;
 
    public:
     // Создает полином из мап коэффициентов

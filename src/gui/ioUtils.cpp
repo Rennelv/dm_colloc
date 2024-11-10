@@ -45,7 +45,7 @@ std::string MapToPolyStr(const std::map<LongNatural, LongRational>& terms) {
     // добавляем в строку коэффиценты с наибольшей степени
     for (auto it = terms.rbegin(); it != terms.rend(); ++it) {
         auto [deg, coef] = *it;
-        if (deg == LongNatural("0")) {
+        if (deg == LongNatural::ZERO) {
             result += coef.toString() + " + ";
 
         } else {
