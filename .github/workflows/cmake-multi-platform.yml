@@ -51,7 +51,7 @@ jobs:
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-        -DGENERATE_TESTS=ON
+        -DCOMPILE_TESTS=ON
         -DENABLE_UNITY=ON
         -G Ninja
         -S ${{ github.workspace }}
