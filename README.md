@@ -1,6 +1,6 @@
 # Коллоквиум ДМиТИ
 
-[Задания](https://docs.google.com/document/d/1Dv_6AIhxg_3ezu6VMcEnMpyfRzgym9l8PmE4ULGfjgM/edit?tab=t.0)
+[Задания](https://docs.google.com/document/d/1Dv_6AIhxg_3ezu6VMcEnMpyfRzgym9l8PmE4ULGfjgM/edit?tab=t.0)\
 [Документация](https://rennelv.github.io/dm_colloc/)
 
 ### Необходимые библиотеки для запуска программы:
@@ -28,8 +28,7 @@ cmake --build build --parallel
  ### Команда разработчиков:
 :star2: Журавлев Дмитрий 3381 - архитектор
 
-:star2: Гладилин Евгений 3381 - ответственный за управление качеством
-
+:star2: Гладилин Евгений 3381 - ответственный за управление качеством\
 
 :star: Деревягина Александра 3381
 
