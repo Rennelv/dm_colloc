@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dmiti_5fcolloc_593',['dmiti_colloc',['../index.html',1,'']]]
+  ['Коллоквиум_20ДМиТИ_593',['Коллоквиум ДМиТИ',['../index.html',1,'']]]
 ];

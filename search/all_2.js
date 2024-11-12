@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['deg_5fp_5fn_31',['DEG_P_N',['../d6/d2f/DEG__P__N_8cpp.html#a5055cd1594a3a64264ae2b58df646f6d',1,'DEG_P_N(const Polynomial &amp;a):&#160;DEG_P_N.cpp'],['../d1/d17/DEG__P__N_8hpp.html#a5055cd1594a3a64264ae2b58df646f6d',1,'DEG_P_N(const Polynomial &amp;a):&#160;DEG_P_N.cpp']]],
+  ['deg_5fp_5fn_31',['DEG_P_N',['../d1/d17/DEG__P__N_8hpp.html#a5055cd1594a3a64264ae2b58df646f6d',1,'DEG_P_N(const Polynomial &amp;a):&#160;DEG_P_N.cpp'],['../d6/d2f/DEG__P__N_8cpp.html#a5055cd1594a3a64264ae2b58df646f6d',1,'DEG_P_N(const Polynomial &amp;a):&#160;DEG_P_N.cpp']]],
   ['deg_5fp_5fn_2ecpp_32',['DEG_P_N.cpp',['../d6/d2f/DEG__P__N_8cpp.html',1,'']]],
   ['deg_5fp_5fn_2ehpp_33',['DEG_P_N.hpp',['../d1/d17/DEG__P__N_8hpp.html',1,'']]],
   ['deg_5fp_5fn_5fopen_34',['DEG_P_N_open',['../d7/df6/classHandlePolynomialFunctions.html#ad69603ab816495976b02508f08b5c3da',1,'HandlePolynomialFunctions']]],
   ['degree_35',['degree',['../d8/dd4/classPolynomial.html#ae91b385ef8222c627e44718c1e9abde8',1,'Polynomial']]],
   ['denominator_36',['denominator',['../da/d86/classLongRational.html#a20d500ad650f9d1a782cbf7ce48d0f29',1,'LongRational']]],
-  ['der_5fp_5fp_37',['DER_P_P',['../dc/d08/DER__P__P_8cpp.html#a38602ff5c8385900290d18a8a36d947a',1,'DER_P_P(const Polynomial &amp;a):&#160;DER_P_P.cpp'],['../d2/d1d/DER__P__P_8hpp.html#a38602ff5c8385900290d18a8a36d947a',1,'DER_P_P(const Polynomial &amp;a):&#160;DER_P_P.cpp']]],
+  ['der_5fp_5fp_37',['DER_P_P',['../d2/d1d/DER__P__P_8hpp.html#a38602ff5c8385900290d18a8a36d947a',1,'DER_P_P(const Polynomial &amp;a):&#160;DER_P_P.cpp'],['../dc/d08/DER__P__P_8cpp.html#a38602ff5c8385900290d18a8a36d947a',1,'DER_P_P(const Polynomial &amp;a):&#160;DER_P_P.cpp']]],
   ['der_5fp_5fp_2ecpp_38',['DER_P_P.cpp',['../dc/d08/DER__P__P_8cpp.html',1,'']]],
   ['der_5fp_5fp_2ehpp_39',['DER_P_P.hpp',['../d2/d1d/DER__P__P_8hpp.html',1,'']]],
   ['der_5fp_5fp_5fopen_40',['DER_P_P_open',['../d7/df6/classHandlePolynomialFunctions.html#ace6817bfe25a15d04fc87211f05e6d55',1,'HandlePolynomialFunctions']]],
@@ -19,11 +19,11 @@ var searchData=
   ['div_5fnn_5fn_2ecpp_47',['DIV_NN_N.cpp',['../db/dfe/DIV__NN__N_8cpp.html',1,'']]],
   ['div_5fnn_5fn_2ehpp_48',['DIV_NN_N.hpp',['../d8/d11/DIV__NN__N_8hpp.html',1,'']]],
   ['div_5fnn_5fn_5fopen_49',['DIV_NN_N_open',['../dc/d49/classHandleNaturalFunctions.html#a79b55cb4e0b00cd0c88f4092a5721fb4',1,'HandleNaturalFunctions']]],
-  ['div_5fpp_5fp_50',['DIV_PP_P',['../d3/dad/DIV__PP__P_8hpp.html#aa9e3d1bd244c1e963083560a7056aeae',1,'DIV_PP_P(const Polynomial &amp;p1, const Polynomial &amp;p2):&#160;DIV_PP_P.cpp'],['../db/d6a/DIV__PP__P_8cpp.html#ae3d630355d3f5ad07276c3c1f916a058',1,'DIV_PP_P(const Polynomial &amp;dividend, const Polynomial &amp;divisor):&#160;DIV_PP_P.cpp']]],
+  ['div_5fpp_5fp_50',['DIV_PP_P',['../db/d6a/DIV__PP__P_8cpp.html#ae3d630355d3f5ad07276c3c1f916a058',1,'DIV_PP_P(const Polynomial &amp;dividend, const Polynomial &amp;divisor):&#160;DIV_PP_P.cpp'],['../d3/dad/DIV__PP__P_8hpp.html#aa9e3d1bd244c1e963083560a7056aeae',1,'DIV_PP_P(const Polynomial &amp;p1, const Polynomial &amp;p2):&#160;DIV_PP_P.cpp']]],
   ['div_5fpp_5fp_2ecpp_51',['DIV_PP_P.cpp',['../db/d6a/DIV__PP__P_8cpp.html',1,'']]],
   ['div_5fpp_5fp_2ehpp_52',['DIV_PP_P.hpp',['../d3/dad/DIV__PP__P_8hpp.html',1,'']]],
   ['div_5fpp_5fp_5fopen_53',['DIV_PP_P_open',['../d7/df6/classHandlePolynomialFunctions.html#aab5696c576054c358c33d35988928981',1,'HandlePolynomialFunctions']]],
-  ['div_5fqq_5fq_54',['DIV_QQ_Q',['../d0/d10/DIV__QQ__Q_8hpp.html#aa3897ec780b7b4ac20878dd8ae8bdf95',1,'DIV_QQ_Q(const LongRational &amp;a, const LongRational &amp;b):&#160;DIV_QQ_Q.cpp'],['../de/d27/DIV__QQ__Q_8cpp.html#aa3897ec780b7b4ac20878dd8ae8bdf95',1,'DIV_QQ_Q(const LongRational &amp;a, const LongRational &amp;b):&#160;DIV_QQ_Q.cpp']]],
+  ['div_5fqq_5fq_54',['DIV_QQ_Q',['../de/d27/DIV__QQ__Q_8cpp.html#aa3897ec780b7b4ac20878dd8ae8bdf95',1,'DIV_QQ_Q(const LongRational &amp;a, const LongRational &amp;b):&#160;DIV_QQ_Q.cpp'],['../d0/d10/DIV__QQ__Q_8hpp.html#aa3897ec780b7b4ac20878dd8ae8bdf95',1,'DIV_QQ_Q(const LongRational &amp;a, const LongRational &amp;b):&#160;DIV_QQ_Q.cpp']]],
   ['div_5fqq_5fq_2ecpp_55',['DIV_QQ_Q.cpp',['../de/d27/DIV__QQ__Q_8cpp.html',1,'']]],
   ['div_5fqq_5fq_2ehpp_56',['DIV_QQ_Q.hpp',['../d0/d10/DIV__QQ__Q_8hpp.html',1,'']]],
   ['div_5fqq_5fq_5fopen_57',['DIV_QQ_Q_open',['../dc/dd4/classHandleRationalFunctions.html#a5aa5285952faff9c8a1b4ed8d82cd20d',1,'HandleRationalFunctions']]],
@@ -31,8 +31,7 @@ var searchData=
   ['div_5fzz_5fz_2ecpp_59',['DIV_ZZ_Z.cpp',['../dd/de7/DIV__ZZ__Z_8cpp.html',1,'']]],
   ['div_5fzz_5fz_2ehpp_60',['DIV_ZZ_Z.hpp',['../d8/d54/DIV__ZZ__Z_8hpp.html',1,'']]],
   ['div_5fzz_5fz_5fopen_61',['DIV_ZZ_Z_open',['../df/d1c/classHandleIntegerFunctions.html#ade7f543f975fb1b0d490418452d3b031',1,'HandleIntegerFunctions']]],
-  ['dmiti_5fcolloc_62',['dmiti_colloc',['../index.html',1,'']]],
-  ['droidsans_5fcompressed_5fdata_63',['DroidSans_compressed_data',['../d6/db7/DroidSans__ttf_8hpp.html#ae48140bef9b84f3b4758f31a8bbc414c',1,'DroidSans_ttf.hpp']]],
-  ['droidsans_5fcompressed_5fsize_64',['DroidSans_compressed_size',['../d6/db7/DroidSans__ttf_8hpp.html#a83e3a42dedfc26aca258a820ea1d1aab',1,'DroidSans_ttf.hpp']]],
-  ['droidsans_5fttf_2ehpp_65',['DroidSans_ttf.hpp',['../d6/db7/DroidSans__ttf_8hpp.html',1,'']]]
+  ['droidsans_5fcompressed_5fdata_62',['DroidSans_compressed_data',['../d6/db7/DroidSans__ttf_8hpp.html#ae48140bef9b84f3b4758f31a8bbc414c',1,'DroidSans_ttf.hpp']]],
+  ['droidsans_5fcompressed_5fsize_63',['DroidSans_compressed_size',['../d6/db7/DroidSans__ttf_8hpp.html#a83e3a42dedfc26aca258a820ea1d1aab',1,'DroidSans_ttf.hpp']]],
+  ['droidsans_5fttf_2ehpp_64',['DroidSans_ttf.hpp',['../d6/db7/DroidSans__ttf_8hpp.html',1,'']]]
 ];

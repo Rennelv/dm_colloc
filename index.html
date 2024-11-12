@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dm_math: dmiti_colloc</title>
+<title>dm_math: Коллоквиум ДМиТИ</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,94 +64,39 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">dmiti_colloc </div>  </div>
+<div class="title">Коллоквиум ДМиТИ </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Коллоквиум ДМиТИ</h1>
-<p><a href="https://docs.google.com/document/d/1Dv_6AIhxg_3ezu6VMcEnMpyfRzgym9l8PmE4ULGfjgM/edit?tab=t.0">Задания</a></p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> <a href="https://docs.google.com/document/d/1Dv_6AIhxg_3ezu6VMcEnMpyfRzgym9l8PmE4ULGfjgM/edit?tab=t.0">Задания</a>\ <a href="https://rennelv.github.io/dm_colloc/">Документация</a></p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Необходимые библиотеки для запуска программы:</h2>
+<ul>
+<li>cmake v3.22 и выше</li>
+<li>libglfw3</li>
+<li>gtest для сборки тестов</li>
+</ul>
 <h2><a class="anchor" id="autotoc_md2"></a>
-Дедлайны:</h2>
-<h2><a class="anchor" id="autotoc_md3"></a>
-27.10.2024:</h2>
-<ul>
-<li>Мария - N7, N10</li>
-<li>Александра - Z1, Z2</li>
-<li>Алиса - N2, Q1</li>
-<li>Михаил - N3</li>
-<li>Асия - Z4, Z5, Q2, Q4</li>
-<li>Евгений - N4, N5, N6, N8, N9</li>
-<li>Данил - Z3, P4, P6</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
-30.10.2024:</h2>
-<ul>
-<li>Мария - Z6</li>
-<li>Александра - P12</li>
-<li>Алиса - Z8, Q7, Q8</li>
-<li>Михаил - Z9</li>
-<li>Асия - Z7</li>
-<li>Евгений - N11, N12, N13, N14</li>
-<li>Данил - Q3, P5</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md5"></a>
-02.11.2024:</h2>
-<ul>
-<li>Мария - Q5, P1</li>
-<li>Александра - Q6, P2</li>
-<li>Алиса -</li>
-<li>Михаил -</li>
-<li>Асия - Z10</li>
-<li>Евгений - P7</li>
-<li>Данил - P3</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
-04.11.2024:</h2>
-<ul>
-<li>Мария -</li>
-<li>Александра -</li>
-<li>Алиса - P9, P11</li>
-<li>Михаил - P8, P10, P13</li>
-<li>Асия -</li>
-<li>Евгений -</li>
-<li>Данил -</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Инструкция по использованию репозитория</h2>
-<p>Для работы с репозиторием необходимо:</p><ol type="1">
-<li>Склонировать репозиторий</li>
-<li>Установить cmake(sudo apt install cmake)</li>
-<li>Установить gtest(sudo apt-get install libgtest-dev)</li>
-<li>Запустить /scripts/build.sh (в терминале пропишите команду bash scripts/run.sh). После этого код скомпилируется</li>
-<li>Для создания пулл-реквеста выполните следующие команды</li>
-</ol>
-<ul>
-<li>git checkout main &amp;&amp; git pull origin main</li>
-<li>git checkout -b function/&lt;название_ветки_из_таблицы&gt; // пример function/ADD_NN_N</li>
-<li>git add &lt;имя_файла&gt;</li>
-<li>git commit -m "название_коммита"</li>
-<li>git push</li>
-</ul>
-<ol type="1">
-<li>Не забыть на гитхабе открыть пулл-реквест</li>
-</ol>
-<h2><a class="anchor" id="autotoc_md8"></a>
-Правила написания программ</h2>
-<p>Пример готового модуля уже находится в репозиторие. Для каждого числового множества существует свой класс, а именно N - <a class="el" href="d1/d9b/classLongNatural.html" title="Класс для работы с длинными натуральными числами с нулем.">LongNatural</a>, Z - <a class="el" href="d9/d12/classLongInteger.html" title="Класс для работы с длинными целыми числами.">LongInteger</a>, Q - <a class="el" href="da/d86/classLongRational.html" title="Класс для работы с рациональными числами (дробями).">LongRational</a>, P - <a class="el" href="d8/dd4/classPolynomial.html" title="Класс для работы с многочленами с коэффициентами из длинных рациональных чисел.">Polynomial</a>.</p>
-<p>При реализации модуля:</p><ul>
-<li>сигнатура функции должна находится в include/&lt;буква_множества&gt;/функция.hpp</li>
-<li>в сигнатурах используем #ifndef</li>
-<li>тело функции находится в src/&lt;буква_множества&gt;/функция.cpp</li>
-<li>тесты(максимально вдумчиво придумываем их) находятся в tests/&lt;буква_множества&gt;/test_функция.hpp</li>
-<li>код форматировать .clang-format из репозитория</li>
-<li>названия переменных в camelCase</li>
-<li>работа с цифрами числа проиходит в формате uint-8_t</li>
-<li>чтобы запустить проверку ваших тестов, скомпилируйте код(bash scripts/run.sh). После чего, находясь в директории /build, используйте команду ctest. Есть ещё второй колхозный способ. Можно использовать свою функцию в <a class="el" href="df/d0a/main_8cpp.html">src/main.cpp</a> и каждый раз при компиляции проекта, будет запускаться <a class="el" href="df/d0a/main_8cpp.html">main.cpp</a>. Но этот изменённый <a class="el" href="df/d0a/main_8cpp.html">main.cpp</a> категорически нельзя пушить.</li>
-<li>в названии каждой функции написано, что она должна получить и что вернуть. Например, ADD_NN_N. NN - обозначает, что функция работает с двумя натуральными числами, N - то что вернётся натуральное число. А в функции нахождения степени многочлена DEG_P_N, P - многочлен, который подаётся в функцию, N - возвращаем натуральное число, а именно степень.</li>
-<li>прописывать комментарии. В сигнатурном файле указать Фамилию, группу, что принимает, делает и возвращает функция. Пытайтесь комментировать каджую строчку, но чтобы было читаемо. В местах с большой вложенностью лучше не комментировать каждую строку, а выделить отдельный блок для комментария.</li>
-</ul>
-<p>Пример сигнатурного файла <a class="el" href="dd/d36/ADD__NN__N_8hpp.html" title="Функция для сложения двух длинных натуральных чисел.">include/N/ADD_NN_N.hpp</a> Пример тела функции <a class="el" href="d6/d14/ADD__NN__N_8cpp.html">src/N/ADD_NN_N.cpp</a> </p>
+Сборка и запуск программы:</h2>
+<div class="fragment"><div class="line">git clone https://github.com/Rennelv/dm_colloc</div>
+<div class="line">cd dm_colloc</div>
+<div class="line">cmake -DCMAKE_BUILD_TYPE=Release -B build</div>
+<div class="line">cmake --build build --parallel</div>
+<div class="line">./build/bin/dm_math</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
+Сборка и запуск тестов:</h2>
+<div class="fragment"><div class="line">cmake -DCMAKE_BUILD_TYPE=Release -B build -DCOMPILE_TESTS=ON</div>
+<div class="line">cmake --build build --parallel</div>
+<div class="line">./build/bin/dm_tests</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
+Команда разработчиков:</h2>
+<p>:star2: Журавлев Дмитрий 3381 - архитектор</p>
+<p>:star2: Гладилин Евгений 3381 - ответственный за управление качеством</p>
+<p>:star: Деревягина Александра 3381</p>
+<p>:star: Киреева Асия 3381</p>
+<p>:star: Кунакова Мария 3381</p>
+<p>:star: Салдин Даниил 3381</p>
+<p>:star: Уфимцева Алиса 3381</p>
+<p>:star: Щеглов Михаил 3381 </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
