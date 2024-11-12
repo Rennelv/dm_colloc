@@ -10,8 +10,10 @@
 
 
  Сборка и запуск:
+ ```
  - git clone https://github.com/Rennelv/dm_colloc
  - cd dm_colloc
  - cmake -DCMAKE_BUILD_TYPE=Release -B build
  - cmake --build build --parallel
  - ./build/bin/dm_math
+ ```
