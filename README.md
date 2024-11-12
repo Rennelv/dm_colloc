@@ -3,6 +3,8 @@
 [Задания](https://docs.google.com/document/d/1Dv_6AIhxg_3ezu6VMcEnMpyfRzgym9l8PmE4ULGfjgM/edit?tab=t.0)\
 [Документация](https://rennelv.github.io/dm_colloc/)
 
+![alt text](https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books/blob/master/C%2B%2B/Shiro_Holding_Stroustrup_4th_Edition.png)
+
 ### Необходимые библиотеки для запуска программы:
 - cmake v3.22 и выше
 - libglfw3
