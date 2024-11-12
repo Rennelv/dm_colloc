@@ -25,21 +25,13 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    message(STATUS "Building in Debug mode")
+    message(WARNING "Building in Debug mode")
 else()
     message(STATUS "Building in Release mode")
 endif()
 
 # Set output directory for binaries
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
-# Enable ccache if available
-find_program(CCACHE_PROGRAM ccache)
-if(CCACHE_PROGRAM)
-    set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
-    set(CMAKE_C_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
-    message(STATUS "Using ccache to speed up builds")
-endif()
 
 # Ensure static linking for GCC/MinGW
 if(MINGW)
@@ -57,7 +49,8 @@ set(ENABLE_DOXYGEN ON CACHE BOOL "Enable Doxygen")
 if (ENABLE_DOXYGEN)
     FetchContent_Declare(
         doxygen-awesome-css
-        URL https://github.com/jothepro/doxygen-awesome-css/archive/refs/heads/main.zip
+        GIT_REPOSITORY https://github.com/jothepro/doxygen-awesome-css.git
+        GIT_TAG v2.3.4
     )
     FetchContent_MakeAvailable(doxygen-awesome-css)
 
@@ -124,7 +117,7 @@ file(GLOB_RECURSE SOURCES
 )
 
 # Define a custom option to generate tests
-option(GENERATE_TESTS "Generate tests" OFF)
+option(COMPILE_TESTS "Generate tests" OFF)
 
 # Add the executable target
 add_executable(dm_math ${SOURCES})
@@ -138,7 +131,7 @@ if (ENABLE_IMGUI)
 endif()
 
 # Enable Unity Builds option
-# option(ENABLE_UNITY "Enable Unity Builds for faster compile times" ON)
+option(ENABLE_UNITY "Enable Unity Builds for faster compile times" OFF)
 if(ENABLE_UNITY)
     set_target_properties(dm_math PROPERTIES UNITY_BUILD ON)
     message(STATUS "Unity Build enabled for faster compile times")
@@ -149,7 +142,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -pedantic")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
 # Add tests only if requested
-if (GENERATE_TESTS)
+if (COMPILE_TESTS)
     # Recursively find all source files for test dependencies
     file(GLOB_RECURSE SOURCES_FOR_TESTS
         "${PROJECT_SOURCE_DIR}/src/N/*.cpp"
