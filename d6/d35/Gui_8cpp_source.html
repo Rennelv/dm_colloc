@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dm_math
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -131,51 +131,55 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">int</span> display_w, display_h;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        glfwGetFramebufferSize(window, &amp;display_w, &amp;display_h);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        glViewport(0, 0, display_w, display_h);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        glClearColor(0.45f, 0.55f, 0.60f, 1.00f);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        glClear(GL_COLOR_BUFFER_BIT);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        glfwSwapBuffers(window);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d0/d42/classGui.html#a307a9536bbeb31bd429194a6569c96b5">   71</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d42/classGui.html#a307a9536bbeb31bd429194a6569c96b5">Gui::showMainMenu</a>() {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> showNaturalFuncMenu = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> showIntegerFuncMenu = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> showRationalFuncMenu = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> showPolynomialFuncMenu = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> (showNaturalFuncMenu) <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a0cbf438e62f585bf45aa9cc74318c3ce">HandleNaturalFunctions::showMenu</a>(&amp;showNaturalFuncMenu);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> (showIntegerFuncMenu) <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a61d24ec199c3381d3b6fdaaa12b9f2df">HandleIntegerFunctions::showMenu</a>(&amp;showIntegerFuncMenu);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span> (showRationalFuncMenu) <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a702b8d0be81dbb3ae76dacd2bea8b53a">HandleRationalFunctions::showMenu</a>(&amp;showRationalFuncMenu);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (showPolynomialFuncMenu) <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#abdf5c00890066b43102a4631eba845f8">HandlePolynomialFunctions::showMenu</a>(&amp;showPolynomialFuncMenu);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    ImGui::Begin(<span class="stringliteral">&quot;Main Menu&quot;</span>);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Натуральные числа с нулем (N)&quot;</span>)) {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        showNaturalFuncMenu = !showNaturalFuncMenu;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#ifdef NDEBUG</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        glClearColor(0.15f, 0.65f, 0.60f, 1.00f);  <span class="comment">// Hatsune Miku????</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        glClearColor(0.65f, 0.30f, 0.30f, 1.00f);  <span class="comment">// more red if debug build</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        glClear(GL_COLOR_BUFFER_BIT);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        glfwSwapBuffers(window);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d0/d42/classGui.html#a307a9536bbeb31bd429194a6569c96b5">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d42/classGui.html#a307a9536bbeb31bd429194a6569c96b5">Gui::showMainMenu</a>() {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> showNaturalFuncMenu = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> showIntegerFuncMenu = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> showRationalFuncMenu = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> showPolynomialFuncMenu = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span> (showNaturalFuncMenu) <a class="code" href="../../dc/d49/classHandleNaturalFunctions.html#a0cbf438e62f585bf45aa9cc74318c3ce">HandleNaturalFunctions::showMenu</a>(&amp;showNaturalFuncMenu);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span> (showIntegerFuncMenu) <a class="code" href="../../df/d1c/classHandleIntegerFunctions.html#a61d24ec199c3381d3b6fdaaa12b9f2df">HandleIntegerFunctions::showMenu</a>(&amp;showIntegerFuncMenu);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span> (showRationalFuncMenu) <a class="code" href="../../dc/dd4/classHandleRationalFunctions.html#a702b8d0be81dbb3ae76dacd2bea8b53a">HandleRationalFunctions::showMenu</a>(&amp;showRationalFuncMenu);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span> (showPolynomialFuncMenu) <a class="code" href="../../d7/df6/classHandlePolynomialFunctions.html#abdf5c00890066b43102a4631eba845f8">HandlePolynomialFunctions::showMenu</a>(&amp;showPolynomialFuncMenu);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    ImGui::Begin(<span class="stringliteral">&quot;Main Menu&quot;</span>);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Целые числа (Z)&quot;</span>)) {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        showIntegerFuncMenu = !showIntegerFuncMenu;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Натуральные числа с нулем (N)&quot;</span>)) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        showNaturalFuncMenu = !showNaturalFuncMenu;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Рациональные числа (Q)&quot;</span>)) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        showRationalFuncMenu = !showRationalFuncMenu;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Целые числа (Z)&quot;</span>)) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        showIntegerFuncMenu = !showIntegerFuncMenu;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Многочлены (P)&quot;</span>)) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        showPolynomialFuncMenu = !showPolynomialFuncMenu;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Рациональные числа (Q)&quot;</span>)) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        showRationalFuncMenu = !showRationalFuncMenu;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Выход&quot;</span>)) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        glfwSetWindowShouldClose(glfwGetCurrentContext(), GLFW_TRUE);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Многочлены (P)&quot;</span>)) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        showPolynomialFuncMenu = !showPolynomialFuncMenu;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ImGui::End();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Выход&quot;</span>)) {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        glfwSetWindowShouldClose(glfwGetCurrentContext(), GLFW_TRUE);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    ImGui::End();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
 <div class="ttc" id="aDroidSans__ttf_8hpp_html"><div class="ttname"><a href="../../d6/db7/DroidSans__ttf_8hpp.html">DroidSans_ttf.hpp</a></div></div>
 <div class="ttc" id="aDroidSans__ttf_8hpp_html_a83e3a42dedfc26aca258a820ea1d1aab"><div class="ttname"><a href="../../d6/db7/DroidSans__ttf_8hpp.html#a83e3a42dedfc26aca258a820ea1d1aab">DroidSans_compressed_size</a></div><div class="ttdeci">static const unsigned int DroidSans_compressed_size</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db7/DroidSans__ttf_8hpp_source.html#l00006">DroidSans_ttf.hpp:6</a></div></div>
 <div class="ttc" id="aDroidSans__ttf_8hpp_html_ae48140bef9b84f3b4758f31a8bbc414c"><div class="ttname"><a href="../../d6/db7/DroidSans__ttf_8hpp.html#ae48140bef9b84f3b4758f31a8bbc414c">DroidSans_compressed_data</a></div><div class="ttdeci">static const unsigned int DroidSans_compressed_data[134348/4]</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db7/DroidSans__ttf_8hpp_source.html#l00007">DroidSans_ttf.hpp:7</a></div></div>
@@ -186,7 +190,7 @@ $(function() {
 <div class="ttc" id="aHandlePolynomialFunctions_8hpp_html"><div class="ttname"><a href="../../d0/df4/HandlePolynomialFunctions_8hpp.html">HandlePolynomialFunctions.hpp</a></div><div class="ttdoc">Класс обработчика функций многочленов для графического интерфейса.</div></div>
 <div class="ttc" id="aHandleRationalFunctions_8hpp_html"><div class="ttname"><a href="../../d7/d5c/HandleRationalFunctions_8hpp.html">HandleRationalFunctions.hpp</a></div><div class="ttdoc">Класс обработчика функций рациональных чисел для графического интерфейса.</div></div>
 <div class="ttc" id="aclassGui_html_a225eb7edaace31eb6cc4ec3173b2a703"><div class="ttname"><a href="../../d0/d42/classGui.html#a225eb7edaace31eb6cc4ec3173b2a703">Gui::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d35/Gui_8cpp_source.html#l00021">Gui.cpp:21</a></div></div>
-<div class="ttc" id="aclassGui_html_a307a9536bbeb31bd429194a6569c96b5"><div class="ttname"><a href="../../d0/d42/classGui.html#a307a9536bbeb31bd429194a6569c96b5">Gui::showMainMenu</a></div><div class="ttdeci">void showMainMenu()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d35/Gui_8cpp_source.html#l00071">Gui.cpp:71</a></div></div>
+<div class="ttc" id="aclassGui_html_a307a9536bbeb31bd429194a6569c96b5"><div class="ttname"><a href="../../d0/d42/classGui.html#a307a9536bbeb31bd429194a6569c96b5">Gui::showMainMenu</a></div><div class="ttdeci">void showMainMenu()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d35/Gui_8cpp_source.html#l00075">Gui.cpp:75</a></div></div>
 <div class="ttc" id="aclassHandleIntegerFunctions_html_a61d24ec199c3381d3b6fdaaa12b9f2df"><div class="ttname"><a href="../../df/d1c/classHandleIntegerFunctions.html#a61d24ec199c3381d3b6fdaaa12b9f2df">HandleIntegerFunctions::showMenu</a></div><div class="ttdeci">static void showMenu(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d01/HandleIntegerFunctions_8cpp_source.html#l00031">HandleIntegerFunctions.cpp:31</a></div></div>
 <div class="ttc" id="aclassHandleNaturalFunctions_html_a0cbf438e62f585bf45aa9cc74318c3ce"><div class="ttname"><a href="../../dc/d49/classHandleNaturalFunctions.html#a0cbf438e62f585bf45aa9cc74318c3ce">HandleNaturalFunctions::showMenu</a></div><div class="ttdeci">static void showMenu(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6f/HandleNaturalFunctions_8cpp_source.html#l00042">HandleNaturalFunctions.cpp:42</a></div></div>
 <div class="ttc" id="aclassHandlePolynomialFunctions_html_abdf5c00890066b43102a4631eba845f8"><div class="ttname"><a href="../../d7/df6/classHandlePolynomialFunctions.html#abdf5c00890066b43102a4631eba845f8">HandlePolynomialFunctions::showMenu</a></div><div class="ttdeci">static void showMenu(bool *p_open)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00040">HandlePolynomialFunctions.cpp:40</a></div></div>
