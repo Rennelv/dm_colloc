@@ -36,7 +36,7 @@ cmake --build build --parallel
 
 :star: Кунакова Мария 3381
 
-:blowfish: Салдин Даниил 3381
+:monkey: Салдин Даниил 3381
 
 :star: Уфимцева Алиса 3381
 
