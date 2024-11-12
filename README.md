@@ -41,3 +41,5 @@ cmake --build build --parallel
 :star: Уфимцева Алиса 3381
 
 :star: Щеглов Михаил 3381
+
+<details><summary>!</summary><img src="https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books/blob/master/C%2B%2B/Shiro_Holding_Stroustrup_4th_Edition.png"></details>
