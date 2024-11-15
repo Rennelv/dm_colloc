@@ -1,5 +1,6 @@
 #include "N/LongNatural.hpp"
 
+#include <algorithm>
 #include <cstddef>
 #include <stdexcept>
 
@@ -9,10 +10,8 @@ const LongNatural LongNatural::ZERO = LongNatural({0});
 const LongNatural LongNatural::ONE = LongNatural({1});
 
 LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
-    for (size_t i = 0; i < arr.size(); i++) {
-        if (arr[i] > 9) {
-            throw std::invalid_argument("LongNatural constructor: passed initializer_list element is invalid");
-        }
+    if (std::any_of(arr.begin(), arr.end(), [](uint8_t digit) { return digit > 9; })) {
+        throw std::invalid_argument("LongNatural constructor: passed initializer_list element is invalid");
     }
     if (arr.empty()) {
         arr.push_back(0);
@@ -20,13 +19,10 @@ LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
     trimLeadingZeroes();
 }
 
-LongNatural::LongNatural(const std::vector<uint8_t>& vec) {
-    for (size_t i = 0; i < vec.size(); i++) {
-        if (vec[i] > 9) {
-            throw std::invalid_argument("LongNatural constructor: passed vector element is invalid");
-        }
+LongNatural::LongNatural(const std::vector<uint8_t>& vec) : arr(vec) {
+    if (std::any_of(vec.begin(), vec.end(), [](uint8_t digit) { return digit > 9; })) {
+        throw std::invalid_argument("LongNatural constructor: passed vector element is invalid");
     }
-    arr = vec;
     if (arr.empty()) {
         arr.push_back(0);
     }

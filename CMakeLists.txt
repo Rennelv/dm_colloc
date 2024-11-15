@@ -7,25 +7,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)  # Use only standard C++ features
 
-# # Check for Ninja and set it as the default generator if available
-# find_program(NINJA_EXECUTABLE ninja)
-# if ((NOT (CMAKE_GENERATOR STREQUAL "Ninja")) AND NINJA_EXECUTABLE AND (CMAKE_GENERATOR STREQUAL "Unix Makefiles"))
-#     set(CMAKE_GENERATOR "Ninja" CACHE INTERNAL "Default generator")
-#     message(STATUS "Ninja build system found. Using Ninja as the default generator")
-# endif()
-
 message(STATUS "CMake Generator: ${CMAKE_GENERATOR}")
 
 # Export compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Set default build type to Release if not specified
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build." FORCE)
-endif()
-
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    message(WARNING "Building in Debug mode")
+    message(STATUS "Building in Debug mode")
 else()
     message(STATUS "Building in Release mode")
 endif()
@@ -41,9 +29,12 @@ if(MINGW)
     set(BUILD_SHARED_LIBS OFF)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libgcc -static-libstdc++ -static")
 endif()
-
+    
+# Set compiler flags
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -pedantic")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 include(FetchContent)
-
+    
 set(ENABLE_DOXYGEN ON CACHE BOOL "Enable Doxygen")
 
 if (ENABLE_DOXYGEN)
@@ -69,7 +60,7 @@ set(ENABLE_IMGUI ON CACHE BOOL "Enable ImGui")
 # Check if GLFW is already installed
 find_package(glfw3 QUIET)
 
-if ((NOT glfw3_FOUND) AND ENABLE_IMGUI)
+if ((NOT glfw3_FOUND) AND ENABLE_IMGUI AND MINGW)
     message(WARNING "GLFW not found. Fetching and building GLFW locally. Its better to install GLFW system-wide first.")
     FetchContent_Declare(
         glfw
@@ -116,11 +107,14 @@ file(GLOB_RECURSE SOURCES
     "${PROJECT_SOURCE_DIR}/src/*.cpp"
 )
 
-# Define a custom option to generate tests
-option(COMPILE_TESTS "Generate tests" OFF)
+message(STATUS "Compiler flags: ${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_RELEASE}")
 
 # Add the executable target
-add_executable(dm_math ${SOURCES})
+if (MINGW AND (EXISTS "${PROJECT_SOURCE_DIR}/app.rc"))
+    add_executable(dm_math ${SOURCES} ${PROJECT_SOURCE_DIR}/app.rc)
+else()
+    add_executable(dm_math ${SOURCES})
+endif()
 
 # Link libraries
 if (ENABLE_IMGUI)
@@ -137,9 +131,8 @@ if(ENABLE_UNITY)
     message(STATUS "Unity Build enabled for faster compile times")
 endif()
 
-# Set compiler flags
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -pedantic")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+# Define a custom option to generate tests
+option(COMPILE_TESTS "Generate tests" OFF)
 
 # Add tests only if requested
 if (COMPILE_TESTS)
