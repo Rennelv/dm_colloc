@@ -29,12 +29,12 @@ LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negat
 
 LongInteger::LongInteger(bool negative, const std::string& string) : negative(negative) {
     arr.reserve(string.size());
-    std::transform(string.begin(), string.end(), std::back_inserter(arr), [](char c) {
-        if (c < '0' || c > '9') {
+    for (size_t i = 0; i < string.size(); i++) {
+        if (string[i] < '0' || string[i] > '9') {
             throw std::invalid_argument("LongInteger constructor: passed string element is invalid");
         }
-        return static_cast<uint8_t>(c - '0');
-    });
+        arr.push_back(static_cast<uint8_t>(string[i] - '0'));
+    }
     if (arr.empty()) {
         arr.push_back(0);
     }
