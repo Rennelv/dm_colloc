@@ -1,5 +1,6 @@
 #include "Z/LongInteger.hpp"
 
+#include <algorithm>
 #include <cstdint>
 #include <stdexcept>
 
@@ -7,10 +8,8 @@ const LongInteger LongInteger::ZERO = LongInteger(false, {0});
 const LongInteger LongInteger::ONE = LongInteger(false, {1});
 
 LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : negative(negative), arr(list) {
-    for (size_t i = 0; i < arr.size(); i++) {
-        if (arr[i] > 9) {
-            throw std::invalid_argument("LongInteger constructor: passed initializer_list element is invalid");
-        }
+    if (std::any_of(arr.begin(), arr.end(), [](uint8_t digit) { return digit > 9; })) {
+        throw std::invalid_argument("LongInteger constructor: passed initializer_list element is invalid");
     }
     if (arr.empty()) {
         arr.push_back(0);
@@ -19,10 +18,8 @@ LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : n
 }
 
 LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negative(negative), arr(vec) {
-    for (size_t i = 0; i < vec.size(); i++) {
-        if (vec[i] > 9) {
-            throw std::invalid_argument("LongInteger constructor: passed vector element is invalid");
-        }
+    if (std::any_of(vec.begin(), vec.end(), [](uint8_t digit) { return digit > 9; })) {
+        throw std::invalid_argument("LongInteger constructor: passed vector element is invalid");
     }
     if (arr.empty()) {
         arr.push_back(0);
@@ -32,12 +29,12 @@ LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negat
 
 LongInteger::LongInteger(bool negative, const std::string& string) : negative(negative) {
     arr.reserve(string.size());
-    for (size_t i = 0; i < string.size(); i++) {
-        if (string[i] < '0' || string[i] > '9') {
+    std::transform(string.begin(), string.end(), std::back_inserter(arr), [](char c) {
+        if (c < '0' || c > '9') {
             throw std::invalid_argument("LongInteger constructor: passed string element is invalid");
         }
-        arr.push_back(static_cast<uint8_t>(string[i] - '0'));
-    }
+        return static_cast<uint8_t>(c - '0');
+    });
     if (arr.empty()) {
         arr.push_back(0);
     }

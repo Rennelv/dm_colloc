@@ -93,7 +93,7 @@ void HandlePolynomialFunctions::showMenu(bool* p_open) {
     if (ImGui::Button("12. Производная многочлена")) {
         DER_P_P_open = !DER_P_P_open;
     }
-    if (ImGui::Button("13. Преобразование многочлена — кратные корни в простые")) {
+    if (ImGui::Button("13. Преобразование многочлена - кратные корни в простые")) {
         NMR_P_P_open = !NMR_P_P_open;
     }
 
@@ -717,7 +717,7 @@ void HandlePolynomialFunctions::show_NMR_P_P(bool* p_open) {
         }
     }
     ImGui::SameLine();
-    HelpMarker("Преобразование многочлена — кратные корни в простые");
+    HelpMarker("Преобразование многочлена - кратные корни в простые");
     DisplayResultOrError(result_future, calculation_started, result, error_str);
     ImGui::End();
 }
