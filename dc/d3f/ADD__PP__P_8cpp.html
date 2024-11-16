@@ -129,23 +129,17 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    std::map&lt;LongNatural, LongRational&gt; result_coefficients = a.<a class="code" href="../../d8/dd4/classPolynomial.html#afbed68f050f91079f6d149ca7f1c6a20">getMap</a>();  <span class="comment">// Копируем коэффициенты первого многочлена</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [degree, coef_b] : b.<a class="code" href="../../d8/dd4/classPolynomial.html#afbed68f050f91079f6d149ca7f1c6a20">getMap</a>()) {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">auto</span> it = result_coefficients.find(degree);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">if</span> (it != result_coefficients.end()) {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <span class="comment">// Если такая степень уже есть в первом многочлене, складываем коэффициенты</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            it-&gt;second = <a class="code" href="../../d1/d36/ADD__QQ__Q_8hpp.html#a572f6214b6e521bae7b838e570c933ad">ADD_QQ_Q</a>(it-&gt;second, coef_b);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="comment">// Если такая степень отсутствует, добавляем новый член с данным коэффициентом</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            result_coefficients.emplace(degree, coef_b);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dd4/classPolynomial.html">Polynomial</a>(result_coefficients);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        result_coefficients[degree] = <a class="code" href="../../d1/d36/ADD__QQ__Q_8hpp.html#a572f6214b6e521bae7b838e570c933ad">ADD_QQ_Q</a>(a.<a class="code" href="../../d8/dd4/classPolynomial.html#aed2075e68f23dee069e61653bae5d632">getCoef</a>(degree), coef_b);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dd4/classPolynomial.html">Polynomial</a>(result_coefficients);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="ttc" id="aADD__QQ__Q_8hpp_html_a572f6214b6e521bae7b838e570c933ad"><div class="ttname"><a href="../../d1/d36/ADD__QQ__Q_8hpp.html#a572f6214b6e521bae7b838e570c933ad">ADD_QQ_Q</a></div><div class="ttdeci">LongRational ADD_QQ_Q(const LongRational &amp;a, const LongRational &amp;b)</div><div class="ttdoc">Функция ADD_QQ_Q складывает два рациональных числа.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df5/ADD__QQ__Q_8cpp_source.html#l00009">ADD_QQ_Q.cpp:9</a></div></div>
 <div class="ttc" id="aclassPolynomial_html"><div class="ttname"><a href="../../d8/dd4/classPolynomial.html">Polynomial</a></div><div class="ttdoc">Класс для работы с многочленами с коэффициентами из длинных рациональных чисел.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dae/Polynomial_8hpp_source.html#l00026">Polynomial.hpp:26</a></div></div>
+<div class="ttc" id="aclassPolynomial_html_aed2075e68f23dee069e61653bae5d632"><div class="ttname"><a href="../../d8/dd4/classPolynomial.html#aed2075e68f23dee069e61653bae5d632">Polynomial::getCoef</a></div><div class="ttdeci">const LongRational &amp; getCoef(const LongNatural &amp;degree) const</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd7/Polynomial_8cpp_source.html#l00034">Polynomial.cpp:34</a></div></div>
 <div class="ttc" id="aclassPolynomial_html_afbed68f050f91079f6d149ca7f1c6a20"><div class="ttname"><a href="../../d8/dd4/classPolynomial.html#afbed68f050f91079f6d149ca7f1c6a20">Polynomial::getMap</a></div><div class="ttdeci">const std::map&lt; LongNatural, LongRational &gt; &amp; getMap() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd7/Polynomial_8cpp_source.html#l00021">Polynomial.cpp:21</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Перекрестные ссылки <a class="el" href="../../d8/df5/ADD__QQ__Q_8cpp_source.html#l00009">ADD_QQ_Q()</a> и <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00021">Polynomial::getMap()</a>.</p>
+<p class="reference">Перекрестные ссылки <a class="el" href="../../d8/df5/ADD__QQ__Q_8cpp_source.html#l00009">ADD_QQ_Q()</a>, <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00034">Polynomial::getCoef()</a> и <a class="el" href="../../d4/dd7/Polynomial_8cpp_source.html#l00021">Polynomial::getMap()</a>.</p>
 
 <p class="reference">Используется в <a class="el" href="../../db/d16/MUL__PP__P_8cpp_source.html#l00007">MUL_PP_P()</a> и <a class="el" href="../../d6/d06/HandlePolynomialFunctions_8cpp_source.html#l00103">HandlePolynomialFunctions::show_ADD_PP_P()</a>.</p>
 
