@@ -20,7 +20,7 @@ LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
 }
 
 LongNatural::LongNatural(const std::vector<uint8_t>& vec) : arr(vec) {
-    if (std::any_of(vec.begin(), vec.end(), [](uint8_t digit) { return digit > 9; })) {
+    if (std::any_of(arr.begin(), arr.end(), [](uint8_t digit) { return digit > 9; })) {
         throw std::invalid_argument("LongNatural constructor: passed vector element is invalid");
     }
     if (arr.empty()) {
