@@ -8,22 +8,28 @@ const LongInteger LongInteger::ZERO = LongInteger(false, {0});
 const LongInteger LongInteger::ONE = LongInteger(false, {1});
 
 LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : negative(negative), arr(list) {
+    // Проверка на корректность ввода
     if (std::any_of(arr.begin(), arr.end(), [](uint8_t digit) { return digit > 9; })) {
         throw std::invalid_argument("LongInteger constructor: passed initializer_list element is invalid");
     }
+    // Если число пустое, то добавляем 0
     if (arr.empty()) {
         arr.push_back(0);
     }
+    // Удаляем ведущие нули
     trimLeadingZeroes();
 }
 
 LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negative(negative), arr(vec) {
+    // Проверка на корректность ввода
     if (std::any_of(arr.begin(), arr.end(), [](uint8_t digit) { return digit > 9; })) {
         throw std::invalid_argument("LongInteger constructor: passed vector element is invalid");
     }
+    // Если число пустое, то добавляем 0
     if (arr.empty()) {
         arr.push_back(0);
     }
+    // Удаляем ведущие нули
     trimLeadingZeroes();
 }
 
@@ -35,9 +41,11 @@ LongInteger::LongInteger(bool negative, const std::string& string) : negative(ne
         }
         arr.push_back(static_cast<uint8_t>(string[i] - '0'));
     }
+    // Если число пустое, то добавляем 0
     if (arr.empty()) {
         arr.push_back(0);
     }
+    // Удаляем ведущие нули
     trimLeadingZeroes();
 }
 
@@ -45,6 +53,7 @@ LongInteger::LongInteger(const std::string& string) : LongInteger(string.at(0) =
 }
 
 void LongInteger::trimLeadingZeroes() {
+    // Пока число не пустое и первый элемент равен 0, удаляем его
     while (arr.size() > 1 && arr.front() == 0) {
         arr.erase(arr.begin());
     }

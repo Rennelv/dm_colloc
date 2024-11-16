@@ -10,22 +10,28 @@ const LongNatural LongNatural::ZERO = LongNatural({0});
 const LongNatural LongNatural::ONE = LongNatural({1});
 
 LongNatural::LongNatural(std::initializer_list<uint8_t> list) : arr(list) {
+    // Проверка на корректность ввода
     if (std::any_of(arr.begin(), arr.end(), [](uint8_t digit) { return digit > 9; })) {
         throw std::invalid_argument("LongNatural constructor: passed initializer_list element is invalid");
     }
+    // Если число пустое, то добавляем 0
     if (arr.empty()) {
         arr.push_back(0);
     }
+    // Удаляем ведущие нули
     trimLeadingZeroes();
 }
 
 LongNatural::LongNatural(const std::vector<uint8_t>& vec) : arr(vec) {
+    // Проверка на корректность ввода
     if (std::any_of(arr.begin(), arr.end(), [](uint8_t digit) { return digit > 9; })) {
         throw std::invalid_argument("LongNatural constructor: passed vector element is invalid");
     }
+    // Если число пустое, то добавляем 0
     if (arr.empty()) {
         arr.push_back(0);
     }
+    // Удаляем ведущие нули
     trimLeadingZeroes();
 }
 
@@ -37,13 +43,16 @@ LongNatural::LongNatural(const std::string& string) {
         }
         arr.push_back(static_cast<uint8_t>(string[i] - '0'));
     }
+    // Если число пустое, то добавляем 0
     if (arr.empty()) {
         arr.push_back(0);
     }
+    // Удаляем ведущие нули
     trimLeadingZeroes();
 }
 
 void LongNatural::trimLeadingZeroes() {
+    // Пока число не пустое и первый элемент равен 0, удаляем его
     while (arr.size() > 1 && arr.front() == 0) {
         arr.erase(arr.begin());
     }
