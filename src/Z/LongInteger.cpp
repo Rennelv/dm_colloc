@@ -18,7 +18,7 @@ LongInteger::LongInteger(bool negative, std::initializer_list<uint8_t> list) : n
 }
 
 LongInteger::LongInteger(bool negative, const std::vector<uint8_t>& vec) : negative(negative), arr(vec) {
-    if (std::any_of(vec.begin(), vec.end(), [](uint8_t digit) { return digit > 9; })) {
+    if (std::any_of(arr.begin(), arr.end(), [](uint8_t digit) { return digit > 9; })) {
         throw std::invalid_argument("LongInteger constructor: passed vector element is invalid");
     }
     if (arr.empty()) {

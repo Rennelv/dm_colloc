@@ -51,11 +51,11 @@ std::string Polynomial::toString() const {
         } else {
             result += "(" + coef.toString() + ")" + "x^" + deg.toString() + " + ";
         }
-        // если строка получается больше 10000 символово обрезаем строку
-        if (result.size() > 10000) {
-            return result.substr(0, result.size() - 3) + "..." + "и еще " + std::to_string(coefficients.size() - std::distance(coefficients.rbegin(), it)) +
-                   " ненулевых членов";
-        }
+        // // если строка получается больше 10000 символово обрезаем строку
+        // if (result.size() > 10000) {
+        //     return result.substr(0, result.size() - 3) + "..." + "и еще " + std::to_string(coefficients.size() - std::distance(coefficients.rbegin(), it)) +
+        //            " ненулевых членов";
+        // }
     }
     return result.substr(0, result.size() - 3);
 }
