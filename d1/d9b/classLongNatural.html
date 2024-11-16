@@ -179,7 +179,7 @@ $(function() {
 
 <p class="definition">См. определение в файле <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html">LongNatural.cpp</a> строка <a class="el" href="../../d3/da7/LongNatural_8cpp_source.html#l00022">22</a></p>
 <div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                                      : <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>(vec) {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span> (std::any_of(vec.begin(), vec.end(), [](uint8_t digit) { return digit &gt; 9; })) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span> (std::any_of(<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.begin(), <a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.end(), [](uint8_t digit) { return digit &gt; 9; })) {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;LongNatural constructor: passed vector element is invalid&quot;</span>);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d9b/classLongNatural.html#a41a1d56638ad3733d125b856ad3138fb">arr</a>.empty()) {</div>

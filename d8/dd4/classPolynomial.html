@@ -333,11 +333,11 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            result += <span class="stringliteral">&quot;(&quot;</span> + coef.toString() + <span class="stringliteral">&quot;)&quot;</span> + <span class="stringliteral">&quot;x^&quot;</span> + deg.toString() + <span class="stringliteral">&quot; + &quot;</span>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// если строка получается больше 10000 символово обрезаем строку</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span> (result.size() &gt; 10000) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span> result.substr(0, result.size() - 3) + <span class="stringliteral">&quot;...&quot;</span> + <span class="stringliteral">&quot;и еще &quot;</span> + std::to_string(<a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.size() - std::distance(<a class="code" href="../../d8/dd4/classPolynomial.html#a21dfd6a9b9e845dbdfad03302256f22c">coefficients</a>.rbegin(), it)) +</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                   <span class="stringliteral">&quot; ненулевых членов&quot;</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// // если строка получается больше 10000 символово обрезаем строку</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">// if (result.size() &gt; 10000) {</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">//     return result.substr(0, result.size() - 3) + &quot;...&quot; + &quot;и еще &quot; + std::to_string(coefficients.size() - std::distance(coefficients.rbegin(), it)) +</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//            &quot; ненулевых членов&quot;;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">// }</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> result.substr(0, result.size() - 3);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
