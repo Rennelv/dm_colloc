@@ -4,7 +4,7 @@
 #include "N/NZER_N_B.hpp"
 
 LongNatural GCF_NN_N(const LongNatural& a, const LongNatural& b) {
-    LongNatural a_copy = a;  // копися числа а
+    LongNatural a_copy = a;  // копия числа а
     LongNatural b_copy = b;  // копия числа b
     LongNatural tmp({0});
 
