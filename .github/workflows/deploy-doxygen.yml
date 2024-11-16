@@ -38,7 +38,7 @@ jobs:
 
     - name: Set up CMake and build
       run: |
-        cmake -DCMAKE_BUILD_TYPE=Release -B ${{ steps.strings.outputs.build-output-dir }} -DENABLE_IMGUI=ON -G Ninja -S ${{ github.workspace }}
+        cmake -DCMAKE_BUILD_TYPE=Release -B ${{ steps.strings.outputs.build-output-dir }} -G Ninja -S ${{ github.workspace }}
 
     - name: Generate Doxygen documentation
       run: doxygen Doxyfile
