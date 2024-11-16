@@ -66,7 +66,7 @@ void parsePolynomial(std::string label_no, std::map<LongNatural, LongRational>& 
     ImGui::Text("Введите числитель и знаменатель добавляемого члена разделяя их пробелом (целое число и натуральное число): ");
     InputTextWithResize((std::string("num") + label_no).c_str(), coef_str);
 
-    if (ImGui::Button((std::string("Добавить член ") + label_no).c_str())) {
+    if (ImGui::Button((std::string("Добавить одночлен ") + label_no).c_str())) {
         error_str.clear();
         std::string num_str;
         std::string den_str;
