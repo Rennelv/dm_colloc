@@ -19,7 +19,7 @@ LongInteger DIV_ZZ_Z(const LongInteger& dividend, const LongInteger& divisor) {
     // Выполнение деления натуральных чисел
     LongNatural quotient = DIV_NN_N(abs_dividend, abs_divisor);
 
-    // Если знак делимого положительный и остаток от деления не равен нулю - прибавляется к натуральному частному 1
+    // Если знак делимого отрицательный и остаток от деления не равен нулю - прибавляется к натуральному частному 1
     if (sign_dividend == 1 && NZER_N_B(MOD_NN_N(abs_dividend, abs_divisor))) {
         quotient = ADD_1N_N(quotient);  // Прибавление 1 к натуральному числу
     }
