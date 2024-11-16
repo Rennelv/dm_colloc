@@ -14,7 +14,7 @@ Polynomial::Polynomial(const std::map<LongNatural, LongRational>& map) : coeffic
         }
     }
     if (!coefficients.empty()) {
-        degree = coefficients.rbegin()->first;  // если не пустой, то степень равна последней степени, иначе 0
+        degree = coefficients.rbegin()->first;  // если не пустой, то степень равна последнему элементу, иначе 0
     }
 }
 
@@ -23,14 +23,19 @@ const std::map<LongNatural, LongRational>& Polynomial::getMap() const {
 }
 
 bool Polynomial::isCoef(const LongNatural& degree) const {
-    return coefficients.find(degree) != coefficients.end();  // если найден - true
+    for (const auto& [deg, coef] : coefficients) {
+        if (deg == degree) {
+            return true;  // если найден - true
+        }
+    }
+    return false;  // если не найден - false
 }
 
 const LongRational& Polynomial::getCoef(const LongNatural& degree) const {
-    if (coefficients.find(degree) == coefficients.end()) {
-        return LongRational::ZERO;  // если не найден вернуть 0/1
+    if (!isCoef(degree)) {
+        return LongRational::ZERO;  // если не найден - возвращаем 0
     }
-    return coefficients.at(degree);
+    return coefficients.at(degree);  // если найден - возвращаем
 }
 
 const LongNatural& Polynomial::getDegree() const {
@@ -51,11 +56,6 @@ std::string Polynomial::toString() const {
         } else {
             result += "(" + coef.toString() + ")" + "x^" + deg.toString() + " + ";
         }
-        // // если строка получается больше 10000 символово обрезаем строку
-        // if (result.size() > 10000) {
-        //     return result.substr(0, result.size() - 3) + "..." + "и еще " + std::to_string(coefficients.size() - std::distance(coefficients.rbegin(), it)) +
-        //            " ненулевых членов";
-        // }
     }
     return result.substr(0, result.size() - 3);
 }

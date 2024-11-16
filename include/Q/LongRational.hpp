@@ -31,6 +31,8 @@ class LongRational {
     // Рациональное единичное число (1/1)
     static const LongRational ONE;
 
+    // Конструктор по умолчанию (0/1)
+    LongRational();
     // Создает число из длинного целого числа(числитель) и длинного натурального числа(знаменатель)
     LongRational(const LongInteger& numerator, const LongNatural& denominator);
 
