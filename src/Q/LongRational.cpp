@@ -45,6 +45,13 @@ LongRational LongRational::red() const {
     return LongRational({numerator.isNegative(), numerator.getNaturalNumber() / gcd}, denominator / gcd);
 }
 
+LongRational& LongRational::red_inplace() {
+    LongNatural gcd = numerator.getNaturalNumber().gcd(denominator);
+    numerator = LongInteger(numerator.isNegative(), numerator.getNaturalNumber() / gcd);
+    denominator /= gcd;
+    return *this;
+}
+
 bool LongRational::isInt() const {
     return denominator == LongNatural::ONE || numerator == LongInteger::ZERO;  // Если знаменатель равен 1, то число целое
 }

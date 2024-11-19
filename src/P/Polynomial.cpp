@@ -19,10 +19,6 @@ const std::map<LongNatural, LongRational>& Polynomial::getMap() const {
     return coefficients;
 }
 
-// bool Polynomial::isCoef(const LongNatural& degree) const {
-//     return coefficients.find(degree) != coefficients.end();
-// }
-
 const LongRational& Polynomial::getCoef(const LongNatural& degree) const {
     if (coefficients.count(degree) == 1)
         return coefficients.at(degree);
@@ -75,15 +71,12 @@ Polynomial Polynomial::derivative() const {
 }
 
 LongRational Polynomial::fact() {
-    const std::map<LongNatural, LongRational>& map = getMap();  // возвращает мап коэффициентов
-    std::map<LongNatural, LongRational> new_map;                // новый map для хранения результата
-
     LongNatural gcf = LongNatural::ZERO;  // Для хранения НОД
     LongNatural lcm = LongNatural::ONE;   // Для хранения НОК
     LongNatural tmp_numerator = LongNatural::ZERO;
 
     // Проходим по всем коэффициентам многочлена не равным нулю
-    for (const auto& [key, value] : map) {
+    for (const auto& [key, value] : coefficients) {
         tmp_numerator = value.getNumerator().abs();  // Временная переменная для получения абсолютного значения числа
         gcf = gcf.gcd(tmp_numerator);                // Считаем НОД всех числителей
         lcm = lcm.lcm(value.getDenominator());  // Считаем НОК всех знаменателей
@@ -92,17 +85,13 @@ LongRational Polynomial::fact() {
     LongInteger gcf_long_integer = LongInteger(false, gcf);  // Преобразование натурального в целое число
     LongNatural new_denominatior("1");  // Новый знаменатель будет равен 1, так как из многочлена выносится НОК всех знаменателей
 
-    for (const auto& [key, value] : map) {
+    for (const auto& [key, value] : coefficients) {
         LongInteger new_numerator = value.getNumerator() / gcf_long_integer;    // "Выносим" НОД из числителя
         LongInteger factor = LongInteger(false, lcm / value.getDenominator());  // "Выносим" НОК из знаменателя
-        new_numerator = new_numerator * factor;                                 // Получаем новый числитель
+        new_numerator *= factor;                                                // Получаем новый числитель
         LongRational new_value = {new_numerator, new_denominatior};  // Новый коэффициент(числитель новый, а знаменатель равен 1)
-        new_map.emplace(key, new_value);                             // Помещаем новый коэффициент в мап
+        coefficients[key] = new_value;                               // Помещаем новый коэффициент в мап
     }
-
-    // Изменяем изначальный многочлен
-    Polynomial new_poly(new_map);
-    *this = new_poly;
 
     // Возвращаем вынесенный коффициент
     return LongRational(gcf_long_integer, lcm).red();
@@ -119,8 +108,8 @@ Polynomial Polynomial::gcf(const Polynomial& other) const {
             one_map.emplace(LongNatural::ZERO, LongRational::ONE);
             return Polynomial(one_map);
         }
-        a = b;
-        b = tmp;
+        a = std::move(b);
+        b = std::move(tmp);
     }
     // Возвращаем приведенный многочлен
     LongRational a0 = a.getCoef(a.getDegree());
@@ -229,7 +218,7 @@ Polynomial Polynomial::operator/(const Polynomial& other) const {
 
     // Степень делимого и делителя
     const LongNatural& deg_divisor = other.getDegree();
-    const LongRational& leading_coeff_divisor = other.getMap().at(deg_divisor);
+    const LongRational& leading_coeff_divisor = other.getCoef(deg_divisor);
 
     Polynomial remainder = *this;  // Остаток от деления
 

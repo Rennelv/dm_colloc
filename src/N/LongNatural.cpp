@@ -13,40 +13,11 @@ const LongNatural LongNatural::ONE = LongNatural("1");
 LongNatural::LongNatural() : _arr(ZERO._arr) {
 }
 
-// LongNatural::LongNatural(std::initializer_list<uint8_t> list) : _arr(list) {
-//     // Проверка на корректность ввода
-//     if (std::any_of(_arr.begin(), _arr.end(), [](uint8_t digit) { return digit > 9; })) {
-//         throw std::invalid_argument("LongNatural constructor: passed initializer_list element is invalid");
-//     }
-//     // Если число пустое, то добавляем 0
-//     if (_arr.empty()) {
-//         _arr.push_back(0);
-//     }
-//     // Разворачиваем массив для хранения числа в обратном порядке
-//     std::reverse(_arr.begin(), _arr.end());
-//     // Удаляем ведущие нули
-//     _trimLeadingZeroes();
-// }
-
-// LongNatural::LongNatural(int number) {
-//     if (number < 0) {
-//         throw std::invalid_argument("LongNatural constructor: passed number is negative");
-//     }
-//     if (number == 0) {
-//         _arr.push_back(0);
-//     } else {
-//         while (number > 0) {
-//             _arr.push_back(number % 10);
-//             number /= 10;
-//         }
-//     }
-// }
-
 LongNatural::LongNatural(int number) {
     if (number < 0) {
         throw std::invalid_argument("LongNatural constructor: passed number is negative");
     }
-    _arr.reserve(10);
+    _arr.reserve(1);
     while (number > 0) {
         _arr.push_back(number % 10);
         number /= 10;
@@ -55,12 +26,7 @@ LongNatural::LongNatural(int number) {
     if (_arr.empty()) {
         _arr.push_back(0);
     }
-    // Удаляем ведущие нули
-    _trimLeadingZeroes();
 }
-
-// LongNatural::LongNatural(const char* string) : LongNatural(std::string(string)) {
-// }
 
 LongNatural::LongNatural(const std::vector<uint8_t>& vec) : _arr(vec) {
     // Проверка на корректность ввода
@@ -75,18 +41,18 @@ LongNatural::LongNatural(const std::vector<uint8_t>& vec) : _arr(vec) {
     _trimLeadingZeroes();
 }
 
-// LongNatural::LongNatural(std::vector<uint8_t>&& vec) : _arr(std::move(vec)) {
-//     // Проверка на корректность ввода
-//     if (std::any_of(_arr.begin(), _arr.end(), [](uint8_t digit) { return digit > 9; })) {
-//         throw std::invalid_argument("LongNatural constructor: passed vector element is invalid");
-//     }
-//     // Если число пустое, то добавляем 0
-//     if (_arr.empty()) {
-//         _arr.push_back(0);
-//     }
-//     // Удаляем ведущие нули
-//     _trimLeadingZeroes();
-// }
+LongNatural::LongNatural(std::vector<uint8_t>&& vec) : _arr(std::move(vec)) {
+    // Проверка на корректность ввода
+    if (std::any_of(_arr.begin(), _arr.end(), [](uint8_t digit) { return digit > 9; })) {
+        throw std::invalid_argument("LongNatural constructor: passed vector element is invalid");
+    }
+    // Если число пустое, то добавляем 0
+    if (_arr.empty()) {
+        _arr.push_back(0);
+    }
+    // Удаляем ведущие нули
+    _trimLeadingZeroes();
+}
 
 LongNatural::LongNatural(const std::string& string) {
     _arr.reserve(string.size());
@@ -226,9 +192,7 @@ LongNatural LongNatural::operator+(const LongNatural& other) const {
     size_t b_len = b_arr.size();  // длина числа b
 
     for (size_t i = 0; i < b_len; i++) {
-        a_arr[i] += carry;  // складываем цифру числа a и перенос
-
-        a_arr[i] += b_arr[i];  // если есть соответствующая цифра числа b, то прибавляем ее
+        a_arr[i] += (carry + b_arr[i]);  // складываем цифру числа a и перенос и прибавляем к ней цифру числа b
 
         carry = a_arr[i] / 10;     // вычисляем перенос
         a_arr[i] = a_arr[i] % 10;  // добавляем остаток от деления на 10 в результат
@@ -237,7 +201,7 @@ LongNatural LongNatural::operator+(const LongNatural& other) const {
         for (size_t i = b_len; i < a_len; i++) {
             a_arr[i] += carry;
             carry = a_arr[i] / 10;
-            a_arr[i] = a_arr[i] % 10;
+            a_arr[i] %= 10;
             if (carry == 0) {
                 break;
             }
@@ -251,7 +215,29 @@ LongNatural LongNatural::operator+(const LongNatural& other) const {
 }
 
 LongNatural& LongNatural::operator+=(const LongNatural& other) {
-    *this = *this + other;
+    if (_arr.size() < other._arr.size()) {
+        _arr.resize(other._arr.size(), 0);
+    }
+    uint8_t carry = 0;
+    size_t i = 0;
+    while (i < other._arr.size()) {
+        _arr[i] += (carry + other._arr[i]);
+        carry = _arr[i] / 10;
+        _arr[i] %= 10;
+        i++;
+    }
+    while (carry != 0) {
+        if (i < _arr.size()) {
+            _arr[i] += carry;
+            carry = _arr[i] / 10;
+            _arr[i] %= 10;
+        } else {
+            _arr.push_back(carry);
+            break;
+        }
+        i++;
+    }
+    _trimLeadingZeroes();
     return *this;
 }
 
@@ -273,24 +259,21 @@ LongNatural LongNatural::operator-(const LongNatural& other) const {
 }
 
 LongNatural& LongNatural::operator-=(const LongNatural& other) {
-    *this = *this - other;
+    if (*this < other) {
+        throw std::logic_error("LongNatural::operator-=: subtraction result is negative");
+    }
+    uint8_t carry = 0;
+    for (size_t i = 0; i < _arr.size(); i++) {
+        int diff = _arr[i] - carry;
+        if (i < other._arr.size()) {
+            diff -= other._arr[i];
+        }
+        carry = (diff < 0) ? 1 : 0;
+        _arr[i] = (diff + 10) % 10;
+    }
+    _trimLeadingZeroes();
     return *this;
 }
-
-// LongNatural LongNatural::mulByDigit(uint8_t digit) const {
-//     std::vector<uint8_t> result = _arr;
-//     result.reserve(result.size() + 1);
-//     uint8_t carry = 0;
-//     for (size_t i = 0; i < result.size(); i++) {
-//         uint8_t mul = result[i] * digit + carry;
-//         carry = mul / 10;
-//         result[i] = mul % 10;
-//     }
-//     if (carry != 0) {
-//         result.push_back(carry);
-//     }
-//     return LongNatural(result);
-// }
 
 LongNatural LongNatural::operator*(uint8_t digit) const {
     std::vector<uint8_t> result = _arr;
@@ -308,27 +291,42 @@ LongNatural LongNatural::operator*(uint8_t digit) const {
 }
 
 LongNatural& LongNatural::operator*=(uint8_t digit) {
-    *this = *this * digit;
+    if (digit == 0) {
+        *this = LongNatural::ZERO;
+        return *this;
+    }
+    if (digit == 1) {
+        return *this;
+    }
+    uint8_t carry = 0;
+    for (size_t i = 0; i < _arr.size(); i++) {
+        uint8_t mul = _arr[i] * digit + carry;
+        _arr[i] = mul % 10;
+        carry = mul / 10;
+    }
+    if (carry != 0) {
+        _arr.push_back(carry);
+    }
+    _trimLeadingZeroes();
     return *this;
 }
 
-LongNatural LongNatural::operator<<(size_t n) const {
-    if (isZero()) {
-        return *this;
+LongNatural LongNatural::operator<<(size_t shift) const {
+    if (shift == 0 || this->isZero()) return *this;
+
+    if (_arr.size() + shift < _arr.size()) {
+        throw std::overflow_error("LongNatural::operator<<: overflow");
     }
 
-    std::vector<uint8_t> result(_arr.size() + n);
-    std::fill_n(result.begin(), n, 0);  // Fill the first `n` elements with zeros
-    std::copy(_arr.begin(), _arr.end(), result.begin() + n);
-
+    std::vector<uint8_t> result;
+    result.reserve(_arr.size() + shift);
+    result.insert(result.end(), shift, 0);
+    result.insert(result.end(), _arr.begin(), _arr.end());
     return LongNatural(std::move(result));
 }
 
-LongNatural& LongNatural::operator<<=(size_t n) {
-    if (isZero()) {
-        return *this;
-    }
-    _arr.insert(_arr.begin(), n, 0);
+LongNatural& LongNatural::operator<<=(size_t shift) {
+    _arr.insert(_arr.begin(), shift, 0);
     return *this;
 }
 

@@ -54,6 +54,7 @@ class LongRational {
 
     // Сокращение дроби
     LongRational red() const;
+    LongRational& red_inplace();
 
     // Проверка на целое число
     bool isInt() const;

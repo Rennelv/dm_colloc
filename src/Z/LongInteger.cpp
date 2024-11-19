@@ -135,7 +135,19 @@ LongInteger LongInteger::operator+(const LongInteger& other) const {
 }
 
 LongInteger& LongInteger::operator+=(const LongInteger& other) {
-    *this = *this + other;
+    if (this->negative == other.negative) {
+        this->_natural_number += other._natural_number;
+    } else {
+        if (this->_natural_number >= other._natural_number) {
+            this->_natural_number -= other._natural_number;
+        } else {
+            this->_natural_number = other._natural_number - this->_natural_number;
+            this->negative = !this->negative;
+        }
+    }
+    if (this->_natural_number.isZero()) {
+        this->negative = false;
+    }
     return *this;
 }
 
@@ -155,7 +167,19 @@ LongInteger LongInteger::operator-(const LongInteger& other) const {
 }
 
 LongInteger& LongInteger::operator-=(const LongInteger& other) {
-    *this = *this - other;
+    if (this->negative == other.negative) {
+        if (this->_natural_number >= other._natural_number) {
+            this->_natural_number -= other._natural_number;
+        } else {
+            this->_natural_number = other._natural_number - this->_natural_number;
+            this->negative = !this->negative;
+        }
+    } else {
+        this->_natural_number += other._natural_number;
+    }
+    if (this->_natural_number.isZero()) {
+        this->negative = false;
+    }
     return *this;
 }
 
@@ -164,7 +188,8 @@ LongInteger LongInteger::operator*(const LongInteger& other) const {
 }
 
 LongInteger& LongInteger::operator*=(const LongInteger& other) {
-    *this = *this * other;
+    this->negative = this->negative != other.negative;
+    this->_natural_number *= other._natural_number;
     return *this;
 }
 
@@ -181,7 +206,7 @@ LongInteger LongInteger::operator/(const LongInteger& other) const {
 
     // Если знак делимого отрицательный и остаток от деления не равен нулю - прибавляется к натуральному частному 1
     if (sign_dividend && !(abs_dividend % abs_divisor).isZero()) {
-        quotient = quotient + LongNatural::ONE;
+        quotient++;
     }
 
     // Создаю целое число из знака и натурального (натуральное заранее преобразую в целое)
@@ -191,7 +216,25 @@ LongInteger LongInteger::operator/(const LongInteger& other) const {
 }
 
 LongInteger& LongInteger::operator/=(const LongInteger& other) {
-    *this = *this / other;
+    int sign_dividend = this->isNegative();
+    int sign_divisor = other.isNegative();
+
+    // Получение абсолютных значений
+    LongNatural abs_dividend = this->abs();
+    LongNatural abs_divisor = other.abs();
+
+    // Выполнение деления натуральных чисел
+    LongNatural quotient = abs_dividend / abs_divisor;
+
+    // Если знак делимого отрицательный и остаток от деления не равен нулю - прибавляется к натуральному частному 1
+    if (sign_dividend && !(abs_dividend % abs_divisor).isZero()) {
+        quotient++;
+    }
+
+    // Обновление текущего объекта
+    this->negative = sign_dividend != sign_divisor;
+    this->_natural_number = quotient;
+
     return *this;
 }
 
@@ -203,7 +246,9 @@ LongInteger LongInteger::operator%(const LongInteger& other) const {
 }
 
 LongInteger& LongInteger::operator%=(const LongInteger& other) {
-    *this = *this % other;
+    LongInteger quotient = *this / other;    // находим частное от деления
+    LongInteger product = other * quotient;  // вычисляем произведение divisor * quotient
+    *this -= product;                        // находим остаток: this - (divisor * quotient)
     return *this;
 }
 

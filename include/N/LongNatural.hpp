@@ -38,11 +38,10 @@ class LongNatural {
     LongNatural(int number);
     // Создает число из вектора
     LongNatural(const std::vector<uint8_t>& vec);
-    // LongNatural(std::vector<uint8_t>&& vec);
+    // Создает число из вектора (move-семантика)
+    LongNatural(std::vector<uint8_t>&& vec);
     // Создает число из строки
     LongNatural(const std::string& string);
-    // Создает число C строки
-    // LongNatural(const char* string);
 
     // Возвращает вектор числа (const&)
     const std::vector<uint8_t>& getArr() const;
