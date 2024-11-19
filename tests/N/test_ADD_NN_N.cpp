@@ -1,61 +1,44 @@
 #include <gtest/gtest.h>
 
-#include <vector>
-
 #include "N/ADD_NN_N.hpp"
 #include "N/LongNatural.hpp"
 
 TEST(test_ADD_NN_N, SameLengthNoCarry) {
-    std::vector<uint8_t> arr1 = {1, 2, 3};
-    std::vector<uint8_t> arr2 = {1, 2, 3};
-    LongNatural a(arr1);
-    LongNatural b(arr2);
+    LongNatural a("123");
+    LongNatural b("123");
     LongNatural res = ADD_NN_N(a, b);
-    std::vector<uint8_t> arr3 = {2, 4, 6};
-    LongNatural correctRes(arr3);
-    EXPECT_EQ(res.getArr(), correctRes.getArr());
+    LongNatural correctRes("246");
+    EXPECT_EQ(res.toString(), correctRes.toString());
 }
 
 TEST(test_ADD_NN_N, DifferentLength) {
-    std::vector<uint8_t> arr1 = {1, 2, 3};
-    std::vector<uint8_t> arr2 = {4, 5};
-    LongNatural a(arr1);
-    LongNatural b(arr2);
+    LongNatural a("123");
+    LongNatural b("45");
     LongNatural res = ADD_NN_N(a, b);
-    std::vector<uint8_t> arr3 = {1, 6, 8};
-    LongNatural correctRes(arr3);
-    EXPECT_EQ(res.getArr(), correctRes.getArr());
+    LongNatural correctRes("168");
+    EXPECT_EQ(res.toString(), correctRes.toString());
 }
 
 TEST(test_ADD_NN_N, WithCarry) {
-    std::vector<uint8_t> arr1 = {9, 9, 9};
-    std::vector<uint8_t> arr2 = {1};
-    LongNatural a(arr1);
-    LongNatural b(arr2);
+    LongNatural a("999");
+    LongNatural b("1");
     LongNatural res = ADD_NN_N(a, b);
-    std::vector<uint8_t> arr3 = {1, 0, 0, 0};
-    LongNatural correctRes(arr3);
-    EXPECT_EQ(res.getArr(), correctRes.getArr());
+    LongNatural correctRes("1000");
+    EXPECT_EQ(res.toString(), correctRes.toString());
 }
 
 TEST(test_ADD_NN_N, AddZero) {
-    std::vector<uint8_t> arr1 = {1, 2, 3};
-    std::vector<uint8_t> arr2 = {0};
-    LongNatural a(arr1);
-    LongNatural b(arr2);
+    LongNatural a("123");
+    LongNatural b("0");
     LongNatural res = ADD_NN_N(a, b);
-    std::vector<uint8_t> arr3 = {1, 2, 3};
-    LongNatural correctRes(arr3);
-    EXPECT_EQ(res.getArr(), correctRes.getArr());
+    LongNatural correctRes("123");
+    EXPECT_EQ(res.toString(), correctRes.toString());
 }
 
 TEST(test_ADD_NN_N, AddTwoZeros) {
-    std::vector<uint8_t> arr1 = {0};
-    std::vector<uint8_t> arr2 = {0};
-    LongNatural a(arr1);
-    LongNatural b(arr2);
+    LongNatural a("0");
+    LongNatural b("0");
     LongNatural res = ADD_NN_N(a, b);
-    std::vector<uint8_t> arr3 = {0};
-    LongNatural correctRes(arr3);
-    EXPECT_EQ(res.getArr(), correctRes.getArr());
+    LongNatural correctRes("0");
+    EXPECT_EQ(res.toString(), correctRes.toString());
 }

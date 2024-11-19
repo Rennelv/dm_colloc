@@ -12,7 +12,7 @@ Polynomial SUB_PP_P(const Polynomial& a, const Polynomial& b) {
     // проходимся по степеням второго полинома
     for (const auto& [key, value_b] : coefficients_b) {
         // вычитаем коэффиценты при одинаковых степенях, если степени нет getCoef вернет 0
-        coefficients[key] = SUB_QQ_Q(a.getCoef(key), value_b);
+        coefficients[key] = SUB_QQ_Q(coefficients[key], value_b);
     }
 
     return Polynomial(coefficients);

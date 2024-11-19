@@ -1,62 +1,61 @@
 #include <gtest/gtest.h>
 
+#include <string>
+
 #include "N/LongNatural.hpp"
 #include "Q/LongRational.hpp"
 #include "Q/MUL_QQ_Q.hpp"
 #include "Z/LongInteger.hpp"
 
-using namespace std;
-
 TEST(Test_MUL_QQ_Q, Q7_1) {
-    LongInteger p1(false, {1});
-    LongNatural q1({2});
+    LongInteger p1("1");
+    LongNatural q1("2");
     LongRational a1(p1, q1);
-    LongInteger p2(false, {3});
-    LongNatural q2({5});
+    LongInteger p2("3");
+    LongNatural q2("5");
     LongRational b1(p2, q2);
-    LongNatural q3({1, 0});
+    LongNatural q3("10");
     LongRational ans1(p2, q3);
 
     EXPECT_EQ(MUL_QQ_Q(a1, b1), ans1);
 }
 
 TEST(Test_MUL_QQ_Q, Q7_2) {
-    LongInteger p1(true, {2});
-    LongNatural q1({3});
+    LongInteger p1("-2");
+    LongNatural q1("3");
     LongRational a2(p1, q1);
-    LongInteger p2(false, {1, 8});
-    LongNatural q2({3, 7});
+    LongInteger p2("18");
+    LongNatural q2("37");
     LongRational b2(p2, q2);
-    LongInteger p3(true, {1, 2});
-    ;
+    LongInteger p3("-12");
     LongRational ans2(p3, q2);
 
     EXPECT_EQ(MUL_QQ_Q(a2, b2), ans2);
 }
 
 TEST(Test_MUL_QQ_Q, Q7_3) {
-    LongInteger p1(true, {1, 0});
-    LongNatural q1({2, 1});
+    LongInteger p1("-10");
+    LongNatural q1("21");
     LongRational a3(p1, q1);
-    LongInteger p2(true, {1, 4});
-    LongNatural q2({1, 5});
+    LongInteger p2("-14");
+    LongNatural q2("15");
     LongRational b3(p2, q2);
-    LongInteger p3(false, {4});
-    LongNatural q3({9});
+    LongInteger p3("4");
+    LongNatural q3("9");
     LongRational ans3(p3, q3);
 
     EXPECT_EQ(MUL_QQ_Q(a3, b3), ans3);
 }
 
 TEST(Test_MUL_QQ_Q, Q7_4) {
-    LongInteger p1(false, {0});
-    LongNatural q1({2, 1});
+    LongInteger p1("0");
+    LongNatural q1("21");
     LongRational a4(p1, q1);
-    LongInteger p2(true, {1, 4});
-    LongNatural q2({1, 5});
+    LongInteger p2("-14");
+    LongNatural q2("15");
     LongRational b4(p2, q2);
-    LongInteger p3(true, {0});
-    LongNatural q3({1});
+    LongInteger p3("0");
+    LongNatural q3("1");
     LongRational ans4(p3, q3);
 
     EXPECT_EQ(MUL_QQ_Q(a4, b4), ans4);

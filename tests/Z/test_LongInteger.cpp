@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 
+#include <algorithm>
+
 #include "Z/LongInteger.hpp"
 
 TEST(LongIntegerTest, ConstructorFromInitializerList) {
@@ -10,6 +12,7 @@ TEST(LongIntegerTest, ConstructorFromInitializerList) {
 
 TEST(LongIntegerTest, ConstructorFromVector) {
     std::vector<uint8_t> vec = {1, 2, 3, 4};
+    std::reverse(vec.begin(), vec.end());
     LongInteger li(false, vec);
     EXPECT_EQ(li.toString(), "1234");
     EXPECT_FALSE(li.isNegative());
@@ -30,6 +33,7 @@ TEST(LongIntegerTest, ConstructorFromStringWithNegative) {
 TEST(LongIntegerTest, GetArr) {
     LongInteger li(false, {1, 2, 3, 4});
     std::vector<uint8_t> expected = {1, 2, 3, 4};
+    std::reverse(expected.begin(), expected.end());
     EXPECT_EQ(li.getArr(), expected);
 }
 

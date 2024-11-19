@@ -6,10 +6,10 @@
 using namespace std;
 
 TEST(Test_NZER_N_B, N2) {
-    LongNatural a({0});
-    LongNatural b({2, 0, 3});
-    LongNatural c({1, 0});
-    LongNatural d({5});
+    LongNatural a("0");
+    LongNatural b("203");
+    LongNatural c("10");
+    LongNatural d("5");
     EXPECT_EQ(NZER_N_B(a), false);
     EXPECT_EQ(NZER_N_B(b), true);
     EXPECT_EQ(NZER_N_B(c), true);

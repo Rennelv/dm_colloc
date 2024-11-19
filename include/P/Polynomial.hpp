@@ -26,8 +26,6 @@
 class Polynomial {
     // Словарь (мапа) коэффициентов (степень -> коэффициент)
     std::map<LongNatural, LongRational> coefficients;
-    // Степень полинома
-    LongNatural degree;
 
    public:
     // Создает полином из мап коэффициентов
@@ -38,7 +36,7 @@ class Polynomial {
     const std::map<LongNatural, LongRational>& getMap() const;
 
     // Возвращает существует ли коэффициент при степени (true - существует, false - не существует)
-    bool isCoef(const LongNatural& degree) const;
+    // bool isCoef(const LongNatural& degree) const;
 
     // Возвращает коэффициент при степени (const&) (если коэф=0 возвращает 0/1)
     const LongRational& getCoef(const LongNatural& degree) const;
@@ -53,6 +51,56 @@ class Polynomial {
     bool operator==(const Polynomial& other) const;
     // Оператор сравнения (обратный оператору ==)
     bool operator!=(const Polynomial& other) const;
+
+    // Функция взятия производной
+    Polynomial derivative() const;
+
+    // Вынеся НОД числителей и НОК знаменателей многочлена
+    LongRational fact();
+
+    // Нахождение НОД двух многочленов
+    Polynomial gcf(const Polynomial& other) const;
+
+    // Старший коэффициент многочлена
+    LongRational lead() const;
+
+    // Преобразование кратных корней многочлена в простые
+    Polynomial nmr() const;
+
+    // Оператор сложения
+    Polynomial operator+(const Polynomial& other) const;
+    // Оператор присваивания сложения
+    Polynomial& operator+=(const Polynomial& other);
+
+    // Оператор вычитания
+    Polynomial operator-(const Polynomial& other) const;
+    // Оператор присваивания вычитания
+    Polynomial& operator-=(const Polynomial& other);
+
+    // Оператор умножения
+    Polynomial operator*(const Polynomial& other) const;
+    // Оператор присваивания умножения
+    Polynomial& operator*=(const Polynomial& other);
+
+    // Оператор умножения на рациональное число
+    Polynomial operator*(const LongRational& other) const;
+    // Оператор присваивания умножения на рациональное число
+    Polynomial& operator*=(const LongRational& other);
+
+    // Оператор деления
+    Polynomial operator/(const Polynomial& other) const;
+    // Оператор присваивания деления
+    Polynomial& operator/=(const Polynomial& other);
+
+    // Оператор взятия остатка от деления
+    Polynomial operator%(const Polynomial& other) const;
+    // Оператор присваивания взятия остатка от деления
+    Polynomial& operator%=(const Polynomial& other);
+
+    // Оператор умножения на x^degree
+    Polynomial operator<<(const LongNatural& n) const;
+    // Оператор присваивания умножения на x^degree
+    Polynomial& operator<<=(const LongNatural& n);
 };
 
 #endif
