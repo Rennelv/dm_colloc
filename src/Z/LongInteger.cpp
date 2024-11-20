@@ -7,8 +7,8 @@
 
 #include "N/LongNatural.hpp"
 
-const LongInteger LongInteger::ZERO = LongInteger(false, {0});
-const LongInteger LongInteger::ONE = LongInteger(false, {1});
+const LongInteger LongInteger::ZERO = LongInteger(false, "0");
+const LongInteger LongInteger::ONE = LongInteger(false, "1");
 
 LongInteger::LongInteger() : negative(false), _natural_number(LongNatural::ZERO) {
 }

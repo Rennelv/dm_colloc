@@ -71,9 +71,6 @@ class LongNatural {
     // Оператор сравнения (проверяет меньше или равно ли число other)
     bool operator>=(const LongNatural& other) const;
 
-    // // Функция умножения на цифру
-    // LongNatural mulByDigit(uint8_t digit) const;
-
     // Функция вычитания из числа other числа, умноженного на digit
     LongNatural subtractMultiplyByDigit(const LongNatural& other, uint8_t digit) const;
 
